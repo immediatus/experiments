@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" width="700" height="300" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>Size against time under heavy-tailed overloads, at matching percentiles</title>
+<desc>Time until capacity meets the load against the overload, at the median, 90th and 99th percentile of 3,000 Pareto overloads with tail index 1.5, overload on a log scale. CPU signal: 105 s at 2.3x, 240 s at 6.9x, 480 s at 31.3x. First-attempt signal behind a 5-second admission bound: 105, 120 and 135 s at the same overloads.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="300" class="f-bg"/>
+<path d="M54.00 258.50 H684.00" class="s-grid" fill="none"/>
+<text x="49.00" y="261.85" text-anchor="end" class="f-sub">0 s</text>
+<path d="M54.00 216.50 H684.00" class="s-grid" fill="none"/>
+<text x="49.00" y="219.85" text-anchor="end" class="f-sub">100 s</text>
+<path d="M54.00 174.50 H684.00" class="s-grid" fill="none"/>
+<text x="49.00" y="177.85" text-anchor="end" class="f-sub">200 s</text>
+<path d="M54.00 133.50 H684.00" class="s-grid" fill="none"/>
+<text x="49.00" y="137.85" text-anchor="end" class="f-sub">300 s</text>
+<path d="M54.00 91.50 H684.00" class="s-grid" fill="none"/>
+<text x="49.00" y="95.85" text-anchor="end" class="f-sub">400 s</text>
+<path d="M54.00 49.50 H684.00" class="s-grid" fill="none"/>
+<text x="49.00" y="53.85" text-anchor="end" class="f-sub">500 s</text>
+<text x="103.00" y="272.80" text-anchor="middle" class="f-sub">2x</text>
+<text x="260.00" y="272.80" text-anchor="middle" class="f-sub">5x</text>
+<text x="378.00" y="272.80" text-anchor="middle" class="f-sub">10x</text>
+<text x="496.00" y="272.80" text-anchor="middle" class="f-sub">20x</text>
+<text x="653.00" y="272.80" text-anchor="middle" class="f-sub">50x</text>
+<path d="M54.00 258.50 H684.00" class="s-sub" fill="none"/>
+<text x="54.00" y="12.80" text-anchor="start" class="f-ink">time until capacity meets the load, same percentile</text>
+<text x="684.00" y="295.80" text-anchor="end" class="f-ink">overload K at the median, 90th and 99th percentile (log scale)</text>
+<path d="M127.00 214.12 L314.63 157.71 L572.87 57.43" class="s-b" fill="none" stroke-width="2"/>
+<circle cx="127.00" cy="214.12" r="5" class="f-b"/>
+<circle cx="314.63" cy="157.71" r="5" class="f-b"/>
+<circle cx="572.87" cy="57.43" r="5" class="f-b"/>
+<path d="M127.00 214.12 L314.63 207.86 L572.87 201.59" class="s-c" fill="none" stroke-width="2"/>
+<circle cx="127.00" cy="214.12" r="5" class="f-c"/>
+<circle cx="314.63" cy="207.86" r="5" class="f-c"/>
+<circle cx="572.87" cy="201.59" r="5" class="f-c"/>
+<text x="307.00" y="151.80" text-anchor="end" class="f-b">90th: 6.9x, 240 s</text>
+<text x="565.00" y="50.80" text-anchor="end" class="f-b">99th: 31.3x, 480 s</text>
+<text x="127.00" y="230.80" text-anchor="start" class="f-c">median: 2.3x, 105 s, both</text>
+<text x="315.00" y="224.80" text-anchor="middle" class="f-c">120 s</text>
+<text x="573.00" y="218.80" text-anchor="middle" class="f-c">135 s</text>
+<text x="325.00" y="174.80" text-anchor="start" class="f-b" font-weight="bold">CPU signal</text>
+<text x="565.00" y="193.80" text-anchor="end" class="f-c" font-weight="bold">first attempts, 5 s bound</text>
+</svg>

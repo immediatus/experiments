@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>How sure the tail indices are</title>
+<desc>Hill estimates of the tail index over 3,000 Pareto overloads with true index 1.5, with 90% bootstrap bands, as the share of the sample treated as the tail runs from 2% to 30%. Overload K: 1.79 at 2%, 1.63 at 5%, 1.57 at 10%, 1.56 at 20%, 1.51 at 30%. Peak backlog with no bound: 1.23 at 2%, 1.04 at 5%, 0.89 at 10%, 0.75 at 20%, 0.65 at 30%. At the 10% share the bands are 1.46 to 1.72 and 0.83 to 0.97 and do not overlap. Refused or lost work behind a 5-second bound follows the backlog at every share, 0.88 at 10%.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="320" class="f-bg"/>
+<path d="M44.00 278.50 H684.00" class="s-grid" fill="none"/>
+<text x="39.00" y="281.85" text-anchor="end" class="f-sub">0.5</text>
+<path d="M44.00 207.50 H684.00" class="s-grid" fill="none"/>
+<text x="39.00" y="211.85" text-anchor="end" class="f-sub">1.0</text>
+<path d="M44.00 137.50 H684.00" class="s-grid" fill="none"/>
+<text x="39.00" y="141.85" text-anchor="end" class="f-sub">1.5</text>
+<path d="M44.00 66.50 H684.00" class="s-grid" fill="none"/>
+<text x="39.00" y="69.85" text-anchor="end" class="f-sub">2.0</text>
+<text x="78.00" y="292.80" text-anchor="middle" class="f-sub">2%</text>
+<text x="270.00" y="292.80" text-anchor="middle" class="f-sub">5%</text>
+<text x="415.00" y="292.80" text-anchor="middle" class="f-sub">10%</text>
+<text x="561.00" y="292.80" text-anchor="middle" class="f-sub">20%</text>
+<text x="646.00" y="292.80" text-anchor="middle" class="f-sub">30%</text>
+<path d="M44.00 278.50 H684.00" class="s-sub" fill="none"/>
+<text x="44.00" y="12.80" text-anchor="start" class="f-ink">Hill estimate of the tail index</text>
+<text x="684.00" y="315.80" text-anchor="end" class="f-ink">share of the 3,000 overloads treated as the tail (log)</text>
+<path d="M44.00 137.50 H684.00" class="s-g" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="678.00" y="149.80" text-anchor="end" class="f-g">true index of the overload, 1.5</text>
+<path d="M415.50 24.00 V278.00" class="s-sub" fill="none" stroke-dasharray="5 4"/>
+<path d="M78.07 46.58 L270.16 84.68 L415.47 105.84 L560.78 115.72 L645.78 125.60 L645.78 146.77 L560.78 141.12 L415.47 142.53 L270.16 139.71 L78.07 136.89 Z" class="f-b" fill-opacity="0.18"/>
+<path d="M78.07 95.97 L270.16 118.54 L415.47 127.01 L560.78 128.42 L645.78 135.48" class="s-b" fill="none" stroke-width="2"/>
+<circle cx="78.07" cy="95.97" r="3.5" class="f-b"/>
+<circle cx="270.16" cy="118.54" r="3.5" class="f-b"/>
+<circle cx="415.47" cy="127.01" r="3.5" class="f-b"/>
+<circle cx="560.78" cy="128.42" r="3.5" class="f-b"/>
+<circle cx="645.78" cy="135.48" r="3.5" class="f-b"/>
+<path d="M78.07 143.94 L270.16 182.04 L415.47 211.68 L560.78 235.67 L645.78 254.01 L645.78 261.07 L560.78 251.19 L415.47 231.43 L270.16 215.91 L78.07 204.62 Z" class="f-a" fill-opacity="0.18"/>
+<path d="M78.07 174.99 L270.16 201.80 L415.47 222.97 L560.78 242.72 L645.78 256.83" class="s-a" fill="none" stroke-width="2"/>
+<circle cx="78.07" cy="174.99" r="3.5" class="f-a"/>
+<circle cx="270.16" cy="201.80" r="3.5" class="f-a"/>
+<circle cx="415.47" cy="222.97" r="3.5" class="f-a"/>
+<circle cx="560.78" cy="242.72" r="3.5" class="f-a"/>
+<circle cx="645.78" cy="256.83" r="3.5" class="f-a"/>
+<path d="M78.07 176.40 L270.16 203.21 L415.47 224.38 L560.78 245.54 L645.78 259.66" class="s-d" fill="none" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="67.00" y="38.85" text-anchor="start" class="f-b" font-weight="bold">overload K</text>
+<text x="67.00" y="247.85" text-anchor="start" class="f-a" font-weight="bold">peak backlog, no bound</text>
+<text x="67.00" y="267.85" text-anchor="start" class="f-d">dashed: refused or lost behind a 5 s bound</text>
+</svg>

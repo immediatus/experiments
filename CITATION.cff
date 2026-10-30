@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this code or its results, please cite it as below."
+title: "Experiments: simulations and data behind the e-mindset.space series"
+type: software
+authors:
+  - family-names: Polyulya
+    given-names: Yuriy
+repository-code: "https://github.com/immediatus/experiments"
+url: "https://e-mindset.space"
+license: Apache-2.0
+keywords:
+  - reproducibility
+  - simulation
+  - distributed systems
+  - control theory
+  - queueing

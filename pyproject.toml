@@ -1,0 +1,19 @@
+# Tool configuration only. Nothing here is installed: every experiment runs on the Python
+# standard library alone (3.10 or later). Development tools are pinned in requirements-dev.txt.
+
+[tool.ruff]
+line-length = 160
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "PLW1514"]
+# PLW1514 (open() without an encoding) is still a preview rule: enable preview for named rules only.
+preview = true
+explicit-preview-rules = true
+
+# Every rule applies everywhere, with two exceptions outside tools/. E402: entry points add
+# model/ and the shared tools to sys.path before importing from them. E501: section headers and
+# figure labels are output text, kept on one line so they can be searched for verbatim in
+# expected/results.txt and in the posts.
+[tool.ruff.lint.per-file-ignores]
+"!tools/**" = ["E402", "E501"]

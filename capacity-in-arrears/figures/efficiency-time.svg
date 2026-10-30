@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 260" width="700" height="260" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>What degradation under load does to the time until capacity meets the load, for a tenfold and a thirtyfold overload</title>
+<desc>Time until capacity meets the load against the rate a saturated pod still serves. Tenfold overload: 345 s at 100% and 80%, 465 s at 60% and 40%. Thirtyfold: 480 s at 100%, 585 s at 80% and 60%, 705 s at 40%.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="260" class="f-bg"/>
+<path d="M50.00 218.50 H684.00" class="s-grid" fill="none"/>
+<text x="45.00" y="221.85" text-anchor="end" class="f-sub">0 s</text>
+<path d="M50.00 171.50 H684.00" class="s-grid" fill="none"/>
+<text x="45.00" y="175.85" text-anchor="end" class="f-sub">200 s</text>
+<path d="M50.00 123.50 H684.00" class="s-grid" fill="none"/>
+<text x="45.00" y="127.85" text-anchor="end" class="f-sub">400 s</text>
+<path d="M50.00 76.50 H684.00" class="s-grid" fill="none"/>
+<text x="45.00" y="79.85" text-anchor="end" class="f-sub">600 s</text>
+<path d="M50.00 29.50 H684.00" class="s-grid" fill="none"/>
+<text x="45.00" y="33.85" text-anchor="end" class="f-sub">800 s</text>
+<text x="110.00" y="232.80" text-anchor="middle" class="f-sub">40%</text>
+<text x="281.00" y="232.80" text-anchor="middle" class="f-sub">60%</text>
+<text x="453.00" y="232.80" text-anchor="middle" class="f-sub">80%</text>
+<text x="624.00" y="232.80" text-anchor="middle" class="f-sub">100%</text>
+<path d="M50.00 218.50 H684.00" class="s-sub" fill="none"/>
+<text x="50.00" y="12.80" text-anchor="start" class="f-ink">time until capacity meets the load</text>
+<text x="684.00" y="255.80" text-anchor="end" class="f-ink">rate a saturated pod still serves</text>
+<path d="M624.03 136.38 L452.68 136.38 L281.32 107.99 L109.97 107.99" class="s-b" fill="none" stroke-width="2"/>
+<circle cx="624.03" cy="136.38" r="4" class="f-b"/>
+<circle cx="452.68" cy="136.38" r="4" class="f-b"/>
+<circle cx="281.32" cy="107.99" r="4" class="f-b"/>
+<circle cx="109.97" cy="107.99" r="4" class="f-b"/>
+<text x="100.00" y="111.85" text-anchor="end" class="f-b" font-weight="bold">10x</text>
+<text x="624.00" y="152.80" text-anchor="middle" class="f-b">345 s</text>
+<text x="453.00" y="152.80" text-anchor="middle" class="f-b">345 s</text>
+<text x="281.00" y="124.80" text-anchor="middle" class="f-b">465 s</text>
+<text x="110.00" y="124.80" text-anchor="middle" class="f-b">465 s</text>
+<path d="M624.03 104.44 L452.68 79.60 L281.32 79.60 L109.97 51.21" class="s-d" fill="none" stroke-width="2"/>
+<circle cx="624.03" cy="104.44" r="4" class="f-d"/>
+<circle cx="452.68" cy="79.60" r="4" class="f-d"/>
+<circle cx="281.32" cy="79.60" r="4" class="f-d"/>
+<circle cx="109.97" cy="51.21" r="4" class="f-d"/>
+<text x="100.00" y="54.85" text-anchor="end" class="f-d" font-weight="bold">30x</text>
+<text x="624.00" y="93.80" text-anchor="middle" class="f-d">480 s</text>
+<text x="453.00" y="69.80" text-anchor="middle" class="f-d">585 s</text>
+<text x="281.00" y="69.80" text-anchor="middle" class="f-d">585 s</text>
+<text x="110.00" y="40.80" text-anchor="middle" class="f-d">705 s</text>
+</svg>

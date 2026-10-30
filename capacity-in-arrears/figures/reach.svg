@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 290" width="700" height="290" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>One sync of the ported CPU calculation, swept over the pods already ordered</title>
+<desc>Pods ordered by one sync of the ported CPU calculation against the replicas already there, ready plus on order, with every ready pod at its limit and a 50% target. With 10 ready the sync orders 10 pods when nothing is on order and one fewer for each pod already ordered, reaching zero at 18 replicas, two short of twice the ready pods. With 20 ready it orders 20, falling to zero at 36 replicas.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="290" class="f-bg"/>
+<path d="M42.00 248.50 H684.00" class="s-grid" fill="none"/>
+<text x="37.00" y="251.85" text-anchor="end" class="f-sub">0</text>
+<path d="M42.00 199.50 H684.00" class="s-grid" fill="none"/>
+<text x="37.00" y="203.85" text-anchor="end" class="f-sub">5</text>
+<path d="M42.00 151.50 H684.00" class="s-grid" fill="none"/>
+<text x="37.00" y="155.85" text-anchor="end" class="f-sub">10</text>
+<path d="M42.00 102.50 H684.00" class="s-grid" fill="none"/>
+<text x="37.00" y="105.85" text-anchor="end" class="f-sub">15</text>
+<path d="M42.00 53.50 H684.00" class="s-grid" fill="none"/>
+<text x="37.00" y="57.85" text-anchor="end" class="f-sub">20</text>
+<text x="76.00" y="262.80" text-anchor="middle" class="f-sub">10</text>
+<text x="245.00" y="262.80" text-anchor="middle" class="f-sub">20</text>
+<text x="414.00" y="262.80" text-anchor="middle" class="f-sub">30</text>
+<text x="583.00" y="262.80" text-anchor="middle" class="f-sub">40</text>
+<path d="M42.00 248.50 H684.00" class="s-sub" fill="none"/>
+<text x="42.00" y="12.80" text-anchor="start" class="f-ink">pods this sync orders</text>
+<text x="684.00" y="285.80" text-anchor="end" class="f-ink">replicas already there, ready plus on order</text>
+<path d="M75.79 150.61 L92.68 160.35 L109.58 170.09 L126.47 179.83 L143.37 189.57 L160.26 199.30 L177.16 209.04 L194.05 218.78 L210.95 248.00 L227.84 248.00 L244.74 248.00 L261.63 248.00 L278.53 248.00 L295.42 248.00 L312.32 248.00 L329.21 248.00 L346.11 248.00 L363.00 248.00 L379.89 248.00 L396.79 248.00 L413.68 248.00 L430.58 248.00 L447.47 248.00 L464.37 248.00 L481.26 248.00 L498.16 248.00 L515.05 248.00 L531.95 248.00 L548.84 248.00 L565.74 248.00 L582.63 248.00 L599.53 248.00 L616.42 248.00 L633.32 248.00 L650.21 248.00" class="s-b" fill="none" stroke-width="2.2"/>
+<circle cx="75.79" cy="150.61" r="2.5" class="f-b"/>
+<circle cx="92.68" cy="160.35" r="2.5" class="f-b"/>
+<circle cx="109.58" cy="170.09" r="2.5" class="f-b"/>
+<circle cx="126.47" cy="179.83" r="2.5" class="f-b"/>
+<circle cx="143.37" cy="189.57" r="2.5" class="f-b"/>
+<circle cx="160.26" cy="199.30" r="2.5" class="f-b"/>
+<circle cx="177.16" cy="209.04" r="2.5" class="f-b"/>
+<circle cx="194.05" cy="218.78" r="2.5" class="f-b"/>
+<circle cx="210.95" cy="248.00" r="2.5" class="f-b"/>
+<circle cx="227.84" cy="248.00" r="2.5" class="f-b"/>
+<circle cx="244.74" cy="248.00" r="2.5" class="f-b"/>
+<circle cx="261.63" cy="248.00" r="2.5" class="f-b"/>
+<circle cx="278.53" cy="248.00" r="2.5" class="f-b"/>
+<circle cx="295.42" cy="248.00" r="2.5" class="f-b"/>
+<circle cx="312.32" cy="248.00" r="2.5" class="f-b"/>
+<circle cx="329.21" cy="248.00" r="2.5" class="f-b"/>
+<circle cx="346.11" cy="248.00" r="2.5" class="f-b"/>
+<circle cx="363.00" cy="248.00" r="2.5" class="f-b"/>
+<circle cx="379.89" cy="248.00" r="2.5" class="f-b"/>
+<circle cx="396.79" cy="248.00" r="2.5" class="f-b"/>
+<circle cx="413.68" cy="248.00" r="2.5" class="f-b"/>
+<circle cx="430.58" cy="248.00" r="2.5" class="f-b"/>
+<circle cx="447.47" cy="248.00" r="2.5" class="f-b"/>
+<circle cx="464.37" cy="248.00" r="2.5" class="f-b"/>
+<circle cx="481.26" cy="248.00" r="2.5" class="f-b"/>
+<circle cx="498.16" cy="248.00" r="2.5" class="f-b"/>
+<circle cx="515.05" cy="248.00" r="2.5" class="f-b"/>
+<circle cx="531.95" cy="248.00" r="2.5" class="f-b"/>
+<circle cx="548.84" cy="248.00" r="2.5" class="f-b"/>
+<circle cx="565.74" cy="248.00" r="2.5" class="f-b"/>
+<circle cx="582.63" cy="248.00" r="2.5" class="f-b"/>
+<circle cx="599.53" cy="248.00" r="2.5" class="f-b"/>
+<circle cx="616.42" cy="248.00" r="2.5" class="f-b"/>
+<circle cx="633.32" cy="248.00" r="2.5" class="f-b"/>
+<circle cx="650.21" cy="248.00" r="2.5" class="f-b"/>
+<path d="M245.50 24.00 V248.00" class="s-b" fill="none" stroke-dasharray="5 4"/>
+<text x="80.00" y="142.80" text-anchor="start" class="f-b" font-weight="bold">10 ready</text>
+<text x="250.00" y="124.85" text-anchor="start" class="f-b">2 x ready = 20</text>
+<text x="215.00" y="239.80" text-anchor="start" class="f-b">stops at 18</text>
+<path d="M244.74 53.22 L261.63 62.96 L278.53 72.70 L295.42 82.43 L312.32 92.17 L329.21 101.91 L346.11 111.65 L363.00 121.39 L379.89 131.13 L396.79 140.87 L413.68 150.61 L430.58 160.35 L447.47 170.09 L464.37 179.83 L481.26 189.57 L498.16 199.30 L515.05 248.00 L531.95 248.00 L548.84 248.00 L565.74 248.00 L582.63 248.00 L599.53 248.00 L616.42 248.00 L633.32 248.00 L650.21 248.00" class="s-d" fill="none" stroke-width="2.2"/>
+<circle cx="244.74" cy="53.22" r="2.5" class="f-d"/>
+<circle cx="261.63" cy="62.96" r="2.5" class="f-d"/>
+<circle cx="278.53" cy="72.70" r="2.5" class="f-d"/>
+<circle cx="295.42" cy="82.43" r="2.5" class="f-d"/>
+<circle cx="312.32" cy="92.17" r="2.5" class="f-d"/>
+<circle cx="329.21" cy="101.91" r="2.5" class="f-d"/>
+<circle cx="346.11" cy="111.65" r="2.5" class="f-d"/>
+<circle cx="363.00" cy="121.39" r="2.5" class="f-d"/>
+<circle cx="379.89" cy="131.13" r="2.5" class="f-d"/>
+<circle cx="396.79" cy="140.87" r="2.5" class="f-d"/>
+<circle cx="413.68" cy="150.61" r="2.5" class="f-d"/>
+<circle cx="430.58" cy="160.35" r="2.5" class="f-d"/>
+<circle cx="447.47" cy="170.09" r="2.5" class="f-d"/>
+<circle cx="464.37" cy="179.83" r="2.5" class="f-d"/>
+<circle cx="481.26" cy="189.57" r="2.5" class="f-d"/>
+<circle cx="498.16" cy="199.30" r="2.5" class="f-d"/>
+<circle cx="515.05" cy="248.00" r="2.5" class="f-d"/>
+<circle cx="531.95" cy="248.00" r="2.5" class="f-d"/>
+<circle cx="548.84" cy="248.00" r="2.5" class="f-d"/>
+<circle cx="565.74" cy="248.00" r="2.5" class="f-d"/>
+<circle cx="582.63" cy="248.00" r="2.5" class="f-d"/>
+<circle cx="599.53" cy="248.00" r="2.5" class="f-d"/>
+<circle cx="616.42" cy="248.00" r="2.5" class="f-d"/>
+<circle cx="633.32" cy="248.00" r="2.5" class="f-d"/>
+<circle cx="650.21" cy="248.00" r="2.5" class="f-d"/>
+<path d="M583.50 24.00 V248.00" class="s-d" fill="none" stroke-dasharray="5 4"/>
+<text x="249.00" y="44.80" text-anchor="start" class="f-d" font-weight="bold">20 ready</text>
+<text x="588.00" y="105.85" text-anchor="start" class="f-d">2 x ready = 40</text>
+<text x="519.00" y="239.80" text-anchor="start" class="f-d">stops at 36</text>
+</svg>

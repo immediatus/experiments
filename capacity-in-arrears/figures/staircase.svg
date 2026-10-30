@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 340" width="700" height="340" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>Pods ordered after a load step of 3x, 10x and 30x in the running specimen, on a doubling scale</title>
+<desc>Pods ordered against time for overloads of three, ten and thirty times, on a doubling scale. All three lines are identical for the first 150 seconds: 10 pods, then 20 ordered, then 40 ordered. The three-times line stops at 40 and later falls to 30. The ten-times line continues to 80, 159 and 317. The thirty-times line continues to 630 and then past 1,000. Dashed lines mark the pods at which capacity first meets each load: 15, 50 and 150.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="340" class="f-bg"/>
+<path d="M48.00 286.50 H656.00" class="s-grid" fill="none"/>
+<text x="43.00" y="289.85" text-anchor="end" class="f-sub">10</text>
+<path d="M48.00 251.50 H656.00" class="s-grid" fill="none"/>
+<text x="43.00" y="255.85" text-anchor="end" class="f-sub">20</text>
+<path d="M48.00 215.50 H656.00" class="s-grid" fill="none"/>
+<text x="43.00" y="219.85" text-anchor="end" class="f-sub">40</text>
+<path d="M48.00 179.50 H656.00" class="s-grid" fill="none"/>
+<text x="43.00" y="183.85" text-anchor="end" class="f-sub">80</text>
+<path d="M48.00 143.50 H656.00" class="s-grid" fill="none"/>
+<text x="43.00" y="147.85" text-anchor="end" class="f-sub">160</text>
+<path d="M48.00 107.50 H656.00" class="s-grid" fill="none"/>
+<text x="43.00" y="111.85" text-anchor="end" class="f-sub">320</text>
+<path d="M48.00 71.50 H656.00" class="s-grid" fill="none"/>
+<text x="43.00" y="75.85" text-anchor="end" class="f-sub">640</text>
+<path d="M48.00 36.50 H656.00" class="s-grid" fill="none"/>
+<text x="43.00" y="39.85" text-anchor="end" class="f-sub">1280</text>
+<text x="48.00" y="312.80" text-anchor="start" class="f-sub">0 s</text>
+<text x="142.00" y="312.80" text-anchor="middle" class="f-sub">120 s</text>
+<text x="235.00" y="312.80" text-anchor="middle" class="f-sub">240 s</text>
+<text x="329.00" y="312.80" text-anchor="middle" class="f-sub">360 s</text>
+<text x="422.00" y="312.80" text-anchor="middle" class="f-sub">480 s</text>
+<text x="516.00" y="312.80" text-anchor="middle" class="f-sub">600 s</text>
+<text x="609.00" y="312.80" text-anchor="middle" class="f-sub">720 s</text>
+<path d="M48.00 298.50 H656.00" class="s-sub" fill="none"/>
+<text x="48.00" y="12.80" text-anchor="start" class="f-ink">pods ordered, doubling scale</text>
+<text x="656.00" y="335.80" text-anchor="end" class="f-ink">seconds after the step</text>
+<path d="M48.00 265.50 H656.00" class="s-c" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
+<path d="M48.00 203.50 H656.00" class="s-b" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
+<path d="M48.00 146.50 H656.00" class="s-a" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
+<path d="M48.00 286.46 L59.69 286.46 L59.69 262.15 L71.38 262.15 L71.38 250.61 L153.23 250.61 L153.23 226.31 L164.92 226.31 L164.92 214.77 L246.77 214.77 L246.77 190.46 L258.46 190.46 L258.46 178.92 L340.31 178.92 L340.31 154.62 L352.00 154.62 L352.00 143.40 L433.85 143.40 L433.85 118.97 L445.54 118.97 L445.54 107.72 L527.38 107.72 L527.38 83.33 L539.08 83.33 L539.08 72.20 L620.92 72.20 L620.92 47.89 L632.62 47.89 L632.62 36.77 L656.00 36.77" class="s-a" fill="none" stroke-width="2"/>
+<text x="661.00" y="40.85" text-anchor="start" class="f-a" font-weight="bold">30x</text>
+<path d="M48.00 286.46 L59.69 286.46 L59.69 262.15 L71.38 262.15 L71.38 250.61 L153.23 250.61 L153.23 226.31 L164.92 226.31 L164.92 214.77 L246.77 214.77 L246.77 190.46 L258.46 190.46 L258.46 178.92 L340.31 178.92 L340.31 154.62 L352.00 154.62 L352.00 143.40 L433.85 143.40 L433.85 118.97 L445.54 118.97 L445.54 107.72 L656.00 107.72" class="s-b" fill="none" stroke-width="2"/>
+<text x="661.00" y="111.85" text-anchor="start" class="f-b" font-weight="bold">10x</text>
+<path d="M48.00 286.46 L59.69 286.46 L59.69 262.15 L71.38 262.15 L71.38 250.61 L153.23 250.61 L153.23 226.31 L164.92 226.31 L164.92 214.77 L480.62 214.77 L480.62 229.65 L656.00 229.65" class="s-c" fill="none" stroke-width="2"/>
+<text x="661.00" y="233.85" text-anchor="start" class="f-c" font-weight="bold">3x</text>
+<text x="54.00" y="161.85" text-anchor="start" class="f-ink">all three runs share one line until 150 s</text>
+<text x="75.00" y="279.85" text-anchor="start" class="f-sub">16 first: the 30 s window is half full at the first sync</text>
+<text x="54.00" y="51.85" text-anchor="start" class="f-sub">dashed: pods at which capacity first meets each load</text>
+</svg>

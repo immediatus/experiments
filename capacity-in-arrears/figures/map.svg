@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 360" width="700" height="360" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>Parts 3 and 4 on one map, for a sustained tenfold step with a 10-second timeout: each signal and lever by the pods it holds per pod of demand and the work it loses</title>
+<desc>Every signal and lever under the same sustained tenfold step, on common axes: pods held over the hour after the step per pod of stepped demand at full rate, against first-attempt work lost in seconds of the stepped demand. CPU 4.70 pods and 736 s lost; ingress 2.56 pods and 228 s lost; first attempts 1.98 pods and 3,566 s lost with the service still failing; first attempts, target 30% 3.30 pods and 878 s lost; first attempts, target 25% 3.96 pods and 338 s lost; first attempts, budget 20% 1.98 pods and 249 s lost; first attempts, budget 50% 1.98 pods and 390 s lost; first attempts, bound 5 s 1.98 pods and 87 s lost; CPU, bound 5 s 1.88 pods and 180 s lost. The pair signal coincides with ingress. The frontier runs through CPU, bound 5 s and first attempts, bound 5 s.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="360" class="f-bg"/>
+<path d="M54.00 275.50 H684.00" class="s-grid" fill="none"/>
+<text x="49.00" y="279.85" text-anchor="end" class="f-sub">100 s</text>
+<path d="M54.00 134.50 H684.00" class="s-grid" fill="none"/>
+<text x="49.00" y="137.85" text-anchor="end" class="f-sub">1,000 s</text>
+<text x="54.00" y="332.80" text-anchor="start" class="f-sub">1</text>
+<text x="201.00" y="332.80" text-anchor="middle" class="f-sub">2</text>
+<text x="347.00" y="332.80" text-anchor="middle" class="f-sub">3</text>
+<text x="494.00" y="332.80" text-anchor="middle" class="f-sub">4</text>
+<text x="640.00" y="332.80" text-anchor="middle" class="f-sub">5</text>
+<path d="M54.00 318.50 H684.00" class="s-sub" fill="none"/>
+<text x="54.00" y="12.80" text-anchor="start" class="f-ink">first-attempt work lost, seconds of the stepped demand (log)</text>
+<text x="684.00" y="355.80" text-anchor="end" class="f-ink">pods held over the hour, per pod of stepped demand at full rate</text>
+<path d="M182.93 239.34 L197.58 283.99" class="s-c" fill="none" stroke-width="1.5" stroke-dasharray="5 4"/>
+<circle cx="596.09" cy="152.86" r="5" class="f-b"/>
+<text x="587.00" y="156.85" text-anchor="end" class="f-b">CPU</text>
+<circle cx="282.56" cy="224.82" r="5" class="f-b"/>
+<text x="292.00" y="228.85" text-anchor="start" class="f-b">ingress and pair</text>
+<circle cx="197.58" cy="55.95" r="5" class="s-a" fill="none" stroke-width="1.8"/>
+<text x="207.00" y="59.85" text-anchor="start" class="f-a">first attempts alone: still failing after an hour</text>
+<circle cx="390.98" cy="142.02" r="5" class="f-d"/>
+<text x="382.00" y="145.85" text-anchor="end" class="f-d">target 30%</text>
+<circle cx="487.67" cy="200.64" r="5" class="f-d"/>
+<text x="479.00" y="204.85" text-anchor="end" class="f-d">target 25%</text>
+<circle cx="197.58" cy="219.41" r="5" class="f-e"/>
+<text x="189.00" y="222.85" text-anchor="end" class="f-e">budget 20%</text>
+<circle cx="197.58" cy="191.86" r="5" class="f-e"/>
+<text x="189.00" y="195.85" text-anchor="end" class="f-e">budget 50%</text>
+<circle cx="197.58" cy="283.99" r="5" class="f-c"/>
+<text x="207.00" y="287.85" text-anchor="start" class="f-c">bound 5 s</text>
+<circle cx="182.93" cy="239.34" r="5" class="f-c"/>
+<text x="174.00" y="242.85" text-anchor="end" class="f-c">CPU, bound 5 s</text>
+<text x="183.00" y="310.85" text-anchor="start" class="f-c">dashed: the frontier, no configuration has fewer pods and less loss</text>
+<text x="677.00" y="45.85" text-anchor="end" class="f-sub">a scaler on first attempts unless marked CPU, ingress or pair</text>
+</svg>

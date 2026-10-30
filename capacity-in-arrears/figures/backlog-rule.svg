@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" width="700" height="300" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>The ported external per-pod calculation swept over the backlog, for three current replica counts</title>
+<desc>Recommendation of the ported external per-pod calculation, threshold 10 messages per pod, against backlog from 0 to 5,000 messages, for 100, 200 and 300 current replicas. All three lines follow backlog divided by 10, from 0 to 500, except for a flat step where each holds its current count: 100 replicas between 900 and 1,100 messages, 200 between 1,800 and 2,200, and 300 between 2,700 and 3,300.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="300" class="f-bg"/>
+<path d="M42.00 258.50 H684.00" class="s-grid" fill="none"/>
+<text x="37.00" y="261.85" text-anchor="end" class="f-sub">0</text>
+<path d="M42.00 213.50 H684.00" class="s-grid" fill="none"/>
+<text x="37.00" y="217.85" text-anchor="end" class="f-sub">100</text>
+<path d="M42.00 168.50 H684.00" class="s-grid" fill="none"/>
+<text x="37.00" y="171.85" text-anchor="end" class="f-sub">200</text>
+<path d="M42.00 123.50 H684.00" class="s-grid" fill="none"/>
+<text x="37.00" y="127.85" text-anchor="end" class="f-sub">300</text>
+<path d="M42.00 78.50 H684.00" class="s-grid" fill="none"/>
+<text x="37.00" y="81.85" text-anchor="end" class="f-sub">400</text>
+<path d="M42.00 33.50 H684.00" class="s-grid" fill="none"/>
+<text x="37.00" y="37.85" text-anchor="end" class="f-sub">500</text>
+<text x="42.00" y="272.80" text-anchor="start" class="f-sub">0</text>
+<text x="170.00" y="272.80" text-anchor="middle" class="f-sub">1,000</text>
+<text x="299.00" y="272.80" text-anchor="middle" class="f-sub">2,000</text>
+<text x="427.00" y="272.80" text-anchor="middle" class="f-sub">3,000</text>
+<text x="556.00" y="272.80" text-anchor="middle" class="f-sub">4,000</text>
+<text x="684.00" y="272.80" text-anchor="end" class="f-sub">5,000</text>
+<path d="M42.00 258.50 H684.00" class="s-sub" fill="none"/>
+<text x="42.00" y="12.80" text-anchor="start" class="f-ink">recommendation, threshold 10 messages per pod</text>
+<text x="684.00" y="295.80" text-anchor="end" class="f-ink">backlog, messages</text>
+<path d="M42.00 258.00 L54.84 253.50 L67.68 249.00 L80.52 244.50 L93.36 240.00 L106.20 235.50 L119.04 231.00 L131.88 226.50 L144.72 222.00 L157.56 217.50 L170.40 213.00 L183.24 208.50 L196.08 204.00 L208.92 199.50 L221.76 195.00 L234.60 190.50 L247.44 186.00 L260.28 181.50 L273.12 177.00 L285.96 172.50 L298.80 168.00 L311.64 163.50 L324.48 159.00 L337.32 154.50 L350.16 150.00 L363.00 145.50 L375.84 141.00 L388.68 123.00 L401.52 123.00 L414.36 123.00 L427.20 123.00 L440.04 123.00 L452.88 123.00 L465.72 123.00 L478.56 105.00 L491.40 100.50 L504.24 96.00 L517.08 91.50 L529.92 87.00 L542.76 82.50 L555.60 78.00 L568.44 73.50 L581.28 69.00 L594.12 64.50 L606.96 60.00 L619.80 55.50 L632.64 51.00 L645.48 46.50 L658.32 42.00 L671.16 37.50 L684.00 33.00" class="s-d" fill="none" stroke-width="1.6"/>
+<text x="472.00" y="135.80" text-anchor="start" class="f-d">300 replicas: band holds 300</text>
+<path d="M42.00 258.00 L54.84 253.50 L67.68 249.00 L80.52 244.50 L93.36 240.00 L106.20 235.50 L119.04 231.00 L131.88 226.50 L144.72 222.00 L157.56 217.50 L170.40 213.00 L183.24 208.50 L196.08 204.00 L208.92 199.50 L221.76 195.00 L234.60 190.50 L247.44 186.00 L260.28 181.50 L273.12 168.00 L285.96 168.00 L298.80 168.00 L311.64 168.00 L324.48 168.00 L337.32 154.50 L350.16 150.00 L363.00 145.50 L375.84 141.00 L388.68 136.50 L401.52 132.00 L414.36 127.50 L427.20 123.00 L440.04 118.50 L452.88 114.00 L465.72 109.50 L478.56 105.00 L491.40 100.50 L504.24 96.00 L517.08 91.50 L529.92 87.00 L542.76 82.50 L555.60 78.00 L568.44 73.50 L581.28 69.00 L594.12 64.50 L606.96 60.00 L619.80 55.50 L632.64 51.00 L645.48 46.50 L658.32 42.00 L671.16 37.50 L684.00 33.00" class="s-b" fill="none" stroke-width="2.6"/>
+<text x="330.00" y="180.80" text-anchor="start" class="f-b">200 replicas: band holds 200</text>
+<path d="M42.00 258.00 L54.84 253.50 L67.68 249.00 L80.52 244.50 L93.36 240.00 L106.20 235.50 L119.04 231.00 L131.88 226.50 L144.72 222.00 L157.56 213.00 L170.40 213.00 L183.24 213.00 L196.08 204.00 L208.92 199.50 L221.76 195.00 L234.60 190.50 L247.44 186.00 L260.28 181.50 L273.12 177.00 L285.96 172.50 L298.80 168.00 L311.64 163.50 L324.48 159.00 L337.32 154.50 L350.16 150.00 L363.00 145.50 L375.84 141.00 L388.68 136.50 L401.52 132.00 L414.36 127.50 L427.20 123.00 L440.04 118.50 L452.88 114.00 L465.72 109.50 L478.56 105.00 L491.40 100.50 L504.24 96.00 L517.08 91.50 L529.92 87.00 L542.76 82.50 L555.60 78.00 L568.44 73.50 L581.28 69.00 L594.12 64.50 L606.96 60.00 L619.80 55.50 L632.64 51.00 L645.48 46.50 L658.32 42.00 L671.16 37.50 L684.00 33.00" class="s-c" fill="none" stroke-width="1.6"/>
+<text x="189.00" y="225.80" text-anchor="start" class="f-c">100 replicas: band holds 100</text>
+<text x="55.00" y="50.80" text-anchor="start" class="f-ink">backlog / 10, whatever the replica count</text>
+</svg>

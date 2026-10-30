@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 340" width="700" height="340" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>Recovery time of a fixed-capacity service after a 300-second tenfold spike, against A·ρ</title>
+<desc>Recovery time after a 300-second tenfold spike against amplified utilization A times rho, log scale. The derived curve rises from 2,400 s at 0.5 to 3,750 s at 0.6, 10,500 s at 0.8, 19,500 s at 0.88 and 64,500 s at 0.96, diverging at 1. Fluid-model points (open circles), request-level runs (small dots) and retry-budget runs (green) sit on it. At A times rho of 1.0, 1.2, 1.5 and 1.6 every run is stuck.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="340" class="f-bg"/>
+<path d="M60.00 298.50 H684.00" class="s-grid" fill="none"/>
+<text x="55.00" y="301.85" text-anchor="end" class="f-sub">1,000</text>
+<path d="M60.00 187.50 H684.00" class="s-grid" fill="none"/>
+<text x="55.00" y="191.85" text-anchor="end" class="f-sub">10,000</text>
+<path d="M60.00 77.50 H684.00" class="s-grid" fill="none"/>
+<text x="55.00" y="81.85" text-anchor="end" class="f-sub">100,000</text>
+<text x="135.00" y="312.80" text-anchor="middle" class="f-sub">0.6</text>
+<text x="235.00" y="312.80" text-anchor="middle" class="f-sub">0.8</text>
+<text x="335.00" y="312.80" text-anchor="middle" class="f-sub">1.0</text>
+<text x="434.00" y="312.80" text-anchor="middle" class="f-sub">1.2</text>
+<text x="534.00" y="312.80" text-anchor="middle" class="f-sub">1.4</text>
+<text x="634.00" y="312.80" text-anchor="middle" class="f-sub">1.6</text>
+<path d="M60.00 298.50 H684.00" class="s-sub" fill="none"/>
+<text x="60.00" y="12.80" text-anchor="start" class="f-ink">seconds to recover after a 300 s tenfold spike (log)</text>
+<text x="684.00" y="335.80" text-anchor="end" class="f-ink">amplified utilization A·ρ</text>
+<rect x="334.56" y="24.00" width="349.44" height="274.00" class="f-a" fill-opacity="0.1"/>
+<path d="M335.50 24.00 V298.00" class="s-a" fill="none" stroke-dasharray="5 4"/>
+<text x="350.00" y="71.85" text-anchor="start" class="f-a" font-weight="bold">A·ρ ≥ 1: never recovers</text>
+<path d="M84.96 255.94 L87.46 254.86 L89.95 253.79 L92.45 252.71 L94.94 251.64 L97.44 250.57 L99.94 249.50 L102.43 248.43 L104.93 247.36 L107.42 246.29 L109.92 245.22 L112.42 244.16 L114.91 243.09 L117.41 242.02 L119.90 240.95 L122.40 239.88 L124.90 238.81 L127.39 237.74 L129.89 236.66 L132.38 235.58 L134.88 234.51 L137.38 233.42 L139.87 232.34 L142.37 231.25 L144.86 230.16 L147.36 229.06 L149.86 227.96 L152.35 226.86 L154.85 225.75 L157.34 224.63 L159.84 223.51 L162.34 222.39 L164.83 221.25 L167.33 220.12 L169.82 218.97 L172.32 217.82 L174.82 216.66 L177.31 215.49 L179.81 214.31 L182.30 213.12 L184.80 211.93 L187.30 210.72 L189.79 209.50 L192.29 208.28 L194.78 207.04 L197.28 205.79 L199.78 204.52 L202.27 203.24 L204.77 201.95 L207.26 200.65 L209.76 199.32 L212.26 197.98 L214.75 196.63 L217.25 195.26 L219.74 193.86 L222.24 192.45 L224.74 191.01 L227.23 189.56 L229.73 188.08 L232.22 186.57 L234.72 185.04 L237.22 183.49 L239.71 181.90 L242.21 180.28 L244.70 178.63 L247.20 176.94 L249.70 175.22 L252.19 173.46 L254.69 171.66 L257.18 169.81 L259.68 167.91 L262.18 165.96 L264.67 163.96 L267.17 161.90 L269.66 159.77 L272.16 157.58 L274.66 155.31 L277.15 152.95 L279.65 150.51 L282.14 147.98 L284.64 145.33 L287.14 142.57 L289.63 139.67 L292.13 136.63 L294.62 133.43 L297.12 130.03 L299.62 126.43 L302.11 122.58 L304.61 118.45 L307.10 113.98 L309.60 109.12 L312.10 103.78 L314.59 97.84 L317.09 91.15 L319.58 83.47 L322.08 74.43 L324.58 63.44" class="s-b" fill="none" stroke-width="2"/>
+<text x="135.00" y="266.80" text-anchor="start" class="f-b">derived curve, Δ = 300 s</text>
+<circle cx="84.96" cy="255.98" r="6" class="s-ink" fill="none" stroke-width="1.8"/>
+<circle cx="84.96" cy="256.33" r="2.5" class="f-d"/>
+<circle cx="84.96" cy="255.90" r="2.5" class="f-d"/>
+<circle cx="84.96" cy="256.79" r="2.5" class="f-d"/>
+<text x="75.00" y="259.85" text-anchor="end" class="f-b">2,400 s</text>
+<circle cx="84.96" cy="256.79" r="6" class="s-ink" fill="none" stroke-width="1.8"/>
+<circle cx="84.96" cy="257.24" r="2.5" class="f-d"/>
+<circle cx="84.96" cy="257.32" r="2.5" class="f-d"/>
+<circle cx="84.96" cy="256.59" r="2.5" class="f-d"/>
+<circle cx="134.88" cy="235.15" r="6" class="s-ink" fill="none" stroke-width="1.8"/>
+<circle cx="134.88" cy="235.33" r="2.5" class="f-d"/>
+<circle cx="134.88" cy="235.59" r="2.5" class="f-d"/>
+<circle cx="134.88" cy="235.55" r="2.5" class="f-d"/>
+<text x="125.00" y="238.85" text-anchor="end" class="f-b">3,750 s</text>
+<circle cx="134.88" cy="236.07" r="6" class="s-ink" fill="none" stroke-width="1.8"/>
+<circle cx="134.88" cy="236.08" r="2.5" class="f-d"/>
+<circle cx="134.88" cy="236.71" r="2.5" class="f-d"/>
+<circle cx="134.88" cy="236.32" r="2.5" class="f-d"/>
+<circle cx="234.72" cy="185.57" r="6" class="s-ink" fill="none" stroke-width="1.8"/>
+<circle cx="234.72" cy="185.59" r="2.5" class="f-d"/>
+<circle cx="234.72" cy="185.87" r="2.5" class="f-d"/>
+<circle cx="234.72" cy="185.97" r="2.5" class="f-d"/>
+<text x="225.00" y="189.85" text-anchor="end" class="f-b">10,500 s</text>
+<circle cx="334.56" cy="29.06" r="5" class="s-a" fill="none" stroke-width="1.8"/>
+<circle cx="584.16" cy="29.06" r="5" class="s-a" fill="none" stroke-width="1.8"/>
+<circle cx="434.40" cy="29.06" r="5" class="s-a" fill="none" stroke-width="1.8"/>
+<circle cx="109.92" cy="245.48" r="4.5" class="f-c"/>
+<circle cx="134.88" cy="234.94" r="4.5" class="f-c"/>
+<circle cx="209.76" cy="200.17" r="4.5" class="f-c"/>
+<circle cx="334.56" cy="29.06" r="5" class="s-a" fill="none" stroke-width="1.8"/>
+<circle cx="274.66" cy="155.56" r="4.5" class="f-c"/>
+<circle cx="314.59" cy="98.30" r="4.5" class="f-c"/>
+<circle cx="434.40" cy="29.06" r="5" class="s-a" fill="none" stroke-width="1.8"/>
+<circle cx="634.08" cy="29.06" r="5" class="s-a" fill="none" stroke-width="1.8"/>
+<text x="434.00" y="46.80" text-anchor="middle" class="f-a">stuck in every run: off the scale</text>
+<text x="265.00" y="159.85" text-anchor="end" class="f-c">retry-budget runs</text>
+</svg>

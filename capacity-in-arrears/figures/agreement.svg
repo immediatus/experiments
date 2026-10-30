@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 360" width="700" height="360" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>Each point is one pair of dead time and window; for each dead time, the windows of 60, 120, 300 and 600 seconds give the four points from left to right</title>
+<desc>Observed hunting boundary of the deployed loop against the prediction with ten seconds of sampling delay, for sixteen pairs of dead time and window. Points lie along the diagonal. Four fall outside the ten percent band, all with the prediction above the observation: dead time 30 s with windows of 120 and 300 s, 60 s with 300 s, and 90 s with 600 s, the last by a hair; the largest miss is 30 s and 120 s, predicted 36.4 s, observed 31.8 s. At a 90 s dead time the default 300 s window is predicted at 89.6 s and observed at 85.5 s.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="360" class="f-bg"/>
+<path d="M50.00 309.50 H684.00" class="s-grid" fill="none"/>
+<text x="45.00" y="313.85" text-anchor="end" class="f-sub">20 s</text>
+<path d="M50.00 240.50 H684.00" class="s-grid" fill="none"/>
+<text x="45.00" y="243.85" text-anchor="end" class="f-sub">60 s</text>
+<path d="M50.00 171.50 H684.00" class="s-grid" fill="none"/>
+<text x="45.00" y="175.85" text-anchor="end" class="f-sub">100 s</text>
+<path d="M50.00 102.50 H684.00" class="s-grid" fill="none"/>
+<text x="45.00" y="105.85" text-anchor="end" class="f-sub">140 s</text>
+<path d="M50.00 33.50 H684.00" class="s-grid" fill="none"/>
+<text x="45.00" y="37.85" text-anchor="end" class="f-sub">180 s</text>
+<text x="69.00" y="332.80" text-anchor="middle" class="f-sub">20 s</text>
+<text x="218.00" y="332.80" text-anchor="middle" class="f-sub">60 s</text>
+<text x="367.00" y="332.80" text-anchor="middle" class="f-sub">100 s</text>
+<text x="516.00" y="332.80" text-anchor="middle" class="f-sub">140 s</text>
+<text x="665.00" y="332.80" text-anchor="middle" class="f-sub">180 s</text>
+<path d="M50.00 318.50 H684.00" class="s-sub" fill="none"/>
+<text x="50.00" y="12.80" text-anchor="start" class="f-ink">observed boundary in the deployed loop</text>
+<text x="684.00" y="355.80" text-anchor="end" class="f-ink">predicted boundary, τ_eff Φ(W_eff/τ_eff)</text>
+<path d="M50.00 315.12 L684.00 -11.55 L684.00 53.09 L50.00 320.36 Z" class="f-g" fill-opacity="0.12"/>
+<path d="M50.00 318.00 L684.00 24.00" class="s-g" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="585.00" y="39.85" text-anchor="end" class="f-g">±10%</text>
+<circle cx="103.70" cy="297.07" r="4.5" class="f-c"/>
+<circle cx="129.81" cy="288.95" r="4.5" class="f-c"/>
+<circle cx="165.24" cy="272.86" r="4.5" class="f-c"/>
+<circle cx="190.60" cy="254.70" r="4.5" class="f-c"/>
+<text x="197.00" y="269.80" text-anchor="start" class="f-c" font-weight="bold">τ = 30 s</text>
+<circle cx="143.61" cy="272.86" r="4.5" class="f-b"/>
+<circle cx="190.23" cy="258.68" r="4.5" class="f-b"/>
+<circle cx="254.00" cy="236.37" r="4.5" class="f-b"/>
+<circle cx="301.36" cy="214.24" r="4.5" class="f-b"/>
+<text x="307.00" y="228.80" text-anchor="start" class="f-b" font-weight="bold">τ = 60 s</text>
+<circle cx="170.09" cy="262.66" r="4.5" class="f-e"/>
+<circle cx="236.10" cy="234.47" r="4.5" class="f-e"/>
+<circle cx="328.21" cy="196.08" r="4.5" class="f-e"/>
+<circle cx="397.95" cy="173.77" r="4.5" class="f-e"/>
+<text x="404.00" y="188.80" text-anchor="start" class="f-e" font-weight="bold">τ = 90 s</text>
+<circle cx="215.59" cy="244.50" r="4.5" class="f-d"/>
+<circle cx="324.48" cy="192.10" r="4.5" class="f-d"/>
+<circle cx="500.51" cy="115.31" r="4.5" class="f-d"/>
+<circle cx="636.26" cy="56.69" r="4.5" class="f-d"/>
+<text x="630.00" y="71.80" text-anchor="end" class="f-d" font-weight="bold">τ = 180 s</text>
+<circle cx="328.21" cy="196.08" r="8" class="s-e" fill="none" stroke-width="1.8"/>
+<text x="320.00" y="187.80" text-anchor="end" class="f-e">default window: 89.6 predicted, 85.5 observed</text>
+<circle cx="129.81" cy="288.95" r="8" class="s-c" fill="none" stroke-width="1.8"/>
+<text x="138.00" y="305.80" text-anchor="start" class="f-ink">largest miss, 14%</text>
+</svg>

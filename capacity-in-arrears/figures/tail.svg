@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 330" width="700" height="330" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>What an admission bound does to the tail, in 99th percentiles over 3,000 heavy-tailed overloads</title>
+<desc>99th percentiles over 3,000 Pareto overloads with tail index 1.5, CPU signal, 10-second timeout, two retries, by admission bound. Peak backlog: 50,563 with no bound, 27,181 at 60 s, 9,810 at 20 s, 1,633 at 12 s, 190 at 8 s, 113 at 5 s and 32 at 2 s. Rejected or lost: 30,905, 29,088, 26,080, 22,064, 10,979, 11,056 and 11,137. Between 12 s and 8 s, either side of the timeout, the loss halves. A dashed line at 11,170 marks the peak backlog of the same overloads with no timeouts or retries at all. Filled points are peak backlog, open points rejected or lost; the bounds are categories, so the points are not joined.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="330" class="f-bg"/>
+<path d="M64.00 288.50 H684.00" class="s-grid" fill="none"/>
+<text x="59.00" y="291.85" text-anchor="end" class="f-sub">10</text>
+<path d="M64.00 227.50 H684.00" class="s-grid" fill="none"/>
+<text x="59.00" y="231.85" text-anchor="end" class="f-sub">100</text>
+<path d="M64.00 165.50 H684.00" class="s-grid" fill="none"/>
+<text x="59.00" y="169.85" text-anchor="end" class="f-sub">1,000</text>
+<path d="M64.00 104.50 H684.00" class="s-grid" fill="none"/>
+<text x="59.00" y="107.85" text-anchor="end" class="f-sub">10,000</text>
+<path d="M64.00 42.50 H684.00" class="s-grid" fill="none"/>
+<text x="59.00" y="45.85" text-anchor="end" class="f-sub">100,000</text>
+<text x="100.00" y="302.80" text-anchor="middle" class="f-sub">no bound</text>
+<text x="192.00" y="302.80" text-anchor="middle" class="f-sub">60 s</text>
+<text x="283.00" y="302.80" text-anchor="middle" class="f-sub">20 s</text>
+<text x="374.00" y="302.80" text-anchor="middle" class="f-sub">12 s</text>
+<text x="465.00" y="302.80" text-anchor="middle" class="f-sub">8 s</text>
+<text x="556.00" y="302.80" text-anchor="middle" class="f-sub">5 s</text>
+<text x="648.00" y="302.80" text-anchor="middle" class="f-sub">2 s</text>
+<path d="M64.00 288.50 H684.00" class="s-sub" fill="none"/>
+<text x="64.00" y="12.80" text-anchor="start" class="f-ink">99th percentile, seconds of the original load (log)</text>
+<text x="684.00" y="325.80" text-anchor="end" class="f-ink">admission bound, seconds of capacity the queue may hold (not to scale)</text>
+<rect x="419.59" y="24.00" width="264.41" height="264.00" class="f-c" fill-opacity="0.08"/>
+<path d="M420.50 24.00 V288.00" class="s-c" fill="none" stroke-dasharray="5 4"/>
+<text x="424.00" y="38.85" text-anchor="start" class="f-c" font-weight="bold">bound below the 10 s timeout</text>
+<path d="M64.00 101.50 H684.00" class="s-g" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="69.00" y="113.80" text-anchor="start" class="f-g">queue without retries: 11,170</text>
+<circle cx="100.47" cy="60.66" r="5" class="f-b"/>
+<circle cx="191.65" cy="77.20" r="5" class="f-b"/>
+<circle cx="282.82" cy="104.37" r="5" class="f-b"/>
+<circle cx="374.00" cy="152.16" r="5" class="f-b"/>
+<circle cx="465.18" cy="209.48" r="5" class="f-b"/>
+<circle cx="556.35" cy="223.27" r="5" class="f-b"/>
+<circle cx="647.53" cy="257.16" r="5" class="f-b"/>
+<circle cx="100.47" cy="73.78" r="5" class="s-a" fill="none" stroke-width="1.8"/>
+<circle cx="191.65" cy="75.40" r="5" class="s-a" fill="none" stroke-width="1.8"/>
+<circle cx="282.82" cy="78.31" r="5" class="s-a" fill="none" stroke-width="1.8"/>
+<circle cx="374.00" cy="82.76" r="5" class="s-a" fill="none" stroke-width="1.8"/>
+<circle cx="465.18" cy="101.37" r="5" class="s-a" fill="none" stroke-width="1.8"/>
+<circle cx="556.35" cy="101.18" r="5" class="s-a" fill="none" stroke-width="1.8"/>
+<circle cx="647.53" cy="100.99" r="5" class="s-a" fill="none" stroke-width="1.8"/>
+<text x="100.00" y="50.80" text-anchor="middle" class="f-b">50,563</text>
+<text x="192.00" y="93.80" text-anchor="middle" class="f-b">27,181</text>
+<text x="283.00" y="120.80" text-anchor="middle" class="f-b">9,810</text>
+<text x="364.00" y="155.85" text-anchor="end" class="f-b">1,633</text>
+<text x="465.00" y="225.80" text-anchor="middle" class="f-b">190</text>
+<text x="556.00" y="239.80" text-anchor="middle" class="f-b">113</text>
+<text x="648.00" y="273.80" text-anchor="middle" class="f-b">32</text>
+<text x="100.00" y="90.80" text-anchor="middle" class="f-a">30,905</text>
+<text x="192.00" y="64.80" text-anchor="middle" class="f-a">29,088</text>
+<text x="283.00" y="67.80" text-anchor="middle" class="f-a">26,080</text>
+<text x="374.00" y="72.80" text-anchor="middle" class="f-a">22,064</text>
+<text x="465.00" y="90.80" text-anchor="middle" class="f-a">10,979</text>
+<text x="556.00" y="90.80" text-anchor="middle" class="f-a">11,056</text>
+<text x="648.00" y="90.80" text-anchor="middle" class="f-a">11,137</text>
+<text x="237.00" y="53.85" text-anchor="middle" class="f-a" font-weight="bold">rejected or lost</text>
+<text x="91.00" y="200.85" text-anchor="start" class="f-b" font-weight="bold">peak backlog</text>
+</svg>

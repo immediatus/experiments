@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 260" width="700" height="260" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>The same runs, peak pods over pods needed</title>
+<desc>Peak pods over pods needed against the rate a saturated pod still serves. Tenfold: 3.17 at 100% and 80%, 6.30 at 60%, 10.08 at 40%. Thirtyfold: 4.17 at 100% and 80%, 8.27 at 60%, 13.23 at 40%.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="260" class="f-bg"/>
+<path d="M50.00 218.50 H684.00" class="s-grid" fill="none"/>
+<text x="45.00" y="221.85" text-anchor="end" class="f-sub">0x</text>
+<path d="M50.00 164.50 H684.00" class="s-grid" fill="none"/>
+<text x="45.00" y="167.85" text-anchor="end" class="f-sub">4x</text>
+<path d="M50.00 111.50 H684.00" class="s-grid" fill="none"/>
+<text x="45.00" y="115.85" text-anchor="end" class="f-sub">8x</text>
+<path d="M50.00 57.50 H684.00" class="s-grid" fill="none"/>
+<text x="45.00" y="61.85" text-anchor="end" class="f-sub">12x</text>
+<text x="110.00" y="232.80" text-anchor="middle" class="f-sub">40%</text>
+<text x="281.00" y="232.80" text-anchor="middle" class="f-sub">60%</text>
+<text x="453.00" y="232.80" text-anchor="middle" class="f-sub">80%</text>
+<text x="624.00" y="232.80" text-anchor="middle" class="f-sub">100%</text>
+<path d="M50.00 218.50 H684.00" class="s-sub" fill="none"/>
+<text x="50.00" y="12.80" text-anchor="start" class="f-ink">peak pods over pods needed</text>
+<text x="684.00" y="255.80" text-anchor="end" class="f-ink">rate a saturated pod still serves</text>
+<path d="M624.03 175.59 L452.68 175.59 L281.32 133.71 L109.97 83.14" class="s-b" fill="none" stroke-width="2"/>
+<circle cx="624.03" cy="175.59" r="4" class="f-b"/>
+<circle cx="452.68" cy="175.59" r="4" class="f-b"/>
+<circle cx="281.32" cy="133.71" r="4" class="f-b"/>
+<circle cx="109.97" cy="83.14" r="4" class="f-b"/>
+<text x="100.00" y="86.85" text-anchor="end" class="f-b" font-weight="bold">10x</text>
+<text x="624.00" y="192.80" text-anchor="middle" class="f-b">3.17x</text>
+<text x="453.00" y="192.80" text-anchor="middle" class="f-b">3.17x</text>
+<text x="281.00" y="150.80" text-anchor="middle" class="f-b">6.30x</text>
+<text x="110.00" y="99.80" text-anchor="middle" class="f-b">10.08x</text>
+<path d="M624.03 162.21 L452.68 162.21 L281.32 107.35 L109.97 40.99" class="s-d" fill="none" stroke-width="2"/>
+<circle cx="624.03" cy="162.21" r="4" class="f-d"/>
+<circle cx="452.68" cy="162.21" r="4" class="f-d"/>
+<circle cx="281.32" cy="107.35" r="4" class="f-d"/>
+<circle cx="109.97" cy="40.99" r="4" class="f-d"/>
+<text x="100.00" y="44.85" text-anchor="end" class="f-d" font-weight="bold">30x</text>
+<text x="624.00" y="151.80" text-anchor="middle" class="f-d">4.17x</text>
+<text x="453.00" y="151.80" text-anchor="middle" class="f-d">4.17x</text>
+<text x="281.00" y="96.80" text-anchor="middle" class="f-d">8.27x</text>
+<text x="110.00" y="30.80" text-anchor="middle" class="f-d">13.23x</text>
+</svg>

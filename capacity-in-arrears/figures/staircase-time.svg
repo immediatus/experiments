@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280" width="700" height="280" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>Time until capacity meets the load against the size of the overload, on a log scale</title>
+<desc>Time until capacity meets the load against overload on a log scale: 105 s at 3x (1 round), 225 s at 5x (2), 345 s at 10x (3), 480 s at 30x (4), 705 s at 100x (6) and 945 s at 300x (8). On the log scale the points lie close to a straight line.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="280" class="f-bg"/>
+<path d="M48.00 238.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="241.85" text-anchor="end" class="f-sub">0 s</text>
+<path d="M48.00 189.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="193.85" text-anchor="end" class="f-sub">250 s</text>
+<path d="M48.00 141.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="145.85" text-anchor="end" class="f-sub">500 s</text>
+<path d="M48.00 92.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="95.85" text-anchor="end" class="f-sub">750 s</text>
+<path d="M48.00 43.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="47.85" text-anchor="end" class="f-sub">1000 s</text>
+<text x="71.00" y="252.80" text-anchor="middle" class="f-sub">3x</text>
+<text x="136.00" y="252.80" text-anchor="middle" class="f-sub">5x</text>
+<text x="223.00" y="252.80" text-anchor="middle" class="f-sub">10x</text>
+<text x="363.00" y="252.80" text-anchor="middle" class="f-sub">30x</text>
+<text x="515.00" y="252.80" text-anchor="middle" class="f-sub">100x</text>
+<text x="654.00" y="252.80" text-anchor="middle" class="f-sub">300x</text>
+<path d="M48.00 238.50 H684.00" class="s-sub" fill="none"/>
+<text x="48.00" y="12.80" text-anchor="start" class="f-ink">time until capacity meets the load</text>
+<text x="684.00" y="275.80" text-anchor="end" class="f-ink">overload, log scale</text>
+<path d="M71.08 217.57 L135.75 194.23 L223.50 170.88 L362.58 144.62 L515.00 100.85 L654.07 54.15" class="s-b" fill="none" stroke-width="2"/>
+<circle cx="71.08" cy="217.57" r="4" class="f-b"/>
+<circle cx="135.75" cy="194.23" r="4" class="f-b"/>
+<circle cx="223.50" cy="170.88" r="4" class="f-b"/>
+<circle cx="362.58" cy="144.62" r="4" class="f-b"/>
+<circle cx="515.00" cy="100.85" r="4" class="f-b"/>
+<circle cx="654.07" cy="54.15" r="4" class="f-b"/>
+<text x="77.00" y="232.80" text-anchor="start" class="f-b">105 s, 1 round</text>
+<text x="130.00" y="185.80" text-anchor="end" class="f-b">225 s, 2 rounds</text>
+<text x="217.00" y="162.80" text-anchor="end" class="f-b">345 s, 3 rounds</text>
+<text x="357.00" y="136.80" text-anchor="end" class="f-b">480 s, 4 rounds</text>
+<text x="509.00" y="92.80" text-anchor="end" class="f-b">705 s, 6 rounds</text>
+<text x="648.00" y="45.80" text-anchor="end" class="f-b">945 s, 8 rounds</text>
+</svg>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 350" width="700" height="350" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>The price of stability at a 90-second dead time and the default window</title>
+<desc>Pods against standing delay at a 90 s dead time and the default window, 200 pods needed. Noise-free, the 5th to 95th percentile band is 80 to 503 pods at 40 s, 93 to 350 at 60 s, 104 to 283 at 80 s, and from 100 s on between 184 and 206, exactly 200 at 100, 150 and 200 s. With 30% demand noise the band is wider at every delay but narrows sharply across the same boundary, observed at 85.5 s. Mean pods, red line: 397 at 40 s, 290 at 60 s, 234 at 80 s and 199 to 201 from 100 s on, that is 99%, 45% and 17% above the need, and then within 1% of it.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="350" class="f-bg"/>
+<path d="M50.00 308.50 H684.00" class="s-grid" fill="none"/>
+<text x="45.00" y="311.85" text-anchor="end" class="f-sub">0</text>
+<path d="M50.00 267.50 H684.00" class="s-grid" fill="none"/>
+<text x="45.00" y="271.85" text-anchor="end" class="f-sub">100</text>
+<path d="M50.00 227.50 H684.00" class="s-grid" fill="none"/>
+<text x="45.00" y="231.85" text-anchor="end" class="f-sub">200</text>
+<path d="M50.00 186.50 H684.00" class="s-grid" fill="none"/>
+<text x="45.00" y="189.85" text-anchor="end" class="f-sub">300</text>
+<path d="M50.00 146.50 H684.00" class="s-grid" fill="none"/>
+<text x="45.00" y="149.85" text-anchor="end" class="f-sub">400</text>
+<path d="M50.00 105.50 H684.00" class="s-grid" fill="none"/>
+<text x="45.00" y="109.85" text-anchor="end" class="f-sub">500</text>
+<path d="M50.00 65.50 H684.00" class="s-grid" fill="none"/>
+<text x="45.00" y="69.85" text-anchor="end" class="f-sub">600</text>
+<path d="M50.00 24.50 H684.00" class="s-grid" fill="none"/>
+<text x="45.00" y="27.85" text-anchor="end" class="f-sub">700</text>
+<text x="73.00" y="322.80" text-anchor="middle" class="f-sub">40 s</text>
+<text x="163.00" y="322.80" text-anchor="middle" class="f-sub">80 s</text>
+<text x="254.00" y="322.80" text-anchor="middle" class="f-sub">120 s</text>
+<text x="344.00" y="322.80" text-anchor="middle" class="f-sub">160 s</text>
+<text x="435.00" y="322.80" text-anchor="middle" class="f-sub">200 s</text>
+<text x="526.00" y="322.80" text-anchor="middle" class="f-sub">240 s</text>
+<text x="616.00" y="322.80" text-anchor="middle" class="f-sub">280 s</text>
+<path d="M50.00 308.50 H684.00" class="s-sub" fill="none"/>
+<text x="50.00" y="12.80" text-anchor="start" class="f-ink">pods, 5th to 95th percentile</text>
+<text x="684.00" y="345.80" text-anchor="end" class="f-ink">standing delay D = T/c</text>
+<path d="M72.64 37.79 L117.93 125.43 L163.21 140.85 L208.50 192.78 L253.79 196.43 L321.71 198.46 L434.93 193.18 L661.36 201.70 L661.36 237.00 L434.93 238.22 L321.71 241.06 L253.79 247.95 L208.50 243.90 L163.21 259.31 L117.93 261.75 L72.64 263.37 Z" class="f-d" fill-opacity="0.0"/>
+<path d="M72.64 263.37 L117.93 261.75 L163.21 259.31 L208.50 243.90 L253.79 247.95 L321.71 241.06 L434.93 238.22 L661.36 237.00" class="s-d" fill="none"/>
+<path d="M72.64 37.79 L117.93 125.43 L163.21 140.85 L208.50 192.78 L253.79 196.43 L321.71 198.46 L434.93 193.18 L661.36 201.70" class="s-d" fill="none"/>
+<path d="M72.64 103.93 L117.93 166.00 L163.21 193.18 L208.50 226.86 L253.79 225.23 L321.71 226.86 L434.93 226.86 L661.36 224.42 L661.36 232.54 L434.93 226.86 L321.71 226.86 L253.79 233.35 L208.50 226.86 L163.21 265.81 L117.93 270.27 L72.64 275.54 Z" class="f-b" fill-opacity="0.25"/>
+<path d="M50.00 227.50 H684.00" class="s-g" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
+<path d="M176.50 24.00 V308.00" class="s-ink" fill="none" stroke-dasharray="5 4"/>
+<text x="181.00" y="47.85" text-anchor="start" class="f-ink">observed boundary 85.5 s</text>
+<path d="M72.64 146.93 L117.93 190.34 L163.21 213.06 L208.50 226.86 L253.79 226.45 L321.71 226.86 L434.93 226.86 L661.36 227.26" class="s-a" fill="none" stroke-width="2"/>
+<circle cx="72.64" cy="146.93" r="3.5" class="f-a"/>
+<circle cx="117.93" cy="190.34" r="3.5" class="f-a"/>
+<circle cx="163.21" cy="213.06" r="3.5" class="f-a"/>
+<circle cx="208.50" cy="226.86" r="3.5" class="f-a"/>
+<circle cx="253.79" cy="226.45" r="3.5" class="f-a"/>
+<circle cx="321.71" cy="226.86" r="3.5" class="f-a"/>
+<circle cx="434.93" cy="226.86" r="3.5" class="f-a"/>
+<circle cx="661.36" cy="227.26" r="3.5" class="f-a"/>
+<text x="81.00" y="140.80" text-anchor="start" class="f-a">+99%</text>
+<text x="126.00" y="183.80" text-anchor="start" class="f-a">+45%</text>
+<text x="155.00" y="225.80" text-anchor="end" class="f-a">+17%</text>
+<text x="322.00" y="219.80" text-anchor="middle" class="f-b">flat at 200</text>
+<text x="661.00" y="195.80" text-anchor="end" class="f-d">30% noise</text>
+<text x="322.00" y="191.80" text-anchor="middle" class="f-d">165 to 270</text>
+</svg>

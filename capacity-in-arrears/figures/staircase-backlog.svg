@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280" width="700" height="280" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>Peak backlog against the size of the overload, both on log scales</title>
+<desc>Peak backlog in seconds of the original load against overload, both on log scales: 105 at 3x, 447 at 5x, 1,836 at 10x, 10,530 at 30x, 55,869 at 100x and 224,841 at 300x. A dashed line shows growth in proportion to the overload from the 3x point, reaching 10,500 at 300x; the measured backlog rises above it more steeply.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="280" class="f-bg"/>
+<path d="M54.00 222.50 H684.00" class="s-grid" fill="none"/>
+<text x="49.00" y="225.85" text-anchor="end" class="f-sub">100</text>
+<path d="M54.00 168.50 H684.00" class="s-grid" fill="none"/>
+<text x="49.00" y="171.85" text-anchor="end" class="f-sub">1k</text>
+<path d="M54.00 115.50 H684.00" class="s-grid" fill="none"/>
+<text x="49.00" y="119.85" text-anchor="end" class="f-sub">10k</text>
+<path d="M54.00 61.50 H684.00" class="s-grid" fill="none"/>
+<text x="49.00" y="65.85" text-anchor="end" class="f-sub">100k</text>
+<text x="77.00" y="252.80" text-anchor="middle" class="f-sub">3x</text>
+<text x="141.00" y="252.80" text-anchor="middle" class="f-sub">5x</text>
+<text x="228.00" y="252.80" text-anchor="middle" class="f-sub">10x</text>
+<text x="366.00" y="252.80" text-anchor="middle" class="f-sub">30x</text>
+<text x="517.00" y="252.80" text-anchor="middle" class="f-sub">100x</text>
+<text x="654.00" y="252.80" text-anchor="middle" class="f-sub">300x</text>
+<path d="M54.00 238.50 H684.00" class="s-sub" fill="none"/>
+<text x="54.00" y="12.80" text-anchor="start" class="f-ink">peak backlog, seconds of the original load (log)</text>
+<text x="684.00" y="275.80" text-anchor="end" class="f-ink">overload, log scale</text>
+<path d="M76.86 220.76 L654.36 113.76" class="s-g" fill="none" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="370.00" y="183.80" text-anchor="start" class="f-g">growth in proportion to the overload</text>
+<path d="M76.86 220.76 L140.92 187.10 L227.84 154.28 L365.61 113.69 L516.59 74.92 L654.36 42.57" class="s-a" fill="none" stroke-width="2"/>
+<circle cx="76.86" cy="220.76" r="4" class="f-a"/>
+<circle cx="140.92" cy="187.10" r="4" class="f-a"/>
+<circle cx="227.84" cy="154.28" r="4" class="f-a"/>
+<circle cx="365.61" cy="113.69" r="4" class="f-a"/>
+<circle cx="516.59" cy="74.92" r="4" class="f-a"/>
+<circle cx="654.36" cy="42.57" r="4" class="f-a"/>
+<text x="83.00" y="237.80" text-anchor="start" class="f-a">105</text>
+<text x="135.00" y="178.80" text-anchor="end" class="f-a">447</text>
+<text x="222.00" y="145.80" text-anchor="end" class="f-a">1,836</text>
+<text x="360.00" y="105.80" text-anchor="end" class="f-a">10,530</text>
+<text x="511.00" y="66.80" text-anchor="end" class="f-a">55,869</text>
+<text x="648.00" y="34.80" text-anchor="end" class="f-a">224,841</text>
+</svg>

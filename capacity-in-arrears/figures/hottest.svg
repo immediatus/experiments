@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 340" width="700" height="340" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>The hottest whole-percent target Corollary 2 allows for each overload and round budget, with the limit equal to the request</title>
+<desc>Hottest target allowed by Corollary 2 against the round budget, one curve per overload. 3x: 57, 69, 80, 85 and 93% for budgets of 1, 2, 4, 6 and 15 rounds. 10x: 31, 46, 63, 71, 86%. 30x: 18, 32, 50, 61, 80%. 100x: 10, 21, 39, 51, 74%. Targets of 91% and above fall in a shaded dead band. Three simulated cells miss their budget and are circled: 3x at 93% never scales, 10x at 63% takes 585 s, 100x at 10% takes 210 s.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="340" class="f-bg"/>
+<path d="M44.00 298.50 H660.00" class="s-grid" fill="none"/>
+<text x="39.00" y="301.85" text-anchor="end" class="f-sub">0%</text>
+<path d="M44.00 243.50 H660.00" class="s-grid" fill="none"/>
+<text x="39.00" y="247.85" text-anchor="end" class="f-sub">20%</text>
+<path d="M44.00 188.50 H660.00" class="s-grid" fill="none"/>
+<text x="39.00" y="191.85" text-anchor="end" class="f-sub">40%</text>
+<path d="M44.00 134.50 H660.00" class="s-grid" fill="none"/>
+<text x="39.00" y="137.85" text-anchor="end" class="f-sub">60%</text>
+<path d="M44.00 79.50 H660.00" class="s-grid" fill="none"/>
+<text x="39.00" y="83.85" text-anchor="end" class="f-sub">80%</text>
+<path d="M44.00 24.50 H660.00" class="s-grid" fill="none"/>
+<text x="39.00" y="27.85" text-anchor="end" class="f-sub">100%</text>
+<text x="77.00" y="312.80" text-anchor="middle" class="f-sub">1</text>
+<text x="217.00" y="312.80" text-anchor="middle" class="f-sub">2</text>
+<text x="357.00" y="312.80" text-anchor="middle" class="f-sub">4</text>
+<text x="438.00" y="312.80" text-anchor="middle" class="f-sub">6</text>
+<text x="623.00" y="312.80" text-anchor="middle" class="f-sub">15</text>
+<path d="M44.00 298.50 H660.00" class="s-sub" fill="none"/>
+<text x="44.00" y="12.80" text-anchor="start" class="f-ink">hottest target allowed</text>
+<text x="660.00" y="335.80" text-anchor="end" class="f-ink">round budget R, log scale</text>
+<rect x="44.00" y="24.00" width="616.00" height="24.66" class="f-a" fill-opacity="0.14"/>
+<text x="60.00" y="39.85" text-anchor="start" class="f-a">dead band: a saturated metric never scales</text>
+<path d="M76.79 141.82 L216.65 108.94 L356.51 78.80 L438.33 65.10 L623.21 43.18" class="s-c" fill="none" stroke-width="2"/>
+<circle cx="76.79" cy="141.82" r="3.5" class="f-c"/>
+<circle cx="216.65" cy="108.94" r="3.5" class="f-c"/>
+<circle cx="356.51" cy="78.80" r="3.5" class="f-c"/>
+<circle cx="438.33" cy="65.10" r="3.5" class="f-c"/>
+<circle cx="623.21" cy="43.18" r="3.5" class="f-c"/>
+<text x="632.00" y="46.85" text-anchor="start" class="f-c" font-weight="bold">3x</text>
+<circle cx="623.21" cy="43.18" r="8" class="s-a" fill="none" stroke-width="1.8"/>
+<text x="613.00" y="36.80" text-anchor="end" class="f-a">93%: never scales</text>
+<path d="M76.79 213.06 L216.65 171.96 L356.51 125.38 L438.33 103.46 L623.21 62.36" class="s-b" fill="none" stroke-width="2"/>
+<circle cx="76.79" cy="213.06" r="3.5" class="f-b"/>
+<circle cx="216.65" cy="171.96" r="3.5" class="f-b"/>
+<circle cx="356.51" cy="125.38" r="3.5" class="f-b"/>
+<circle cx="438.33" cy="103.46" r="3.5" class="f-b"/>
+<circle cx="623.21" cy="62.36" r="3.5" class="f-b"/>
+<text x="632.00" y="65.85" text-anchor="start" class="f-b" font-weight="bold">10x</text>
+<circle cx="356.51" cy="125.38" r="8" class="s-a" fill="none" stroke-width="1.8"/>
+<text x="66.00" y="71.85" text-anchor="start" class="f-a">circled: 10x at 63%, 585 s, a round late</text>
+<path d="M76.79 248.68 L216.65 210.32 L356.51 161.00 L438.33 130.86 L623.21 78.80" class="s-e" fill="none" stroke-width="2"/>
+<circle cx="76.79" cy="248.68" r="3.5" class="f-e"/>
+<circle cx="216.65" cy="210.32" r="3.5" class="f-e"/>
+<circle cx="356.51" cy="161.00" r="3.5" class="f-e"/>
+<circle cx="438.33" cy="130.86" r="3.5" class="f-e"/>
+<circle cx="623.21" cy="78.80" r="3.5" class="f-e"/>
+<text x="632.00" y="82.85" text-anchor="start" class="f-e" font-weight="bold">30x</text>
+<path d="M76.79 270.60 L216.65 240.46 L356.51 191.14 L438.33 158.26 L623.21 95.24" class="s-d" fill="none" stroke-width="2"/>
+<circle cx="76.79" cy="270.60" r="3.5" class="f-d"/>
+<circle cx="216.65" cy="240.46" r="3.5" class="f-d"/>
+<circle cx="356.51" cy="191.14" r="3.5" class="f-d"/>
+<circle cx="438.33" cy="158.26" r="3.5" class="f-d"/>
+<circle cx="623.21" cy="95.24" r="3.5" class="f-d"/>
+<text x="632.00" y="98.85" text-anchor="start" class="f-d" font-weight="bold">100x</text>
+<circle cx="76.79" cy="270.60" r="8" class="s-a" fill="none" stroke-width="1.8"/>
+<text x="85.00" y="285.80" text-anchor="start" class="f-a">10%: 210 s, a round late</text>
+</svg>

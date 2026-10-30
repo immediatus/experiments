@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 340" width="700" height="340" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>Φ(w), the standing delay the idealized loop needs, against the window measured in dead times</title>
+<desc>Standing delay needed, in dead times, against the window over the dead time on a log scale. The computed curve rises from 0.119 at w = 0.1 to 0.384 at 0.5, 0.573 at 1, 0.916 at 3.33, 1.213 at 10, 1.539 at 40, 1.719 at 100 and 1.938 at 400. The closed-form harmonic-balance approximation follows it closely from 1 to about 3 and then rises too fast; the asymptotic form e over one plus 30.6 over the squared log of w over 0.07 follows it from about 3 to 400. Dashed lines mark e, the ceiling of Proposition 5, and 2 over pi for the pure-delay loop.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="340" class="f-bg"/>
+<path d="M42.00 298.50 H684.00" class="s-grid" fill="none"/>
+<text x="37.00" y="301.85" text-anchor="end" class="f-sub">0</text>
+<path d="M42.00 252.50 H684.00" class="s-grid" fill="none"/>
+<text x="37.00" y="255.85" text-anchor="end" class="f-sub">0.5</text>
+<path d="M42.00 207.50 H684.00" class="s-grid" fill="none"/>
+<text x="37.00" y="211.85" text-anchor="end" class="f-sub">1.0</text>
+<path d="M42.00 161.50 H684.00" class="s-grid" fill="none"/>
+<text x="37.00" y="165.85" text-anchor="end" class="f-sub">1.5</text>
+<path d="M42.00 115.50 H684.00" class="s-grid" fill="none"/>
+<text x="37.00" y="119.85" text-anchor="end" class="f-sub">2.0</text>
+<path d="M42.00 70.50 H684.00" class="s-grid" fill="none"/>
+<text x="37.00" y="73.85" text-anchor="end" class="f-sub">2.5</text>
+<path d="M42.00 24.50 H684.00" class="s-grid" fill="none"/>
+<text x="37.00" y="27.85" text-anchor="end" class="f-sub">3.0</text>
+<text x="58.00" y="312.80" text-anchor="middle" class="f-sub">0.1</text>
+<text x="221.00" y="312.80" text-anchor="middle" class="f-sub">1</text>
+<text x="306.00" y="312.80" text-anchor="middle" class="f-sub">3.33</text>
+<text x="384.00" y="312.80" text-anchor="middle" class="f-sub">10</text>
+<text x="546.00" y="312.80" text-anchor="middle" class="f-sub">100</text>
+<text x="644.00" y="312.80" text-anchor="middle" class="f-sub">400</text>
+<path d="M42.00 298.50 H684.00" class="s-sub" fill="none"/>
+<text x="42.00" y="12.80" text-anchor="start" class="f-ink">standing delay needed, in dead times, Φ(w)</text>
+<text x="684.00" y="335.80" text-anchor="end" class="f-ink">window over dead time, w = W/τ (log scale)</text>
+<path d="M42.00 50.50 H684.00" class="s-a" fill="none" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="50.00" y="44.80" text-anchor="start" class="f-a">e: no window can demand more (Proposition 5)</text>
+<path d="M42.00 240.50 H684.00" class="s-g" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="679.00" y="251.80" text-anchor="end" class="f-g">pure delay, 2/π</text>
+<path d="M220.64 245.14 L223.81 243.95 L226.98 242.77 L230.15 241.59 L233.32 240.41 L236.49 239.23 L239.65 238.06 L242.82 236.88 L245.99 235.71 L249.16 234.53 L252.33 233.36 L255.49 232.18 L258.66 230.99 L261.83 229.80 L265.00 228.60 L268.17 227.40 L271.34 226.18 L274.50 224.95 L277.67 223.71 L280.84 222.44 L284.01 221.16 L287.18 219.85 L290.35 218.52 L293.51 217.16 L296.68 215.76 L299.85 214.33 L303.02 212.86 L306.19 211.35 L309.36 209.79 L312.52 208.18 L315.69 206.51 L318.86 204.79 L322.03 203.01 L325.20 201.16 L328.37 199.24 L331.53 197.25 L334.70 195.17 L337.87 193.01 L341.04 190.76 L344.21 188.42 L347.37 185.97" class="s-c" fill="none" stroke-width="2" stroke-dasharray="5 4"/>
+<path d="M285.45 224.84 L291.44 222.40 L297.42 219.98 L303.40 217.57 L309.38 215.18 L315.37 212.80 L321.35 210.44 L327.33 208.10 L333.32 205.79 L339.30 203.49 L345.28 201.22 L351.26 198.97 L357.25 196.75 L363.23 194.55 L369.21 192.38 L375.19 190.24 L381.18 188.12 L387.16 186.04 L393.14 183.98 L399.13 181.94 L405.11 179.94 L411.09 177.97 L417.07 176.02 L423.06 174.11 L429.04 172.22 L435.02 170.36 L441.00 168.53 L446.99 166.73 L452.97 164.96 L458.95 163.21 L464.94 161.50 L470.92 159.81 L476.90 158.16 L482.88 156.52 L488.87 154.92 L494.85 153.35 L500.83 151.80 L506.82 150.27 L512.80 148.78 L518.78 147.31 L524.76 145.86 L530.75 144.44 L536.73 143.05 L542.71 141.68 L548.69 140.33 L554.68 139.01 L560.66 137.71 L566.64 136.44 L572.63 135.18 L578.61 133.95 L584.59 132.74 L590.57 131.56 L596.56 130.39 L602.54 129.25 L608.52 128.12 L614.50 127.02 L620.49 125.93 L626.47 124.87 L632.45 123.82 L638.44 122.79 L644.42 121.78" class="s-d" fill="none" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="217.00" y="230.85" text-anchor="end" class="f-c">closed form, Prop. 5a</text>
+<text x="679.00" y="108.80" text-anchor="end" class="f-d">asymptotic form</text>
+<path d="M57.78 287.13 L171.62 262.93 L220.64 245.67 L269.67 227.40 L298.35 216.99 L305.73 214.34 L334.48 204.02 L383.51 187.21 L432.53 171.59 L481.56 157.44 L546.37 141.00 L644.42 121.00" class="s-b" fill="none" stroke-width="1.2"/>
+<circle cx="57.78" cy="287.13" r="3.5" class="f-b"/>
+<circle cx="171.62" cy="262.93" r="3.5" class="f-b"/>
+<circle cx="220.64" cy="245.67" r="3.5" class="f-b"/>
+<circle cx="269.67" cy="227.40" r="3.5" class="f-b"/>
+<circle cx="298.35" cy="216.99" r="3.5" class="f-b"/>
+<circle cx="305.73" cy="214.34" r="3.5" class="f-b"/>
+<circle cx="334.48" cy="204.02" r="3.5" class="f-b"/>
+<circle cx="383.51" cy="187.21" r="3.5" class="f-b"/>
+<circle cx="432.53" cy="171.59" r="3.5" class="f-b"/>
+<circle cx="481.56" cy="157.44" r="3.5" class="f-b"/>
+<circle cx="546.37" cy="141.00" r="3.5" class="f-b"/>
+<circle cx="644.42" cy="121.00" r="3.5" class="f-b"/>
+<text x="62.00" y="280.80" text-anchor="start" class="f-b">0.119</text>
+<text x="542.00" y="155.80" text-anchor="end" class="f-b">1.719</text>
+<text x="640.00" y="135.80" text-anchor="end" class="f-b">1.938</text>
+<circle cx="305.73" cy="214.34" r="7" class="s-b" fill="none" stroke-width="1.8"/>
+<text x="314.00" y="228.80" text-anchor="start" class="f-b">default window: 0.916</text>
+</svg>

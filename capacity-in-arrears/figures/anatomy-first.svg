@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 270" width="700" height="270" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>The first-attempt scaler</title>
+<desc>First-attempt scaler after a tenfold step, over 1,200 seconds. Pods rise to 100 by 150 seconds and stay there. From then on, all of the 10,000 requests served each second are abandoned attempts; good work stays at zero.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="270" class="f-bg"/>
+<path d="M56.00 228.50 H652.00" class="s-grid" fill="none"/>
+<text x="51.00" y="231.85" text-anchor="end" class="f-sub">0</text>
+<path d="M56.00 164.50 H652.00" class="s-grid" fill="none"/>
+<text x="51.00" y="167.85" text-anchor="end" class="f-sub">10,000</text>
+<path d="M56.00 100.50 H652.00" class="s-grid" fill="none"/>
+<text x="51.00" y="103.85" text-anchor="end" class="f-sub">20,000</text>
+<path d="M56.00 37.50 H652.00" class="s-grid" fill="none"/>
+<text x="51.00" y="41.85" text-anchor="end" class="f-sub">30,000</text>
+<text x="657.00" y="231.85" text-anchor="start" class="f-b">0</text>
+<text x="657.00" y="167.85" text-anchor="start" class="f-b">100</text>
+<text x="657.00" y="103.85" text-anchor="start" class="f-b">200</text>
+<text x="657.00" y="40.85" text-anchor="start" class="f-b">300</text>
+<text x="56.00" y="242.80" text-anchor="start" class="f-sub">0 s</text>
+<text x="205.00" y="242.80" text-anchor="middle" class="f-sub">300 s</text>
+<text x="354.00" y="242.80" text-anchor="middle" class="f-sub">600 s</text>
+<text x="503.00" y="242.80" text-anchor="middle" class="f-sub">900 s</text>
+<text x="652.00" y="242.80" text-anchor="end" class="f-sub">1200 s</text>
+<path d="M56.00 228.50 H652.00" class="s-sub" fill="none"/>
+<text x="56.00" y="12.80" text-anchor="start" class="f-ink">requests served per second</text>
+<text x="652.00" y="12.80" text-anchor="end" class="f-b">pods</text>
+<text x="652.00" y="265.80" text-anchor="end" class="f-ink">seconds after the tenfold step</text>
+<path d="M56.00 221.62 L70.90 228.00 L85.80 228.00 L100.70 228.00 L115.60 228.00 L130.50 228.00 L145.40 228.00 L160.30 228.00 L175.20 228.00 L190.10 228.00 L205.00 228.00 L219.90 228.00 L234.80 228.00 L249.70 228.00 L264.60 228.00 L279.50 228.00 L294.40 228.00 L309.30 228.00 L324.20 228.00 L339.10 228.00 L354.00 228.00 L368.90 228.00 L383.80 228.00 L398.70 228.00 L413.60 228.00 L428.50 228.00 L443.40 228.00 L458.30 228.00 L473.20 228.00 L488.10 228.00 L503.00 228.00 L517.90 228.00 L532.80 228.00 L547.70 228.00 L562.60 228.00 L577.50 228.00 L592.40 228.00 L607.30 228.00 L622.20 228.00 L637.10 228.00 L652.00 228.00 L652.00 228.00 L637.10 228.00 L622.20 228.00 L607.30 228.00 L592.40 228.00 L577.50 228.00 L562.60 228.00 L547.70 228.00 L532.80 228.00 L517.90 228.00 L503.00 228.00 L488.10 228.00 L473.20 228.00 L458.30 228.00 L443.40 228.00 L428.50 228.00 L413.60 228.00 L398.70 228.00 L383.80 228.00 L368.90 228.00 L354.00 228.00 L339.10 228.00 L324.20 228.00 L309.30 228.00 L294.40 228.00 L279.50 228.00 L264.60 228.00 L249.70 228.00 L234.80 228.00 L219.90 228.00 L205.00 228.00 L190.10 228.00 L175.20 228.00 L160.30 228.00 L145.40 228.00 L130.50 228.00 L115.60 228.00 L100.70 228.00 L85.80 228.00 L70.90 228.00 L56.00 228.00 Z" class="f-c" fill-opacity="0.55"/>
+<path d="M56.00 221.62 L70.90 221.62 L85.80 221.62 L100.70 219.71 L115.60 194.85 L130.50 164.25 L145.40 164.25 L160.30 164.25 L175.20 164.25 L190.10 164.25 L205.00 164.25 L219.90 164.25 L234.80 164.25 L249.70 164.25 L264.60 164.25 L279.50 164.25 L294.40 164.25 L309.30 164.25 L324.20 164.25 L339.10 164.25 L354.00 164.25 L368.90 164.25 L383.80 164.25 L398.70 164.25 L413.60 164.25 L428.50 164.25 L443.40 164.25 L458.30 164.25 L473.20 164.25 L488.10 164.25 L503.00 164.25 L517.90 164.25 L532.80 164.25 L547.70 164.25 L562.60 164.25 L577.50 164.25 L592.40 164.25 L607.30 164.25 L622.20 164.25 L637.10 164.25 L652.00 164.25 L652.00 228.00 L637.10 228.00 L622.20 228.00 L607.30 228.00 L592.40 228.00 L577.50 228.00 L562.60 228.00 L547.70 228.00 L532.80 228.00 L517.90 228.00 L503.00 228.00 L488.10 228.00 L473.20 228.00 L458.30 228.00 L443.40 228.00 L428.50 228.00 L413.60 228.00 L398.70 228.00 L383.80 228.00 L368.90 228.00 L354.00 228.00 L339.10 228.00 L324.20 228.00 L309.30 228.00 L294.40 228.00 L279.50 228.00 L264.60 228.00 L249.70 228.00 L234.80 228.00 L219.90 228.00 L205.00 228.00 L190.10 228.00 L175.20 228.00 L160.30 228.00 L145.40 228.00 L130.50 228.00 L115.60 228.00 L100.70 228.00 L85.80 228.00 L70.90 228.00 L56.00 221.62 Z" class="f-a" fill-opacity="0.4"/>
+<path d="M56.00 221.62 L70.90 221.62 L85.80 221.62 L100.70 219.71 L115.60 194.85 L130.50 164.25 L145.40 164.25 L160.30 164.25 L175.20 164.25 L190.10 164.25 L205.00 164.25 L219.90 164.25 L234.80 164.25 L249.70 164.25 L264.60 164.25 L279.50 164.25 L294.40 164.25 L309.30 164.25 L324.20 164.25 L339.10 164.25 L354.00 164.25 L368.90 164.25 L383.80 164.25 L398.70 164.25 L413.60 164.25 L428.50 164.25 L443.40 164.25 L458.30 164.25 L473.20 164.25 L488.10 164.25 L503.00 164.25 L517.90 164.25 L532.80 164.25 L547.70 164.25 L562.60 164.25 L577.50 164.25 L592.40 164.25 L607.30 164.25 L622.20 164.25 L637.10 164.25 L652.00 164.25" class="s-b" fill="none" stroke-width="2.2"/>
+<text x="652.00" y="156.80" text-anchor="end" class="f-b" font-weight="bold">100 pods</text>
+<text x="404.00" y="199.85" text-anchor="middle" class="f-ink">every pod busy with abandoned attempts: good work 0</text>
+</svg>

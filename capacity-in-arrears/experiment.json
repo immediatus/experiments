@@ -1,0 +1,14 @@
+{
+  "title": "Capacity in Arrears: Autoscaling Under Dead Time, Saturated Metrics, and Retry Debt",
+  "slug": "capacity-in-arrears",
+  "blog": "https://e-mindset.space",
+  "posts": [
+    {"part": 1, "title": "One Bit per Dead Time", "url": "https://e-mindset.space/blog/capacity-in-arrears-part1-one-bit-per-dead-time/"},
+    {"part": 2, "title": "The Delay a Window Demands", "url": "https://e-mindset.space/blog/capacity-in-arrears-part2-the-delay-a-window-demands/"},
+    {"part": 3, "title": "Demand Is Not Debt", "url": "https://e-mindset.space/blog/capacity-in-arrears-part3-demand-is-not-debt/"},
+    {"part": 4, "title": "The Barrier the Scaler Cannot Hold", "url": "https://e-mindset.space/blog/capacity-in-arrears-part4-the-barrier-the-scaler-cannot-hold/"}
+  ],
+  "specimen": {"kubernetes": "v1.34.0", "keda": "2.19", "dead_time_s": 90},
+  "python": ">=3.10",
+  "dependencies": []
+}

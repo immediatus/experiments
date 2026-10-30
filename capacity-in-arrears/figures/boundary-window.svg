@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>The smallest standing delay at which the deployed loop stops hunting, against the window, for four dead times</title>
+<desc>Standing delay the deployed loop needs against the downscale window on a log scale, one line per dead time. Dead time 30 s: 27.1, 31.8, 41.1, 51.6 s for windows of 60, 120, 300 and 600 s. 60 s: 41.1, 49.3, 62.2, 75.0. 90 s: 47.0, 63.3, 85.5, 98.4. 180 s: 57.5, 87.8, 132.2, 166.1. Every line rises with the window.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="320" class="f-bg"/>
+<path d="M50.00 278.50 H636.00" class="s-grid" fill="none"/>
+<text x="45.00" y="281.85" text-anchor="end" class="f-sub">0 s</text>
+<path d="M50.00 222.50 H636.00" class="s-grid" fill="none"/>
+<text x="45.00" y="225.85" text-anchor="end" class="f-sub">40 s</text>
+<path d="M50.00 165.50 H636.00" class="s-grid" fill="none"/>
+<text x="45.00" y="169.85" text-anchor="end" class="f-sub">80 s</text>
+<path d="M50.00 109.50 H636.00" class="s-grid" fill="none"/>
+<text x="45.00" y="113.85" text-anchor="end" class="f-sub">120 s</text>
+<path d="M50.00 52.50 H636.00" class="s-grid" fill="none"/>
+<text x="45.00" y="55.85" text-anchor="end" class="f-sub">160 s</text>
+<text x="90.00" y="292.80" text-anchor="middle" class="f-sub">60 s</text>
+<text x="242.00" y="292.80" text-anchor="middle" class="f-sub">120 s</text>
+<text x="444.00" y="292.80" text-anchor="middle" class="f-sub">300 s</text>
+<text x="596.00" y="292.80" text-anchor="middle" class="f-sub">600 s</text>
+<path d="M50.00 278.50 H636.00" class="s-sub" fill="none"/>
+<text x="50.00" y="12.80" text-anchor="start" class="f-ink">standing delay the deployed loop needs</text>
+<text x="636.00" y="315.80" text-anchor="end" class="f-ink">downscale stabilization window, log scale</text>
+<path d="M90.06 239.76 L242.34 233.13 L443.66 220.00 L595.94 205.19" class="s-c" fill="none" stroke-width="1.6"/>
+<circle cx="90.06" cy="239.76" r="4" class="f-c"/>
+<circle cx="242.34" cy="233.13" r="4" class="f-c"/>
+<circle cx="443.66" cy="220.00" r="4" class="f-c"/>
+<circle cx="595.94" cy="205.19" r="4" class="f-c"/>
+<text x="604.00" y="208.85" text-anchor="start" class="f-c" font-weight="bold">τ = 30 s</text>
+<path d="M90.06 220.00 L242.34 208.43 L443.66 190.23 L595.94 172.17" class="s-b" fill="none" stroke-width="1.6"/>
+<circle cx="90.06" cy="220.00" r="4" class="f-b"/>
+<circle cx="242.34" cy="208.43" r="4" class="f-b"/>
+<circle cx="443.66" cy="190.23" r="4" class="f-b"/>
+<circle cx="595.94" cy="172.17" r="4" class="f-b"/>
+<text x="604.00" y="175.85" text-anchor="start" class="f-b" font-weight="bold">τ = 60 s</text>
+<text x="90.00" y="235.80" text-anchor="middle" class="f-b">41.1</text>
+<text x="242.00" y="223.80" text-anchor="middle" class="f-b">49.3</text>
+<path d="M90.06 211.68 L242.34 188.68 L443.66 157.35 L595.94 139.15" class="s-e" fill="none" stroke-width="2.4"/>
+<circle cx="90.06" cy="211.68" r="4" class="f-e"/>
+<circle cx="242.34" cy="188.68" r="4" class="f-e"/>
+<circle cx="443.66" cy="157.35" r="4" class="f-e"/>
+<circle cx="595.94" cy="139.15" r="4" class="f-e"/>
+<text x="604.00" y="142.85" text-anchor="start" class="f-e" font-weight="bold">τ = 90 s</text>
+<text x="82.00" y="215.85" text-anchor="end" class="f-e">47.0</text>
+<text x="242.00" y="179.80" text-anchor="middle" class="f-e">63.3</text>
+<text x="444.00" y="147.80" text-anchor="middle" class="f-e">85.5</text>
+<text x="596.00" y="129.80" text-anchor="middle" class="f-e">98.4</text>
+<path d="M90.06 196.86 L242.34 154.10 L443.66 91.45 L595.94 43.61" class="s-d" fill="none" stroke-width="1.6"/>
+<circle cx="90.06" cy="196.86" r="4" class="f-d"/>
+<circle cx="242.34" cy="154.10" r="4" class="f-d"/>
+<circle cx="443.66" cy="91.45" r="4" class="f-d"/>
+<circle cx="595.94" cy="43.61" r="4" class="f-d"/>
+<text x="604.00" y="47.85" text-anchor="start" class="f-d" font-weight="bold">τ = 180 s</text>
+</svg>

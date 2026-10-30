@@ -1,0 +1,2 @@
+# Development tools only. Running an experiment needs nothing beyond Python 3.10 or later.
+ruff==0.17.3
