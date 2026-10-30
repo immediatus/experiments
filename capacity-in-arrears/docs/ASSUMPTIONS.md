@@ -18,6 +18,7 @@ result it could change.
 |---|---|
 | Fluid queue, 1 s steps, one service, identical pods | Fine-grained timing; nothing that depends on rounds of 90 s or more |
 | A new pod serves 90 s after it is created (the dead time) and counts as ready one 30 s metric window later | Every time in T2, T4, T5, T8 and T10 scales with these two numbers; overshoot ratios do not |
+| The dead time is the same however many pods are ordered: the cluster has free node capacity for every pod | When pods must wait for new nodes, the dead time grows with the order in steps of one node's worth of pods, and every time in T2, T4, T5, T8 and T10 is longer |
 | The CPU metric is the mean usage over the last 30 s | The alignment of rounds with the 15 s sync by up to one sync period |
 | First in, first out service | The trap of T5 to T7. Serving the newest request first, or dropping requests past a deadline, weakens it |
 | A client that times out retries at once; `backoff` delays retries without removing them | Timing of the trap, not its condition (T7) |

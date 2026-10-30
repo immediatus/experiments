@@ -111,7 +111,8 @@ prints `705 348`: at a 70% target the tenfold step takes 705 s and peaks at 348 
 
 ## Model scope
 
-A fluid queue, a fixed dead time, pods that report ready when they can serve, no timeouts or
-retries in this part. [ASSUMPTIONS.md](ASSUMPTIONS.md) lists every assumption and what it
-could change. The falsification criteria for this part, and their status, are in
+A fluid queue, a fixed dead time with free node capacity for every pod ordered, pods that
+report ready when they can serve, no timeouts or retries in this part.
+[ASSUMPTIONS.md](ASSUMPTIONS.md) lists every assumption and what it could change. The
+falsification criteria for this part, and their status, are in
 [FALSIFICATION.md](FALSIFICATION.md).
