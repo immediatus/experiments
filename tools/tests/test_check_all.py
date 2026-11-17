@@ -28,7 +28,7 @@ class CheckAllTest(unittest.TestCase):
     def test_fast_checks_cover_every_experiment(self):
         with tempfile.TemporaryDirectory() as d:
             names = [name for name, _ in check_all.steps(_repo(d), full=False)]
-        for expected in ('tools tests', 'repository layout', 'python 3.10 floor', 'compile', 'alpha tests', 'alpha docs',
+        for expected in ('tools tests', 'repository layout', 'python 3.10 floor', 'compile', 'lint', 'alpha tests', 'alpha docs',
                          'alpha figures', 'beta tests', 'beta docs', 'beta figures'):
             self.assertIn(expected, names)
         self.assertFalse(any(n.endswith('reproduction') for n in names))
@@ -38,6 +38,12 @@ class CheckAllTest(unittest.TestCase):
             names = [name for name, _ in check_all.steps(_repo(d), full=True)]
         self.assertIn('alpha reproduction', names)
         self.assertIn('beta reproduction', names)
+
+    def test_full_reproduces_under_two_hash_seeds(self):
+        with tempfile.TemporaryDirectory() as d:
+            plan = dict(check_all.steps(_repo(d), full=True))
+        seeds = {argv[1] for name, argv in plan.items() if name.startswith('alpha reproduction')}
+        self.assertEqual(seeds, {'PYTHONHASHSEED=0', 'PYTHONHASHSEED=1'})
 
     def test_run_fails_when_any_step_fails(self):
         ok = ('passes', [sys.executable, '-c', 'pass'])

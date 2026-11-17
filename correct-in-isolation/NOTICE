@@ -1,0 +1,13 @@
+This experiment re-implements, in Python, behavior read from Kubernetes source code, which is
+licensed under the Apache License 2.0 (https://www.apache.org/licenses/LICENSE-2.0):
+
+- the client-go Reflector's backoff (tools/cache/reflector.go) and apimachinery's wait.Backoff and
+  backoffManager (pkg/util/wait/backoff.go): model/relist.py, ReflectorBackoff;
+- the API server's queue wait limit (staging/src/k8s.io/apiserver/pkg/server/filters/priority-and-fairness.go,
+  getRequestWaitContext) and the default request timeout (server/config.go): model/relist.py;
+- the API Priority and Fairness bootstrap defaults for the "system" priority level
+  (apis/flowcontrol/bootstrap/default.go): model/relist.py, simulate_fair.
+
+No Kubernetes code is copied. The cycle lower-bound overheads in model/gc_data.py are transcribed from
+Cai, Blackburn, Bond and Maas, "Distilling the Real Cost of Production Garbage Collectors", ISPASS 2022
+(doi:10.1109/ISPASS55109.2022.00005).

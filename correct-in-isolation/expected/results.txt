@@ -1,0 +1,1826 @@
+T1 relative gain of the horizontal loop: shared metric, recommended split, split with coupling
+  shared CPU metric | singular
+  CPU and memory, no coupling | 1.000
+  CPU and memory, beta 0.1 theta 0.5 | beta theta 0.05 | 1.053
+  CPU and memory, beta 0.1 theta 1.0 | beta theta 0.10 | 1.111
+  CPU and memory, beta 0.3 theta 0.5 | beta theta 0.15 | 1.176
+  CPU and memory, beta 0.3 theta 1.0 | beta theta 0.30 | 1.429
+  CPU and memory, beta 0.5 theta 0.5 | beta theta 0.25 | 1.333
+  CPU and memory, beta 0.5 theta 1.0 | beta theta 0.50 | 2.000
+  CPU and memory, beta 0.9 theta 0.5 | beta theta 0.45 | 1.818
+  CPU and memory, beta 0.9 theta 1.0 | beta theta 0.90 | 10.000
+  CPU and memory, beta 1.0 theta 0.5 | beta theta 0.50 | 2.000
+  CPU and memory, beta 1.0 theta 1.0 | beta theta 1.00 | singular
+  CPU and memory, beta 2.0 theta 0.5 | beta theta 1.00 | singular
+  CPU and memory, beta 2.0 theta 1.0 | beta theta 2.00 | -1.000
+T2 horizontal targets with an equilibrium (margin 0.15, tolerance 0.1; vertical tolerance 0 for a steady load, 0.1 the documented threshold): q | vertical utilisation | band, vertical tolerance 0 | common targets inside | band, vertical tolerance 0.1 | common targets inside
+  1.0 | 0.870 | 0.791 to 0.966 | 0.8, 0.9 | 0.719 to 1.074 | 0.8, 0.9
+  1.1 | 0.791 | 0.719 to 0.878 | 0.8 | 0.653 to 0.976 | 0.7, 0.8, 0.9
+  1.2 | 0.725 | 0.659 to 0.805 | 0.7, 0.8 | 0.599 to 0.895 | 0.6, 0.7, 0.8
+  1.3 | 0.669 | 0.608 to 0.743 | 0.7 | 0.553 to 0.826 | 0.6, 0.7, 0.8
+  1.4 | 0.621 | 0.565 to 0.690 | 0.6 | 0.513 to 0.767 | 0.6, 0.7
+  1.5 | 0.580 | 0.527 to 0.644 | 0.6 | 0.479 to 0.716 | 0.5, 0.6, 0.7
+T3 drift below the band (target 0.5, steady demand 100 cores, 10 replicas, documented recommender: 90th percentile, margin 0.15, half-life 24 h, floor 25 millicores): hour | replicas | request | utilisation | requested cores
+  0 | 10 | 20.000 | 0.500 | 200.0
+  12 | 32 | 6.414 | 0.487 | 205.2
+  24 | 54 | 3.750 | 0.494 | 202.5
+  36 | 54 | 3.750 | 0.494 | 202.5
+  48 | 54 | 3.750 | 0.494 | 202.5
+  60 | 54 | 3.750 | 0.494 | 202.5
+  72 | 92 | 2.192 | 0.496 | 201.7
+  84 | 92 | 2.192 | 0.496 | 201.7
+  96 | 92 | 2.192 | 0.496 | 201.7
+  108 | 92 | 2.192 | 0.496 | 201.7
+  120 | 92 | 2.192 | 0.496 | 201.7
+  132 | 92 | 2.192 | 0.496 | 201.7
+  144 | 157 | 1.282 | 0.497 | 201.3
+  156 | 157 | 1.282 | 0.497 | 201.3
+  168 | 157 | 1.282 | 0.497 | 201.3
+  180 | 157 | 1.282 | 0.497 | 201.3
+  192 | 157 | 1.282 | 0.497 | 201.3
+  204 | 157 | 1.282 | 0.497 | 201.3
+  216 | 267 | 0.750 | 0.500 | 200.1
+  228 | 267 | 0.750 | 0.500 | 200.1
+  240 | 267 | 0.750 | 0.500 | 200.1
+  252 | 267 | 0.750 | 0.500 | 200.1
+  264 | 267 | 0.750 | 0.500 | 200.1
+  276 | 267 | 0.750 | 0.500 | 200.1
+  288 | 267 | 0.750 | 0.500 | 200.1
+  300 | 457 | 0.438 | 0.499 | 200.3
+  312 | 457 | 0.438 | 0.499 | 200.3
+  324 | 457 | 0.438 | 0.499 | 200.3
+  336 | 457 | 0.438 | 0.499 | 200.3
+  348 | 457 | 0.438 | 0.499 | 200.3
+  360 | 457 | 0.438 | 0.499 | 200.3
+  372 | 457 | 0.438 | 0.499 | 200.3
+  384 | 781 | 0.256 | 0.500 | 200.1
+  396 | 781 | 0.256 | 0.500 | 200.1
+  408 | 781 | 0.256 | 0.500 | 200.1
+  420 | 781 | 0.256 | 0.500 | 200.1
+  432 | 781 | 0.256 | 0.500 | 200.1
+  444 | 781 | 0.256 | 0.500 | 200.1
+  456 | 1336 | 0.150 | 0.500 | 200.1
+  468 | 1336 | 0.150 | 0.500 | 200.1
+  480 | 1336 | 0.150 | 0.500 | 200.1
+  492 | 1336 | 0.150 | 0.500 | 200.1
+  504 | 1336 | 0.150 | 0.500 | 200.1
+  516 | 1336 | 0.150 | 0.500 | 200.1
+  528 | 1336 | 0.150 | 0.500 | 200.1
+  540 | 2284 | 0.088 | 0.500 | 200.1
+  552 | 2284 | 0.088 | 0.500 | 200.1
+  564 | 2284 | 0.088 | 0.500 | 200.1
+  576 | 2284 | 0.088 | 0.500 | 200.1
+  588 | 2284 | 0.088 | 0.500 | 200.1
+  600 | 2284 | 0.088 | 0.500 | 200.1
+  612 | 2284 | 0.088 | 0.500 | 200.1
+  624 | 3906 | 0.051 | 0.500 | 200.0
+  636 | 3906 | 0.051 | 0.500 | 200.0
+  648 | 3906 | 0.051 | 0.500 | 200.0
+  660 | 3906 | 0.051 | 0.500 | 200.0
+  672 | 3906 | 0.051 | 0.500 | 200.0
+  684 | 3906 | 0.051 | 0.500 | 200.0
+  696 | 6680 | 0.030 | 0.500 | 200.0
+  708 | 6680 | 0.030 | 0.500 | 200.0
+  720 | 6680 | 0.030 | 0.500 | 200.0
+  732 | 6680 | 0.030 | 0.500 | 200.0
+  744 | 6680 | 0.030 | 0.500 | 200.0
+  756 | 6680 | 0.030 | 0.500 | 200.0
+  768 | 6680 | 0.030 | 0.500 | 200.0
+  780 | 8000 | 0.025 | 0.500 | 200.0
+  792 | 8000 | 0.025 | 0.500 | 200.0
+  804 | 8000 | 0.025 | 0.500 | 200.0
+  816 | 8000 | 0.025 | 0.500 | 200.0
+  828 | 8000 | 0.025 | 0.500 | 200.0
+  840 | 8000 | 0.025 | 0.500 | 200.0
+  852 | 8000 | 0.025 | 0.500 | 200.0
+  864 | 8000 | 0.025 | 0.500 | 200.0
+  876 | 8000 | 0.025 | 0.500 | 200.0
+  888 | 8000 | 0.025 | 0.500 | 200.0
+  900 | 8000 | 0.025 | 0.500 | 200.0
+  912 | 8000 | 0.025 | 0.500 | 200.0
+  924 | 8000 | 0.025 | 0.500 | 200.0
+  936 | 8000 | 0.025 | 0.500 | 200.0
+  948 | 8000 | 0.025 | 0.500 | 200.0
+  960 | 8000 | 0.025 | 0.500 | 200.0
+  972 | 8000 | 0.025 | 0.500 | 200.0
+  984 | 8000 | 0.025 | 0.500 | 200.0
+  996 | 8000 | 0.025 | 0.500 | 200.0
+  1008 | 8000 | 0.025 | 0.500 | 200.0
+  1020 | 8000 | 0.025 | 0.500 | 200.0
+  1032 | 8000 | 0.025 | 0.500 | 200.0
+  1044 | 8000 | 0.025 | 0.500 | 200.0
+  1056 | 8000 | 0.025 | 0.500 | 200.0
+  1068 | 8000 | 0.025 | 0.500 | 200.0
+  1080 | 8000 | 0.025 | 0.500 | 200.0
+  1092 | 8000 | 0.025 | 0.500 | 200.0
+  1104 | 8000 | 0.025 | 0.500 | 200.0
+  1116 | 8000 | 0.025 | 0.500 | 200.0
+  1128 | 8000 | 0.025 | 0.500 | 200.0
+  1140 | 8000 | 0.025 | 0.500 | 200.0
+  1152 | 8000 | 0.025 | 0.500 | 200.0
+  1164 | 8000 | 0.025 | 0.500 | 200.0
+  1176 | 8000 | 0.025 | 0.500 | 200.0
+  1188 | 8000 | 0.025 | 0.500 | 200.0
+  1200 | 8000 | 0.025 | 0.500 | 200.0
+  1212 | 8000 | 0.025 | 0.500 | 200.0
+  1224 | 8000 | 0.025 | 0.500 | 200.0
+  1236 | 8000 | 0.025 | 0.500 | 200.0
+  1248 | 8000 | 0.025 | 0.500 | 200.0
+  1260 | 8000 | 0.025 | 0.500 | 200.0
+  1272 | 8000 | 0.025 | 0.500 | 200.0
+  1284 | 8000 | 0.025 | 0.500 | 200.0
+  1296 | 8000 | 0.025 | 0.500 | 200.0
+  1308 | 8000 | 0.025 | 0.500 | 200.0
+  1320 | 8000 | 0.025 | 0.500 | 200.0
+  1332 | 8000 | 0.025 | 0.500 | 200.0
+  1344 | 8000 | 0.025 | 0.500 | 200.0
+  1356 | 8000 | 0.025 | 0.500 | 200.0
+  1368 | 8000 | 0.025 | 0.500 | 200.0
+  1380 | 8000 | 0.025 | 0.500 | 200.0
+  1392 | 8000 | 0.025 | 0.500 | 200.0
+  1404 | 8000 | 0.025 | 0.500 | 200.0
+  1416 | 8000 | 0.025 | 0.500 | 200.0
+  1428 | 8000 | 0.025 | 0.500 | 200.0
+  1440 | 8000 | 0.025 | 0.500 | 200.0
+T4 long-run replica doubling time below the band, steady demand (400 days): target | step factor | fastest h | simulated h | slowest h | replicas at the end
+  0.50 | 1.739 | 99.9 | 103.0 | 109.5 | 8000
+  0.60 | 1.449 | 148.9 | 161.8 | 171.5 | 6667
+  0.70 | 1.242 | 254.8 | 284.5 | 328.7 | 5715
+  0.80 | 1.087 | - | - | - | 10
+  0.90 | 0.966 | - | - | - | 10
+  0.75 | 1.159 | 373.6 | 381.0 | 557.5 | 5334
+  0.78 | 1.115 | 508.4 | - | unbounded | 12
+T5 coupling from published garbage-collection cost (heap multiple 2, 3, 5: slowdown 1.70, 1.17, 1.00): heap range | beta | gain at theta 0.5 | gain at theta 1.0
+  2x to 3x | 0.92 | 1.854 | 12.734
+  3x to 5x | 0.31 | 1.182 | 1.444
+T6 pod loop nested in node loop, no headroom (n0 16, target 0.5, limit = request, 8 pods per node, pod 90 s, node 210 s): k | rounds | ample nodes s | nested s | closed s | separated s | closed s | cost of nesting s
+  3 | 1 | 90 | 300 | 300 | 300 | 300 | 0
+  5 | 2 | 180 | 600 | 600 | 390 | 390 | 210
+  10 | 3 | 270 | 900 | 900 | 480 | 480 | 420
+  30 | 4 | 360 | 1200 | 1200 | 570 | 570 | 630
+  100 | 6 | 540 | 1800 | 1800 | 750 | 750 | 1050
+T7 node provisioning time, k 30: node s | nested s | closed s | separated s | ample s | nested / ample
+  30 | 480 | 480 | 390 | 360 | 1.33
+  60 | 600 | 600 | 420 | 360 | 1.67
+  120 | 840 | 840 | 480 | 360 | 2.33
+  210 | 1200 | 1200 | 570 | 360 | 3.33
+  300 | 1560 | 1560 | 660 | 360 | 4.33
+  600 | 2760 | 2760 | 960 | 360 | 7.67
+T8 headroom held in advance (n0 64, one pod per node, so slots are exact): k | headroom slots | x n0 | rounds covered | time s
+  30 | 0 | 0.000 | 0 | 1200
+  30 | 53 | 0.828 | 0 | 1290
+  30 | 56 | 0.875 | 0 | 990
+  30 | 64 | 1.000 | 1 | 990
+  30 | 169 | 2.641 | 1 | 1080
+  30 | 176 | 2.750 | 1 | 780
+  30 | 192 | 3.000 | 2 | 780
+  30 | 402 | 6.281 | 2 | 870
+  30 | 416 | 6.500 | 2 | 570
+  30 | 448 | 7.000 | 3 | 570
+  30 | 896 | 14.000 | 4 | 360
+  20 | 0 | 0.000 | 0 | 1200
+  20 | 53 | 0.828 | 0 | 990
+  20 | 56 | 0.875 | 0 | 990
+  20 | 64 | 1.000 | 1 | 990
+T9 node size as hidden headroom, k 30, n0 16: pods per node | free slots at the start | nested s
+  2 | 0 | 1200
+  4 | 0 | 1200
+  8 | 0 | 1200
+  16 | 0 | 1200
+  32 | 16 | 990
+  64 | 48 | 780
+T10 informers re-listing behind a queued API server (2000 clients, capacity 100 seat-s/s, history 300 s, watch 300 to 600 s, every client forced to LIST at t 0): LIST cost seat-s | backlog s | second wave | failed state possible | LISTs hour 1 | LISTs hour 8 | largest delay s
+  10 | 200 | no | no | 2000 | 0 | 200
+  30 | 600 | no | no | 2000 | 0 | 600
+  31 | 620 | yes | no | 2001 | 0 | 620
+  40 | 800 | yes | no | 2162 | 0 | 800
+  50 | 1000 | yes | no | 2494 | 0 | 1000
+  60 | 1200 | yes | yes | 2970 | 0 | 1199
+  80 | 1600 | yes | yes | 4497 | 0 | 1599
+  90 | 1800 | yes | yes | 3998 | 3998 | 1799
+  100 | 2000 | yes | yes | 3598 | 3597 | 1999
+  150 | 3000 | yes | yes | 2399 | 2399 | 2998
+  200 | 4000 | yes | yes | 1799 | 1800 | 3998
+T11 does the trigger reach the failed state (LISTs still running in hour 8): LIST cost | failed-state delay s | pulse | spread 450 s | spread 900 s | spread 1800 s
+  50 | 275 | recovers | recovers | recovers | recovers
+  55 | 325 | recovers | recovers | recovers | recovers
+  60 | 375 | recovers | recovers | recovers | recovers
+  70 | 475 | recovers | recovers | sustained | recovers
+  80 | 575 | recovers | recovers | sustained | recovers
+  90 | 675 | sustained | sustained | sustained | recovers
+  100 | 775 | sustained | sustained | sustained | recovers
+T12 each safeguard alone, LIST cost 100: case | LISTs in 8 hours | LISTs per hour at the end | failed-state rate per hour
+  overload protection with ample capacity | 2000 | 0 | 3600
+  re-list on 410 with history that never expires | 2000 | 0 | 3600
+  both, as documented | 28782 | 3597 | 3600
+T13 share of failures after which something never comes back (9 nodes, 3 zones; DNS 2 replicas, app 3): configuration | webhook placement | one node | one zone | two zones | all nodes
+  documented practice: webhook excludes its own namespace and kube-system | one replica per zone | 0.00 | 0.00 | 0.00 | 0.00
+  documented practice: webhook excludes its own namespace and kube-system | three replicas in one zone | 0.00 | 0.00 | 0.00 | 0.00
+  webhook matches its own pods | one replica per zone | 0.00 | 0.00 | 0.00 | 1.00
+  webhook matches its own pods | three replicas in one zone | 0.00 | 0.33 | 0.67 | 1.00
+  webhook matches kube-system and resolves a dependency through cluster DNS | one replica per zone | 0.00 | 0.00 | 0.00 | 1.00
+  webhook matches kube-system and resolves a dependency through cluster DNS | three replicas in one zone | 0.00 | 0.00 | 0.33 | 1.00
+T14 probability that k random node failures cover a start-time cycle on u distinct nodes: nodes | u | k | probability
+  9 | 1 | 1 | 0.111111
+  9 | 1 | 3 | 0.333333
+  9 | 1 | 5 | 0.555556
+  9 | 1 | 7 | 0.777778
+  9 | 1 | 9 | 1.000000
+  9 | 3 | 1 | 0.000000
+  9 | 3 | 3 | 0.011905
+  9 | 3 | 5 | 0.119048
+  9 | 3 | 7 | 0.416667
+  9 | 3 | 9 | 1.000000
+  9 | 6 | 1 | 0.000000
+  9 | 6 | 3 | 0.000000
+  9 | 6 | 5 | 0.000000
+  9 | 6 | 7 | 0.083333
+  9 | 6 | 9 | 1.000000
+  100 | 1 | 10 | 0.100000
+  100 | 1 | 30 | 0.300000
+  100 | 1 | 50 | 0.500000
+  100 | 1 | 90 | 0.900000
+  100 | 1 | 100 | 1.000000
+  100 | 3 | 10 | 0.000742
+  100 | 3 | 30 | 0.025108
+  100 | 3 | 50 | 0.121212
+  100 | 3 | 90 | 0.726531
+  100 | 3 | 100 | 1.000000
+  100 | 6 | 10 | 0.000000
+  100 | 6 | 30 | 0.000498
+  100 | 6 | 50 | 0.013331
+  100 | 6 | 90 | 0.522305
+  100 | 6 | 100 | 1.000000
+T15 mutating webhooks over every order (1 pass: the weaker reading; 2: the reinvocation contract; 3: beyond it): scenario | reinvocation | passes | admitted objects | of which every webhook leaves unchanged
+  S1 label and sidecar (commute) | Never | 1 | 1 | 1
+  S1 label and sidecar (commute) | Never | 2 | 1 | 1
+  S1 label and sidecar (commute) | Never | 3 | 1 | 1
+  S1 label and sidecar (commute) | IfNeeded | 1 | 1 | 1
+  S1 label and sidecar (commute) | IfNeeded | 2 | 1 | 1
+  S1 label and sidecar (commute) | IfNeeded | 3 | 1 | 1
+  S2 sidecar and pull policy (one enabling step) | Never | 1 | 2 | 1
+  S2 sidecar and pull policy (one enabling step) | Never | 2 | 2 | 1
+  S2 sidecar and pull policy (one enabling step) | Never | 3 | 2 | 1
+  S2 sidecar and pull policy (one enabling step) | IfNeeded | 1 | 2 | 1
+  S2 sidecar and pull policy (one enabling step) | IfNeeded | 2 | 1 | 1
+  S2 sidecar and pull policy (one enabling step) | IfNeeded | 3 | 1 | 1
+  S3 sidecar, digest pin, signer (two enabling steps) | Never | 1 | 6 | 1
+  S3 sidecar, digest pin, signer (two enabling steps) | Never | 2 | 6 | 1
+  S3 sidecar, digest pin, signer (two enabling steps) | Never | 3 | 6 | 1
+  S3 sidecar, digest pin, signer (two enabling steps) | IfNeeded | 1 | 6 | 1
+  S3 sidecar, digest pin, signer (two enabling steps) | IfNeeded | 2 | 2 | 1
+  S3 sidecar, digest pin, signer (two enabling steps) | IfNeeded | 3 | 1 | 1
+  S4 capability policy and mesh init (conflict) | Never | 1 | 2 | 0
+  S4 capability policy and mesh init (conflict) | Never | 2 | 2 | 0
+  S4 capability policy and mesh init (conflict) | Never | 3 | 2 | 0
+  S4 capability policy and mesh init (conflict) | IfNeeded | 1 | 2 | 0
+  S4 capability policy and mesh init (conflict) | IfNeeded | 2 | 2 | 0
+  S4 capability policy and mesh init (conflict) | IfNeeded | 3 | 2 | 0
+T16 enabling chain of n webhooks (depth n - 1), all IfNeeded: n | passes the worst order needs | share of orders converged in 2 passes (closed form) | (enumerated) | share converged in one pass, as under Never, 1/n! | share for a chain of match links at any number of passes, 1/n!
+  2 | 2 | 1.0000 | 1.0000 | 0.5000 | 0.5000
+  3 | 3 | 0.8333 | 0.8333 | 0.1667 | 0.1667
+  4 | 4 | 0.5000 | 0.5000 | 0.0417 | 0.0417
+  5 | 5 | 0.2250 | 0.2250 | 0.0083 | 0.0083
+  6 | 6 | 0.0806 | 0.0806 | 0.0014 | 0.0014
+T17 every pair passes, the whole fails: seam | three mechanisms | pairwise verdicts | whole-system verdict
+  signal | three loops, coupling -0.30 | every pair 1.099 | 1.346
+  signal | three loops, coupling -0.45 | every pair 1.254 | 3.793
+  signal | three loops, coupling -0.49 | every pair 1.316 | 17.114
+  signal | three loops, coupling -0.50 | every pair 1.333 | singular
+  signal | three loops, coupling -0.60 | every pair 1.562 | -1.250
+  assumption | A needs C, B needs A, C needs B to start | stranded after full failure: 0, 0, 0 | 3 stranded; one start-time cycle among webhook A, webhook B, webhook C
+  order | sidecar, digest pin, signer under the contract | admitted objects: 1, 1, 1 | 2 admitted objects; enabling depth 2
+T18 seam audit of one cluster, every verdict from the laws of Parts 1 to 5: seam | inputs | test | verdict
+  signal | HPA target 0.5 and VPA on CPU, margin 0.15, q 1.0, tolerance 0.1, half-life 24 h (the cluster of T3) | target inside [0.791, 0.966] | outside: replicas step up every 79.7 h, doubling every 99.9 to 109.5 h
+  time scale | 16 pods, 30x surge, pod 90 s, node 210 s, no headroom | nested against separated | 1200 s against 570 s; covering every round takes 224 slots (14 x the pods)
+  state | 2000 informers, capacity 100 seat-s/s, LIST 100 seat-s, history 300 s, watch 300 to 600 s, wait limit 15 s | backlog 2000 s against 600 s and 1050 s; the queue with its wait limit | idealized: second wave yes, failed state possible; with the wait limit: 0 LISTs in hour 8 and 3078 re-watches answered 410; at LIST 114, 3156 LISTs in hour 8
+  assumption | three webhooks, each checking the next one's pods, one replica each on distinct nodes of 100 | start-time cycles: 1 of size 3 | stranded with probability 0.0251 after 30 random node failures, 1 after a full restart
+  order | configurations admission-signer, image-digest, sidecar-injector, all IfNeeded, two passes | order by name signer, digest, sidecar; passes needed 3 against 2 | admitted object not a common fixed point; 5 of 6 orders converge
+T19 horizontal loop on a custom metric, vertical loop on CPU: gamma (service rate against CPU request) | relative gain of the horizontal loop
+  0.00 | 1.000
+  0.25 | 1.333
+  0.50 | 2.000
+  0.75 | 4.000
+  0.90 | 10.000
+  0.95 | 20.000
+  1.00 | singular
+T20 vertical margin at which a shared-metric pairing rests (tolerance 0.1; vertical tolerance 0 and 0.1): horizontal target | margin at q 1.0, vtol 0 | margin at q 1.0, vtol 0.1 | margin at q 1.2, vtol 0 | request over mean usage, vtol 0 | request over mean usage, vtol 0.1
+  0.5 | 0.82 to 1.22 | 0.65 to 1.47 | 0.52 to 0.85 | 1.82 to 2.22 | 1.65 to 2.47
+  0.6 | 0.52 to 0.85 | 0.38 to 1.06 | 0.26 to 0.54 | 1.52 to 1.85 | 1.38 to 2.06
+  0.7 | 0.30 to 0.59 | 0.18 to 0.76 | 0.08 to 0.32 | 1.30 to 1.59 | 1.18 to 1.76
+  0.8 | 0.14 to 0.39 | 0.03 to 0.54 | -0.05 to 0.16 | 1.14 to 1.39 | 1.03 to 1.54
+  0.9 | 0.01 to 0.23 | -0.08 to 0.37 | -0.16 to 0.03 | 1.01 to 1.23 | 0.92 to 1.37
+T21 long-run replica doubling under the documented vertical update rule (200 days): target | bracket h | instant h | bounds closed h | age-and-threshold only h
+  0.5 | 99.9 to 109.5 | 103.0 | 103.0 | 101.4
+  0.6 | 148.9 to 171.5 | 161.8 | 161.8 | 160.3
+  0.7 | 254.8 to 328.7 | 284.5 | 284.5 | 284.0
+T22 targets near the band at q 1.0 (narrow band from 0.791, widened from 0.719), 200 days: target | instant: replicas, doubling h | bounds closed: replicas, doubling h | age-and-threshold only: replicas, doubling h
+  0.70 | 5715, 284.5 | 5715, 284.5 | 5524, 284.0
+  0.72 | 5556, 365.6 | 5556, 365.6 | 5556, 360.4
+  0.75 | 5334, 381.0 | 5334, 381.0 | 5334, 378.5
+  0.78 | 12, none | 12, none | 12, none
+T23 the drift as a staircase (target 0.5 and 0.6, steady demand): step interval h, theory | target | step at h | gap h | replicas before | after | factor
+  79.73 h = 24 x log2(1 / (1 - 0.9))
+  0.5 | 1.8 | 1.5 | 18 | 32 | 1.778
+  0.5 | 13.8 | 12.0 | 32 | 54 | 1.688
+  0.5 | 61.2 | 47.5 | 54 | 92 | 1.704
+  0.5 | 135.0 | 73.8 | 92 | 157 | 1.707
+  0.5 | 214.2 | 79.2 | 157 | 267 | 1.701
+  0.5 | 293.8 | 79.5 | 267 | 457 | 1.712
+  0.5 | 373.5 | 79.8 | 457 | 781 | 1.709
+  0.5 | 453.2 | 79.8 | 781 | 1336 | 1.711
+  0.5 | 533.0 | 79.8 | 1336 | 2284 | 1.710
+  0.5 | 612.8 | 79.8 | 2284 | 3906 | 1.710
+  0.5 | 692.5 | 79.8 | 3906 | 6680 | 1.710
+  0.6 | 1.8 | 1.5 | 15 | 22 | 1.467
+  0.6 | 13.8 | 12.0 | 22 | 32 | 1.455
+  0.6 | 61.2 | 47.5 | 32 | 45 | 1.406
+  0.6 | 135.0 | 73.8 | 45 | 63 | 1.400
+  0.6 | 214.2 | 79.2 | 63 | 88 | 1.397
+  0.6 | 293.8 | 79.5 | 88 | 124 | 1.409
+  0.6 | 373.5 | 79.8 | 124 | 175 | 1.411
+  0.6 | 453.2 | 79.8 | 175 | 246 | 1.406
+  0.6 | 533.0 | 79.8 | 246 | 345 | 1.402
+  0.6 | 612.8 | 79.8 | 345 | 486 | 1.409
+  0.6 | 692.5 | 79.8 | 486 | 684 | 1.407
+  0.6 | 772.2 | 79.8 | 684 | 962 | 1.406
+  0.6 | 852.0 | 79.8 | 962 | 1353 | 1.406
+  0.6 | 931.8 | 79.8 | 1353 | 1903 | 1.407
+  daily cycle, target 0.5, 120 days: amplitude | doubling h
+  0.00 | 103.0
+  0.10 | 106.6
+  0.20 | 98.5
+  0.30 | 96.3
+  0.45 | 87.4
+  0.60 | 76.1
+T24 the staircase law at other recommender settings (target 0.5, steady demand, request floor lowered to 0.001 cores so each staircase runs long enough to measure, warm-up 2.5 step intervals, 300 days): setting | step h | factor | fastest h | simulated h | slowest h
+  documented defaults | 79.7 | 1.739 | 99.9 | 103.0 | 109.5
+  percentile 0.5 | 24.0 | 1.739 | 30.1 | 29.8 | 33.0
+  percentile 0.95 | 103.7 | 1.739 | 129.9 | 134.0 | 142.5
+  half-life 12.0 | 39.9 | 1.739 | 49.9 | 51.5 | 54.8
+  half-life 48.0 | 159.5 | 1.739 | 199.7 | 206.0 | 219.0
+  margin 0.0 | 79.7 | 2.000 | 79.7 | 80.9 | 85.8
+  margin 0.3 | 79.7 | 1.538 | 128.3 | 141.8 | 144.7
+T25 the headroom penalty across timing (k 30, n0 64, one pod per node; 0, 53 and 56 free slots): pod s | node s | sync s | time with none s | with 53 s | with 56 s | 53 slower than none
+  80 | 200 | 15 | 1140 | 1230 | 940 | yes
+  80 | 200 | 30 | 1180 | 1270 | 970 | yes
+  80 | 210 | 15 | 1190 | 1280 | 980 | yes
+  80 | 210 | 30 | 1190 | 1280 | 980 | yes
+  80 | 225 | 15 | 1255 | 1345 | 1025 | yes
+  80 | 225 | 30 | 1295 | 1385 | 1055 | yes
+  85 | 200 | 15 | 1175 | 1265 | 965 | yes
+  85 | 200 | 30 | 1185 | 1275 | 975 | yes
+  85 | 210 | 15 | 1195 | 1285 | 985 | yes
+  85 | 210 | 30 | 1195 | 1285 | 985 | yes
+  85 | 225 | 15 | 1260 | 1350 | 1030 | yes
+  85 | 225 | 30 | 1300 | 1390 | 1060 | yes
+  90 | 200 | 15 | 1190 | 1280 | 980 | yes
+  90 | 200 | 30 | 1190 | 1280 | 980 | yes
+  90 | 210 | 15 | 1200 | 1290 | 990 | yes
+  90 | 210 | 30 | 1200 | 1290 | 990 | yes
+  90 | 225 | 15 | 1295 | 1385 | 1055 | yes
+  90 | 225 | 30 | 1305 | 1395 | 1065 | yes
+  95 | 200 | 15 | 1195 | 1305 | 1005 | yes
+  95 | 200 | 30 | 1195 | 1315 | 1015 | yes
+  95 | 210 | 15 | 1255 | 1355 | 1045 | yes
+  95 | 210 | 30 | 1295 | 1415 | 1085 | yes
+  95 | 225 | 15 | 1310 | 1420 | 1090 | yes
+  95 | 225 | 30 | 1310 | 1430 | 1100 | yes
+  100 | 200 | 15 | 1200 | 1320 | 1020 | yes
+  100 | 200 | 30 | 1200 | 1320 | 1020 | yes
+  100 | 210 | 15 | 1260 | 1360 | 1050 | yes
+  100 | 210 | 30 | 1300 | 1420 | 1090 | yes
+  100 | 225 | 15 | 1315 | 1425 | 1095 | yes
+  100 | 225 | 30 | 1315 | 1435 | 1105 | yes
+  slower in 30 of 30 cases
+T26 where the headroom penalty appears (n0 64, one pod per node, pod 90 s, node 210 s): k | log2(k / 2) | time with none s | with 53 s | with 56 s | penalty
+  12 | 2.58 | 900 | 690 | 690 | no
+  16 | 3.00 | 900 | 990 | 990 | yes
+  20 | 3.32 | 1200 | 990 | 990 | no
+  24 | 3.58 | 1200 | 990 | 990 | no
+  28 | 3.81 | 1200 | 990 | 990 | no
+  30 | 3.91 | 1200 | 1290 | 990 | yes
+  31 | 3.95 | 1200 | 1290 | 1290 | yes
+T27 the horizontal target sets the number of node waits (k 30, n0 16, pod 90 s, node 210 s, no free slots at the start): target | g | rounds | ample s | nested s, 1 pod per node | nested s, 8 pods per node | closed s | separated s | closed s
+  0.3 | 3.33 | 2 | 195 | 630 | 630 | 600 | 405 | 390
+  0.4 | 2.50 | 3 | 270 | 900 | 900 | 900 | 480 | 480
+  0.5 | 2.00 | 4 | 360 | 1200 | 1200 | 1200 | 570 | 570
+  0.6 | 1.67 | 6 | 540 | 1800 | 1800 | 1800 | 750 | 750
+  0.7 | 1.43 | 9 | 810 | 2700 | 2490 | 2700 | 1020 | 1020
+T28 a second 30x surge after the first is scaled down (n0 16, 8 pods per node, pod 90 s, node 210 s, HPA stabilization 300 s, CA unneeded time 600 s): gap s | rounds kept | closed s | instant deletion s | bulk of 10 s | node-hours held in the gap
+  0 | - | 0 | 0 | 0 | 0.0
+  150 | - | 0 | 0 | 0 | 2.4
+  280 | - | 0 | 0 | 0 | 4.5
+  300 | 4 | 360 | 360 | 360 | 4.8
+  450 | 4 | 360 | 360 | 360 | 7.2
+  600 | 4 | 360 | 360 | 360 | 9.7
+  630 | 3 | 570 | 570 | 360 | 10.2
+  640 | 3 | 570 | 580 | 365 | 10.3
+  660 | 3 | 570 | 570 | 570 | 10.6
+  675 | 3 | 570 | 575 | 575 | 10.9
+  720 | 2 | 780 | 780 | 570 | 11.6
+  765 | 2 | 780 | 795 | 795 | 12.3
+  810 | 1 | 990 | 990 | 780 | 13.1
+  855 | 1 | 990 | 1005 | 1005 | 13.8
+  900 | 0 | 1200 | 1200 | 990 | 14.4
+  945 | 0 | 1200 | 1215 | 1215 | 14.4
+  1200 | 0 | 1200 | 1200 | 1200 | 14.4
+  1800 | 0 | 1200 | 1200 | 1200 | 14.4
+  3600 | 0 | 1200 | 1200 | 1200 | 14.4
+T29 the unneeded time against a known gap of 1200 s (as T28, instant deletion): unneeded s | rounds kept | time s | node-hours held | dominated by
+  0 | 0 | 1200 | 4.75 | none
+  60 | 0 | 1200 | 5.72 | release at once
+  300 | 0 | 1200 | 9.59 | release at once
+  600 | 0 | 1200 | 14.42 | release at once
+  900 | 0 | 1200 | 19.25 | release at once
+  1000 | 2 | 780 | 19.33 | hold through the gap
+  1080 | 2 | 780 | 19.33 | hold through the gap
+  1140 | 3 | 570 | 19.33 | hold through the gap
+  1170 | 3 | 570 | 19.33 | hold through the gap
+  1200 | 4 | 360 | 19.33 | none
+  1800 | 4 | 360 | 19.33 | none
+T30 exponential gaps between 30x surges (as T28, instant deletion; 200 gaps at the quantiles for the simulated means): mean gap s | unneeded s | expected node-hours | simulated | expected time s | simulated | exchange rate at which holding forever wins
+  600 | 0 | 3.80 | 3.77 | 727.8 | 753.1 | 41.4
+  600 | 300 | 6.11 | 6.10 | 610.8 | 633.8 | 41.4
+  600 | 600 | 7.51 | 7.52 | 456.4 | 474.9 | 41.4
+  600 | 900 | 8.36 | 8.38 | 362.7 | 377.4 | 41.4
+  600 | 1200 | 8.87 | 8.90 | 305.9 | 319.1 | 41.4
+  600 | 1800 | 9.37 | 9.41 | 250.6 | 261.0 | 41.4
+  600 | 3600 | 9.65 | 9.69 | 220.0 | 228.4 | 41.4
+  600 | forever | 9.67 | 9.69 | 218.4 | 228.4 | 41.4
+  1800 | 0 | 4.45 | 4.39 | 1015.8 | 1038.1 | 124.3
+  1800 | 300 | 8.22 | 8.17 | 954.5 | 975.9 | 124.3
+  1800 | 600 | 11.41 | 11.38 | 854.8 | 873.1 | 124.3
+  1800 | 900 | 14.11 | 14.09 | 770.3 | 787.2 | 124.3
+  1800 | 1200 | 16.40 | 16.38 | 698.8 | 715.2 | 124.3
+  1800 | 1800 | 19.97 | 19.97 | 587.1 | 600.8 | 124.3
+  1800 | 3600 | 25.68 | 25.70 | 408.6 | 419.8 | 124.3
+  1800 | forever | 29.00 | 28.99 | 304.7 | 314.1 | 124.3
+  7200 | 0 | 4.73 | 4.66 | 1151.0 | 1166.1 | 497.1
+  7200 | 300 | 9.27 | 9.20 | 1132.8 | 1148.1 | 497.1
+  7200 | 600 | 13.63 | 13.56 | 1100.7 | 1116.3 | 497.1
+  7200 | 900 | 17.81 | 17.75 | 1069.9 | 1085.7 | 497.1
+  7200 | 1200 | 21.82 | 21.76 | 1040.3 | 1056.1 | 497.1
+  7200 | 1800 | 29.35 | 29.30 | 984.7 | 999.9 | 497.1
+  7200 | 3600 | 48.51 | 48.48 | 843.3 | 856.9 | 497.1
+  7200 | forever | 116.00 | 115.84 | 345.3 | 352.5 | 497.1
+T31 the worst gap (as T28, 58 spare nodes): exchange rate, node-s per s short | break-even s | worst ratio at break-even | best unneeded s, 10 s grid | its worst ratio | worst ratio at 600 s | at 0 s
+  4.0 | 58 | 1.152 | 50 | 1.155 | 2.568 | 1.178
+  16.0 | 232 | 1.368 | 230 | 1.368 | 1.951 | 1.580
+  41.4 | 600 | 1.519 | 600 | 1.519 | 1.519 | 2.077
+  64.0 | 927 | 1.571 | 930 | 1.573 | 1.715 | 2.329
+  256.0 | 3708 | 1.663 | 3710 | 1.663 | 2.490 | 2.963
+T32 break-even holding when the ramp outlasts the pod loop's window (58 spare nodes, pod 90 s, node 210 s, stabilization 300 s): surge | rounds | ramp (R - 1) pod s | exchange rate | break-even s | worst ratio
+  30 | 4 | 270 | 4 | 58 | 1.152
+  30 | 4 | 270 | 16 | 232 | 1.368
+  30 | 4 | 270 | 64 | 927 | 1.571
+  30 | 4 | 270 | 256 | 3708 | 1.663
+  100 | 6 | 450 | 4 | 87 | 1.215
+  100 | 6 | 450 | 16 | 348 | 1.437
+  100 | 6 | 450 | 64 | 1390 | 1.608
+  100 | 6 | 450 | 256 | 5561 | 1.675
+  300 | 8 | 630 | 4 | 116 | 1.270
+  300 | 8 | 630 | 16 | 463 | 1.482
+  300 | 8 | 630 | 64 | 1854 | 1.629
+  300 | 8 | 630 | 256 | 7415 | 1.681
+T33 the same 900 s memory kept by nodes or by pods (as T28, instant deletion): gap s | nodes, stabilization 300 s and unneeded 600 s: closed s | simulated s | node-hours | pods, stabilization 900 s and unneeded 0 s: closed s | simulated s | node-hours
+  150 | 0 | 0 | 2.4 | 0 | 0 | 2.4
+  450 | 360 | 360 | 7.2 | 0 | 0 | 7.2
+  630 | 570 | 570 | 10.2 | 0 | 0 | 10.2
+  700 | 570 | 580 | 11.3 | 0 | 0 | 11.3
+  850 | 990 | 1010 | 13.7 | 0 | 0 | 13.7
+  900 | 1200 | 1200 | 14.4 | 1200 | 1200 | 14.4
+  1200 | 1200 | 1200 | 14.4 | 1200 | 1200 | 14.4
+T34 memoryless gaps, the memory kept as pods first up to the 3600 s cap, then as nodes: mean gap s | stabilization s | unneeded s | expected node-hours | expected time s | rate above which an hour of pods beats releasing at once | rate above which nodes kept forever beat an hour of pods
+  600 | 0 | 0 | 0.00 | 1200.0 | 29.0 | 41.4
+  600 | 300 | 0 | 3.80 | 727.8 | 29.0 | 41.4
+  600 | 600 | 0 | 6.11 | 441.5 | 29.0 | 41.4
+  600 | 900 | 0 | 7.51 | 267.8 | 29.0 | 41.4
+  600 | 1500 | 0 | 8.87 | 98.5 | 29.0 | 41.4
+  600 | 3600 | 0 | 9.64 | 3.0 | 29.0 | 41.4
+  600 | 3600 | 600 | 9.66 | 1.9 | 29.0 | 41.4
+  600 | 3600 | 3600 | 9.67 | 0.9 | 29.0 | 41.4
+  600 | 3600 | forever | 9.67 | 0.9 | 29.0 | 41.4
+  1800 | 0 | 0 | 0.00 | 1200.0 | 87.0 | 124.3
+  1800 | 300 | 0 | 4.45 | 1015.8 | 87.0 | 124.3
+  1800 | 600 | 0 | 8.22 | 859.8 | 87.0 | 124.3
+  1800 | 900 | 0 | 11.41 | 727.8 | 87.0 | 124.3
+  1800 | 1500 | 0 | 16.40 | 521.5 | 87.0 | 124.3
+  1800 | 3600 | 0 | 25.08 | 162.4 | 87.0 | 124.3
+  1800 | 3600 | 600 | 26.19 | 136.7 | 87.0 | 124.3
+  1800 | 3600 | 3600 | 28.47 | 65.3 | 87.0 | 124.3
+  1800 | 3600 | forever | 29.00 | 48.7 | 87.0 | 124.3
+  7200 | 0 | 0 | 0.00 | 1200.0 | 348.0 | 497.1
+  7200 | 300 | 0 | 4.73 | 1151.0 | 348.0 | 497.1
+  7200 | 600 | 0 | 9.27 | 1104.1 | 348.0 | 497.1
+  7200 | 900 | 0 | 13.63 | 1059.0 | 348.0 | 497.1
+  7200 | 1500 | 0 | 21.82 | 974.3 | 348.0 | 497.1
+  7200 | 3600 | 0 | 45.64 | 727.8 | 348.0 | 497.1
+  7200 | 3600 | 600 | 51.27 | 696.0 | 348.0 | 497.1
+  7200 | 3600 | 3600 | 73.33 | 533.2 | 348.0 | 497.1
+  7200 | 3600 | forever | 116.00 | 218.4 | 348.0 | 497.1
+T35 holding pods for the break-even time against the worst gap (58 spare nodes, unneeded 0 s; the window cap of 3600 s is reached at rate 174.0): exchange rate | break-even s | worst ratio
+  4.0 | 83 | 2.000
+  16.0 | 331 | 2.000
+  41.4 | 857 | 2.000
+  64.0 | 1324 | 2.000
+  160.0 | 3310 | 2.000
+T36 the hazard rule, memory kept as pods (Weibull gaps, mean 1800 s, 58 spare nodes, cold time 1200 s, window capped at 3600 s): shape | exchange rate | hazard-rule window s | best on a 10 s grid s | cost at 0, node-hours | at the best | at the cap | saving against the better end
+  0.5 | 16 | 30 | 30 | 5.33 | 4.87 | 17.95 | 8.7%
+  0.5 | 64 | 487 | 490 | 21.33 | 15.10 | 20.11 | 24.9%
+  0.5 | 160 | 3044 | 3040 | 53.33 | 24.39 | 24.44 | 0.2%
+  0.7 | 16 | 3 | 10 | 5.33 | 5.33 | 22.25 | 0.1%
+  0.7 | 64 | 341 | 340 | 21.33 | 19.21 | 24.61 | 10.0%
+  0.7 | 160 | 3600 | 3600 | 53.33 | 29.32 | 29.32 | 0.0%
+  1.0 | 16 | - | 0 | 5.33 | 5.33 | 25.80 | 0.0%
+  1.0 | 64 | - | 0 | 21.33 | 21.33 | 27.96 | 0.0%
+  1.0 | 160 | - | 3600 | 53.33 | 32.29 | 32.29 | 0.0%
+  1.5 | 16 | - | 0 | 5.33 | 5.33 | 28.20 | 0.0%
+  1.5 | 64 | - | 0 | 21.33 | 21.33 | 29.61 | 0.0%
+  1.5 | 160 | - | 3600 | 53.33 | 32.44 | 32.44 | 0.0%
+  3.0 | 16 | - | 0 | 5.33 | 5.33 | 29.01 | 0.0%
+  3.0 | 64 | - | 0 | 21.33 | 21.33 | 29.06 | 0.0%
+  3.0 | 160 | - | 3600 | 53.33 | 29.17 | 29.17 | 0.0%
+T37 expected cost against the window, as a multiple of releasing at once (as T36, exchange rate 64): shape | window s | cost / cost at 0
+  0.5 | 0 | 1.000
+  0.5 | 60 | 0.811
+  0.5 | 120 | 0.765
+  0.5 | 240 | 0.726
+  0.5 | 360 | 0.712
+  0.5 | 487 | 0.708
+  0.5 | 600 | 0.710
+  0.5 | 900 | 0.727
+  0.5 | 1200 | 0.751
+  0.5 | 1800 | 0.805
+  0.5 | 2400 | 0.856
+  0.5 | 3000 | 0.902
+  0.5 | 3600 | 0.943
+  0.7 | 0 | 1.000
+  0.7 | 60 | 0.939
+  0.7 | 120 | 0.919
+  0.7 | 240 | 0.903
+  0.7 | 360 | 0.901
+  0.7 | 487 | 0.904
+  0.7 | 600 | 0.911
+  0.7 | 900 | 0.936
+  0.7 | 1200 | 0.964
+  0.7 | 1800 | 1.022
+  0.7 | 2400 | 1.073
+  0.7 | 3000 | 1.117
+  0.7 | 3600 | 1.154
+  1.0 | 0 | 1.000
+  1.0 | 60 | 1.012
+  1.0 | 120 | 1.023
+  1.0 | 240 | 1.045
+  1.0 | 360 | 1.065
+  1.0 | 487 | 1.085
+  1.0 | 600 | 1.102
+  1.0 | 900 | 1.141
+  1.0 | 1200 | 1.175
+  1.0 | 1800 | 1.227
+  1.0 | 2400 | 1.265
+  1.0 | 3000 | 1.291
+  1.0 | 3600 | 1.311
+  1.5 | 0 | 1.000
+  1.5 | 60 | 1.040
+  1.5 | 120 | 1.075
+  1.5 | 240 | 1.137
+  1.5 | 360 | 1.190
+  1.5 | 487 | 1.237
+  1.5 | 600 | 1.273
+  1.5 | 900 | 1.343
+  1.5 | 1200 | 1.386
+  1.5 | 1800 | 1.420
+  1.5 | 2400 | 1.418
+  1.5 | 3000 | 1.403
+  1.5 | 3600 | 1.388
+  3.0 | 0 | 1.000
+  3.0 | 60 | 1.045
+  3.0 | 120 | 1.090
+  3.0 | 240 | 1.179
+  3.0 | 360 | 1.266
+  3.0 | 487 | 1.352
+  3.0 | 600 | 1.424
+  3.0 | 900 | 1.580
+  3.0 | 1200 | 1.671
+  3.0 | 1800 | 1.650
+  3.0 | 2400 | 1.493
+  3.0 | 3000 | 1.389
+  3.0 | 3600 | 1.362
+T38 the hazard rule against the simulation (shape 0.5, mean 1800 s, exchange rate 64, 300 gaps at the quantiles, instant deletion, unneeded 0 s): window s | closed cost, node-hours | simulated cost | simulated mean time s
+  0 | 21.33 | 21.71 | 1216.4
+  120 | 16.33 | 16.83 | 863.7
+  300 | 15.30 | 15.63 | 694.0
+  487 | 15.10 | 15.36 | 589.0
+  900 | 15.51 | 15.69 | 451.7
+  1800 | 17.17 | 17.29 | 298.2
+  3600 | 20.11 | 20.25 | 168.9
+T39 coupling from current collectors (OpenJDK 17, cycle lower-bound overheads, geometric mean of 16 benchmarks, ISPASS 2022; heap as a multiple of the minimum; beta from neighboring two-decimal table values): collector | steepest heap range | beta | gain at theta 1.0 | gain at theta 0.5 | beta, 5.2x to 6.0x | gain at theta 1.0
+  Serial | 1.4x to 1.9x | 0.40 | 1.664 | 1.249 | 0.00 | 1.000
+  Parallel | 1.4x to 1.9x | 1.28 | -3.572 | 2.777 | 0.07 | 1.071
+  G1 | 1.9x to 2.4x | 0.58 | 2.385 | 1.409 | 0.00 | 1.000
+  Shenandoah | 1.9x to 2.4x | 0.55 | 2.208 | 1.377 | 0.16 | 1.185
+  ZGC | 2.4x to 3.0x | 0.60 | 2.490 | 1.427 | 0.31 | 1.441
+T40 memory kept as nodes past the one-hour pod window (Weibull gaps, 58 spare nodes, window 3600 s; forever stands for an unneeded time of 200000 s): shape | mean gap s | exchange rate | unneeded times where the lagged rule turns upward s | best on a 50 s grid s | cost at 0, node-hours | at the best | forever | saving against the better end
+  0.5 | 3600 | 200 | - | 0 | 40.17 | 40.17 | 62.85 | 0.0%
+  0.5 | 3600 | 500 | 4100 | 4100 | 64.48 | 62.68 | 70.14 | 2.8%
+  0.5 | 3600 | 1000 | 26220 | 26200 | 105.00 | 81.31 | 82.30 | 1.2%
+  0.5 | 7200 | 200 | - | 0 | 55.18 | 55.18 | 122.85 | 0.0%
+  0.5 | 7200 | 500 | 320 | 0 | 91.97 | 91.97 | 133.92 | 0.0%
+  0.5 | 7200 | 1000 | 140, 11380 | 11350 | 153.28 | 137.56 | 152.38 | 9.7%
+  0.7 | 7200 | 200 | - | 0 | 70.82 | 70.82 | 125.67 | 0.0%
+  0.7 | 7200 | 500 | 660 | 0 | 119.20 | 119.20 | 140.19 | 0.0%
+  0.7 | 7200 | 1000 | 36810 | 36800 | 199.84 | 163.94 | 164.38 | 0.3%
+T41 the queue with its wait limit (as T10; 15 s wait limit then 429, Reflector backoff; fair queuing at the system level: 64 queues, hand 6, queue length 50): LIST cost | backlog s | saturated storm possible | idealized queue: LISTs hour 1 | hour 8 | wait limit, one queue: hour 1 | hour 8 | 410s | fair queuing: hour 1 | hour 8 | 410s
+  30 | 600 | no | 2000 | 0 | 2000 | 0 | 0 | 2000 | 0 | 0
+  31 | 620 | no | 2001 | 0 | 2000 | 0 | 0 | 2001 | 0 | 1
+  35 | 700 | no | 2051 | 0 | 2002 | 0 | 2 | 2007 | 0 | 7
+  40 | 800 | yes | 2162 | 0 | 2015 | 0 | 15 | 2014 | 0 | 14
+  50 | 1000 | yes | 2494 | 0 | 2136 | 0 | 136 | 2114 | 0 | 114
+  70 | 1400 | yes | 3562 | 0 | 2576 | 0 | 576 | 2574 | 0 | 574
+  90 | 1800 | yes | 3998 | 3998 | 3747 | 0 | 1747 | 3629 | 0 | 1629
+  100 | 2000 | yes | 3598 | 3597 | 3592 | 0 | 3078 | 3591 | 0 | 3138
+  110 | 2200 | yes | 3272 | 3271 | 3265 | 0 | 8208 | 3267 | 0 | 9371
+  112 | 2240 | yes | 3213 | 3213 | 3208 | 0 | 14146 | 3209 | 0 | 13050
+  114 | 2280 | yes | 3157 | 3156 | 3152 | 3156 | 23656 | 3152 | 3155 | 23635
+  116 | 2320 | yes | 3102 | 3102 | 3097 | 3101 | 23306 | 3096 | 3102 | 23309
+  120 | 2400 | yes | 2999 | 2999 | 2995 | 2998 | 22544 | 2995 | 2998 | 22508
+  150 | 3000 | yes | 2399 | 2399 | 2397 | 2399 | 17890 | 2395 | 2399 | 17887
+  200 | 4000 | yes | 1799 | 1800 | 1797 | 1800 | 13160 | 1796 | 1799 | 13201
+T42 where the second wave starts with the wait limit (pulse, 3 hours): LIST cost | backlog s | idealized second wave | 410s, one queue, seeds 1 2 3 | 410s, fair queuing, seeds 1 2 3
+  30 | 600 | no | 0 0 0 | 0 0 0
+  31 | 620 | yes | 0 0 0 | 1 0 1
+  32 | 640 | yes | 0 0 0 | 1 1 0
+  33 | 660 | yes | 1 0 0 | 1 3 0
+  34 | 680 | yes | 1 3 0 | 4 2 0
+  35 | 700 | yes | 2 3 0 | 7 2 0
+  36 | 720 | yes | 1 3 4 | 3 6 7
+  37 | 740 | yes | 5 10 4 | 3 13 6
+  38 | 760 | yes | 12 11 7 | 9 11 12
+  39 | 780 | yes | 20 14 6 | 16 16 10
+  40 | 800 | yes | 15 24 17 | 14 18 20
+T43 does the trigger decide the storm (LISTs in hour 8; trigger spread 0, 450, 900, 1800 s): LIST cost | idealized queue | wait limit, one queue
+  90 | 3998 3997 3998 0 | 0 0 0 0
+  100 | 3597 3598 3598 0 | 0 0 0 0
+  110 | 3271 3270 3271 3271 | 0 0 0 0
+  112 | 3213 3213 3213 3213 | 0 0 0 0
+  114 | 3156 3156 3156 3157 | 3156 3155 3155 3155
+  116 | 3102 3102 3102 3102 | 3101 3101 3101 3101
+  120 | 2999 2998 2998 2999 | 2998 2998 2998 2998
+  150 | 2399 2398 2399 2399 | 2399 2399 2399 2399
+T44 partial triggers (a fraction of clients forced to LIST at t 0; LISTs in hour 8): LIST cost | fraction | idealized queue | wait limit, one queue
+  120 | 0.25 | 0 | 0
+  120 | 0.30 | 2998 | 0
+  120 | 0.40 | 2999 | 0
+  120 | 0.50 | 2999 | 2998
+  120 | 1.00 | 2999 | 2998
+  150 | 0.25 | 2399 | 0
+  150 | 0.30 | 2399 | 2399
+  150 | 0.40 | 2399 | 2399
+  150 | 0.50 | 2399 | 2399
+  150 | 1.00 | 2399 | 2399
+T45 consecutive rejections behind a re-watch answered 410 (history 300 s): closed-form least, any backoff state 4; fresh backoff, a 410 needs at least 11 and 15 always produce one | LIST cost | one queue: fewest, most | fair queuing: fewest, most
+  40 | 11, 15 | 11, 17
+  100 | 11, 132 | 11, 135
+  150 | 11, 281 | 11, 246
+T46 why the onset is sharp (wait limit, one queue, pulse trigger; attempts after the first hour): LIST cost | share of re-watch attempts rejected | share of LIST attempts rejected | p^11 | p^15, p the re-watch share, the fewest and the most rejections a fresh client can lose before a 410 | re-watches answered 410 per hour
+  100 | 0.205 | 0.876 | 0.00 | 0.00 | 385
+  110 | 0.674 | 0.929 | 0.01 | 0.00 | 1026
+  112 | 0.835 | 0.934 | 0.14 | 0.07 | 1768
+  114 | 0.946 | 0.946 | 0.54 | 0.43 | 2957
+  116 | 0.950 | 0.951 | 0.57 | 0.46 | 2913
+  120 | 0.957 | 0.957 | 0.62 | 0.52 | 2818
+  150 | 0.973 | 0.973 | 0.74 | 0.67 | 2236
+  200 | 0.983 | 0.982 | 0.83 | 0.77 | 1645
+T47 a rolling node upgrade, every node drained once in order (9 nodes; webhook on nodes 0, 3, 6, DNS on 1, 4, app on 2, 5, 8): configuration | webhook replicas after | app replicas after | drain stalled at node
+  documented practice: the webhook excludes its own namespace | 3 | 3 | -
+  availability edge: failurePolicy Fail, the webhook must be up to admit its own pods | 3 | 3 | -
+  rejection edge: the running webhook rejects its own pods, failurePolicy Fail | 0 | 2 | -
+  rejection edge, failurePolicy Ignore | 1 | 3 | -
+  rejection edge, failurePolicy Fail, disruption budget minAvailable 2 | 2 | 3 | 3
+  rejection edge, failurePolicy Fail, disruption budget minAvailable 1 | 1 | 3 | 6
+T48 the life of a webhook that rejects its own pods, node failures independent, a lost replica never replaced: replicas | node mean time between failures, days | expected life, days, closed | simulated, 20000 draws
+  1 | 30 | 30.0 | 30.1
+  2 | 30 | 45.0 | 45.3
+  3 | 30 | 55.0 | 55.6
+  5 | 30 | 68.5 | 69.1
+  1 | 90 | 90.0 | 90.3
+  2 | 90 | 135.0 | 135.8
+  3 | 90 | 165.0 | 166.9
+  5 | 90 | 205.5 | 207.4
+T49 application replicas lost to one rolling drain, over drain orders (webhook rejects its own pods, failurePolicy Fail; 3 webhook and 3 application replicas, each on its own node; 20000 random orders): replicas lost | probability, closed | share of orders
+  0 | 0.500 | 0.505
+  1 | 0.300 | 0.300
+  2 | 0.150 | 0.148
+  3 | 0.050 | 0.047
+T50 a link through a match rule, over every order (as T15; a webhook skipped in round 0 is never called later): scenario | reinvocation | passes | admitted objects | of which every matching webhook leaves unchanged
+  S5 mesh label and an injector selected by it (a match step) | Never | 1 | 2 | 1
+  S5 mesh label and an injector selected by it (a match step) | Never | 2 | 2 | 1
+  S5 mesh label and an injector selected by it (a match step) | Never | 3 | 2 | 1
+  S5 mesh label and an injector selected by it (a match step) | Never | 6 | 2 | 1
+  S5 mesh label and an injector selected by it (a match step) | IfNeeded | 1 | 2 | 1
+  S5 mesh label and an injector selected by it (a match step) | IfNeeded | 2 | 2 | 1
+  S5 mesh label and an injector selected by it (a match step) | IfNeeded | 3 | 2 | 1
+  S5 mesh label and an injector selected by it (a match step) | IfNeeded | 6 | 2 | 1
+  S6 mesh label, injector, pull policy (a match step, then a value step) | Never | 1 | 3 | 1
+  S6 mesh label, injector, pull policy (a match step, then a value step) | Never | 2 | 3 | 1
+  S6 mesh label, injector, pull policy (a match step, then a value step) | Never | 3 | 3 | 1
+  S6 mesh label, injector, pull policy (a match step, then a value step) | Never | 6 | 3 | 1
+  S6 mesh label, injector, pull policy (a match step, then a value step) | IfNeeded | 1 | 3 | 1
+  S6 mesh label, injector, pull policy (a match step, then a value step) | IfNeeded | 2 | 2 | 1
+  S6 mesh label, injector, pull policy (a match step, then a value step) | IfNeeded | 3 | 2 | 1
+  S6 mesh label, injector, pull policy (a match step, then a value step) | IfNeeded | 6 | 2 | 1
+T51 chains with value and match links, all IfNeeded, every order equally likely: links in chain order | share converged within 2 rounds, closed | enumerated | share converged at any number of rounds, closed | 1 / (m + 2)!, m the last match link
+  value, value | 0.8333 | 0.8333 | 1.0000 | 1.0000
+  match, value | 0.5000 | 0.5000 | 0.5000 | 0.5000
+  value, match | 0.1667 | 0.1667 | 0.1667 | 0.1667
+  match, match | 0.1667 | 0.1667 | 0.1667 | 0.1667
+  value, value, value | 0.5000 | 0.5000 | 1.0000 | 1.0000
+  match, value, value | 0.3750 | 0.3750 | 0.5000 | 0.5000
+  value, value, match | 0.0417 | 0.0417 | 0.0417 | 0.0417
+  match, match, match | 0.0417 | 0.0417 | 0.0417 | 0.0417
+T52 the two cluster checks under the contract (all IfNeeded, two rounds), over every order: scenario | orders | admitted object a common fixed point | final round clean | clean but not a fixed point | dirty but a fixed point | second admission clean | second admission disagrees with the fixed-point verdict
+  S1 label and sidecar (commute) | 2 | 2 | 2 | 0 | 0 | 2 | 0
+  S2 sidecar and pull policy (one enabling step) | 2 | 2 | 1 | 0 | 1 | 2 | 0
+  S3 sidecar, digest pin, signer (two enabling steps) | 6 | 5 | 1 | 0 | 4 | 5 | 0
+  S4 capability policy and mesh init (conflict) | 2 | 0 | 0 | 0 | 0 | 0 | 0
+  S5 mesh label and an injector selected by it (a match step) | 2 | 1 | 2 | 1 | 0 | 1 | 0
+  S6 mesh label, injector, pull policy (a match step, then a value step) | 6 | 3 | 4 | 3 | 2 | 3 | 0
+T53 seams of every order: k mechanisms whose every proper subset passes while the whole fails: k | signal: coupling where k symmetric loops are singular | relative gain of a pair there | of k - 1 loops there | 2 (k - 1) / k | assumption: stranded after full failure, the whole cycle of k | the worst proper subset | order: passes the spread order needs | the worst proper subset in the order it inherits
+  3 | -0.5000 | 1.3333 | 1.3333 | 1.3333 | 3 | 0 | 3 | 2
+  4 | -0.3333 | 1.1250 | 1.5000 | 1.5000 | 4 | 0 | 3 | 2
+  5 | -0.2500 | 1.0667 | 1.6000 | 1.6000 | 5 | 0 | 3 | 2
+  6 | -0.2000 | 1.0417 | 1.6667 | 1.6667 | 6 | 0 | 3 | 2
+T54 passes an order needs, one plus the most inversions along any path of facts, against simulation (150 random dependency graphs, 2 to 4 webhooks, 2 to 7 facts, every order of each; seed 7): graphs | orders | orders needing 1 pass | 2 | 3 | 4 or more | orders where the count and the simulation disagree
+  150 | 1534 | 756 | 673 | 103 | 2 | 0
+T55 the order verdict of the audited cluster under renamings of one configuration (facts: the proxy container, written by the injector; the proxy pinned, by the digest pin once the container exists; the signature over the pinned proxy, by the signer once it is pinned): configuration names | order by name | rank of the proxy pinned | rank of the signature | passes needed against 2 | admitted object
+  admission-signer, image-digest, sidecar-injector | signer, digest, sidecar | 1 | 2 | 3 | not a common fixed point
+  image-digest, sidecar-injector, signer | digest, sidecar, signer | 1 | 1 | 2 | a common fixed point
+  image-digest, sidecar-injector, zz-signer | digest, sidecar, signer | 1 | 1 | 2 | a common fixed point
+T56 the order of an interaction, counted in what the seam needs: two webhooks handing facts back and forth (A writes f1, B writes f2 from f1, A writes f3 from f2, B writes f4 from f3), all IfNeeded | passes needed in the order A, B | in the order B, A | admitted object under the contract, order B, A; and the shared state counted in informers (LIST 100 seat-s, capacity 100 seat-s/s, history 300 s, watch 300 to 600 s) | informers for a second wave | for a storm under any order of service | for a storm in the idealized queue
+  pair | 2 | 3 | not a common fixed point
+  state | 601 | 751 | 1051
+T57 how much history a watch through the watch cache has, and what the shared state does with less (as T41: 2000 informers, capacity 100 seat-s/s, watches 300 to 600 s, wait limit 15 s, Reflector backoff, one queue). Rows "rate": events per second | seconds of history the cache holds at that steady rate. Rows "history": seconds | idealized second-wave list cost | storm list cost under any order of service | rejections a 410 needs, any backoff state | least list cost at which a sudden trigger sustains a storm (LISTs in hour 8 above 0; one below has none) | of the trigger spreads 0, 450, 900, 1800 s, how many sustain it there | LISTs in hour 8 at the specimen list cost 100
+  rate 0.1 | 990.0
+  rate 0.5 | 198.0
+  rate 1 | 99.0
+  rate 3 | 133.0
+  rate 10 | 79.9
+  rate 50 | 128.0
+  rate 300 | 85.3
+  rate 1000 | 102.4
+  rate 5000 | 20.5
+  history 300 | 30.00 | 37.50 | 4 | 113 | 3 | 0
+  history 150 | 22.50 | 30.00 | 2 | 79 | 3 | 3598
+  history 75 | 18.75 | 26.25 | 1 | 66 | 3 | 3598
+T58 where the scheduler puts replacements during a rolling drain (as T49: webhook rejects its own pods, failurePolicy Fail; webhook on nodes 0, 3, 6, DNS on 1, 4, app on 2, 5, 8; 20000 random drain orders, seed 1): placement | app replicas lost 0 | 1 | 2 | 3 (share of orders) | mean lost | mean evictions per drain
+  out of reach of later drains (T49) | 0.503 | 0.301 | 0.150 | 0.046 | 0.739 | 8.00
+  spread, the scheduler default (LeastAllocated) | 0.464 | 0.305 | 0.169 | 0.062 | 0.831 | 8.60
+  packed (MostAllocated) | 0.374 | 0.000 | 0.000 | 0.626 | 1.877 | 15.84
+  spread, with one empty surge node never drained | 0.464 | 0.305 | 0.169 | 0.062 | 0.831 | 8.60
+  packed, with one empty surge node never drained | 0.374 | 0.000 | 0.000 | 0.626 | 1.877 | 15.84
+T59 the documented remedy for a stuck eviction applied to the drain of T47 (rejection edge, failurePolicy Fail, nodes drained in order 0 to 8): disruption budget | stalls at node without the remedy | nodes where the operator deletes the pod directly | webhook replicas after | app replicas after
+  minAvailable 2 | 3 | 3, 6 | 0 | 2
+  minAvailable 1 | 6 | 6 | 0 | 2
+  no budget | - | - | 0 | 2
+T60 a full restart through two documented backoffs (DNS ready at the time given; the webhook needs DNS and crashes until it answers, first start 30 s, crash after 5 s, kubelet restarts after 10, 20, 40 s capped at 300 s, ready 10 s after a good start; the application needs the webhook to admit its pods, failurePolicy Fail, its ReplicaSet retrying on the workqueue backoff 5 ms doubling capped at 1000 s; its pod ready 90 s after admission; DNS ready every 15 s from 30 to 1200): DNS ready s | webhook ready, instant retries | with the backoff | application ready, instant retries | with both backoffs | ratio
+  30 | 40.0 | 40.0 | 130.0 | 131.0 | 1.01
+  45 | 55.0 | 55.0 | 145.0 | 171.9 | 1.19
+  60 | 70.0 | 80.0 | 160.0 | 171.9 | 1.07
+  75 | 85.0 | 125.0 | 175.0 | 253.8 | 1.45
+  90 | 100.0 | 125.0 | 190.0 | 253.8 | 1.34
+  105 | 115.0 | 125.0 | 205.0 | 253.8 | 1.24
+  120 | 130.0 | 210.0 | 220.0 | 417.7 | 1.90
+  135 | 145.0 | 210.0 | 235.0 | 417.7 | 1.78
+  150 | 160.0 | 210.0 | 250.0 | 417.7 | 1.67
+  165 | 175.0 | 210.0 | 265.0 | 417.7 | 1.58
+  180 | 190.0 | 210.0 | 280.0 | 417.7 | 1.49
+  195 | 205.0 | 210.0 | 295.0 | 417.7 | 1.42
+  210 | 220.0 | 375.0 | 310.0 | 745.4 | 2.40
+  225 | 235.0 | 375.0 | 325.0 | 745.4 | 2.29
+  240 | 250.0 | 375.0 | 340.0 | 745.4 | 2.19
+  255 | 265.0 | 375.0 | 355.0 | 745.4 | 2.10
+  270 | 280.0 | 375.0 | 370.0 | 745.4 | 2.01
+  285 | 295.0 | 375.0 | 385.0 | 745.4 | 1.94
+  300 | 310.0 | 375.0 | 400.0 | 745.4 | 1.86
+  315 | 325.0 | 375.0 | 415.0 | 745.4 | 1.80
+  330 | 340.0 | 375.0 | 430.0 | 745.4 | 1.73
+  345 | 355.0 | 375.0 | 445.0 | 745.4 | 1.67
+  360 | 370.0 | 375.0 | 460.0 | 745.4 | 1.62
+  375 | 385.0 | 680.0 | 475.0 | 1400.7 | 2.95
+  390 | 400.0 | 680.0 | 490.0 | 1400.7 | 2.86
+  405 | 415.0 | 680.0 | 505.0 | 1400.7 | 2.77
+  420 | 430.0 | 680.0 | 520.0 | 1400.7 | 2.69
+  435 | 445.0 | 680.0 | 535.0 | 1400.7 | 2.62
+  450 | 460.0 | 680.0 | 550.0 | 1400.7 | 2.55
+  465 | 475.0 | 680.0 | 565.0 | 1400.7 | 2.48
+  480 | 490.0 | 680.0 | 580.0 | 1400.7 | 2.42
+  495 | 505.0 | 680.0 | 595.0 | 1400.7 | 2.35
+  510 | 520.0 | 680.0 | 610.0 | 1400.7 | 2.30
+  525 | 535.0 | 680.0 | 625.0 | 1400.7 | 2.24
+  540 | 550.0 | 680.0 | 640.0 | 1400.7 | 2.19
+  555 | 565.0 | 680.0 | 655.0 | 1400.7 | 2.14
+  570 | 580.0 | 680.0 | 670.0 | 1400.7 | 2.09
+  585 | 595.0 | 680.0 | 685.0 | 1400.7 | 2.04
+  600 | 610.0 | 680.0 | 700.0 | 1400.7 | 2.00
+  615 | 625.0 | 680.0 | 715.0 | 1400.7 | 1.96
+  630 | 640.0 | 680.0 | 730.0 | 1400.7 | 1.92
+  645 | 655.0 | 680.0 | 745.0 | 1400.7 | 1.88
+  660 | 670.0 | 680.0 | 760.0 | 1400.7 | 1.84
+  675 | 685.0 | 985.0 | 775.0 | 1400.7 | 1.81
+  690 | 700.0 | 985.0 | 790.0 | 1400.7 | 1.77
+  705 | 715.0 | 985.0 | 805.0 | 1400.7 | 1.74
+  720 | 730.0 | 985.0 | 820.0 | 1400.7 | 1.71
+  735 | 745.0 | 985.0 | 835.0 | 1400.7 | 1.68
+  750 | 760.0 | 985.0 | 850.0 | 1400.7 | 1.65
+  765 | 775.0 | 985.0 | 865.0 | 1400.7 | 1.62
+  780 | 790.0 | 985.0 | 880.0 | 1400.7 | 1.59
+  795 | 805.0 | 985.0 | 895.0 | 1400.7 | 1.57
+  810 | 820.0 | 985.0 | 910.0 | 1400.7 | 1.54
+  825 | 835.0 | 985.0 | 925.0 | 1400.7 | 1.51
+  840 | 850.0 | 985.0 | 940.0 | 1400.7 | 1.49
+  855 | 865.0 | 985.0 | 955.0 | 1400.7 | 1.47
+  870 | 880.0 | 985.0 | 970.0 | 1400.7 | 1.44
+  885 | 895.0 | 985.0 | 985.0 | 1400.7 | 1.42
+  900 | 910.0 | 985.0 | 1000.0 | 1400.7 | 1.40
+  915 | 925.0 | 985.0 | 1015.0 | 1400.7 | 1.38
+  930 | 940.0 | 985.0 | 1030.0 | 1400.7 | 1.36
+  945 | 955.0 | 985.0 | 1045.0 | 1400.7 | 1.34
+  960 | 970.0 | 985.0 | 1060.0 | 1400.7 | 1.32
+  975 | 985.0 | 985.0 | 1075.0 | 1400.7 | 1.30
+  990 | 1000.0 | 1290.0 | 1090.0 | 1400.7 | 1.29
+  1005 | 1015.0 | 1290.0 | 1105.0 | 1400.7 | 1.27
+  1020 | 1030.0 | 1290.0 | 1120.0 | 1400.7 | 1.25
+  1035 | 1045.0 | 1290.0 | 1135.0 | 1400.7 | 1.23
+  1050 | 1060.0 | 1290.0 | 1150.0 | 1400.7 | 1.22
+  1065 | 1075.0 | 1290.0 | 1165.0 | 1400.7 | 1.20
+  1080 | 1090.0 | 1290.0 | 1180.0 | 1400.7 | 1.19
+  1095 | 1105.0 | 1290.0 | 1195.0 | 1400.7 | 1.17
+  1110 | 1120.0 | 1290.0 | 1210.0 | 1400.7 | 1.16
+  1125 | 1135.0 | 1290.0 | 1225.0 | 1400.7 | 1.14
+  1140 | 1150.0 | 1290.0 | 1240.0 | 1400.7 | 1.13
+  1155 | 1165.0 | 1290.0 | 1255.0 | 1400.7 | 1.12
+  1170 | 1180.0 | 1290.0 | 1270.0 | 1400.7 | 1.10
+  1185 | 1195.0 | 1290.0 | 1285.0 | 1400.7 | 1.09
+  1200 | 1210.0 | 1290.0 | 1300.0 | 1400.7 | 1.08
+T61 how long until a webhook that must admit its own replacements binds, node failures independent (a lost replica is down for the 300 s toleration plus a 90 s restart, 390 s, then returns on another node if any replica is up): replicas | node mean time between failures, days | mean time to bind, days, leading term 1 / (Z lam (lam w)^(Z - 1)) | in years. Rows "check": the same at accelerated rates (node mean 30, window in the units given), leading term against 4000 seeded simulations
+  1 | 30 | 30 | 0.08214
+  1 | 90 | 90 | 0.2464
+  2 | 30 | 9.969e+04 | 272.9
+  2 | 90 | 8.972e+05 | 2456
+  3 | 30 | 4.417e+08 | 1.209e+06
+  3 | 90 | 1.193e+10 | 3.265e+07
+  check 2 | window 1 | 450.0 | 502.7
+  check 2 | window 0.3 | 1500.0 | 1528.5
+  check 3 | window 1 | 9000.0 | 9924.0
+  check 3 | window 2 | 2250.0 | 2823.2
+T62 a validating webhook with failurePolicy Fail that matches Lease updates, failing each call with probability q (kubelet renews every 10 s, retries from 0.2 s doubling to 7 s; a node is Unknown after 50 s without a renewal; its pods are evicted after 300 s Unknown; 100 nodes in one zone; 200 simulated hours per node): q | renewal attempts before a node turns Unknown | share of time a node is Unknown | Unknown spells of 300 s or more per node-hour | node controller regime | nodes evicted per hour, at most
+  0.50 | 10 | 0.0006 | 0.000 | normal: 0.1 nodes per second | 0.0
+  0.70 | 10 | 0.0332 | 0.000 | normal: 0.1 nodes per second | 0.0
+  0.80 | 10 | 0.1388 | 0.000 | normal: 0.1 nodes per second | 0.0
+  0.90 | 10 | 0.4298 | 0.275 | normal: 0.1 nodes per second | 27.5
+  0.95 | 10 | 0.6764 | 1.910 | reduced: 0.01 nodes per second | 36.0
+  0.99 | 10 | 0.9286 | 3.260 | reduced: 0.01 nodes per second | 36.0
+  1.00 | 10 | 1.0000 | 0.005 | every node unhealthy: no evictions | 0.0
+T63 a webhook that rejects its own pods rolls out a new version of itself under the Deployment defaults (maxUnavailable 25% rounded down, maxSurge 25% rounded up): replicas | left running when the rollout stalls | lost for good | new pods the controller asks for, all rejected | expected life before, days, node failures every 30 days | after
+  2 | 2 | 0 | 1 | 45.0 | 45.0
+  3 | 3 | 0 | 1 | 55.0 | 55.0
+  4 | 3 | 1 | 2 | 62.5 | 55.0
+  5 | 4 | 1 | 3 | 68.5 | 62.5
+  6 | 5 | 1 | 3 | 73.5 | 68.5
+  8 | 6 | 2 | 4 | 81.5 | 73.5
+  10 | 8 | 2 | 5 | 87.9 | 81.5
+T64 webhooks with failurePolicy Fail that each exclude their own namespace, as Kyverno and Gatekeeper do by default; a webhook matches another's pods with probability p (1: rules over every namespace). Rows: webhooks k | p | share of clusters with a start-time cycle | stranded after a full restart, mean | fewest exclusions that leave no cycle (minimum feedback arc set), mean | fewest webhooks switched to Ignore (minimum feedback vertex set), mean; 2000 random clusters per row where p < 1, seed 1
+  2 | 1.00 | 1.000 | 2.00 | 1.00 | 1.00
+  2 | 0.50 | 0.233 | 0.47 | 0.23 | 0.23
+  2 | 0.25 | 0.070 | 0.14 | 0.07 | 0.07
+  3 | 1.00 | 1.000 | 3.00 | 3.00 | 2.00
+  3 | 0.50 | 0.609 | 1.64 | 0.77 | 0.62
+  3 | 0.25 | 0.182 | 0.45 | 0.19 | 0.18
+  4 | 1.00 | 1.000 | 4.00 | 6.00 | 3.00
+  4 | 0.50 | 0.869 | 3.13 | 1.63 | 1.09
+  4 | 0.25 | 0.360 | 1.08 | 0.42 | 0.37
+  5 | 1.00 | 1.000 | 5.00 | 10.00 | 4.00
+  5 | 0.50 | 0.978 | 4.56 | 2.80 | 1.65
+  5 | 0.25 | 0.557 | 2.08 | 0.76 | 0.62
+T65 a paginated list in a saturated queue (each page waits the full 15 s wait limit, the best case; the pager's default page size 500): seconds of history | pages served before the first page's resourceVersion leaves the history | objects they hold
+  300 | 20 | 10000
+  150 | 10 | 5000
+  75 | 5 | 2500
+T66 how long a storm lasts near its onset (as T41: wait limit, one queue, sudden trigger forcing every informer to list; 72 simulated hours, seeds 1 to 10): LIST cost | storms still running in hour 8 | storms that end within 72 hours | hours at which they end (first hour with no list) | storms still running in hour 72
+  113 | 8 | 10 | 7 8 9 9 9 11 11 11 20 23 | 0
+  114 | 10 | 6 | 11 13 32 45 54 56 | 4
+  115 | 10 | 0 | - | 10
+T67 the storm onset when the informers' priority level gets a share of the server (as T41: 2000 informers, wait limit, one queue, sudden trigger; capacity 100 seat-s/s in all): share of capacity | seat-s/s | least list cost at which a storm is still running in hour 8 (one below has none) | backlog at that cost, s
+  1.00 | 100 | 113 | 2260
+  0.50 | 50 | 56 | 2240
+  0.25 | 25 | 29 | 2320
+T68 informers of mixed sizes with the same total forced work as the specimen (1900 small and 100 large, each large list a fixed multiple of a small one; wait limit, sudden trigger, capacity 100 seat-s/s): size ratio | queue | onset as the uniform list cost of the same total work (storm still running in hour 8; one below has none) | seconds one large list holds the server at the onset | re-watches answered 410 per small informer | per large informer
+  20 | one queue | 113 | 11.6 | 11.87 | 11.82
+  20 | fair queuing | 112 | 11.5 | 11.88 | 12.12
+  100 | one queue | 116 | 19.5 | 11.87 | 11.64
+  100 | fair queuing | 123 | 20.7 | 10.61 | 10.98
+T69 how long the second wave lasts below the storm (as T41: wait limit, one queue, sudden trigger; 8 hours): LIST cost | re-watches answered 410 | minutes until the last 410 | LISTs in hours 1, 2, 3 | minutes until the last 410 times the square root of (113 - LIST cost), 113 the onset of T57
+  40 | 15 | 13.3 | 2015 0 0 | 114
+  50 | 136 | 17.9 | 2136 0 0 | 142
+  70 | 576 | 30.4 | 2576 0 0 | 199
+  90 | 1747 | 56.1 | 3747 0 0 | 269
+  100 | 3078 | 84.7 | 3592 1486 0 | 306
+  110 | 8208 | 187.6 | 3265 3270 3269 | 325
+  112 | 14146 | 302.1 | 3208 3211 3212 | 302
+T70 re-watches with no bookmarks and no trigger (a selector seeing Poisson events; watches of 300 to 600 s; the specimen's 2000 informers, LIST 100 seat-s, capacity 100 seat-s/s, mean watch 450 s): history s | matching events per hour | share of re-watches answered 410, exp(-lam T_h) | simulated, 20000 watches | steady list load as a share of capacity. Last rows: history s | events per hour below which the steady load exceeds capacity
+  300 | 0 | 1.000 | 1.000 | 4.444
+  300 | 1 | 0.920 | 0.921 | 4.089
+  300 | 6 | 0.607 | 0.608 | 2.696
+  300 | 12 | 0.368 | 0.373 | 1.635
+  300 | 18 | 0.223 | 0.224 | 0.992
+  300 | 30 | 0.082 | 0.085 | 0.365
+  300 | 60 | 0.007 | 0.007 | 0.030
+  150 | 0 | 1.000 | - | 4.444
+  150 | 1 | 0.959 | - | 4.263
+  150 | 6 | 0.779 | - | 3.461
+  150 | 12 | 0.607 | - | 2.696
+  150 | 18 | 0.472 | - | 2.099
+  150 | 30 | 0.287 | - | 1.273
+  150 | 60 | 0.082 | - | 0.365
+  critical 300 | 17.9
+  critical 150 | 35.8
+T71 two injectors at their chart defaults (Istio sidecar injector, reinvocationPolicy Never; Vault agent injector, no reinvocationPolicy, so Never): Vault release name | configuration names in the order the API server calls them | passes Istio needs to see Vault's agent container | under Never (one call each) | with Istio set to IfNeeded (the contract's two passes)
+  vault | istio-sidecar-injector, vault-agent-injector-cfg | 2 | not seen | seen
+  hashicorp-vault | hashicorp-vault-agent-injector-cfg, istio-sidecar-injector | 1 | seen | seen
+T72 a mutating admission policy and a webhook with a value link between them, in the order the current API server runs one pass (built-in plugins, then policies, then webhooks): link | order of the pass | passes needed | under Never | with the later one IfNeeded | worst case the contract allows (no order promised)
+  the policy writes, the webhook reads | policy, injector | 1 | converges | converges | 2 passes
+  the webhook writes, the policy reads | policy, injector | 2 | does not converge | converges | 2 passes
+T73 how often a failure is one no pair shows. Rows "signal": loops | couplings drawn uniform in [-c, c], unit diagonal, 20000 draws, seed 3 | c | share of systems in which some loop's relative gain is negative | of those, share in which some pair's relative gain is negative | share in which every pair reads below 2. Rows "assumption": components | each needs another with probability p, none matches its own pods, 20000 draws, seed 3 | p | share of graphs a full failure strands | of those, share with no pair that needs each other. Rows "order": webhooks | random fact graphs as T54 (n to 8 facts, prerequisite probability 0.35, 3000 graphs, seed 7), every order | orders needing more than the contract's 2 passes | of those, share in which every pair, in the order it inherits, needs at most 2 | share in which every proper subset does
+  signal | 3 | 0.80 | 0.0086 | 0.0000 | 0.6532
+  signal | 3 | 0.95 | 0.0323 | 0.0000 | 0.2523
+  signal | 4 | 0.80 | 0.0503 | 0.0000 | 0.7068
+  signal | 4 | 0.95 | 0.1507 | 0.0000 | 0.2618
+  signal | 5 | 0.80 | 0.1459 | 0.0000 | 0.7032
+  signal | 5 | 0.95 | 0.3156 | 0.0000 | 0.2709
+  assumption | 3 | 0.20 | 0.1224 | 0.0703
+  assumption | 3 | 0.35 | 0.3471 | 0.0640
+  assumption | 4 | 0.20 | 0.2500 | 0.1176
+  assumption | 4 | 0.35 | 0.6005 | 0.0993
+  assumption | 5 | 0.20 | 0.3899 | 0.1580
+  assumption | 5 | 0.35 | 0.8092 | 0.0972
+  assumption | 6 | 0.20 | 0.5551 | 0.1792
+  assumption | 6 | 0.35 | 0.9294 | 0.0763
+  order | 3 | 2091 | 0.8637 | 0.8637
+  order | 4 | 14040 | 0.9470 | 0.2848
+  order | 5 | 96191 | 0.9788 | 0.0629
+T74 fixing one seam through a parameter another seam shares: the specimens of Parts 1 and 2 (HPA and VPA on one deployment, 16 pods, 30x surge, limit = request, 8 pods per node, pod 90 s, node 210 s, no headroom) | fix of the signal seam | HPA target | HPA metric | relative gain of the HPA loop | rests (rest band at steady load) | rounds a saturated metric needs | seconds until capacity meets the surge, simulated | closed form, every round waiting | with ample nodes
+  none | 0.50 | CPU utilization | singular | no | 4 | 1200 | 1200 | 360
+  target into the band | 0.80 | CPU utilization | singular | yes | 15 | 4200 | 4500 | 1350
+  target into the band | 0.90 | CPU utilization | singular | yes | 32 | 7950 | 9600 | 2700
+  metric to load | 0.50 | requests per second per pod, measured on arrival | 1 | yes | 1 | 350 | 300 | 135
+T75 the default priority levels, which keep node heartbeats apart from kubelet lists (apiserver apis/flowcontrol/bootstrap/default.go: nominal concurrency shares system 30, node-high 40, leader-election 10, workload-high 40, workload-low 100, global-default 20, catch-all 5; lists by nodes go to system, their Lease updates to node-high), and the storm onset of T41 in each (2000 informers, the server 100 seat-s/s in all, wait limit, sudden trigger, no borrowing) | level that carries the kubelets' lists | its share of the shares | seat-s/s | least list cost at which a storm is still running in hour 8 (one below has none) | backlog there, s
+  the whole server | 245/245 | 100.00 | 113 | 2260
+  system, as configured | 30/245 | 12.24 | 14 | 2287
+  system and node-high merged | 70/245 | 28.57 | 33 | 2310
+T76 built-in mutating plugins in the chain: the API server runs them before every webhook in each pass, and runs a second pass whenever a webhook changed the object. Row "injector": webhooks | built-in | passes | the injected container's pull policy. Rows "chain": webhooks in a chain of value links that ends in a built-in | share of the webhooks' orders that converge within 2 passes (built-in first, Proposition 37) | 1/n! | share for a chain of the same length made of webhooks only, (2^m - m)/m!. Row "match": label webhook, injector selected by the label, AlwaysPullImages | orders converging within 2 passes, of 2
+  injector | sidecar injector | AlwaysPullImages as pull_policy | 1 | None
+  injector | sidecar injector | AlwaysPullImages as pull_policy | 2 | Always
+  chain | 1 | 1.0000 | 1.0000 | 1.0000
+  chain | 2 | 0.5000 | 0.5000 | 0.8333
+  chain | 3 | 0.1667 | 0.1667 | 0.5000
+  chain | 4 | 0.0417 | 0.0417 | 0.2250
+  match | 1
+T77 a digest pin that reads the registry, applied to each Pod at creation: replicas | days between node failures per node (pods replaced at replicas / that rate) | days between tag moves | mean days until the ReplicaSet runs two images | probability it does within 30 days | within 90 days. Pinned once in the pod template, it runs one image until the next rollout
+  3 | 30 | 1 | 11.0 | 0.945 | 1.000
+  3 | 30 | 7 | 17.0 | 0.866 | 1.000
+  3 | 30 | 30 | 40.0 | 0.473 | 0.925
+  3 | 30 | 90 | 100.0 | 0.200 | 0.586
+  10 | 30 | 1 | 4.0 | 1.000 | 1.000
+  10 | 30 | 7 | 10.0 | 0.976 | 1.000
+  10 | 30 | 30 | 33.0 | 0.591 | 0.945
+  10 | 30 | 90 | 93.0 | 0.259 | 0.619
+T78 a scale-up tolerance per direction (HPAConfigurableTolerance, GA in Kubernetes 1.37) on the drifting pairing, margin 0.15, scale-down tolerance 0.1, steady load: target | scale-up tolerance that stops the staircase, step factor - 1 | the same with the histogram's 5% buckets, step factor / 1.05 - 1 | lowest simulated tolerance, in steps of 0.01, at which replicas stay below 1.5 x the start over 60 days | utilisation at which the horizontal loop then first scales up, target x (1 + tolerance) | low edge of the band at that tolerance
+  0.5 | 0.739 | 0.656 | 0.74 | 0.870 | 0.500
+  0.6 | 0.449 | 0.380 | 0.45 | 0.870 | 0.600
+  0.7 | 0.242 | 0.183 | 0.22 | 0.870 | 0.700
+T79 a capacity buffer sized as a percentage of current replicas (Cluster Autoscaler CapacityBuffer API, beta since 1.35, field percentage, rounded up), specimen 16 pods, 8 to a node, 50% target, 30x surge, 90 s pod and 210 s node: percentage | slots held at rest | seconds until capacity meets the surge | seconds with the same slots held as static headroom | slots the buffer asks for at the surge's final size, 240 pods. No buffer: 1200 s; ample nodes: 360 s
+  10 | 2 | 990 | 1200 | 24
+  25 | 4 | 900 | 1200 | 60
+  50 | 8 | 900 | 1200 | 120
+  100 | 16 | 600 | 990 | 240
+  200 | 32 | 480 | 990 | 480
+  400 | 64 | 390 | 780 | 960
+  800 | 128 | 360 | 570 | 1920
+T80 the cold start of T60 with the kubelet restart delay reconfigured (KubeletCrashLoopBackOffMax, beta and on by default since Kubernetes 1.35, a per-node maxContainerRestartPeriod of 1 s to 300 s; ReduceDefaultCrashLoopBackOffDecay, alpha, 1 s doubling to 60 s), DNS ready every 15 s from 30 to 1200: setting | first delay s | cap s | worst application ratio to instant retries | mean ratio | worst webhook lateness after a good start was possible, s | DNS times, of 79, at which the webhook is ready later than with the default
+  default | 10 | 300 | 2.95 | 1.706 | 300 | 0
+  max 120 | 10 | 120 | 2.40 | 1.501 | 120 | 11
+  max 60 | 10 | 60 | 1.90 | 1.372 | 60 | 8
+  max 30 | 10 | 30 | 1.88 | 1.343 | 30 | 5
+  reduced decay | 1 | 60 | 2.10 | 1.406 | 63 | 10
+T81 Part 1's two fixes on Part 2's nested surge (specimen: 8 pods to a node, 90 s pod and 210 s node, a surge to 30 times the demand the pair rests at): fix | horizontal target | scale-up tolerance | resting utilization | starting pods | seconds until capacity meets the surge | with ample nodes
+  none, drifting | 0.5 | 0.1 | 0.500 | 16 | 1200 | 360
+  target moved | 0.87 | 0.1 | 0.870 | 16 | 6180 | 2070
+  scale-up tolerance | 0.5 | 0.74 | 0.870 | 16 | 1500 | 450
+  scale-up tolerance | 0.5 | 0.74 | 0.870 | 9 | 1290 | 450
+T82 a chain of value links with a member whose configuration keeps the default reinvocationPolicy Never (Istio, Linkerd, Vault and Gatekeeper ship it), every other member IfNeeded, two passes, every order equally likely: members | position of the last Never member, the first counted as 0 | share of orders that converge, closed form [1 + sum over k from eta+1 to n-1 of (C(n,k) - 1)] / n! | enumerated over every order (to 5 members) | 1 / (eta + 1)!, the share of Proposition 30 with passes enough
+  2 | 0 | 1.0000 | 1.0000 | 1.0000
+  2 | 1 | 0.5000 | 0.5000 | 0.5000
+  3 | 0 | 0.8333 | 0.8333 | 1.0000
+  3 | 1 | 0.5000 | 0.5000 | 0.5000
+  3 | 2 | 0.1667 | 0.1667 | 0.1667
+  4 | 0 | 0.5000 | 0.5000 | 1.0000
+  4 | 1 | 0.3750 | 0.3750 | 0.5000
+  4 | 2 | 0.1667 | 0.1667 | 0.1667
+  4 | 3 | 0.0417 | 0.0417 | 0.0417
+  5 | 0 | 0.2250 | 0.2250 | 1.0000
+  5 | 1 | 0.1917 | 0.1917 | 0.5000
+  5 | 2 | 0.1167 | 0.1167 | 0.1667
+  5 | 3 | 0.0417 | 0.0417 | 0.0417
+  5 | 4 | 0.0083 | 0.0083 | 0.0083
+  6 | 0 | 0.0806 | - | 1.0000
+  6 | 1 | 0.0736 | - | 0.5000
+  6 | 2 | 0.0542 | - | 0.1667
+  6 | 3 | 0.0278 | - | 0.0417
+  6 | 4 | 0.0083 | - | 0.0083
+  6 | 5 | 0.0014 | - | 0.0014
+T83 a conflict: webhooks that each set one field to a value of their own, two passes, every order: policies of the writers | the writer whose value is admitted, as a share of orders | the last writer in the order, as a share of orders it is admitted in
+  IfNeeded + IfNeeded | w0 IfNeeded 0.500, w1 IfNeeded 0.500 | 1.000
+  Never + Never | w0 Never 0.500, w1 Never 0.500 | 1.000
+  IfNeeded + Never | w0 IfNeeded 1.000, w1 Never 0.000 | 0.500
+  IfNeeded + IfNeeded + IfNeeded | w0 IfNeeded 0.333, w1 IfNeeded 0.333, w2 IfNeeded 0.333 | 1.000
+  IfNeeded + Never + Never | w0 IfNeeded 1.000, w1 Never 0.000, w2 Never 0.000 | 0.333
+  IfNeeded + IfNeeded + Never | w0 IfNeeded 0.500, w1 IfNeeded 0.500, w2 Never 0.000 | 0.667
+T84 the patch trail (Request audit level) over every order of each scenario, two passes, every webhook IfNeeded: scenario | orders | orders admitting a common fixed point | orders with a contested field | orders with late input | orders with neither that do not admit a common fixed point
+  label + injector | 2 | 2 | 0 | 0 | 0
+  injector + pull policy | 2 | 2 | 0 | 1 | 0
+  injector + digest + signer | 6 | 5 | 0 | 5 | 0
+  capability policy + mesh init | 2 | 0 | 2 | 0 | 0
+  label webhook + labeled injector | 2 | 1 | 0 | 0 | 1
+  label + labeled injector + pull policy | 6 | 3 | 0 | 2 | 3
+T85 the survey's mix: each member of a value chain after the first keeps reinvocationPolicy Never with probability q, two passes, every order equally likely: members | share of orders that converge with every member IfNeeded | expected share at q = 10/13, the share of the thirteen surveyed projects that keep Never | expected share at q = 1/2 | share with every member after the first Never
+  2 | 1.0000 | 0.6154 | 0.7500 | 0.5000
+  3 | 0.8333 | 0.2613 | 0.4167 | 0.1667
+  4 | 0.5000 | 0.0831 | 0.1719 | 0.0417
+  5 | 0.2250 | 0.0210 | 0.0552 | 0.0083
+  6 | 0.0806 | 0.0044 | 0.0145 | 0.0014
+T86 prices in seats on a server of 600 seats, the default --max-requests-inflight 400 plus --max-mutating-requests-inflight 200, the default priority levels, and SizeBasedListCostEstimate: level | nominal concurrency limit, seats | most seats one request may take
+  system | 74 | 12
+  node-high | 98 | 15
+  leader-election | 25 | 4
+  workload-high | 98 | 15
+  workload-low | 245 | 37
+  global-default | 49 | 8
+  seats charged a list served from the watch cache, any collection of 1 MB or more: 10; the same list from storage, 150,000 objects of 20 kB, at workload-low: 37
+  execution time per list, s, at which a full trigger reaches a backlog of 750 s (Proposition 21 with the specimen's watches and five minutes of history) | and 2,260 s (the onset the specimen's simulation found with the whole server): clients | level | informers
+  kubelets | system | 1000 | 5.55 | 16.72
+  kubelets | system | 5000 | 1.11 | 3.34
+  kubelets | system | 15000 | 0.37 | 1.11
+  a DaemonSet that watches all pods | workload-low | 1000 | 18.38 | 55.37
+  a DaemonSet that watches all pods | workload-low | 5000 | 3.67 | 11.07
+  a DaemonSet that watches all pods | workload-low | 15000 | 1.23 | 3.69
+T87 partial and rolling triggers, the specimen with the wait limit, a storm counted when hour 8 runs at least 90% of capacity on LISTs, four seeds, list costs 100 to 158 in steps of 2 and 160 to 400 in steps of 5. Rows "share": one sudden wave forcing that share of the informers | list cost at which some seed storms | at which every seed storms | the forced share's own backlog at those costs, share x 20 x cost, s. Rows "rolling": three waves of a third each, the second and third that many seconds after the first (a rolling restart of three API servers whose informers resume against the restarted server) | the two onsets
+  share | 0.111 | 305 | 350 | 678 | 778
+  share | 0.167 | 230 | 255 | 767 | 850
+  share | 0.250 | 165 | 175 | 825 | 875
+  share | 0.333 | 132 | 142 | 880 | 947
+  share | 0.500 | 114 | 116 | 1140 | 1160
+  share | 1.000 | 114 | 114 | 2280 | 2280
+  rolling | 60 | 114 | 114
+  rolling | 300 | 114 | 114
+  rolling | 600 | 114 | 114
+  rolling | 1800 | 130 | 134
+T88 the audited order seam under the reinvocation policies the survey found (Part 5): the injector, digest pin and signer of T18, two passes. Rows "audit": injector | pin | signer policies | admitted object at the names admission-signer, signer, zz-signer, which sort the webhooks signer/digest/sidecar, digest/sidecar/signer, digest/sidecar/signer
+  audit | IfNeeded | IfNeeded | IfNeeded | not fixed | fixed point | fixed point
+  audit | IfNeeded | IfNeeded | Never | not fixed | not fixed | not fixed
+  audit | Never | IfNeeded | IfNeeded | not fixed | fixed point | fixed point
+  audit | Never | IfNeeded | Never | not fixed | not fixed | not fixed
+  audit | IfNeeded | Never | IfNeeded | not fixed | not fixed | not fixed
+  audit | IfNeeded | Never | Never | not fixed | not fixed | not fixed
+  audit | Never | Never | IfNeeded | not fixed | not fixed | not fixed
+  audit | Never | Never | Never | not fixed | not fixed | not fixed
+  Rows "prevalence": webhooks | random fact graphs as T73 (n to 8 facts, prerequisite probability 0.35, 1000 graphs, seed 7), every order, each webhook keeping Never with probability q (seed 11), admission simulated over two passes | q | failing (graph, order) cases | of those, share in which every pair, in the order and with the policies it inherits, admits a common fixed point
+  prevalence | 3 | 0.0000 | 675 | 0.8311
+  prevalence | 3 | 0.7692 | 3637 | 0.2117
+  prevalence | 4 | 0.0000 | 4587 | 0.9503
+  prevalence | 4 | 0.7692 | 17209 | 0.3139
+T89 the start-time graph of the surveyed projects at their shipped defaults, each in its own namespace (the AWS Load Balancer Controller and the vertical autoscaler in kube-system, as their installation guides place them), Kyverno with a policy on Pods; a full restart fails every node: variant | start-time cycles | components still down after the restart, of 15
+  defaults | consul, kyverno | 12 of 15: azure-workload-identity, cert-manager, consul, dapr, eks-pod-identity-webhook, gatekeeper, istio, kuma, kyverno, linkerd, opentelemetry-operator, vault
+  without Consul | none | 0 of 14: -
+  without Kyverno | none | 0 of 14: -
+  Consul excluding the kyverno namespace | none | 0 of 15: -
+  Kyverno with forceFailurePolicyIgnore | none | 0 of 15: -
+T90 the paired loops over the tail weight of per-pod usage: each pod's samples are the mean times a lognormal factor of mean one and shape sigma, the horizontal loop holds the mean, the vertical loop sizes from the 90th percentile; margin 0.15, tolerance 0.1. Rows "edges": target | sigma at which the regime changes, closed form. Rows "regime": target | sigma | q = exp(1.2816 sigma - sigma^2/2) | regime by the band | replicas after 30 days from 10, simulated (seed 1, 20 samples a minute, request floor lowered to 1e-6 cores). Rows "floor": sigma | replicas after 60 days at the documented floor of 25 millicores. Rows "pareto": tail index | q for a Pareto factor of mean one | regime at target 0.5
+  edges | 0.5 | 0.4294, 0.7116, 1.8515, 2.1337
+  edges | 0.6 | 0.2371, 0.4512, 2.1119, 2.3260
+  edges | 0.7 | 0.0987, 0.2826, 2.2805, 2.4644
+  regime | 0.5 | 0.00 | 1.0000 | drift up | 6680
+  regime | 0.5 | 0.30 | 1.4042 | drift up | 295
+  regime | 0.5 | 0.55 | 1.7395 | rest | 10
+  regime | 0.5 | 0.70 | 1.9195 | rest | 7
+  regime | 0.5 | 0.90 | 2.1136 | drift down | 5
+  regime | 0.5 | 1.20 | 2.2657 | drift down | 3
+  regime | 0.5 | 1.60 | 2.1608 | drift down | 3
+  regime | 0.5 | 2.00 | 1.7561 | rest | 10
+  regime | 0.5 | 2.40 | 1.2162 | drift up | 36845
+  floor | 0.0 | 8000
+  floor | 2.4 | 7733
+  pareto | 1.2 | 1.1355 | drift up
+  pareto | 1.5 | 1.5472 | drift up
+  pareto | 2.0 | 1.5811 | rest
+  pareto | 3.0 | 1.4363 | drift up
+  pareto | 5.0 | 1.2679 | drift up
+T91 an autonomic supervisor on the paired loops: every T hours it estimates q as the vertical loop's histogram percentile over its mean and sets the margin to max(0, 1 / (0.5 q) - 1); target 0.5, 60 days, replicas from 10, request floor lowered to 1e-6 cores: sigma | T, hours, or none | replicas at days 5, 30 and 60
+  0.0 | none | 92 | 6680 | 836552
+  0.0 | 1 | 19 | 19 | 19
+  0.0 | 24 | 41 | 41 | 41
+  0.0 | 96 | 73 | 117 | 117
+  0.3 | none | 47 | 295 | 4748
+  0.3 | 1 | 18 | 18 | 18
+  0.3 | 24 | 30 | 30 | 30
+  0.3 | 96 | 40 | 40 | 40
+  1.2 | none | 3 | 3 | 3
+  1.2 | 1 | 5 | 5 | 5
+  1.2 | 24 | 3 | 3 | 3
+  1.2 | 96 | 3 | 3 | 3
+  2.4 | none | 255 | 36845 | 1656315
+  2.4 | 1 | 44 | 63 | 49
+  2.4 | 24 | 86 | 83 | 83
+  2.4 | 96 | 155 | 210 | 210
+T92 the transition at the band's edge and the frontier over the tail. Rows "rate": target | drift rate, per hour, ln F / s* (0 inside the band) | doubling time, hours. Rows "frontier": lognormal shape sigma | q | highest target that rests at some margin of at least zero, 1 / (q (1 - tol)) | margin that rests a 50% target at the band's center, 1 / (0.5 q) - 1
+  rate | 0.5000 | 0.006941 | 99.9
+  rate | 0.6000 | 0.004654 | 148.9
+  rate | 0.7000 | 0.002721 | 254.8
+  rate | 0.7500 | 0.001855 | 373.6
+  rate | 0.7800 | 0.001363 | 508.4
+  rate | 0.7900 | 0.001204 | 575.9
+  rate | 0.7905 | 0.001196 | 579.7
+  rate | 0.7910 | 0.000000 | none
+  rate | 0.8000 | 0.000000 | none
+  frontier | 0.0000 | 1.0000 | 1.1111 | 1.0000
+  frontier | 0.5000 | 1.6749 | 0.6634 | 0.1941
+  frontier | 1.0000 | 2.1849 | 0.5086 | -0.0846
+  frontier | 1.2816 | 2.2732 | 0.4888 | -0.1202
+  frontier | 1.5000 | 2.2196 | 0.5006 | -0.0989
+  frontier | 2.0000 | 1.7561 | 0.6327 | 0.1389
+  frontier | 2.5000 | 1.0821 | 1.0268 | 0.8483
+T93 the formal side of the nested pair, surges 3x to 100x (n0 16, target 0.5, pod 90 s, node 210 s, sync 15 s, scan 10 s): k | rounds R | pod loop alone, ample slots, s | its deadline R (pod + sync) | node loop sees the final need, s | its deadline R (pod + sync + scan) + node | nested, s | R (pod + node)
+  3 | 1 | 90 | 105 | 300 | 325 | 300 | 300
+  5 | 2 | 180 | 210 | 390 | 440 | 600 | 600
+  10 | 3 | 270 | 315 | 480 | 555 | 900 | 900
+  30 | 4 | 360 | 420 | 570 | 670 | 1200 | 1200
+  100 | 6 | 540 | 630 | 750 | 900 | 1800 | 1800
+T94 surge sizes Pareto with exponent alpha above the surge that saturates the running pods (k >= 2 at target 0.5, so the need is Pareto above n0 = 16); pod 90 s, node 210 s, g 2. Rows "tail": alpha | P(R >= 2) | P(R >= 4) | mean rounds | mean nested time, s | mean pod-seconds short: ample nodes | node loop sees the final need | nested | nesting multiplier on the node-wait part, 1 / (1 - 2^(1 - alpha)). Rows "ramp": k | pod-seconds short, closed form | simulated (sync and scan included). Rows "sample": alpha | surges | mean pod-seconds short over that many surges, nested, seed 1
+  tail | 0.69 | 0.6199 | 0.2382 | 2.631 | 789 | inf | inf | inf | inf
+  tail | 1.00 | 0.5000 | 0.1250 | 2.000 | 600 | inf | inf | inf | inf
+  tail | 1.10 | 0.4665 | 0.1015 | 1.874 | 562 | 215031 | 248631 | 716771 | 14.93
+  tail | 1.20 | 0.4353 | 0.0825 | 1.771 | 531 | 55620 | 72420 | 185401 | 7.73
+  tail | 1.50 | 0.3536 | 0.0442 | 1.547 | 464 | 9833 | 16553 | 32776 | 3.41
+  tail | 2.00 | 0.2500 | 0.0156 | 1.333 | 400 | 2880 | 6240 | 9600 | 2.00
+  tail | 3.00 | 0.1250 | 0.0020 | 1.143 | 343 | 960 | 2640 | 3200 | 1.33
+  ramp | 5 | 9600 | 9600
+  ramp | 10 | 38400 | 38400
+  ramp | 30 | 216000 | 216000
+  ramp | 100 | 1137600 | 1137600
+  sample | 0.69 | 100 | 938582
+  sample | 0.69 | 1000 | 1916645
+  sample | 0.69 | 10000 | 15263088
+  sample | 0.69 | 100000 | 84790752
+  sample | 1.50 | 100 | 17662
+  sample | 1.50 | 1000 | 21448
+  sample | 1.50 | 10000 | 26003
+  sample | 1.50 | 100000 | 32243
+T95 the headroom frontier over the tail: slots covering c rounds, 16 (2^c - 1), held for a mean gap of 3600 s between surges, against price slot-seconds per pod-second short in the mean ramp (pod 90 s, node 210 s). Rows: price | alpha | x* = 1 + slots / n0 at the continuous optimum | best whole rounds c | slots | expected cost per surge, slot-seconds | node-wait part kept by each further round, 2^(1 - alpha)
+  10 | 1.1 | 7.15 | 3 | 112 | 6628904 | 0.933
+  10 | 1.2 | 3.51 | 2 | 48 | 1712553 | 0.871
+  10 | 1.5 | 1.58 | 1 | 16 | 318165 | 0.707
+  10 | 2.0 | 1.08 | 0 | 0 | 96000 | 0.500
+  10 | 3.0 | 1.00 | 0 | 0 | 32000 | 0.250
+  100 | 1.1 | 58.03 | 6 | 1008 | 58234394 | 0.933
+  100 | 1.2 | 23.89 | 5 | 496 | 13836637 | 0.871
+  100 | 1.5 | 7.35 | 3 | 112 | 2197669 | 0.707
+  100 | 2.0 | 3.42 | 2 | 48 | 628800 | 0.500
+  100 | 3.0 | 1.98 | 1 | 16 | 209600 | 0.250
+  1000 | 1.1 | 470.74 | 9 | 8176 | 513340451 | 0.933
+  1000 | 1.2 | 162.75 | 7 | 2032 | 112112949 | 0.871
+  1000 | 1.5 | 34.10 | 5 | 496 | 15674414 | 0.707
+  1000 | 2.0 | 10.80 | 3 | 112 | 4123200 | 0.500
+  1000 | 3.0 | 4.27 | 2 | 48 | 1272800 | 0.250
+T96 a buffer controller that estimates the tail exponent after every surge by maximum likelihood and holds the optimal cover for it (price 100, mean gap 3600 s, buffer limit 8 rounds, 1000 surges, seeds 1 to 20). Rows "policy": alpha | rule | median over seeds of the expected cost per surge over the oracle's | final cover, seed 1. Rows "sample": alpha | median over seeds of the realised mean cost over the expected, oracle cover. Rows "censor": alpha | cap on the reading, k | naive estimate, closed form | naive, seed 1 | censored estimate, seed 1. Rows "cross": cap, k | lowest exponent whose naive reading is 1 or more. Rows "pin": alpha | cover held after 1000 surges, buffer limit 8 rounds, seed 1
+  policy | 1.2 | oracle | 1.000 | 5
+  policy | 1.2 | mle | 1.015 | 5
+  policy | 1.2 | fixed | 1.340 | 0
+  policy | 1.2 | peak | 2.158 | 8
+  sample | 1.2 | 0.350
+  policy | 1.5 | oracle | 1.000 | 3
+  policy | 1.5 | mle | 1.012 | 3
+  policy | 1.5 | fixed | 1.491 | 0
+  policy | 1.5 | peak | 3.667 | 7
+  sample | 1.5 | 0.692
+  policy | 2.0 | oracle | 1.000 | 2
+  policy | 2.0 | mle | 1.010 | 2
+  policy | 2.0 | fixed | 1.527 | 0
+  policy | 2.0 | peak | 3.844 | 5
+  sample | 2.0 | 0.882
+  policy | 3.0 | oracle | 1.000 | 1
+  policy | 3.0 | mle | 1.003 | 1
+  policy | 3.0 | fixed | 1.527 | 0
+  policy | 3.0 | peak | 4.149 | 4
+  sample | 3.0 | 0.973
+  censor | 0.69 | 10 | 1.029 | 1.003 | 0.653
+  censor | 0.69 | 20 | 0.867 | 0.838 | 0.649
+  censor | 0.80 | 10 | 1.105 | 1.073 | 0.758
+  censor | 0.90 | 20 | 1.030 | 0.991 | 0.857
+  censor | 1.50 | 20 | 1.549 | 1.483 | 1.421
+  cross | 10 | 0.647
+  cross | 20 | 0.863
+  cross | 50 | 0.954
+  pin | 0.69 | 8
+  pin | 0.90 | 8
+T97 both safeguards keep their contracts in a storm (sudden full trigger, the server with its wait limit and the client's backoff, 8 hours): list cost | LISTs in hour 8 | re-watches answered 410 in hour 8 | longest an admitted request waited to start, s | fewest LISTs any informer completed | informers answered 410 more than an hour before the end and not listed since
+  114 | 3156 | 3132 | 15.000 | 7 | 0
+  130 | 2768 | 2786 | 15.000 | 6 | 5
+  150 | 2399 | 2433 | 15.000 | 5 | 20
+  200 | 1800 | 1791 | 15.000 | 3 | 68
+T98 list costs Pareto with exponent alpha, one cost per informer, mean set so that 2,000 informers average a backlog of 2,260 s (the onset of identical informers). Rows "boundary": alpha | clusters run (seeds 1 to 40) | lowest backlog that stormed, s | highest that stayed calm, s | clusters on the wrong side of 2,240 to 2,290 s: backlog and largest list cost, seat-seconds. A storm is a 410 in hour 8. Rows "share": alpha | informers | share of 2,000 clusters, mean cost 112.5, whose backlog passes 2,250 s
+  boundary | 3.0 | 40 | 2245 | 2264 | none
+  boundary | 2.0 | 40 | 2258 | 2251 | none
+  boundary | 1.5 | 40 | 2236 | 2255 | 2236 8417
+  boundary | 1.2 | 40 | 2288 | 2593 | 2593 52380; 2477 86843
+  share | 3.0 | 1000 | 0.000
+  share | 3.0 | 1500 | 0.000
+  share | 3.0 | 1800 | 0.000
+  share | 3.0 | 2000 | 0.498
+  share | 3.0 | 2200 | 1.000
+  share | 3.0 | 2500 | 1.000
+  share | 3.0 | 3000 | 1.000
+  share | 2.0 | 1000 | 0.000
+  share | 2.0 | 1500 | 0.000
+  share | 2.0 | 1800 | 0.011
+  share | 2.0 | 2000 | 0.451
+  share | 2.0 | 2200 | 1.000
+  share | 2.0 | 2500 | 1.000
+  share | 2.0 | 3000 | 1.000
+  share | 1.5 | 1000 | 0.004
+  share | 1.5 | 1500 | 0.029
+  share | 1.5 | 1800 | 0.110
+  share | 1.5 | 2000 | 0.335
+  share | 1.5 | 2200 | 0.855
+  share | 1.5 | 2500 | 1.000
+  share | 1.5 | 3000 | 1.000
+  share | 1.2 | 1000 | 0.022
+  share | 1.2 | 1500 | 0.065
+  share | 1.2 | 1800 | 0.120
+  share | 1.2 | 2000 | 0.177
+  share | 1.2 | 2200 | 0.278
+  share | 1.2 | 2500 | 0.548
+  share | 1.2 | 3000 | 0.976
+T99 a controller that moves LISTs to a priority level of their own while 410s persist (every 10 s it counts the 410s of the last 60 s; above 0.1 per second it splits, LISTs taking the share of capacity and watches the rest; it merges after the hold with no 410). Sudden full trigger, 8 hours: list cost | controller | re-watches answered 410 | minutes until the last 410 | switches | LISTs in hours 1 to 3 | LISTs in hour 8
+  40 | none | 15 | 13.3 | 0 | 2015, 0, 0 | 0
+  40 | share 0.5, hold 1800 s | 15 | 13.2 | 1 | 2015, 0, 0 | 0
+  40 | share 0.5, no hold | 15 | 13.2 | 3 | 2015, 0, 0 | 0
+  40 | share 0.25, hold 1800 s | 15 | 13.2 | 1 | 2015, 0, 0 | 0
+  100 | none | 3078 | 84.7 | 0 | 3592, 1486, 0 | 0
+  100 | share 0.5, hold 1800 s | 145 | 16.4 | 1 | 2145, 0, 0 | 0
+  100 | share 0.5, no hold | 427 | 43.1 | 21 | 2427, 0, 0 | 0
+  100 | share 0.25, hold 1800 s | 287 | 53.9 | 2 | 1878, 409, 0 | 0
+  114 | none | 23656 | 480.2 | 0 | 3152, 3155, 3156 | 3156
+  114 | share 0.5, hold 1800 s | 232 | 53.6 | 2 | 2146, 86, 0 | 0
+  114 | share 0.5, no hold | 619 | 52.9 | 26 | 2619, 0, 0 | 0
+  114 | share 0.25, hold 1800 s | 304 | 90.2 | 3 | 1656, 648, 0 | 0
+  130 | none | 20760 | 480.2 | 0 | 2765, 2767, 2768 | 2768
+  130 | share 0.5, hold 1800 s | 319 | 54.2 | 2 | 1899, 420, 0 | 0
+  130 | share 0.5, no hold | 869 | 66.9 | 34 | 2545, 324, 0 | 0
+  130 | share 0.25, hold 1800 s | 403 | 91.0 | 3 | 1464, 893, 46 | 0
+  150 | none | 17890 | 480.2 | 0 | 2397, 2399, 2399 | 2399
+  150 | share 0.5, hold 1800 s | 442 | 91.4 | 3 | 1657, 785, 0 | 0
+  150 | share 0.5, no hold | 1164 | 86.1 | 48 | 2218, 946, 0 | 0
+  150 | share 0.25, hold 1800 s | 624 | 128.9 | 4 | 1270, 783, 571 | 0
+  200 | none | 13160 | 480.2 | 0 | 1797, 1800, 1799 | 1800
+  200 | share 0.5, hold 1800 s | 810 | 133.3 | 4 | 1301, 992, 517 | 0
+  200 | share 0.5, no hold | 11836 | 480.2 | 274 | 1705, 1662, 1620 | 1648
+  200 | share 0.25, hold 1800 s | 1771 | 286.0 | 8 | 1068, 629, 756 | 0
+T100 random start-time graphs of 1,000 components, an edge i -> j (i needs j) with probability min(1, c w_i w_j / (n E[w]^2)); weights equal (independent degrees), or Pareto with exponent 2.5 or 1.8 (hubs whose in- and out-degrees grow together); a full restart. Rows "share": weights | mean degree c | share of components stranded, mean of seeds 0 to 29. Rows "threshold": weights | E[w]^2 / E[w^2] of the drawn weights, mean of seeds 0 to 29
+  share | equal | 0.2 | 0.000
+  share | equal | 0.5 | 0.001
+  share | equal | 0.8 | 0.020
+  share | equal | 1.0 | 0.079
+  share | equal | 1.2 | 0.265
+  share | equal | 1.5 | 0.563
+  share | equal | 2.0 | 0.792
+  threshold | equal | 1.000
+  share | Pareto 2.5 | 0.2 | 0.001
+  share | Pareto 2.5 | 0.5 | 0.012
+  share | Pareto 2.5 | 0.8 | 0.129
+  share | Pareto 2.5 | 1.0 | 0.293
+  share | Pareto 2.5 | 1.2 | 0.423
+  share | Pareto 2.5 | 1.5 | 0.584
+  share | Pareto 2.5 | 2.0 | 0.741
+  threshold | Pareto 2.5 | 0.655
+  share | Pareto 1.8 | 0.2 | 0.006
+  share | Pareto 1.8 | 0.5 | 0.074
+  share | Pareto 1.8 | 0.8 | 0.245
+  share | Pareto 1.8 | 1.0 | 0.350
+  share | Pareto 1.8 | 1.2 | 0.441
+  share | Pareto 1.8 | 1.5 | 0.553
+  share | Pareto 1.8 | 2.0 | 0.687
+  threshold | Pareto 1.8 | 0.341
+T101 a recovery controller that relaxes the in-edges of components chosen greedily from the largest cycle core until none is left (1,000 components, seed 0). Rows "relax": weights | mean degree | components stranded without it | components it relaxes. Rows "hidden": weights | mean degree | share of edges the controller cannot see | components still stranded. Rows "hard": weights | mean degree | share of edges that cannot be relaxed | components stranded whatever it relaxes. Row "survey": components the smallest relaxation of the surveyed defaults (T89) relaxes
+  relax | equal | 0.8 | 9 | 1
+  relax | equal | 1.2 | 179 | 3
+  relax | equal | 1.5 | 567 | 17
+  relax | equal | 2.0 | 761 | 64
+  relax | Pareto 1.8 | 0.8 | 259 | 8
+  relax | Pareto 1.8 | 1.2 | 463 | 13
+  relax | Pareto 1.8 | 1.5 | 551 | 27
+  relax | Pareto 1.8 | 2.0 | 680 | 37
+  hidden | equal | 2.0 | 0.00 | 0
+  hidden | equal | 2.0 | 0.05 | 601
+  hidden | equal | 2.0 | 0.10 | 650
+  hidden | equal | 2.0 | 0.20 | 713
+  hard | equal | 2.0 | 0.1 | 0
+  hard | equal | 2.0 | 0.2 | 0
+  hard | equal | 2.0 | 0.3 | 0
+  hard | equal | 2.0 | 0.5 | 23
+  hidden | Pareto 1.8 | 2.0 | 0.00 | 0
+  hidden | Pareto 1.8 | 2.0 | 0.05 | 378
+  hidden | Pareto 1.8 | 2.0 | 0.10 | 442
+  hidden | Pareto 1.8 | 2.0 | 0.20 | 509
+  hard | Pareto 1.8 | 2.0 | 0.1 | 2
+  hard | Pareto 1.8 | 2.0 | 0.2 | 70
+  hard | Pareto 1.8 | 2.0 | 0.3 | 177
+  hard | Pareto 1.8 | 2.0 | 0.5 | 384
+  survey | 1: consul
+T102 the passes a chain needs, and an orchestrator that iterates dry-run admission to a common fixed point. Rows "frontier": webhooks in an enabling chain of value links | passes allowed | share of orders that converge, Eulerian sum | mean passes needed, 1 + (n - 1)/2. Rows "orchestrate": chain | webhooks | orders | share converged after one admission | mean admissions | most admissions | mean webhook calls | mean webhook calls of one admission | as the orchestrator must run, stopping on a dry run that returns the object unchanged and then creating it: mean dry runs | most dry runs | mean admissions, the creation included | mean webhook calls, the creation included. Row "writers": two conflicting writers | admissions | fixed point | cycle detected. Row "writers-online": two conflicting writers, stopping on an unchanged object | dry runs | created | created object a common fixed point
+  frontier | 3 | 1 | 0.1667 | 2.0
+  frontier | 3 | 2 | 0.8333 | 2.0
+  frontier | 3 | 3 | 1.0000 | 2.0
+  frontier | 4 | 1 | 0.0417 | 2.5
+  frontier | 4 | 2 | 0.5000 | 2.5
+  frontier | 4 | 3 | 0.9583 | 2.5
+  frontier | 4 | 4 | 1.0000 | 2.5
+  frontier | 5 | 1 | 0.0083 | 3.0
+  frontier | 5 | 2 | 0.2250 | 3.0
+  frontier | 5 | 3 | 0.7750 | 3.0
+  frontier | 5 | 4 | 0.9917 | 3.0
+  frontier | 5 | 5 | 1.0000 | 3.0
+  frontier | 6 | 1 | 0.0014 | 3.5
+  frontier | 6 | 2 | 0.0806 | 3.5
+  frontier | 6 | 3 | 0.5000 | 3.5
+  frontier | 6 | 4 | 0.9194 | 3.5
+  frontier | 6 | 5 | 0.9986 | 3.5
+  frontier | 6 | 6 | 1.0000 | 3.5
+  frontier | 7 | 1 | 0.0002 | 4.0
+  frontier | 7 | 2 | 0.0240 | 4.0
+  frontier | 7 | 3 | 0.2603 | 4.0
+  frontier | 7 | 4 | 0.7397 | 4.0
+  frontier | 7 | 5 | 0.9760 | 4.0
+  frontier | 7 | 6 | 0.9998 | 4.0
+  frontier | 7 | 7 | 1.0000 | 4.0
+  orchestrate | value | 3 | 6 | 0.8333 | 1.167 | 2 | 6.33 | 5.83 | 2.167 | 3 | 3.17 | 12.33
+  orchestrate | value | 4 | 24 | 0.5000 | 1.500 | 2 | 10.58 | 7.96 | 2.500 | 3 | 3.50 | 18.58
+  orchestrate | value | 5 | 120 | 0.2250 | 1.783 | 3 | 16.13 | 9.99 | 2.783 | 4 | 3.78 | 26.13
+  orchestrate | value | 6 | 720 | 0.0806 | 2.000 | 3 | 22.34 | 12.00 | 3.000 | 4 | 4.00 | 34.34
+  orchestrate | value | 7 | 5040 | 0.0240 | 2.237 | 4 | 29.42 | 14.00 | 3.237 | 5 | 4.24 | 43.42
+  orchestrate | match | 4 | 24 | 0.0417 | 2.500 | 4 | 9.50 | 2.42 | 3.500 | 5 | 4.50 | 17.50
+  orchestrate | mixed | 5 | 120 | 0.0083 | 2.667 | 3 | 17.75 | 5.89 | 3.667 | 4 | 4.67 | 27.75
+  writers | 2 | 2 | False | True
+  writers-online | 2 | 2 | True | False
+T103 hidden memory: runs that share the state the dashboards show and differ in what a mechanism remembers. Rows "histogram": the Part 1 pair at a 0.5 target from 10 replicas, the same requests and demand, the vertical loop's histogram also holding 200 samples at a multiple of the starting usage some hours before the start: multiple | hours before | replicas at days 1, 5, 10, 20, 30. Rows "steps": the same runs: multiple | hours before | first four scaling steps, hour and replicas | long-run doubling, hours | replicas at day 30 over day 1. Rows "backoff": the Part 3 server with its wait limit, a sudden full trigger, every client's backoff starting fresh or at its cap: start | list cost | seeds 1 to 8 still storming in hour 8 | re-watches answered 410 in hour 8, seed 1
+  histogram | none | - | 54, 92, 267, 1336, 6680
+  histogram | 2.0 | 6 | 9, 15, 44, 220, 1099
+  histogram | 0.5 | 6 | 35, 59, 173, 861, 4306
+  histogram | 2.0 | 48 | 9, 26, 44, 220, 1099
+  steps | none | - | 0.1 h: 18, 1.6 h: 32, 13.6 h: 54, 61.0 h: 92 | 103.0 | 124
+  steps | 2.0 | 6 | 18.9 h: 9, 76.1 h: 15, 152.5 h: 26, 231.9 h: 44 | 103.0 | 122
+  steps | 0.5 | 6 | 0.0 h: 20, 19.1 h: 35, 76.5 h: 59, 153.0 h: 101 | 103.2 | 123
+  backoff | fresh | 113 | 7 | 3155
+  backoff | fresh | 114 | 8 | 3132
+  backoff | raised | 113 | 5 | 0
+  backoff | raised | 114 | 8 | 3161
+T104 frontiers of the controllers of Parts 3 and 4. Rows "hold": the split controller of T99 (share 0.5) with the hold varied: list cost | hold, s | re-watches answered 410 | minutes split | switches | storm in hour 8. Rows "band": list cost 200 | hold, s | seeds 1 to 3 still storming in hour 8. Rows "relax": the greedy relaxation of T101 at two needs per component, its first k components relaxed: weights | k | components still stranded
+  hold | 150 | 0 | 1164 | 14.0 | 48 | no
+  hold | 150 | 60 | 842 | 14.7 | 7 | no
+  hold | 150 | 120 | 967 | 22.2 | 7 | no
+  hold | 150 | 300 | 1709 | 55.0 | 9 | no
+  hold | 150 | 600 | 687 | 55.5 | 5 | no
+  hold | 150 | 1200 | 466 | 63.5 | 3 | no
+  hold | 150 | 1800 | 442 | 93.2 | 3 | no
+  hold | 150 | 3600 | 199 | 122.2 | 2 | no
+  hold | 200 | 0 | 11836 | 79.0 | 274 | yes
+  hold | 200 | 60 | 3574 | 38.7 | 18 | no
+  hold | 200 | 120 | 6050 | 85.3 | 27 | no
+  hold | 200 | 300 | 10008 | 215.3 | 35 | yes
+  hold | 200 | 600 | 1885 | 100.3 | 9 | no
+  hold | 200 | 1200 | 1037 | 105.7 | 5 | no
+  hold | 200 | 1800 | 810 | 124.5 | 4 | no
+  hold | 200 | 3600 | 369 | 122.3 | 2 | no
+  band | 200 | 60 | 0
+  band | 200 | 90 | 1
+  band | 200 | 120 | 2
+  band | 200 | 150 | 3
+  band | 200 | 240 | 3
+  band | 200 | 300 | 3
+  band | 200 | 360 | 2
+  band | 200 | 420 | 2
+  band | 200 | 450 | 0
+  band | 200 | 600 | 0
+  relax | equal | 0 | 761
+  relax | equal | 1 | 760
+  relax | equal | 2 | 757
+  relax | equal | 4 | 757
+  relax | equal | 8 | 752
+  relax | equal | 16 | 734
+  relax | equal | 24 | 729
+  relax | equal | 32 | 705
+  relax | equal | 48 | 630
+  relax | equal | 62 | 277
+  relax | equal | 63 | 3
+  relax | equal | 64 | 0
+  relax | Pareto 1.8 | 0 | 680
+  relax | Pareto 1.8 | 1 | 653
+  relax | Pareto 1.8 | 2 | 634
+  relax | Pareto 1.8 | 4 | 617
+  relax | Pareto 1.8 | 8 | 597
+  relax | Pareto 1.8 | 16 | 556
+  relax | Pareto 1.8 | 24 | 502
+  relax | Pareto 1.8 | 32 | 436
+  relax | Pareto 1.8 | 35 | 308
+  relax | Pareto 1.8 | 36 | 190
+  relax | Pareto 1.8 | 37 | 0
+T105 a storm spreading from the informers a trigger forced to those it never touched: one sudden wave forcing a third of the informers (the share behind one zone, or one server of three), the server with its wait limit. Rows: list cost | hours run | informers forced | re-watches answered 410, forced informers | the same, informers never forced | informers never forced answered 410 at least once
+  100 | 1 | 684 | 1 | 29 | 29
+  100 | 2 | 684 | 1 | 29 | 29
+  100 | 4 | 684 | 1 | 29 | 29
+  100 | 8 | 684 | 1 | 29 | 29
+  142 | 1 | 684 | 727 | 1688 | 1195
+  142 | 2 | 684 | 1613 | 3412 | 1310
+  142 | 4 | 684 | 3370 | 6752 | 1316
+  142 | 8 | 684 | 6847 | 13395 | 1316
+  150 | 1 | 684 | 692 | 1664 | 1197
+  150 | 2 | 684 | 1512 | 3268 | 1313
+  150 | 4 | 684 | 3149 | 6463 | 1316
+  150 | 8 | 684 | 6401 | 12797 | 1316
+T106 the headroom frontier in slots rather than whole rounds: surges Pareto above the saturating surge, n0 16, pod 90 s, node 210 s, a round covered when the pods it adds fit in the free slots. Rows "step": alpha | slots at a whole round's price | mean pod-seconds short one slot below | at it | drop. Rows "tread": alpha | slots | mean pod-seconds short. Rows "best": alpha | slots minimizing 3600 x slots + 100 x mean shortfall over 0 to 2999 | its cost per surge
+  step | 1.5 | 16 | 32052 | 26056 | 0.187
+  step | 1.5 | 48 | 25524 | 21305 | 0.165
+  step | 1.5 | 112 | 20922 | 17945 | 0.142
+  step | 1.5 | 240 | 17671 | 15569 | 0.119
+  step | 1.5 | 496 | 15375 | 13889 | 0.097
+  tread | 1.5 | 16 | 26056
+  tread | 1.5 | 20 | 26034
+  tread | 1.5 | 30 | 25871
+  tread | 1.5 | 40 | 25666
+  tread | 1.5 | 47 | 25524
+  best | 1.5 | 112 | 2197669
+  step | 2.0 | 16 | 8813 | 6240 | 0.292
+  step | 2.0 | 48 | 5833 | 4560 | 0.218
+  step | 2.0 | 112 | 4353 | 3720 | 0.145
+  step | 2.0 | 240 | 3616 | 3300 | 0.087
+  step | 2.0 | 496 | 3248 | 3090 | 0.049
+  tread | 2.0 | 16 | 6240
+  tread | 2.0 | 20 | 6219
+  tread | 2.0 | 30 | 6084
+  tread | 2.0 | 40 | 5931
+  tread | 2.0 | 47 | 5833
+  best | 2.0 | 48 | 628800
+T107 Part 1's history statistic: the remembered weight sets when the percentile lets go, and inside the band it selects where the pair rests. Rows "first": the pair at a 0.5 target, the histogram also holding a burst: multiple | hours before | samples | remembered weight, start units | first scale-up, closed form h log2(1 + ln2 (A0/(1-p) - H0)/(r h)), hours | first scale-up, simulated, hours. Rows "rest": the pair at a 0.8 target, inside the band, 20 days: multiple | hours before | samples | replicas at day 20 | replicas unchanged over the last five days
+  first | 2.0 | 6 | 200 | 169.2 | 19.0 | 18.9
+  first | 2.0 | 6 | 2000 | 1682.8 | 73.2 | 73.2
+  first | 1.5 | 24 | 1000 | 501.0 | 40.0 | 39.9
+  rest | 1.0 | 0 | 0 | 10 | yes
+  rest | 2.0 | 6 | 200 | 5 | yes
+  rest | 1.5 | 24 | 1000 | 7 | yes
+T108 Part 3's storm onset as a mean-field fold, and its memory. Rows "fold": backoff state a run starts in | rejections a re-watch must lose, mean jitter | backlog at the fold, s | list cost at the fold | rejection probability at the fold. Rows "admitted": the fresh fold with the served attempt's own queue wait added to the re-watch and to the list: wait, s | backlog at the fold, s | list cost at the fold. Rows "sweep": list cost | sudden trigger at that cost, seeds 1 to 4 still listing in hour 8 | storm entered at 116 and lowered to that cost after an hour, the same
+  fold | fresh | 12 | 2161 | 108.1 | 0.940
+  fold | raised | 8 | 1977 | 98.9 | 0.923
+  admitted | 7.5 | 2184 | 109.2
+  admitted | 15.0 | 2207 | 110.4
+  sweep | 100 | 0 | 0
+  sweep | 106 | 0 | 0
+  sweep | 110 | 0 | 0
+  sweep | 111 | 0 | 0
+  sweep | 112 | 0 | 1
+  sweep | 113 | 4 | 3
+T109 the cross-seam frontier of Parts 1 and 2 on one deployment (16 pods, limit = request, 8 pods per node, pod 90 s, node 210 s, a surge to 30 times the demand the pair carries before it): Rows "target": horizontal target | scale-up tolerance | drift, doublings per 1,000 h at a steady load (ln F / s*, 0 inside the band) | seconds until capacity meets the surge | utilization before the surge. Rows "matched": the same with the scale-up tolerance v / target - 1 that rests the pair: target | tolerance | drift | seconds | utilization before the surge | rounds, ceil(ln(30 v) / ln(min(1/target, 2))). Row "load": the horizontal loop on load measured on arrival | drift | seconds
+  target | 0.30 | 0.10 | 19.26 | 630 | 0.300
+  target | 0.40 | 0.10 | 14.05 | 900 | 0.400
+  target | 0.50 | 0.10 | 10.01 | 1200 | 0.500
+  target | 0.60 | 0.10 | 6.71 | 1800 | 0.600
+  target | 0.70 | 0.10 | 3.93 | 2490 | 0.700
+  target | 0.80 | 0.10 | 0.00 | 4200 | 0.800
+  target | 0.85 | 0.10 | 0.00 | 5490 | 0.850
+  target | 0.90 | 0.10 | 0.00 | 7950 | 0.900
+  matched | 0.30 | 1.899 | 0.00 | 1500 | 0.870 | 5
+  matched | 0.40 | 1.174 | 0.00 | 1500 | 0.870 | 5
+  matched | 0.50 | 0.739 | 0.00 | 1500 | 0.870 | 5
+  matched | 0.55 | 0.581 | 0.00 | 1800 | 0.870 | 6
+  matched | 0.60 | 0.449 | 0.00 | 2100 | 0.870 | 7
+  matched | 0.70 | 0.242 | 0.00 | 3000 | 0.870 | 10
+  matched | 0.80 | 0.087 | 0.00 | 4200 | 0.870 | 15
+  load | 0.00 | 350
+T110 the storm onset against the list level's share of the server (2000 informers, the whole server 100 seat-s/s, wait limit, sudden trigger, no borrowing): Rows: shares of 245 | seat-s/s | least list cost at which a storm is still running in hour 8 | backlog there, s | the onset backlog of the whole server scaled to the share, 2260 x share / 245 x 100 / 2000
+  15 | 6.12 | 7 | 2287 | 6.9
+  30 | 12.24 | 14 | 2287 | 13.8
+  50 | 20.41 | 23 | 2254 | 23.1
+  70 | 28.57 | 33 | 2310 | 32.3
+  100 | 40.82 | 47 | 2303 | 46.1
+  150 | 61.22 | 70 | 2287 | 69.2
+  200 | 81.63 | 92 | 2254 | 92.2
+  245 | 100.00 | 113 | 2260 | 113.0
+T111 the order of each seam: the size of the smallest set of mechanisms its test fails, which every check of fewer passes. Rows "signal": system | order (smallest principal submatrix, rows scaled to unit self-gain, with a non-positive determinant). Rows "signal-random": loops | couplings uniform in [-0.8, 0.8], 20000 draws, seed 3 | systems the test fails on as a whole | of those, share of order 2, 3, ... up to the loops. Rows "assumption": system | girth of the start-time graph. Rows "assumption-random": 1,000 components | weights | mean needs per component | girth, seeds 0 to 2. Rows "order": system | order. Rows "order-random": webhooks | random fact graphs as T73, every order needing more than 2 passes | count | share of order 2, 3, ... Row "signal-whole-passes": a system the whole-system test passes while every pair fails. Rows "state": informers | list costs | order, the fewest heaviest informers whose summed list work passes capacity x (mean watch + history), median and 10th percentile of 200 draws, seed 9
+  signal | two autoscalers on one CPU metric | 2
+  signal | split pairing, Parallel collector (beta 1.28), live set following load, heap growing into its limit (xi 0.6) | 2
+  signal | split pairing, beta theta 0.55 | None
+  signal | 3 symmetric loops at coupling -1/(n-1) | 3
+  signal | 6 symmetric loops at coupling -1/(n-1) | 6
+  signal-random | 3 | 173 | 2: 0.0000 | 3: 1.0000
+  signal-random | 4 | 995 | 2: 0.0000 | 3: 0.6643 | 4: 0.3357
+  signal-random | 5 | 3091 | 2: 0.0000 | 3: 0.5157 | 4: 0.4193 | 5: 0.0650
+  assumption | surveyed defaults (T89) | 2
+  assumption-random | equal | 0.5 | 3, 4, None
+  assumption-random | equal | 1.0 | 3, 2, None
+  assumption-random | equal | 2.0 | 2, 2, 2
+  assumption-random | Pareto 1.8 | 0.5 | 2, 3, 2
+  assumption-random | Pareto 1.8 | 1.0 | 2, 2, 2
+  assumption-random | Pareto 1.8 | 2.0 | 2, 2, 2
+  order | audited chain signer, digest pin, injector (names admission-signer, image-digest, sidecar-injector) | 3
+  order-random | 3 | 2091 | 2: 0.1363 | 3: 0.8637
+  order-random | 4 | 14040 | 2: 0.0530 | 3: 0.6623 | 4: 0.2848
+  order-random | 5 | 96191 | 2: 0.0212 | 3: 0.5379 | 4: 0.3780 | 5: 0.0629
+  state | 2000 | 100 seat-seconds each | 751
+  state | 2000 | Pareto 3.0, mean 112.5 | median 387, 10th percentile 359
+  state | 2000 | Pareto 1.5, mean 112.5 | median 107, 10th percentile 28
+  state | 2000 | Pareto 1.2, mean 112.5 | median 46, 10th percentile 2
+  signal-whole-passes | 4 loops, circulant with first row (1, 2, 2, -2) | whole: determinant 153, relative gains 0.137, 0.137, 0.137, 0.137, passes True | triples: 1-2-3 fails, 1-2-4 fails, 1-3-4 fails, 2-3-4 fails | pairs: 1-2 passes, 1-3 fails, 1-4 passes, 2-3 passes, 2-4 fails, 3-4 passes
+  signal-negative-determinant | 3 loops, rows (1, 1.5, 1), (1.5, 1, -2), (1.5, -1, 1) | determinant -10.75, relative gains 0.093, 0.047, 0.116, passes False
+  signal-negative-determinant | 4 symmetric loops at coupling -0.55 | determinant -2.4205, relative gain 0.099, passes False
+T112 each seam's ratio of what the composite asks to what its contract gives, binding above one (the assumption at one), and a test cluster at a tenth of the scale. Rows "signal": target | ratio, the larger of v/((1+tol) u_h) and u_h (1-tol)/v, margin 0.15, tolerance 0.1. Rows "time": free slots held for 16 running pods | rounds covered | ratio R/(m+1) for a thirtyfold surge. Rows "state": informers | list cost | ratio N cost/(capacity (mean watch + history)), capacity 100, 450 + 300 s. Rows "order": chain | passes | ratio over two passes. Rows "assumption": graph | spectral radius of the start-time graph. Rows "assumption-random": 1,000 components, seed 0 | weights | mean needs | spectral radius | E[k_in k_out]/E[k] | components stranded. Rows "tenth": seam | full scale | a tenth of the scale (signal: doubling hours from 10 replicas and from 1; time: seconds to capacity, 16 and 160 pods, headroom in proportion and fixed; state: LISTs completed in hours 2 to 4 after a full trigger, with capacity kept and capacity scaled)
+  signal | 0.30 | 2.635
+  signal | 0.50 | 1.581
+  signal | 0.70 | 1.129
+  signal | 0.80 | 0.988
+  signal | 0.90 | 0.931
+  signal | 0.95 | 0.983
+  time | 0 | 0 | 4.000
+  time | 16 | 1 | 2.000
+  time | 48 | 2 | 1.333
+  time | 112 | 3 | 1.000
+  state | 2000 | 100 | 2.667
+  state | 2000 | 120 | 3.200
+  state | 750 | 100 | 1.000
+  state | 601 | 100 | 0.801
+  order | audited chain | 3 | 1.50
+  order | renamed into chain order, every webhook reinvoked | 1 | 0.50
+  assumption | surveyed defaults (T89) | 1.000
+  assumption | Kyverno failing open | 0.000
+  assumption-random | equal | 0.5 | 1.000 | 0.501 | 8
+  assumption-random | equal | 1.0 | 1.000 | 0.979 | 13
+  assumption-random | equal | 1.2 | 1.065 | 1.166 | 179
+  assumption-random | equal | 1.5 | 1.396 | 1.472 | 567
+  assumption-random | equal | 2.0 | 1.922 | 1.967 | 761
+  assumption-random | Pareto 1.8 | 0.5 | 1.599 | 1.840 | 113
+  assumption-random | Pareto 1.8 | 1.0 | 3.108 | 3.833 | 386
+  assumption-random | Pareto 1.8 | 1.2 | 3.691 | 4.839 | 463
+  assumption-random | Pareto 1.8 | 1.5 | 4.516 | 6.052 | 551
+  assumption-random | Pareto 1.8 | 2.0 | 5.999 | 7.661 | 680
+  tenth | signal, target 0.5 | 102.98 | 103.98
+  tenth | time, no headroom | 1200 | 1200
+  tenth | time, headroom 1 pod in 1 | 990 | 990
+  tenth | time, headroom 16 slots at both | 1200 | 990
+  tenth | state, list cost 120, 2000 informers and 200, capacity kept | [2998, 2998, 2998] | [0, 0, 0]
+  tenth | state, list cost 120, 2000 informers and 200, capacity a tenth | [2998, 2998, 2998] | [300, 300, 300]
+  tenth | state, lists that grow with the cluster (cost 12), 2000 informers and 200, capacity a hundredth | [2998, 2998, 2998] | [298, 298, 298]
+T113 the scope of the tail regimes (T90): per-pod samples the mean times a lognormal factor of mean one and shape sigma. Rows "scope": sigma | coefficient of variation of the horizontal loop's reading, the mean of n pods, at n = 3, 10, 100, 1000 | pods at which it falls to the tolerance 0.1, ceil((exp(sigma^2) - 1) / 0.01) | share of the mean usage carried by samples above 8 and 4 times the mean
+  scope | 0.30 | 0.177, 0.097, 0.031, 0.010 | 10 | 0.0000 | 0.0000
+  scope | 0.55 | 0.343, 0.188, 0.059, 0.019 | 36 | 0.0002 | 0.0124
+  scope | 1.20 | 1.036, 0.568, 0.179, 0.057 | 323 | 0.1286 | 0.2894
+  scope | 1.85 | 3.144, 1.722, 0.544, 0.172 | 2965 | 0.4211 | 0.5697
+  scope | 2.00 | 4.227, 2.315, 0.732, 0.232 | 5360 | 0.4842 | 0.6205
+  scope | 2.40 | 10.269, 5.624, 1.779, 0.562 | 31635 | 0.6306 | 0.7332
+T114 the heartbeat of T62 with failed calls that take time: a webhook that hangs fails each renewal only at its timeout, and the backoff starts then; one node, 200 hours, seed 1. Rows "attempts": seconds a failed call takes | attempts after a success that start in time to renew within the 50 s grace. Rows "regime": seconds a failed call takes | failure probability q | share of time Unknown | Unknown spells of 300 s or more per hour
+  attempts | 0 | 10
+  attempts | 2 | 8
+  attempts | 10 | 4
+  regime | 0 | 0.50 | 0.001 | 0.000
+  regime | 0 | 0.60 | 0.006 | 0.000
+  regime | 0 | 0.70 | 0.033 | 0.000
+  regime | 0 | 0.80 | 0.139 | 0.000
+  regime | 0 | 0.90 | 0.430 | 0.275
+  regime | 0 | 0.95 | 0.676 | 1.910
+  regime | 2 | 0.50 | 0.003 | 0.000
+  regime | 2 | 0.60 | 0.019 | 0.000
+  regime | 2 | 0.70 | 0.072 | 0.000
+  regime | 2 | 0.80 | 0.215 | 0.010
+  regime | 2 | 0.90 | 0.515 | 0.605
+  regime | 2 | 0.95 | 0.736 | 2.600
+  regime | 10 | 0.50 | 0.052 | 0.000
+  regime | 10 | 0.60 | 0.127 | 0.000
+  regime | 10 | 0.70 | 0.253 | 0.050
+  regime | 10 | 0.80 | 0.438 | 0.410
+  regime | 10 | 0.90 | 0.702 | 2.500
+  regime | 10 | 0.95 | 0.846 | 3.820
+T115 whole-system tests on incomplete descriptions: a share of the description dropped at random, as an inventory that missed it would. Rows "assumption": 30 components, equal weights, seeds 0 to 299 | mean needs | share of needs dropped | graphs with a cycle | share of them judged acyclic from the incomplete description | graphs judged cyclic that are not (always 0). Rows "assumption-1000": 1,000 components, mean needs 1.5, seed 0 | share dropped | components stranded by the complete description | by the incomplete one. Rows "order": random fact graphs of T111 with 4 webhooks, 1,500 draws, seed 7 | share of prerequisites dropped | orders needing more than 2 passes | share of them judged to converge | orders judged to fail that converge (always 0). Rows "signal": loops | couplings uniform in [-0.8, 0.8], one coupling set to zero, 20000 draws, seed 3 | failing systems | share judged to pass | passing systems | share judged to fail. Row "state": list cost at which the ratio of 2000 informers passes one, capacity 100, 450 + 300 s. Rows "example": the two systems of Proposition 40(b) | complete or with the coupling left out | determinant | relative gains | verdict
+  assumption | 0.8 | 0.05 | 113 | 0.088 | 0
+  assumption | 0.8 | 0.20 | 113 | 0.354 | 0
+  assumption | 1.0 | 0.05 | 189 | 0.069 | 0
+  assumption | 1.0 | 0.20 | 189 | 0.349 | 0
+  assumption | 1.5 | 0.05 | 285 | 0.021 | 0
+  assumption | 1.5 | 0.20 | 285 | 0.140 | 0
+  assumption-1000 | 0.05 | 567 | 512
+  assumption-1000 | 0.10 | 567 | 432
+  assumption-1000 | 0.20 | 567 | 265
+  order | 0.1 | 7287 | 0.156 | 0
+  order | 0.3 | 7287 | 0.448 | 0
+  signal | 3 | 179 | 0.855 | 19821 | 0.0008
+  signal | 4 | 1054 | 0.428 | 18946 | 0.0069
+  signal | 5 | 2905 | 0.233 | 17095 | 0.0144
+  state | 37.5
+  example | three symmetric loops at -0.5 | complete | 0.000 | singular | fail
+  example | three symmetric loops at -0.5 | coupling 1-2 left out | 0.375 | 2.000, 2.000, 2.667 | pass
+  example | loop 3 coupled to loop 2 at +0.8 | complete | 0.232 | 4.310, 1.552, 1.552 | pass
+  example | loop 3 coupled to loop 2 at +0.8 | coupling 3-2 left out | -0.280 | -3.571, -1.286, -1.286 | fail
+T116 the assumption x order frontier at the surveyed defaults (T89): four settings of Kyverno and Consul, each run through a full restart of the fifteen components. variant | components still down | namespaces whose pods Kyverno never pins (its exclusions) | namespaces whose pods Consul never injects (its exclusions) | pods admitted while Kyverno is down
+  defaults | 12 of 15 | kube-system, kyverno | gke-managed-cim, gmp-system, kube-system, local-path-storage, openebs | none
+  Consul excluding the kyverno namespace | 0 of 15 | kube-system, kyverno | gke-managed-cim, gmp-system, kube-system, kyverno, local-path-storage, openebs | none
+  Kyverno excluding the consul namespace | 0 of 15 | consul, kube-system, kyverno | gke-managed-cim, gmp-system, kube-system, local-path-storage, openebs | none
+  Kyverno with forceFailurePolicyIgnore | 0 of 15 | kube-system, kyverno | gke-managed-cim, gmp-system, kube-system, local-path-storage, openebs | all, unpinned
+T117 a whole-system supervisor on the signal and time-scale seams of one deployment (16 pods, limit = request, 8 pods per node, pod 90 s, node 210 s, a surge to 30 times the demand the pair carries). Rows "greedy": seams in order of their ratios, each given the smallest one-setting change that brings its own ratio to one, taken again when a later fix pushes it back: step | fix | target | free slots held | signal ratio | time ratio | seconds to meet the surge. Rows "joint": each fix of the signal seam with the fewest slots that bring both ratios to one, the choice first: fix | target | free slots | signal ratio | time ratio | seconds
+  greedy | 0 | start | 0.50 | 0 | 1.581 | 4.000 | 1200
+  greedy | 1 | headroom | 0.50 | 112 | 1.581 | 1.000 | 570
+  greedy | 2 | target | 0.80 | 112 | 0.988 | 1.500 | 2400
+  greedy | 3 | headroom | 0.80 | 348 | 0.988 | 1.000 | 1470
+  joint | load metric | 0.50 | 0 | 0.000 | 1.000 | 350
+  joint | scale-up tolerance | 0.50 | 240 | 1.000 | 1.000 | 660
+T118 the split pairing with the heap structure explicit (Proposition 6), theta = 1: memory the vertical loop observes follows per-pod load. Columns: source | beta | relative gain with a live set that does not follow load and a heap that does not grow with its limit (theta_live = 0, xi = 0) | with the live set following load (theta_live = 1, xi = 0) | the critical xi, where a live set that follows load and a heap that grows into its limit make the pairing singular | relative gain at xi = 0.3 and 0.6 with theta_live = 1
+  Hertz-Berger 2x to 3x | 0.92 | 12.500 | 1.920 | 0.521 | 3.170 | -5.053
+  Hertz-Berger 3x to 5x | 0.31 | 1.449 | 1.310 | 0.763 | 1.511 | 2.449
+  Serial | 0.40 | 1.664 | 1.399 | 0.715 | 1.688 | 3.487
+  Parallel | 1.28 | -3.572 | 2.280 | 0.439 | 5.050 | -2.478
+  G1 | 0.58 | 2.385 | 1.581 | 0.633 | 2.104 | 12.262
+  Shenandoah | 0.55 | 2.208 | 1.547 | 0.646 | 2.021 | 8.634
+  ZGC | 0.60 | 2.490 | 1.598 | 0.626 | 2.150 | 15.612
+T119 the signal seam in transit (Part 1): the paired loops drifting at a 0.5 target from 10 replicas, demand 100 cores steady, a fix applied at an hour of the drift, run to day 40. Columns: fix | hour applied | replicas then | requested cores then | lowest replicas after | replicas at day 40 | requested cores at day 40 | utilization at day 40 | scaling actions after the fix
+  none | 100 | 92 | 201.7 | 92 | 8000 | 200.0 | 0.500 | 8
+  target 0.8 | 100 | 92 | 201.7 | 58 | 58 | 115.3 | 0.867 | 0
+  scale-up tolerance 0.739 | 100 | 92 | 201.7 | 92 | 92 | 117.9 | 0.848 | 0
+  none | 400 | 781 | 200.1 | 781 | 8000 | 200.0 | 0.500 | 4
+  target 0.8 | 400 | 781 | 200.1 | 488 | 488 | 119.1 | 0.840 | 0
+  scale-up tolerance 0.739 | 400 | 781 | 200.1 | 781 | 781 | 117.0 | 0.855 | 0
+  none | 700 | 6680 | 200.0 | 6680 | 8000 | 200.0 | 0.500 | 0
+  target 0.8 | 700 | 6680 | 200.0 | 4175 | 4175 | 119.1 | 0.840 | 0
+  scale-up tolerance 0.739 | 700 | 6680 | 200.0 | 6680 | 6680 | 167.0 | 0.599 | 0
+T120 the split pairing with a live set that does not follow load: only memory outside the heap follows load, so theta is at most one minus the heap's share of observed memory. collector | beta | heap share below which the pairing is singular (none when beta is at most 1) | gain with the heap at 3/4 of memory | at 1/2 | at 1/4. Rows "curve": collector | heap share | gain, at the largest theta the share allows, the heap shares 0 to 0.95 in steps of 0.05
+  Hertz-Berger 2x to 3x | 0.92 | none | 1.299 | 1.852 | 3.226
+  Hertz-Berger 3x to 5x | 0.31 | none | 1.084 | 1.183 | 1.303
+  Serial | 0.40 | none | 1.111 | 1.249 | 1.427
+  Parallel | 1.28 | 0.219 | 1.471 | 2.777 | 24.966
+  G1 | 0.58 | none | 1.170 | 1.409 | 1.772
+  Shenandoah | 0.55 | none | 1.158 | 1.377 | 1.696
+  ZGC | 0.60 | none | 1.176 | 1.427 | 1.814
+  curve | Hertz-Berger 2x to 3x | 0.00 | 12.500
+  curve | Hertz-Berger 2x to 3x | 0.05 | 7.937
+  curve | Hertz-Berger 2x to 3x | 0.10 | 5.814
+  curve | Hertz-Berger 2x to 3x | 0.15 | 4.587
+  curve | Hertz-Berger 2x to 3x | 0.20 | 3.788
+  curve | Hertz-Berger 2x to 3x | 0.25 | 3.226
+  curve | Hertz-Berger 2x to 3x | 0.30 | 2.809
+  curve | Hertz-Berger 2x to 3x | 0.35 | 2.488
+  curve | Hertz-Berger 2x to 3x | 0.40 | 2.232
+  curve | Hertz-Berger 2x to 3x | 0.45 | 2.024
+  curve | Hertz-Berger 2x to 3x | 0.50 | 1.852
+  curve | Hertz-Berger 2x to 3x | 0.55 | 1.706
+  curve | Hertz-Berger 2x to 3x | 0.60 | 1.582
+  curve | Hertz-Berger 2x to 3x | 0.65 | 1.475
+  curve | Hertz-Berger 2x to 3x | 0.70 | 1.381
+  curve | Hertz-Berger 2x to 3x | 0.75 | 1.299
+  curve | Hertz-Berger 2x to 3x | 0.80 | 1.225
+  curve | Hertz-Berger 2x to 3x | 0.85 | 1.160
+  curve | Hertz-Berger 2x to 3x | 0.90 | 1.101
+  curve | Hertz-Berger 2x to 3x | 0.95 | 1.048
+  curve | Hertz-Berger 3x to 5x | 0.00 | 1.449
+  curve | Hertz-Berger 3x to 5x | 0.05 | 1.417
+  curve | Hertz-Berger 3x to 5x | 0.10 | 1.387
+  curve | Hertz-Berger 3x to 5x | 0.15 | 1.358
+  curve | Hertz-Berger 3x to 5x | 0.20 | 1.330
+  curve | Hertz-Berger 3x to 5x | 0.25 | 1.303
+  curve | Hertz-Berger 3x to 5x | 0.30 | 1.277
+  curve | Hertz-Berger 3x to 5x | 0.35 | 1.252
+  curve | Hertz-Berger 3x to 5x | 0.40 | 1.229
+  curve | Hertz-Berger 3x to 5x | 0.45 | 1.206
+  curve | Hertz-Berger 3x to 5x | 0.50 | 1.183
+  curve | Hertz-Berger 3x to 5x | 0.55 | 1.162
+  curve | Hertz-Berger 3x to 5x | 0.60 | 1.142
+  curve | Hertz-Berger 3x to 5x | 0.65 | 1.122
+  curve | Hertz-Berger 3x to 5x | 0.70 | 1.103
+  curve | Hertz-Berger 3x to 5x | 0.75 | 1.084
+  curve | Hertz-Berger 3x to 5x | 0.80 | 1.066
+  curve | Hertz-Berger 3x to 5x | 0.85 | 1.049
+  curve | Hertz-Berger 3x to 5x | 0.90 | 1.032
+  curve | Hertz-Berger 3x to 5x | 0.95 | 1.016
+  curve | Serial | 0.00 | 1.664
+  curve | Serial | 0.05 | 1.611
+  curve | Serial | 0.10 | 1.561
+  curve | Serial | 0.15 | 1.513
+  curve | Serial | 0.20 | 1.469
+  curve | Serial | 0.25 | 1.427
+  curve | Serial | 0.30 | 1.388
+  curve | Serial | 0.35 | 1.350
+  curve | Serial | 0.40 | 1.315
+  curve | Serial | 0.45 | 1.281
+  curve | Serial | 0.50 | 1.249
+  curve | Serial | 0.55 | 1.219
+  curve | Serial | 0.60 | 1.190
+  curve | Serial | 0.65 | 1.162
+  curve | Serial | 0.70 | 1.136
+  curve | Serial | 0.75 | 1.111
+  curve | Serial | 0.80 | 1.087
+  curve | Serial | 0.85 | 1.064
+  curve | Serial | 0.90 | 1.042
+  curve | Serial | 0.95 | 1.020
+  curve | Parallel | 0.00 | -3.572
+  curve | Parallel | 0.05 | -4.631
+  curve | Parallel | 0.10 | -6.582
+  curve | Parallel | 0.15 | -11.372
+  curve | Parallel | 0.20 | -41.768
+  curve | Parallel | 0.25 | 24.966
+  curve | Parallel | 0.30 | 9.611
+  curve | Parallel | 0.35 | 5.951
+  curve | Parallel | 0.40 | 4.310
+  curve | Parallel | 0.45 | 3.378
+  curve | Parallel | 0.50 | 2.777
+  curve | Parallel | 0.55 | 2.358
+  curve | Parallel | 0.60 | 2.049
+  curve | Parallel | 0.65 | 1.812
+  curve | Parallel | 0.70 | 1.623
+  curve | Parallel | 0.75 | 1.471
+  curve | Parallel | 0.80 | 1.344
+  curve | Parallel | 0.85 | 1.238
+  curve | Parallel | 0.90 | 1.147
+  curve | Parallel | 0.95 | 1.068
+  curve | G1 | 0.00 | 2.385
+  curve | G1 | 0.05 | 2.231
+  curve | G1 | 0.10 | 2.095
+  curve | G1 | 0.15 | 1.975
+  curve | G1 | 0.20 | 1.868
+  curve | G1 | 0.25 | 1.772
+  curve | G1 | 0.30 | 1.685
+  curve | G1 | 0.35 | 1.606
+  curve | G1 | 0.40 | 1.535
+  curve | G1 | 0.45 | 1.469
+  curve | G1 | 0.50 | 1.409
+  curve | G1 | 0.55 | 1.354
+  curve | G1 | 0.60 | 1.303
+  curve | G1 | 0.65 | 1.255
+  curve | G1 | 0.70 | 1.211
+  curve | G1 | 0.75 | 1.170
+  curve | G1 | 0.80 | 1.131
+  curve | G1 | 0.85 | 1.095
+  curve | G1 | 0.90 | 1.062
+  curve | G1 | 0.95 | 1.030
+  curve | Shenandoah | 0.00 | 2.208
+  curve | Shenandoah | 0.05 | 2.083
+  curve | Shenandoah | 0.10 | 1.970
+  curve | Shenandoah | 0.15 | 1.870
+  curve | Shenandoah | 0.20 | 1.779
+  curve | Shenandoah | 0.25 | 1.696
+  curve | Shenandoah | 0.30 | 1.621
+  curve | Shenandoah | 0.35 | 1.552
+  curve | Shenandoah | 0.40 | 1.489
+  curve | Shenandoah | 0.45 | 1.431
+  curve | Shenandoah | 0.50 | 1.377
+  curve | Shenandoah | 0.55 | 1.327
+  curve | Shenandoah | 0.60 | 1.280
+  curve | Shenandoah | 0.65 | 1.237
+  curve | Shenandoah | 0.70 | 1.196
+  curve | Shenandoah | 0.75 | 1.158
+  curve | Shenandoah | 0.80 | 1.123
+  curve | Shenandoah | 0.85 | 1.089
+  curve | Shenandoah | 0.90 | 1.058
+  curve | Shenandoah | 0.95 | 1.028
+  curve | ZGC | 0.00 | 2.490
+  curve | ZGC | 0.05 | 2.317
+  curve | ZGC | 0.10 | 2.167
+  curve | ZGC | 0.15 | 2.035
+  curve | ZGC | 0.20 | 1.918
+  curve | ZGC | 0.25 | 1.814
+  curve | ZGC | 0.30 | 1.721
+  curve | ZGC | 0.35 | 1.637
+  curve | ZGC | 0.40 | 1.560
+  curve | ZGC | 0.45 | 1.491
+  curve | ZGC | 0.50 | 1.427
+  curve | ZGC | 0.55 | 1.369
+  curve | ZGC | 0.60 | 1.315
+  curve | ZGC | 0.65 | 1.265
+  curve | ZGC | 0.70 | 1.219
+  curve | ZGC | 0.75 | 1.176
+  curve | ZGC | 0.80 | 1.136
+  curve | ZGC | 0.85 | 1.099
+  curve | ZGC | 0.90 | 1.064
+  curve | ZGC | 0.95 | 1.031
+T121 the two headroom thresholds (n0 64, target 0.5, one pod per node, pod 90 s, node 210 s): k | rounds covered c | slots that keep the first c rounds free of pending pods, n0 (g^c - 1) | fewest slots that remove c node waits, ceil(need g^(c - R)) - n0 | seconds to capacity with that many slots | with one slot fewer
+  10 | 1 | 64 | 16 | 690 | 900
+  10 | 2 | 192 | 96 | 480 | 690
+  10 | 3 | 256 | 256 | 270 | 480
+  16 | 1 | 64 | 64 | 690 | 990
+  16 | 2 | 192 | 192 | 480 | 780
+  16 | 3 | 448 | 448 | 270 | 480
+  30 | 1 | 64 | 56 | 990 | 1290
+  30 | 2 | 192 | 176 | 780 | 1080
+  30 | 3 | 448 | 416 | 570 | 870
+  30 | 4 | 896 | 896 | 360 | 570

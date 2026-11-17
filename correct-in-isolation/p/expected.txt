@@ -1,0 +1,9 @@
+tcBackoffFresh | 20000 schedules | holds
+tcBackoffFreshTight | 20000 schedules | violated in schedule 3: 410 after 11 rejections
+tcBackoffRaised | 20000 schedules | holds
+tcBackoffRaisedTight | 20000 schedules | violated in schedule 80: 410 after 8 rejections
+tcRepairSelfHeal | 500 schedules | violated in schedule 1: the webhook's pod was never admitted: the reconciler re-applied the configuration first
+tcRepairPaused | 500 schedules | holds
+tcRepairNudged | 500 schedules | holds
+tcAdmissionNoFirstCall | 2000 schedules | holds
+tcAdmissionFixedPoint | 2000 schedules | violated in schedule 2: admitted with the injector's label and no sidecar

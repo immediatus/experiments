@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" width="700" height="300" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>The list cost at which a sudden trigger leaves a storm still running in the eighth hour, against the share of the server the kubelets' lists are given</title>
+<desc>Storm onset list cost against shares of 245: 15: 7, 30: 14, 50: 23, 70: 33, 100: 47, 150: 70, 200: 92, 245: 113. Backlog at onset 2254 to 2310 s.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="300" class="f-bg"/>
+<path d="M48.00 258.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="261.85" text-anchor="end" class="f-sub">0</text>
+<path d="M48.00 200.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="203.85" text-anchor="end" class="f-sub">30</text>
+<path d="M48.00 141.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="145.85" text-anchor="end" class="f-sub">60</text>
+<path d="M48.00 82.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="85.85" text-anchor="end" class="f-sub">90</text>
+<path d="M48.00 24.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="27.85" text-anchor="end" class="f-sub">120</text>
+<text x="48.00" y="272.80" text-anchor="start" class="f-sub">0</text>
+<text x="126.00" y="272.80" text-anchor="middle" class="f-sub">30</text>
+<text x="230.00" y="272.80" text-anchor="middle" class="f-sub">70</text>
+<text x="366.00" y="272.80" text-anchor="middle" class="f-sub">122.5</text>
+<text x="684.00" y="272.80" text-anchor="end" class="f-sub">245</text>
+<path d="M48.00 258.50 H684.00" class="s-sub" fill="none"/>
+<text x="48.00" y="12.80" text-anchor="start" class="f-ink">list cost at the storm's onset</text>
+<text x="684.00" y="295.80" text-anchor="end" class="f-ink">the list level's shares, of 245</text>
+<path d="M48.00 258.00 L684.00 37.65" class="s-g" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
+<path d="M86.94 244.35 L125.88 230.70 L177.80 213.15 L229.71 193.65 L307.59 166.35 L437.39 121.50 L567.18 78.60 L684.00 37.65" class="s-b" fill="none" stroke-width="2"/>
+<circle cx="86.94" cy="244.35" r="3" class="f-b"/>
+<circle cx="125.88" cy="230.70" r="3" class="f-b"/>
+<circle cx="177.80" cy="213.15" r="3" class="f-b"/>
+<circle cx="229.71" cy="193.65" r="3" class="f-b"/>
+<circle cx="307.59" cy="166.35" r="3" class="f-b"/>
+<circle cx="437.39" cy="121.50" r="3" class="f-b"/>
+<circle cx="567.18" cy="78.60" r="3" class="f-b"/>
+<circle cx="684.00" cy="37.65" r="3" class="f-b"/>
+<path d="M126.50 24.00 V258.00" class="s-a" fill="none"/>
+<path d="M230.50 24.00 V258.00" class="s-d" fill="none"/>
+<text x="130.00" y="52.80" text-anchor="start" class="f-a" font-weight="bold">system, as configured</text>
+<text x="234.00" y="87.80" text-anchor="start" class="f-d" font-weight="bold">system and node-high merged</text>
+<text x="680.00" y="29.80" text-anchor="end" class="f-b">whole server, 113</text>
+</svg>

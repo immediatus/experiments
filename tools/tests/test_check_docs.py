@@ -79,3 +79,43 @@ class CheckDocsTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class CoverageTest(unittest.TestCase):
+    """The companion pages cover every labeled result the claims name, and the falsification table numbers its
+    criteria without a gap, as many as the manifest declares."""
+
+    def _with(self, d, claims_label='Proposition 2', part_text='', criteria=None, rows=(1, 2)):
+        _experiment(d)
+        with open(os.path.join(d, 'docs', 'CLAIMS.md'), 'a', encoding='utf-8') as f:
+            f.write('| %s, the staircase | Bound | peaks at 317 pods | T2 | | [post](%s) | |\n' % (claims_label, POST))
+        with open(os.path.join(d, 'docs', 'part1.md'), 'a', encoding='utf-8') as f:
+            f.write(part_text)
+        with open(os.path.join(d, 'docs', 'FALSIFICATION.md'), 'w', encoding='utf-8') as f:
+            f.write('| Criterion | Part |\n|---|---|\n' + ''.join('| F%d | 1 |\n' % n for n in rows))
+        if criteria is not None:
+            meta = json.load(open(os.path.join(d, 'experiment.json'), encoding='utf-8'))
+            meta['criteria'] = criteria
+            json.dump(meta, open(os.path.join(d, 'experiment.json'), 'w', encoding='utf-8'))
+        return check_docs.check(d)
+
+    def test_result_named_on_a_page_passes(self):
+        with tempfile.TemporaryDirectory() as d:
+            self.assertEqual(self._with(d, part_text='- **Bound. Proposition 2.** The staircase.\n'), [])
+
+    def test_result_in_a_range_or_list_passes(self):
+        for text in ('Propositions 1 to 3 hold.\n', 'Propositions 1 and 2 hold.\n', 'Propositions 4, 2 and 7 hold.\n'):
+            with tempfile.TemporaryDirectory() as d:
+                self.assertEqual(self._with(d, part_text=text), [], text)
+
+    def test_result_missing_from_every_page_fails(self):
+        with tempfile.TemporaryDirectory() as d:
+            self.assertTrue(any('Proposition 2' in e for e in self._with(d, part_text='Nothing here.\n')))
+
+    def test_gap_in_criteria_fails(self):
+        with tempfile.TemporaryDirectory() as d:
+            self.assertTrue(any('F2' in e for e in self._with(d, part_text='Proposition 2.\n', rows=(1, 3))))
+
+    def test_criteria_count_must_match_the_manifest(self):
+        with tempfile.TemporaryDirectory() as d:
+            self.assertTrue(any('3 criteria' in e for e in self._with(d, part_text='Proposition 2.\n', criteria=3)))

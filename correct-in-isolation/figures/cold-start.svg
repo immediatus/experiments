@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>The way back through two backoffs</title>
+<desc>Seconds until the application is ready after a full restart, against seconds until DNS is ready, every 15 s from 30 to 1200. Instant retries and documented backoffs at selected points: 30 s: 130 and 131, 90 s: 190 and 254, 120 s: 220 and 418, 300 s: 400 and 745, 600 s: 700 and 1401, 1200 s: 1300 and 1401.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="320" class="f-bg"/>
+<path d="M54.00 278.50 H684.00" class="s-grid" fill="none"/>
+<text x="49.00" y="281.85" text-anchor="end" class="f-sub">0</text>
+<path d="M54.00 214.50 H684.00" class="s-grid" fill="none"/>
+<text x="49.00" y="217.85" text-anchor="end" class="f-sub">400</text>
+<path d="M54.00 151.50 H684.00" class="s-grid" fill="none"/>
+<text x="49.00" y="155.85" text-anchor="end" class="f-sub">800</text>
+<path d="M54.00 88.50 H684.00" class="s-grid" fill="none"/>
+<text x="49.00" y="91.85" text-anchor="end" class="f-sub">1200</text>
+<path d="M54.00 24.50 H684.00" class="s-grid" fill="none"/>
+<text x="49.00" y="27.85" text-anchor="end" class="f-sub">1600</text>
+<text x="54.00" y="292.80" text-anchor="start" class="f-sub">0</text>
+<text x="208.00" y="292.80" text-anchor="middle" class="f-sub">300</text>
+<text x="361.00" y="292.80" text-anchor="middle" class="f-sub">600</text>
+<text x="515.00" y="292.80" text-anchor="middle" class="f-sub">900</text>
+<text x="669.00" y="292.80" text-anchor="middle" class="f-sub">1200</text>
+<path d="M54.00 278.50 H684.00" class="s-sub" fill="none"/>
+<text x="54.00" y="12.80" text-anchor="start" class="f-ink">seconds until the application is ready</text>
+<text x="684.00" y="315.80" text-anchor="end" class="f-ink">seconds until DNS is ready after a full restart</text>
+<path d="M69.37 236.72 L77.05 231.96 L84.73 227.20 L92.41 222.44 L100.10 217.67 L107.78 212.91 L115.46 208.15 L123.15 203.39 L130.83 198.62 L138.51 193.86 L146.20 189.10 L153.88 184.34 L161.56 179.58 L169.24 174.81 L176.93 170.05 L184.61 165.29 L192.29 160.53 L199.98 155.76 L207.66 151.00 L215.34 146.24 L223.02 141.48 L230.71 136.71 L238.39 131.95 L246.07 127.19 L253.76 122.42 L261.44 117.66 L269.12 112.90 L276.80 108.14 L284.49 103.38 L292.17 98.61 L299.85 93.85 L307.54 89.09 L315.22 84.33 L322.90 79.56 L330.59 74.80 L338.27 70.04 L345.95 65.27 L353.63 60.51 L361.32 55.75 L369.00 50.99 L376.68 46.23 L384.37 41.46 L392.05 36.70 L399.73 31.94 L407.41 27.17" class="s-g" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
+<path d="M69.37 257.36 L77.05 254.98 L84.73 252.60 L92.41 250.22 L100.10 247.84 L107.78 245.46 L115.46 243.08 L123.15 240.69 L130.83 238.31 L138.51 235.93 L146.20 233.55 L153.88 231.17 L161.56 228.79 L169.24 226.41 L176.93 224.03 L184.61 221.64 L192.29 219.26 L199.98 216.88 L207.66 214.50 L215.34 212.12 L223.02 209.74 L230.71 207.36 L238.39 204.97 L246.07 202.59 L253.76 200.21 L261.44 197.83 L269.12 195.45 L276.80 193.07 L284.49 190.69 L292.17 188.31 L299.85 185.92 L307.54 183.54 L315.22 181.16 L322.90 178.78 L330.59 176.40 L338.27 174.02 L345.95 171.64 L353.63 169.26 L361.32 166.88 L369.00 164.49 L376.68 162.11 L384.37 159.73 L392.05 157.35 L399.73 154.97 L407.41 152.59 L415.10 150.21 L422.78 147.83 L430.46 145.44 L438.15 143.06 L445.83 140.68 L453.51 138.30 L461.20 135.92 L468.88 133.54 L476.56 131.16 L484.24 128.77 L491.93 126.39 L499.61 124.01 L507.29 121.63 L514.98 119.25 L522.66 116.87 L530.34 114.49 L538.02 112.11 L545.71 109.73 L553.39 107.34 L561.07 104.96 L568.76 102.58 L576.44 100.20 L584.12 97.82 L591.80 95.44 L599.49 93.06 L607.17 90.67 L614.85 88.29 L622.54 85.91 L630.22 83.53 L637.90 81.15 L645.59 78.77 L653.27 76.39 L660.95 74.01 L668.63 71.62" class="s-b" fill="none" stroke-width="2"/>
+<path d="M69.37 257.20 L77.05 250.71 L84.73 250.71 L92.41 237.71 L100.10 237.71 L107.78 237.71 L115.46 211.69 L123.15 211.69 L130.83 211.69 L138.51 211.69 L146.20 211.69 L153.88 211.69 L161.56 159.67 L169.24 159.67 L176.93 159.67 L184.61 159.67 L192.29 159.67 L199.98 159.67 L207.66 159.67 L215.34 159.67 L223.02 159.67 L230.71 159.67 L238.39 159.67 L246.07 55.64 L253.76 55.64 L261.44 55.64 L269.12 55.64 L276.80 55.64 L284.49 55.64 L292.17 55.64 L299.85 55.64 L307.54 55.64 L315.22 55.64 L322.90 55.64 L330.59 55.64 L338.27 55.64 L345.95 55.64 L353.63 55.64 L361.32 55.64 L369.00 55.64 L376.68 55.64 L384.37 55.64 L392.05 55.64 L399.73 55.64 L407.41 55.64 L415.10 55.64 L422.78 55.64 L430.46 55.64 L438.15 55.64 L445.83 55.64 L453.51 55.64 L461.20 55.64 L468.88 55.64 L476.56 55.64 L484.24 55.64 L491.93 55.64 L499.61 55.64 L507.29 55.64 L514.98 55.64 L522.66 55.64 L530.34 55.64 L538.02 55.64 L545.71 55.64 L553.39 55.64 L561.07 55.64 L568.76 55.64 L576.44 55.64 L584.12 55.64 L591.80 55.64 L599.49 55.64 L607.17 55.64 L614.85 55.64 L622.54 55.64 L630.22 55.64 L637.90 55.64 L645.59 55.64 L653.27 55.64 L660.95 55.64 L668.63 55.64" class="s-a" fill="none" stroke-width="2"/>
+<text x="341.00" y="45.80" text-anchor="end" class="f-g">twice the instant-retry time (dashed)</text>
+<text x="665.00" y="110.80" text-anchor="end" class="f-b" font-weight="bold">instant retries</text>
+<text x="419.00" y="37.80" text-anchor="start" class="f-a" font-weight="bold">documented backoffs</text>
+</svg>

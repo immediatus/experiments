@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 340" width="700" height="340" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>Time until capacity meets a second 30x surge (red, left axis) and the node-hours held in the gap (gray dashed, right axis)</title>
+<desc>Time until capacity meets a second 30x surge, against the gap after the first, with the default 300-second pod stabilization and 600-second node unneeded time. Closed form: 0 s: 0 s, 150 s: 0 s, 280 s: 0 s, 300 s: 360 s, 450 s: 360 s, 600 s: 360 s, 630 s: 570 s, 640 s: 570 s, 660 s: 570 s, 675 s: 570 s, 720 s: 780 s, 765 s: 780 s, 810 s: 990 s, 855 s: 990 s, 900 s: 1200 s, 945 s: 1200 s, 1200 s: 1200 s. Simulated with instant deletion: 0 s: 0 s, 150 s: 0 s, 280 s: 0 s, 300 s: 360 s, 450 s: 360 s, 600 s: 360 s, 630 s: 570 s, 640 s: 580 s, 660 s: 570 s, 675 s: 575 s, 720 s: 780 s, 765 s: 795 s, 810 s: 990 s, 855 s: 1005 s, 900 s: 1200 s, 945 s: 1215 s, 1200 s: 1200 s. With the documented bulk of 10 nodes per scan: 0 s: 0 s, 150 s: 0 s, 280 s: 0 s, 300 s: 360 s, 450 s: 360 s, 600 s: 360 s, 630 s: 360 s, 640 s: 365 s, 660 s: 570 s, 675 s: 575 s, 720 s: 570 s, 765 s: 795 s, 810 s: 780 s, 855 s: 1005 s, 900 s: 990 s, 945 s: 1215 s, 1200 s: 1200 s. Node-hours held in the gap: 0 s: 0.0, 150 s: 2.4, 280 s: 4.5, 300 s: 4.8, 450 s: 7.2, 600 s: 9.7, 630 s: 10.2, 640 s: 10.3, 660 s: 10.6, 675 s: 10.9, 720 s: 11.6, 765 s: 12.3, 810 s: 13.1, 855 s: 13.8, 900 s: 14.4, 945 s: 14.4, 1200 s: 14.4.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="340" class="f-bg"/>
+<path d="M52.00 298.50 H644.00" class="s-grid" fill="none"/>
+<text x="47.00" y="301.85" text-anchor="end" class="f-a">0 s</text>
+<path d="M52.00 228.50 H644.00" class="s-grid" fill="none"/>
+<text x="47.00" y="231.85" text-anchor="end" class="f-a">360 s</text>
+<path d="M52.00 186.50 H644.00" class="s-grid" fill="none"/>
+<text x="47.00" y="189.85" text-anchor="end" class="f-a">570 s</text>
+<path d="M52.00 145.50 H644.00" class="s-grid" fill="none"/>
+<text x="47.00" y="149.85" text-anchor="end" class="f-a">780 s</text>
+<path d="M52.00 104.50 H644.00" class="s-grid" fill="none"/>
+<text x="47.00" y="107.85" text-anchor="end" class="f-a">990 s</text>
+<path d="M52.00 63.50 H644.00" class="s-grid" fill="none"/>
+<text x="47.00" y="67.85" text-anchor="end" class="f-a">1200 s</text>
+<text x="649.00" y="301.85" text-anchor="start" class="f-g">0 h</text>
+<text x="649.00" y="223.85" text-anchor="start" class="f-g">5 h</text>
+<text x="649.00" y="144.85" text-anchor="start" class="f-g">10 h</text>
+<text x="649.00" y="66.85" text-anchor="start" class="f-g">15 h</text>
+<text x="52.00" y="312.80" text-anchor="start" class="f-sub">0 s</text>
+<text x="194.00" y="312.80" text-anchor="middle" class="f-sub">300 s</text>
+<text x="336.00" y="312.80" text-anchor="middle" class="f-sub">600 s</text>
+<text x="478.00" y="312.80" text-anchor="middle" class="f-sub">900 s</text>
+<text x="620.00" y="312.80" text-anchor="middle" class="f-sub">1200 s</text>
+<path d="M52.00 298.50 H644.00" class="s-sub" fill="none"/>
+<text x="52.00" y="12.80" text-anchor="start" class="f-a">time until capacity meets the second surge</text>
+<text x="644.00" y="12.80" text-anchor="end" class="f-g">node-hours held in the gap</text>
+<text x="644.00" y="335.80" text-anchor="end" class="f-ink">gap between the two surges</text>
+<path d="M194.50 24.00 V298.00" class="s-g" fill="none" stroke-dasharray="5 4"/>
+<path d="M478.50 24.00 V298.00" class="s-g" fill="none" stroke-dasharray="5 4"/>
+<text x="198.00" y="36.80" text-anchor="start" class="f-g">pods removed</text>
+<text x="190.00" y="36.80" text-anchor="end" class="f-a">pods still up: 0 s</text>
+<text x="482.00" y="36.80" text-anchor="start" class="f-g">nodes deleted</text>
+<path d="M52.00 298.00 L123.04 298.00 L123.04 298.00 L184.61 298.00 L184.61 298.00 L194.08 298.00 L194.08 227.54 L265.12 227.54 L265.12 227.54 L336.16 227.54 L336.16 227.54 L350.37 227.54 L350.37 186.44 L355.10 186.44 L355.10 186.44 L364.58 186.44 L364.58 186.44 L371.68 186.44 L371.68 186.44 L392.99 186.44 L392.99 145.34 L414.30 145.34 L414.30 145.34 L435.62 145.34 L435.62 104.24 L456.93 104.24 L456.93 104.24 L478.24 104.24 L478.24 63.14 L499.55 63.14 L499.55 63.14 L620.32 63.14 L620.32 63.14 L644.00 63.14" class="s-a" fill="none" stroke-width="2"/>
+<path d="M52.00 298.00 L123.04 260.42 L184.61 227.54 L194.08 222.85 L265.12 185.27 L336.16 146.13 L350.37 138.30 L355.10 136.73 L364.58 132.03 L371.68 127.34 L392.99 116.38 L414.30 105.42 L435.62 92.89 L456.93 81.93 L478.24 72.54 L499.55 72.54 L620.32 72.54 L644.00 72.54" class="s-g" fill="none" stroke-width="1.5" stroke-dasharray="5 4"/>
+<circle cx="52.00" cy="298.00" r="3.5" class="f-a"/>
+<circle cx="123.04" cy="298.00" r="3.5" class="f-a"/>
+<circle cx="184.61" cy="298.00" r="3.5" class="f-a"/>
+<circle cx="194.08" cy="227.54" r="3.5" class="f-a"/>
+<circle cx="265.12" cy="227.54" r="3.5" class="f-a"/>
+<circle cx="336.16" cy="227.54" r="3.5" class="f-a"/>
+<circle cx="350.37" cy="186.44" r="3.5" class="f-a"/>
+<circle cx="350.37" cy="227.54" r="4.5" class="s-b" fill="none" stroke-width="1.8"/>
+<circle cx="355.10" cy="184.49" r="3.5" class="f-a"/>
+<circle cx="355.10" cy="226.56" r="4.5" class="s-b" fill="none" stroke-width="1.8"/>
+<circle cx="364.58" cy="186.44" r="3.5" class="f-a"/>
+<circle cx="371.68" cy="185.46" r="3.5" class="f-a"/>
+<circle cx="392.99" cy="145.34" r="3.5" class="f-a"/>
+<circle cx="392.99" cy="186.44" r="4.5" class="s-b" fill="none" stroke-width="1.8"/>
+<circle cx="414.30" cy="142.41" r="3.5" class="f-a"/>
+<circle cx="435.62" cy="104.24" r="3.5" class="f-a"/>
+<circle cx="435.62" cy="145.34" r="4.5" class="s-b" fill="none" stroke-width="1.8"/>
+<circle cx="456.93" cy="101.31" r="3.5" class="f-a"/>
+<circle cx="478.24" cy="63.14" r="3.5" class="f-a"/>
+<circle cx="478.24" cy="104.24" r="4.5" class="s-b" fill="none" stroke-width="1.8"/>
+<circle cx="499.55" cy="60.21" r="3.5" class="f-a"/>
+<circle cx="620.32" cy="63.14" r="3.5" class="f-a"/>
+<text x="279.00" y="244.80" text-anchor="middle" class="f-a" font-weight="bold">nodes still there: 360 s</text>
+<text x="616.00" y="52.80" text-anchor="end" class="f-a" font-weight="bold">fully nested: 1200 s</text>
+<text x="639.00" y="87.80" text-anchor="end" class="f-g">held: 14.4 node-hours</text>
+</svg>

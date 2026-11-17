@@ -64,7 +64,7 @@ d syncs old, settles at d = 0, oscillates with period 6 at d = 1, and diverges f
 | ![](../figures/staircase-backlog.svg) | T2, T34 | Peak backlog grows faster than the overload |
 | | T46 | Round arithmetic for the peak: 320 pods at 10x against 317 simulated, never below the simulation, and 160 against 80 at 5x |
 | ![](../figures/hottest.svg) | T21 | The hottest target for each overload and round budget, with the dead band |
-| ![](../figures/frontier.svg) | T4 | Steady pods against rounds: the target is an information rate |
+| ![](../figures/frontier.svg) | T4 | Steady pods against rounds: the target is an information rate (Definition 3) |
 | ![](../figures/efficiency-time.svg) | T10 | Degraded pods: capacity arrives a round or two later |
 | ![](../figures/efficiency-peak.svg) | T10 | Degraded pods: overshoot up to 13.23 times the need |
 | ![](../figures/stale.svg) | T15 | The exact stability bound against the one-line rule's gain of 1 |

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>Components still stranded after the recovery controller acts, at two needs per component, on one drawn graph for each kind of degree</title>
+<desc>Components still stranded after the controller's relaxation, of 1,000 at a mean of two needs per component, against a share of edges. Edges the controller cannot see, independent degrees: 0: 0, 0.05: 601, 0.10: 650, 0.20: 713 of 761. Same, hubs of exponent 1.8: 0, 378, 442, 509 of 680. Edges that cannot be relaxed, independent degrees: 0.1: 0, 0.2: 0, 0.3: 0, 0.5: 23. Same, hubs: 2, 70, 177, 384.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="320" class="f-bg"/>
+<path d="M48.00 272.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="275.85" text-anchor="end" class="f-sub">0</text>
+<path d="M48.00 210.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="213.85" text-anchor="end" class="f-sub">200</text>
+<path d="M48.00 148.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="151.85" text-anchor="end" class="f-sub">400</text>
+<path d="M48.00 86.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="89.85" text-anchor="end" class="f-sub">600</text>
+<path d="M48.00 24.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="27.85" text-anchor="end" class="f-sub">800</text>
+<text x="60.00" y="292.80" text-anchor="middle" class="f-sub">0</text>
+<text x="180.00" y="292.80" text-anchor="middle" class="f-sub">10%</text>
+<text x="300.00" y="292.80" text-anchor="middle" class="f-sub">20%</text>
+<text x="420.00" y="292.80" text-anchor="middle" class="f-sub">30%</text>
+<text x="540.00" y="292.80" text-anchor="middle" class="f-sub">40%</text>
+<text x="660.00" y="292.80" text-anchor="middle" class="f-sub">50%</text>
+<path d="M48.00 278.50 H684.00" class="s-sub" fill="none"/>
+<text x="48.00" y="12.80" text-anchor="start" class="f-ink">components still stranded, of 1,000</text>
+<text x="684.00" y="315.80" text-anchor="end" class="f-ink">share of edges unseen (solid) or unrelaxable (dashed)</text>
+<path d="M60.00 271.80 L120.00 85.64 L180.00 70.46 L300.00 50.95" class="s-b" fill="none" stroke-width="2"/>
+<circle cx="60.00" cy="271.80" r="3" class="f-b"/>
+<circle cx="120.00" cy="85.64" r="3" class="f-b"/>
+<circle cx="180.00" cy="70.46" r="3" class="f-b"/>
+<circle cx="300.00" cy="50.95" r="3" class="f-b"/>
+<path d="M60.00 271.80 L120.00 154.72 L180.00 134.89 L300.00 114.14" class="s-a" fill="none" stroke-width="2"/>
+<circle cx="60.00" cy="271.80" r="3" class="f-a"/>
+<circle cx="120.00" cy="154.72" r="3" class="f-a"/>
+<circle cx="180.00" cy="134.89" r="3" class="f-a"/>
+<circle cx="300.00" cy="114.14" r="3" class="f-a"/>
+<path d="M180.00 271.80 L300.00 271.80 L420.00 271.80 L660.00 264.68" class="s-b" fill="none" stroke-width="2" stroke-dasharray="5 4"/>
+<circle cx="180.00" cy="271.80" r="3" class="f-b"/>
+<circle cx="300.00" cy="271.80" r="3" class="f-b"/>
+<circle cx="420.00" cy="271.80" r="3" class="f-b"/>
+<circle cx="660.00" cy="264.68" r="3" class="f-b"/>
+<path d="M180.00 271.19 L300.00 250.12 L420.00 216.98 L660.00 152.86" class="s-a" fill="none" stroke-width="2" stroke-dasharray="5 4"/>
+<circle cx="180.00" cy="271.19" r="3" class="f-a"/>
+<circle cx="300.00" cy="250.12" r="3" class="f-a"/>
+<circle cx="420.00" cy="216.98" r="3" class="f-a"/>
+<circle cx="660.00" cy="152.86" r="3" class="f-a"/>
+<text x="306.00" y="54.85" text-anchor="start" class="f-b">unseen edges, independent</text>
+<text x="306.00" y="117.85" text-anchor="start" class="f-a" font-weight="bold">unseen edges, hubs</text>
+<text x="656.00" y="144.80" text-anchor="end" class="f-a">hard edges, hubs</text>
+<text x="656.00" y="256.80" text-anchor="end" class="f-b">hard edges, independent</text>
+</svg>

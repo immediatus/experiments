@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>Where in the chain the default does its damage</title>
+<desc>Share of orders of a chain of value links that converge under two passes, against the position of the last member that runs once, counting the first as 0. 4 webhooks: 0: 0.5000, 1: 0.3750, 2: 0.1667, 3: 0.0417; 5 webhooks: 0: 0.2250, 1: 0.1917, 2: 0.1167, 3: 0.0417, 4: 0.0083; 6 webhooks: 0: 0.0806, 1: 0.0736, 2: 0.0542, 3: 0.0278, 4: 0.0083, 5: 0.0014. With passes enough: 0: 1.0000, 1: 0.5000, 2: 0.1667, 3: 0.0417, 4: 0.0083, 5: 0.0014.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="320" class="f-bg"/>
+<path d="M54.00 33.50 H684.00" class="s-grid" fill="none"/>
+<text x="49.00" y="37.85" text-anchor="end" class="f-sub">100%</text>
+<path d="M54.00 115.50 H684.00" class="s-grid" fill="none"/>
+<text x="49.00" y="119.85" text-anchor="end" class="f-sub">10%</text>
+<path d="M54.00 196.50 H684.00" class="s-grid" fill="none"/>
+<text x="49.00" y="199.85" text-anchor="end" class="f-sub">1%</text>
+<path d="M54.00 278.50 H684.00" class="s-grid" fill="none"/>
+<text x="49.00" y="281.85" text-anchor="end" class="f-sub">0.1%</text>
+<text x="83.00" y="292.80" text-anchor="middle" class="f-sub">0</text>
+<text x="197.00" y="292.80" text-anchor="middle" class="f-sub">1</text>
+<text x="312.00" y="292.80" text-anchor="middle" class="f-sub">2</text>
+<text x="426.00" y="292.80" text-anchor="middle" class="f-sub">3</text>
+<text x="541.00" y="292.80" text-anchor="middle" class="f-sub">4</text>
+<text x="655.00" y="292.80" text-anchor="middle" class="f-sub">5</text>
+<path d="M54.00 278.50 H684.00" class="s-sub" fill="none"/>
+<text x="54.00" y="12.80" text-anchor="start" class="f-ink">share of orders that converge (log scale)</text>
+<text x="684.00" y="315.80" text-anchor="end" class="f-ink">position of the last webhook that runs once, or of the last match link</text>
+<path d="M82.64 33.29 L197.18 57.85 L311.73 96.76 L426.27 145.85 L540.82 203.03 L655.36 266.08" class="s-g" fill="none" stroke-width="1.5" stroke-dasharray="5 4"/>
+<path d="M82.64 57.85 L197.18 68.04 L311.73 96.76 L426.27 145.85" class="s-c" fill="none" stroke-width="2"/>
+<circle cx="82.64" cy="57.85" r="3" class="f-c"/>
+<circle cx="197.18" cy="68.04" r="3" class="f-c"/>
+<circle cx="311.73" cy="96.76" r="3" class="f-c"/>
+<circle cx="426.27" cy="145.85" r="3" class="f-c"/>
+<path d="M82.64 86.14 L197.18 91.81 L311.73 109.39 L426.27 145.85 L540.82 203.03" class="s-b" fill="none" stroke-width="2"/>
+<circle cx="82.64" cy="86.14" r="3" class="f-b"/>
+<circle cx="197.18" cy="91.81" r="3" class="f-b"/>
+<circle cx="311.73" cy="109.39" r="3" class="f-b"/>
+<circle cx="426.27" cy="145.85" r="3" class="f-b"/>
+<circle cx="540.82" cy="203.03" r="3" class="f-b"/>
+<path d="M82.64 122.50 L197.18 125.72 L311.73 136.56 L426.27 160.21 L540.82 203.03 L655.36 266.08" class="s-a" fill="none" stroke-width="2"/>
+<circle cx="82.64" cy="122.50" r="3" class="f-a"/>
+<circle cx="197.18" cy="125.72" r="3" class="f-a"/>
+<circle cx="311.73" cy="136.56" r="3" class="f-a"/>
+<circle cx="426.27" cy="160.21" r="3" class="f-a"/>
+<circle cx="540.82" cy="203.03" r="3" class="f-a"/>
+<circle cx="655.36" cy="266.08" r="3" class="f-a"/>
+<text x="438.00" y="48.85" text-anchor="start" class="f-g">dashed: passes enough, 1 / (position + 1)!</text>
+<text x="438.00" y="67.85" text-anchor="start" class="f-c">4 webhooks, two passes</text>
+<text x="438.00" y="85.85" text-anchor="start" class="f-b">5 webhooks, two passes</text>
+<text x="438.00" y="103.85" text-anchor="start" class="f-a" font-weight="bold">6 webhooks, two passes</text>
+</svg>

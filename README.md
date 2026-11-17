@@ -11,6 +11,7 @@ evidence. Anyone can rerun it and get the same numbers, byte for byte.
 | Series | Folder | What it reproduces |
 |---|---|---|
 | [Capacity in Arrears: Autoscaling Under Dead Time, Saturated Metrics, and Retry Debt](https://e-mindset.space/blog/capacity-in-arrears-part1-one-bit-per-dead-time/) (2026) | [`capacity-in-arrears/`](capacity-in-arrears/) | A port of the Kubernetes autoscaler's replica calculation checked against its upstream tests, the fluid and request-level simulations of four posts, 49 result sections, 24 figures, and a kit for testing the predictions on a real cluster |
+| [Correct in Isolation: Shared Signals, Time Scales, State, Assumptions, and Order](https://e-mindset.space/blog/correct-in-isolation-part1-two-setpoints-for-one-number/) (2026) | [`correct-in-isolation/`](correct-in-isolation/) | The simulations and closed forms of the series' parts: two autoscalers on one metric, nested autoscalers with scale-down memory, informers behind a queue with its wait limit and the client's backoff, start-time edges and rolling drains, mutating webhooks over every order with their match rules and audit trail, seams of every order and the whole-system audit; 77 result sections and 33 figures |
 
 ## Check any experiment
 
@@ -20,6 +21,7 @@ Python 3.10 or later, standard library only. Nothing to install.
 git clone https://github.com/immediatus/experiments.git && cd experiments
 python3 capacity-in-arrears/reproduce.py --check            # prints "identical" (about six minutes)
 python3 capacity-in-arrears/reproduce.py --figures --check  # prints "figures identical"
+python3 correct-in-isolation/reproduce.py --check           # prints "identical" (about four minutes)
 ```
 
 Each experiment's README explains what it is, links to its posts and says what is where.
@@ -34,6 +36,7 @@ Each experiment's README explains what it is, links to its posts and says what i
 | [`CHANGELOG.md`](CHANGELOG.md) | Releases and dated errata |
 | [`CITATION.cff`](CITATION.cff) | How to cite this repository |
 | `pyproject.toml`, `requirements-dev.txt`, `.python-version` | Lint configuration, pinned development tools, the interpreter for pyenv |
+| [`.devcontainer/`](.devcontainer/) | A development container with every tool the checks use: Python, ruff, Java and TLC, the .NET SDK and P |
 
 Continuous integration runs the fast checks of every experiment (tests, documents, figures,
 the Python 3.10 floor, lint) on every push to main and every pull request, on Python 3.10 to
@@ -52,6 +55,12 @@ python3 tools/check_all.py                                 # every fast check, a
 python3 tools/check_all.py --full                          # plus each byte-for-byte reproduction
 ruff check .
 ```
+
+The checks that run TLC on the TLA+ specifications, and P on the P models, need Java and
+`tla2tools.jar` (`$TLA2TOOLS`), and the .NET 8 SDK with the `p` tool; without them those checks are
+skipped. `.devcontainer/` builds an environment with all of it at the versions the frozen verdicts were
+produced with: Python 3.13, ruff 0.17.3, TLC 1.8.0 and P 3.1.0. Open the repository in it, in VS Code or
+with `devcontainer up --workspace-folder .`, and every check runs.
 
 `pyproject.toml` holds tool configuration only; nothing in this repository is installed as a
 package.

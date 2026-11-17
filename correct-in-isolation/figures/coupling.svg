@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>How much the memory autoscaler disturbs the CPU autoscaler, as the heap takes a smaller share of a pod's memory</title>
+<desc>Relative gain of the CPU loop in the split pairing against the heap's share of the memory a pod uses, for a live set that does not follow load, at the largest coupling that share allows; a gain of 1 means the loops are independent. Collectors of OpenJDK 17, measured by Cai and coauthors in 2022. Parallel, beta 1.28: 24.97 at 25%, 2.78 at 50%, 1.47 at 75%; Serial, beta 0.40: 1.43 at 25%, 1.25 at 50%, 1.11 at 75%; G1, beta 0.58: 1.77 at 25%, 1.41 at 50%, 1.17 at 75%; Shenandoah, beta 0.55: 1.7 at 25%, 1.38 at 50%, 1.16 at 75%; ZGC, beta 0.60: 1.81 at 25%, 1.43 at 50%, 1.18 at 75%. Only the Parallel collector turns singular, at a heap of 21.9% of memory, and is reversed below it.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="320" class="f-bg"/>
+<path d="M48.00 278.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="281.85" text-anchor="end" class="f-sub">0</text>
+<path d="M48.00 253.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="257.85" text-anchor="end" class="f-sub">1</text>
+<path d="M48.00 227.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="231.85" text-anchor="end" class="f-sub">2</text>
+<path d="M48.00 176.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="179.85" text-anchor="end" class="f-sub">4</text>
+<path d="M48.00 126.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="129.85" text-anchor="end" class="f-sub">6</text>
+<path d="M48.00 75.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="79.85" text-anchor="end" class="f-sub">8</text>
+<path d="M48.00 24.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="27.85" text-anchor="end" class="f-sub">10</text>
+<text x="48.00" y="292.80" text-anchor="start" class="f-sub">0%</text>
+<text x="207.00" y="292.80" text-anchor="middle" class="f-sub">25%</text>
+<text x="366.00" y="292.80" text-anchor="middle" class="f-sub">50%</text>
+<text x="525.00" y="292.80" text-anchor="middle" class="f-sub">75%</text>
+<text x="684.00" y="292.80" text-anchor="end" class="f-sub">100%</text>
+<path d="M48.00 278.50 H684.00" class="s-sub" fill="none"/>
+<text x="48.00" y="12.80" text-anchor="start" class="f-ink">relative gain of the CPU loop (1: the loops are independent)</text>
+<text x="684.00" y="315.80" text-anchor="end" class="f-ink">heap's share of the memory a pod uses</text>
+<rect x="48.00" y="24.00" width="139.28" height="254.00" class="f-a" fill-opacity="0.08"/>
+<path d="M187.50 24.00 V278.00" class="s-a" fill="none"/>
+<text x="54.00" y="40.80" text-anchor="start" class="f-a" font-weight="bold">reversed for Parallel</text>
+<text x="192.00" y="269.80" text-anchor="start" class="f-a" font-weight="bold">singular at a 21.9% heap</text>
+<path d="M48.00 253.50 H684.00" class="s-g" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
+<path d="M48.00 214.75 L79.80 219.15 L111.60 222.96 L143.40 226.31 L175.20 229.28 L207.00 231.92 L238.80 234.29 L270.60 236.42 L302.40 238.38 L334.20 240.13 L366.00 241.75 L397.80 243.23 L429.60 244.60 L461.40 245.87 L493.20 247.04 L525.00 248.13 L556.80 249.15 L588.60 250.09 L620.40 250.97 L652.20 251.81 L652.20 252.09 L620.40 251.53 L588.60 250.97 L556.80 250.39 L525.00 249.78 L493.20 249.15 L461.40 248.49 L429.60 247.77 L397.80 247.04 L366.00 246.28 L334.20 245.46 L302.40 244.60 L270.60 243.71 L238.80 242.74 L207.00 241.75 L175.20 240.69 L143.40 239.57 L111.60 238.35 L79.80 237.08 L48.00 235.73 Z" class="f-g" fill-opacity="0.35"/>
+<path d="M238.80 33.88 L270.60 126.84 L302.40 168.53 L334.20 192.20 L366.00 207.46 L397.80 218.11 L429.60 225.96 L461.40 231.98 L493.20 236.78 L525.00 240.64 L556.80 243.86 L588.60 246.55 L620.40 248.87 L652.20 250.87" class="s-a" fill="none" stroke-width="3"/>
+<text x="334.00" y="42.85" text-anchor="start" class="f-a" font-weight="bold">red: Parallel collector, OpenJDK 17</text>
+<text x="334.00" y="63.85" text-anchor="start" class="f-sub">gray band: Serial, G1, Shenandoah, ZGC, OpenJDK 17</text>
+</svg>

@@ -4,14 +4,18 @@
 
 Prints ``docs consistent`` or one line per problem, and exits 1 on any problem.
 
-Every Markdown file in the experiment is read, and four things are checked:
+Every Markdown file in the experiment is read, and six things are checked:
 
 * a relative link or image points at a file that exists;
 * a link into the blog named by ``experiment.json`` (``blog``), other than the blog's home page,
   points at one of the posts the manifest lists;
 * a section name such as ``T12`` is a section of ``expected/results.txt``;
 * every number in the *Statement* column of ``docs/CLAIMS.md`` is a value printed by one of
-  the sections the row cites, possibly rounded to the decimals the statement shows.
+  the sections the row cites, possibly rounded to the decimals the statement shows;
+* every Proposition, Definition and Corollary a row of ``docs/CLAIMS.md`` names is named on a companion
+  page ``docs/part*.md``, alone, in a list or in a range;
+* the status table of ``docs/FALSIFICATION.md`` numbers its criteria F1, F2, ... without a gap, as many
+  as ``criteria`` in ``experiment.json`` declares when it does.
 
 Whole numbers up to 12 are exempt from the last check, because they count things (rounds,
 retries, parts) rather than report results. Text between ``$`` signs is notation and is
@@ -102,6 +106,54 @@ def claim_numbers(path: str, values: dict[str, list[float]]) -> list[str]:
     return errors
 
 
+RESULT = re.compile(r'\b(Proposition|Definition|Corollar)(?:y|ies|s)?((?:\s*(?:,|and|to)?\s*\d+)+)')
+
+
+def named_results(text: str) -> set[tuple[str, int]]:
+    """Every labeled result a text names, with lists ("Propositions 1 and 2") and ranges ("1 to 3") expanded."""
+    out = set()
+    for m in RESULT.finditer(text):
+        kind = {'Corollar': 'Corollary'}.get(m.group(1), m.group(1))
+        tokens = re.findall(r'\d+|to', m.group(2))
+        i = 0
+        while i < len(tokens):
+            if i + 2 < len(tokens) and tokens[i + 1] == 'to':
+                out |= {(kind, n) for n in range(int(tokens[i]), int(tokens[i + 2]) + 1)}
+                i += 3
+            else:
+                if tokens[i] != 'to':
+                    out.add((kind, int(tokens[i])))
+                i += 1
+    return out
+
+
+def coverage(folder: str, meta: dict) -> list[str]:
+    """Results the claims name that no companion page names, and gaps in the falsification criteria."""
+    errors = []
+    docs = os.path.join(folder, 'docs')
+    claims = os.path.join(docs, 'CLAIMS.md')
+    pages = [os.path.join(docs, n) for n in sorted(os.listdir(docs)) if re.fullmatch(r'part.*\.md', n)] if os.path.isdir(docs) else []
+    if os.path.exists(claims) and pages:
+        with open(claims, encoding='utf-8') as f:
+            named = {r for line in f if line.startswith('| ') for r in named_results(line.split('|')[1])}
+        covered = set()
+        for page in pages:
+            with open(page, encoding='utf-8') as f:
+                covered |= named_results(f.read())
+        for kind, n in sorted(named - covered, key=lambda r: (r[0], r[1])):
+            errors.append('docs: %s %d is in CLAIMS.md but on no companion page' % (kind, n))
+    falsification = os.path.join(docs, 'FALSIFICATION.md')
+    if os.path.exists(falsification):
+        with open(falsification, encoding='utf-8') as f:
+            rows = [int(n) for n in re.findall(r'^\| F(\d+) \|', f.read(), re.M)]
+        missing = sorted(set(range(1, max(rows, default=0) + 1)) - set(rows))
+        errors += ['FALSIFICATION.md: criterion F%d is missing' % n for n in missing]
+        declared = meta.get('criteria')
+        if declared is not None and declared != len(set(rows)):
+            errors.append('FALSIFICATION.md: %d criteria, the manifest declares %d criteria' % (len(set(rows)), declared))
+    return errors
+
+
 def check(folder: str) -> list[str]:
     """Every problem found in the experiment's documents; an empty list means consistent."""
     errors = []
@@ -128,6 +180,7 @@ def check(folder: str) -> list[str]:
     claims = os.path.join(folder, 'docs', 'CLAIMS.md')
     if os.path.exists(claims):
         errors += claim_numbers(claims, values)
+    errors += coverage(folder, meta)
     return errors
 
 

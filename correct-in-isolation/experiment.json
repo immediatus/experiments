@@ -1,0 +1,49 @@
+{
+  "title": "Correct in Isolation: Shared Signals, Time Scales, State, Assumptions, and Order",
+  "slug": "correct-in-isolation",
+  "blog": "https://e-mindset.space",
+  "posts": [
+    {
+      "part": 1,
+      "title": "Two Setpoints for One Number",
+      "url": "https://e-mindset.space/blog/correct-in-isolation-part1-two-setpoints-for-one-number/"
+    },
+    {
+      "part": 2,
+      "title": "Headroom Bought by the Round",
+      "url": "https://e-mindset.space/blog/correct-in-isolation-part2-headroom-bought-by-the-round/"
+    },
+    {
+      "part": 3,
+      "title": "A Watch Delayed Becomes a List",
+      "url": "https://e-mindset.space/blog/correct-in-isolation-part3-a-watch-delayed-becomes-a-list/"
+    },
+    {
+      "part": 4,
+      "title": "The Guarantee Nobody Breaks",
+      "url": "https://e-mindset.space/blog/correct-in-isolation-part4-the-guarantee-nobody-breaks/"
+    },
+    {
+      "part": 5,
+      "title": "The Second Pass Is the Last",
+      "url": "https://e-mindset.space/blog/correct-in-isolation-part5-the-second-pass-is-the-last/"
+    },
+    {
+      "part": 6,
+      "title": "Every Pair Passes",
+      "url": "https://e-mindset.space/blog/correct-in-isolation-part6-every-pair-passes/"
+    }
+  ],
+  "specimen": {
+    "contracts": "Kubernetes documented contracts read in October and November 2026; no release is pinned, and where a contract is open the worst case it allows is modelled",
+    "part1": "HPA on CPU at the documented tolerance 0.1; VPA recommender margin 0.15, 90th percentile, 24 h half-life",
+    "part2": "16 pods, 8 per node, pod dead time 90 s, node provisioning 210 s, HPA stabilization 300 s, CA unneeded time 600 s",
+    "part3": "2000 informers, 100 seat-seconds per second, 300 s history, watches 300 to 600 s, queue wait limit 15 s",
+    "part4": "9 nodes in 3 zones; webhook 3 replicas, DNS 2, application 3; nodes drained one at a time",
+    "part5": "six sets of two or three mutating webhooks on one pod (label, sidecar injector, pull policy, digest pin, signer, capability policy, mesh init, label-selected injector); every order; one to six passes",
+    "part6": "the specimens of Parts 1 to 5, one per seam; symmetric loops, start-time cycles and value chains of 3 to 6 members; 150 random dependency graphs of 2 to 4 webhooks"
+  },
+  "python": ">=3.10",
+  "dependencies": [],
+  "criteria": 67
+}

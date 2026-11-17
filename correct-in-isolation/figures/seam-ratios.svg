@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>Each seam's ratio on the specimens of the earlier parts, one point per setting</title>
+<desc>Seam ratios of the specimens, binding above one. Signal: target 0.3: 2.635, 0.5: 1.581, 0.7: 1.129, 0.8: 0.988, 0.9: 0.931. Time scale, thirtyfold surge from 16 pods: no slots 4.0, 16 slots 2.0, 48: 1.333, 112: 1.0. State: list cost 120: 3.2, 100: 2.667, 750 informers at 100: 1.0. Order: configured order 1.5, renamed 0.5. Assumption: surveyed defaults 1.0, Kyverno failing open 0.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="320" class="f-bg"/>
+<path d="M44.00 278.50 H684.00" class="s-grid" fill="none"/>
+<text x="39.00" y="281.85" text-anchor="end" class="f-sub">0</text>
+<path d="M44.00 219.50 H684.00" class="s-grid" fill="none"/>
+<text x="39.00" y="223.85" text-anchor="end" class="f-sub">1</text>
+<path d="M44.00 160.50 H684.00" class="s-grid" fill="none"/>
+<text x="39.00" y="163.85" text-anchor="end" class="f-sub">2</text>
+<path d="M44.00 101.50 H684.00" class="s-grid" fill="none"/>
+<text x="39.00" y="105.85" text-anchor="end" class="f-sub">3</text>
+<path d="M44.00 42.50 H684.00" class="s-grid" fill="none"/>
+<text x="39.00" y="45.85" text-anchor="end" class="f-sub">4</text>
+<text x="107.00" y="292.80" text-anchor="middle" class="f-sub">signal</text>
+<text x="232.00" y="292.80" text-anchor="middle" class="f-sub">time scale</text>
+<text x="358.00" y="292.80" text-anchor="middle" class="f-sub">state</text>
+<text x="483.00" y="292.80" text-anchor="middle" class="f-sub">order</text>
+<text x="609.00" y="292.80" text-anchor="middle" class="f-sub">assumption</text>
+<path d="M44.00 278.50 H684.00" class="s-sub" fill="none"/>
+<text x="44.00" y="12.80" text-anchor="start" class="f-ink">seam ratio</text>
+<text x="684.00" y="315.80" text-anchor="end" class="f-ink">seam</text>
+<path d="M44.00 219.50 H684.00" class="s-g" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="665.00" y="234.80" text-anchor="end" class="f-g">binds above one</text>
+<circle cx="106.75" cy="122.35" r="4" class="f-a"/>
+<text x="114.00" y="125.85" text-anchor="start" class="f-sub">target 0.3</text>
+<circle cx="106.75" cy="184.61" r="4" class="f-a"/>
+<text x="114.00" y="188.85" text-anchor="start" class="f-sub">0.5</text>
+<circle cx="106.75" cy="211.31" r="4" class="f-a"/>
+<text x="114.00" y="214.85" text-anchor="start" class="f-sub">0.7</text>
+<circle cx="106.75" cy="219.64" r="4" class="f-c"/>
+<text x="114.00" y="233.80" text-anchor="start" class="f-sub">0.8, 0.9</text>
+<circle cx="106.75" cy="223.01" r="4" class="f-c"/>
+<circle cx="232.24" cy="41.72" r="4" class="f-a"/>
+<text x="239.00" y="45.85" text-anchor="start" class="f-sub">no slots</text>
+<circle cx="232.24" cy="159.86" r="4" class="f-a"/>
+<text x="239.00" y="163.85" text-anchor="start" class="f-sub">16</text>
+<circle cx="232.24" cy="199.26" r="4" class="f-a"/>
+<text x="239.00" y="202.85" text-anchor="start" class="f-sub">48</text>
+<circle cx="232.24" cy="218.93" r="4" class="f-c"/>
+<text x="239.00" y="213.80" text-anchor="start" class="f-sub">112 slots</text>
+<circle cx="357.73" cy="88.98" r="4" class="f-a"/>
+<text x="365.00" y="92.85" text-anchor="start" class="f-sub">list cost 120</text>
+<circle cx="357.73" cy="120.46" r="4" class="f-a"/>
+<text x="365.00" y="123.85" text-anchor="start" class="f-sub">100</text>
+<circle cx="357.73" cy="218.93" r="4" class="f-c"/>
+<text x="365.00" y="213.80" text-anchor="start" class="f-sub">750 informers</text>
+<circle cx="483.22" cy="189.40" r="4" class="f-a"/>
+<text x="490.00" y="192.85" text-anchor="start" class="f-sub">configured order</text>
+<circle cx="483.22" cy="248.47" r="4" class="f-c"/>
+<text x="490.00" y="251.85" text-anchor="start" class="f-sub">renamed</text>
+<circle cx="608.71" cy="218.93" r="4" class="f-a"/>
+<text x="602.00" y="213.80" text-anchor="end" class="f-sub">surveyed defaults</text>
+<circle cx="608.71" cy="278.00" r="4" class="f-c"/>
+<text x="602.00" y="272.80" text-anchor="end" class="f-sub">Kyverno fails open</text>
+</svg>

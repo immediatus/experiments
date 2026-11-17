@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" width="700" height="300" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>Where the second wave starts</title>
+<desc>Re-watches answered 410 in the three hours after a trigger, mean of three runs, against LIST cost. One queue with the wait limit: 30: 0.0, 31: 0.0, 32: 0.0, 33: 0.3, 34: 1.3, 35: 1.7, 36: 2.7, 37: 6.3, 38: 10.0, 39: 13.3, 40: 18.7. Fair queuing: 30: 0.0, 31: 0.7, 32: 0.7, 33: 1.3, 34: 2.0, 35: 3.0, 36: 5.3, 37: 7.3, 38: 10.7, 39: 14.0, 40: 17.3. The idealized queue starts a second wave exactly above 30.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="300" class="f-bg"/>
+<path d="M48.00 258.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="261.85" text-anchor="end" class="f-sub">0</text>
+<path d="M48.00 205.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="209.85" text-anchor="end" class="f-sub">5</text>
+<path d="M48.00 152.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="155.85" text-anchor="end" class="f-sub">10</text>
+<path d="M48.00 98.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="101.85" text-anchor="end" class="f-sub">15</text>
+<path d="M48.00 45.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="49.85" text-anchor="end" class="f-sub">20</text>
+<text x="77.00" y="272.80" text-anchor="middle" class="f-sub">30</text>
+<text x="193.00" y="272.80" text-anchor="middle" class="f-sub">32</text>
+<text x="308.00" y="272.80" text-anchor="middle" class="f-sub">34</text>
+<text x="424.00" y="272.80" text-anchor="middle" class="f-sub">36</text>
+<text x="539.00" y="272.80" text-anchor="middle" class="f-sub">38</text>
+<text x="655.00" y="272.80" text-anchor="middle" class="f-sub">40</text>
+<path d="M48.00 258.50 H684.00" class="s-sub" fill="none"/>
+<text x="48.00" y="12.80" text-anchor="start" class="f-ink">re-watches answered 410, mean of three runs</text>
+<text x="684.00" y="295.80" text-anchor="end" class="f-ink">LIST cost, seat-seconds</text>
+<path d="M77.50 24.00 V258.00" class="s-a" fill="none" stroke-dasharray="5 4"/>
+<text x="81.00" y="36.80" text-anchor="start" class="f-a">idealized threshold: above 30</text>
+<path d="M76.91 258.00 L134.73 258.00 L192.55 258.00 L250.36 254.45 L308.18 243.82 L366.00 240.27 L423.82 229.64 L481.64 190.64 L539.45 151.64 L597.27 116.18 L655.09 59.45" class="s-b" fill="none" stroke-width="2"/>
+<circle cx="76.91" cy="258.00" r="3" class="f-b"/>
+<circle cx="134.73" cy="258.00" r="3" class="f-b"/>
+<circle cx="192.55" cy="258.00" r="3" class="f-b"/>
+<circle cx="250.36" cy="254.45" r="3" class="f-b"/>
+<circle cx="308.18" cy="243.82" r="3" class="f-b"/>
+<circle cx="366.00" cy="240.27" r="3" class="f-b"/>
+<circle cx="423.82" cy="229.64" r="3" class="f-b"/>
+<circle cx="481.64" cy="190.64" r="3" class="f-b"/>
+<circle cx="539.45" cy="151.64" r="3" class="f-b"/>
+<circle cx="597.27" cy="116.18" r="3" class="f-b"/>
+<circle cx="655.09" cy="59.45" r="3" class="f-b"/>
+<path d="M76.91 258.00 L134.73 250.91 L192.55 250.91 L250.36 243.82 L308.18 236.73 L366.00 226.09 L423.82 201.27 L481.64 180.00 L539.45 144.55 L597.27 109.09 L655.09 73.64" class="s-c" fill="none" stroke-width="2" stroke-dasharray="5 4"/>
+<circle cx="76.91" cy="258.00" r="3" class="f-c"/>
+<circle cx="134.73" cy="250.91" r="3" class="f-c"/>
+<circle cx="192.55" cy="250.91" r="3" class="f-c"/>
+<circle cx="250.36" cy="243.82" r="3" class="f-c"/>
+<circle cx="308.18" cy="236.73" r="3" class="f-c"/>
+<circle cx="366.00" cy="226.09" r="3" class="f-c"/>
+<circle cx="423.82" cy="201.27" r="3" class="f-c"/>
+<circle cx="481.64" cy="180.00" r="3" class="f-c"/>
+<circle cx="539.45" cy="144.55" r="3" class="f-c"/>
+<circle cx="597.27" cy="109.09" r="3" class="f-c"/>
+<circle cx="655.09" cy="73.64" r="3" class="f-c"/>
+<text x="135.00" y="149.80" text-anchor="start" class="f-b" font-weight="bold">one queue, wait limit</text>
+<text x="135.00" y="165.80" text-anchor="start" class="f-c">fair queuing (dashed)</text>
+</svg>

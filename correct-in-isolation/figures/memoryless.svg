@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 330" width="700" height="330" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>Each line traces the unneeded time from 0 to forever for memoryless gaps with a mean of 600 or 1,800 seconds</title>
+<desc>Expected node-hours held against expected time to capacity for a second 30x surge, gaps exponential, one point per unneeded time. mean gap 600 s: unneeded 0 s 3.80 node-hours 727.8 s; unneeded 300 s 6.11 node-hours 610.8 s; unneeded 600 s 7.51 node-hours 456.4 s; unneeded 900 s 8.36 node-hours 362.7 s; unneeded 1200 s 8.87 node-hours 305.9 s; unneeded 1800 s 9.37 node-hours 250.6 s; unneeded 3600 s 9.65 node-hours 220.0 s; unneeded forever s 9.67 node-hours 218.4 s. mean gap 1800 s: unneeded 0 s 4.45 node-hours 1015.8 s; unneeded 300 s 8.22 node-hours 954.5 s; unneeded 600 s 11.41 node-hours 854.8 s; unneeded 900 s 14.11 node-hours 770.3 s; unneeded 1200 s 16.40 node-hours 698.8 s; unneeded 1800 s 19.97 node-hours 587.1 s; unneeded 3600 s 25.68 node-hours 408.6 s; unneeded forever s 29.00 node-hours 304.7 s. Dashed lines join releasing at once to holding forever; every intermediate point lies above them.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="330" class="f-bg"/>
+<path d="M52.00 288.50 H684.00" class="s-grid" fill="none"/>
+<text x="47.00" y="291.85" text-anchor="end" class="f-sub">0 s</text>
+<path d="M52.00 222.50 H684.00" class="s-grid" fill="none"/>
+<text x="47.00" y="225.85" text-anchor="end" class="f-sub">300 s</text>
+<path d="M52.00 156.50 H684.00" class="s-grid" fill="none"/>
+<text x="47.00" y="159.85" text-anchor="end" class="f-sub">600 s</text>
+<path d="M52.00 90.50 H684.00" class="s-grid" fill="none"/>
+<text x="47.00" y="93.85" text-anchor="end" class="f-sub">900 s</text>
+<path d="M52.00 24.50 H684.00" class="s-grid" fill="none"/>
+<text x="47.00" y="27.85" text-anchor="end" class="f-sub">1200 s</text>
+<text x="52.00" y="302.80" text-anchor="start" class="f-sub">0 h</text>
+<text x="151.00" y="302.80" text-anchor="middle" class="f-sub">5 h</text>
+<text x="250.00" y="302.80" text-anchor="middle" class="f-sub">10 h</text>
+<text x="348.00" y="302.80" text-anchor="middle" class="f-sub">15 h</text>
+<text x="447.00" y="302.80" text-anchor="middle" class="f-sub">20 h</text>
+<text x="546.00" y="302.80" text-anchor="middle" class="f-sub">25 h</text>
+<text x="644.00" y="302.80" text-anchor="middle" class="f-sub">30 h</text>
+<path d="M52.00 288.50 H684.00" class="s-sub" fill="none"/>
+<text x="52.00" y="12.80" text-anchor="start" class="f-ink">expected time until capacity meets the second surge</text>
+<text x="684.00" y="325.80" text-anchor="end" class="f-ink">expected node-hours held between surges</text>
+<path d="M127.05 127.88 L242.98 239.95" class="s-g" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
+<path d="M127.05 127.88 L172.67 153.62 L200.32 187.59 L217.11 208.21 L227.18 220.70 L237.06 232.87 L242.59 239.60 L242.98 239.95" class="s-b" fill="none" stroke-width="2"/>
+<circle cx="127.05" cy="127.88" r="3" class="f-b"/>
+<circle cx="172.67" cy="153.62" r="3" class="f-b"/>
+<circle cx="200.32" cy="187.59" r="3" class="f-b"/>
+<circle cx="217.11" cy="208.21" r="3" class="f-b"/>
+<circle cx="227.18" cy="220.70" r="3" class="f-b"/>
+<circle cx="237.06" cy="232.87" r="3" class="f-b"/>
+<circle cx="242.59" cy="239.60" r="3" class="f-b"/>
+<circle cx="242.98" cy="239.95" r="3" class="f-b"/>
+<circle cx="200.32" cy="187.59" r="6.5" class="s-b" fill="none" stroke-width="1.8"/>
+<text x="208.00" y="181.80" text-anchor="start" class="f-b">600 s default</text>
+<text x="249.00" y="258.80" text-anchor="start" class="f-b" font-weight="bold">mean gap 600 s: hold forever</text>
+<path d="M139.89 64.52 L624.75 220.97" class="s-g" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
+<path d="M139.89 64.52 L214.34 78.01 L277.35 99.94 L330.67 118.53 L375.90 134.26 L446.41 158.84 L559.18 198.11 L624.75 220.97" class="s-a" fill="none" stroke-width="2"/>
+<circle cx="139.89" cy="64.52" r="3" class="f-a"/>
+<circle cx="214.34" cy="78.01" r="3" class="f-a"/>
+<circle cx="277.35" cy="99.94" r="3" class="f-a"/>
+<circle cx="330.67" cy="118.53" r="3" class="f-a"/>
+<circle cx="375.90" cy="134.26" r="3" class="f-a"/>
+<circle cx="446.41" cy="158.84" r="3" class="f-a"/>
+<circle cx="559.18" cy="198.11" r="3" class="f-a"/>
+<circle cx="624.75" cy="220.97" r="3" class="f-a"/>
+<circle cx="277.35" cy="99.94" r="6.5" class="s-a" fill="none" stroke-width="1.8"/>
+<text x="285.00" y="93.80" text-anchor="start" class="f-a">600 s default</text>
+<text x="623.00" y="239.80" text-anchor="end" class="f-a" font-weight="bold">mean gap 1800 s: hold forever</text>
+<text x="147.00" y="54.80" text-anchor="start" class="f-a">release at once</text>
+</svg>

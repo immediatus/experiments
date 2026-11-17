@@ -1,7 +1,10 @@
 """Run every check of the repository, the same way locally and in continuous integration.
 
-    python3 tools/check_all.py          # fast checks: layout, tests, documents, figures, Python floor
-    python3 tools/check_all.py --full   # also every experiment's byte-for-byte reproduction
+    python3 tools/check_all.py          # fast checks: layout, lint, tests, documents, figures, Python floor
+    python3 tools/check_all.py --full   # also every experiment's byte-for-byte reproduction, twice
+
+The reproduction runs under two hash seeds, so that no number may depend on the order Python happens to give a
+set of strings.
 
 An experiment is a top-level folder with an ``experiment.json``. Each step runs as its own
 process from the repository root; the run reports every step and exits 1 if any failed.
@@ -30,13 +33,16 @@ def steps(root: str, full: bool) -> list[Step]:
         ('repository layout', [py, 'tools/check_repo.py', '.']),
         ('python 3.10 floor', [py, 'tools/python_floor.py', '.']),
         ('compile', [py, '-m', 'compileall', '-q', '-x', r'/\.git/', '.']),
+        ('lint', [py, 'tools/lint.py']),
     ]
     for slug in experiments(root):
         out.append((slug + ' tests', [py, '-m', 'unittest', 'discover', '-s', slug + '/tests']))
         out.append((slug + ' docs', [py, 'tools/check_docs.py', slug]))
         out.append((slug + ' figures', [py, slug + '/reproduce.py', '--figures', '--check']))
         if full:
-            out.append((slug + ' reproduction', [py, slug + '/reproduce.py', '--check']))
+            for seed in (0, 1):
+                name = slug + ' reproduction' + ('' if seed == 0 else ', hash seed %d' % seed)
+                out.append((name, ['env', 'PYTHONHASHSEED=%d' % seed, py, slug + '/reproduce.py', '--check']))
     return out
 
 

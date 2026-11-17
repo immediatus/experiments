@@ -1,0 +1,50 @@
+"""Checks the fewest free slots that remove c node waits from a nested surge (Part 2). Proposition 9 prices the
+slots that keep the first c rounds free of pending pods, n0 (g^c - 1). Fewer suffice: the pod loop sizes each
+round from the ready pods, so once n0 + H pods are ready the rounds continue from them, and c node waits go
+once n0 + H reaches N* g^(c - R). The simulation steps exactly there.
+
+Run: python3 -m unittest discover -s tests
+"""
+import os
+import sys
+sys.path[:0] = [os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'model')]
+
+import unittest
+
+from formulas_time import headroom_for, rounds, step_slots
+from nested import simulate
+
+
+def simulated_steps(k, n0=64, most=1000):
+    out, prev = [], simulate(k, n0=n0, headroom=0, per_node=1)
+    for h in range(1, most):
+        t = simulate(k, n0=n0, headroom=h, per_node=1)
+        if t < prev:
+            out.append(h)
+        prev = min(prev, t)
+    return out
+
+
+class StepSlots(unittest.TestCase):
+
+    def test_specimen_steps(self):
+        self.assertEqual([step_slots(c, 64, 30) for c in range(1, 5)], [56, 176, 416, 896])
+
+    def test_steps_match_the_simulation(self):
+        for k in (10, 16, 30):
+            predicted = [step_slots(c, 64, k) for c in range(1, rounds(k) + 1)]
+            predicted = [h for h in predicted if 0 < h < 1000]
+            self.assertEqual(simulated_steps(k), sorted(set(predicted)))
+
+    def test_rounds_beyond_the_surge_are_rejected(self):
+        with self.assertRaises(ValueError):
+            step_slots(4, 64, 10)
+
+    def test_never_more_than_the_full_cover(self):
+        for k in (10, 16, 30, 60):
+            for c in range(1, rounds(k) + 1):
+                self.assertLessEqual(step_slots(c, 64, k), headroom_for(c, 64, k))
+
+
+if __name__ == '__main__':
+    unittest.main()

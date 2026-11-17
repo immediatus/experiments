@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>Each point is one setting of the node loop's unneeded time, for a second surge 1200 seconds after the first</title>
+<desc>Node-hours held against time until capacity meets a second 30x surge 1200 seconds after the first, one point per unneeded time. 0 s: 4.75 node-hours, 1200 s; 60 s: 5.72 node-hours, 1200 s; 300 s: 9.59 node-hours, 1200 s; 600 s: 14.42 node-hours, 1200 s; 900 s: 19.25 node-hours, 1200 s; 1000 s: 19.33 node-hours, 780 s; 1080 s: 19.33 node-hours, 780 s; 1140 s: 19.33 node-hours, 570 s; 1170 s: 19.33 node-hours, 570 s; 1200 s: 19.33 node-hours, 360 s; 1800 s: 19.33 node-hours, 360 s. Only releasing at once and holding through the gap are efficient.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="320" class="f-bg"/>
+<path d="M52.00 244.50 H684.00" class="s-grid" fill="none"/>
+<text x="47.00" y="247.85" text-anchor="end" class="f-sub">360 s</text>
+<path d="M52.00 200.50 H684.00" class="s-grid" fill="none"/>
+<text x="47.00" y="203.85" text-anchor="end" class="f-sub">570 s</text>
+<path d="M52.00 155.50 H684.00" class="s-grid" fill="none"/>
+<text x="47.00" y="159.85" text-anchor="end" class="f-sub">780 s</text>
+<path d="M52.00 66.50 H684.00" class="s-grid" fill="none"/>
+<text x="47.00" y="69.85" text-anchor="end" class="f-sub">1200 s</text>
+<text x="122.00" y="292.80" text-anchor="middle" class="f-sub">5 h</text>
+<text x="298.00" y="292.80" text-anchor="middle" class="f-sub">10 h</text>
+<text x="473.00" y="292.80" text-anchor="middle" class="f-sub">15 h</text>
+<text x="649.00" y="292.80" text-anchor="middle" class="f-sub">20 h</text>
+<path d="M52.00 278.50 H684.00" class="s-sub" fill="none"/>
+<text x="52.00" y="12.80" text-anchor="start" class="f-ink">time until capacity meets the second surge</text>
+<text x="684.00" y="315.80" text-anchor="end" class="f-ink">node-hours held in a 1200-second gap</text>
+<circle cx="113.44" cy="66.33" r="4.5" class="f-b"/>
+<circle cx="147.50" cy="66.33" r="3.5" class="s-a" fill="none" stroke-width="1.8"/>
+<circle cx="283.38" cy="66.33" r="3.5" class="s-a" fill="none" stroke-width="1.8"/>
+<circle cx="452.97" cy="66.33" r="3.5" class="s-a" fill="none" stroke-width="1.8"/>
+<circle cx="622.56" cy="66.33" r="3.5" class="s-a" fill="none" stroke-width="1.8"/>
+<circle cx="625.36" cy="155.23" r="3.5" class="s-a" fill="none" stroke-width="1.8"/>
+<circle cx="625.36" cy="155.23" r="3.5" class="s-a" fill="none" stroke-width="1.8"/>
+<circle cx="625.36" cy="199.68" r="3.5" class="s-a" fill="none" stroke-width="1.8"/>
+<circle cx="625.36" cy="199.68" r="3.5" class="s-a" fill="none" stroke-width="1.8"/>
+<circle cx="625.36" cy="244.13" r="4.5" class="f-b"/>
+<circle cx="625.36" cy="244.13" r="4.5" class="f-b"/>
+<text x="119.00" y="82.80" text-anchor="start" class="f-b" font-weight="bold">release at once: 4.75 h, 1200 s</text>
+<text x="617.00" y="260.80" text-anchor="end" class="f-b" font-weight="bold">hold through the gap: 19.33 h, 360 s</text>
+<text x="368.00" y="53.80" text-anchor="middle" class="f-a">unneeded 60 to 900 s: more hours, no gain</text>
+<text x="615.00" y="180.85" text-anchor="end" class="f-a">1000 to 1170 s: same hours, slower</text>
+</svg>

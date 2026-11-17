@@ -13,7 +13,7 @@ title, col), and els, a list of elements, each with a type t:
   hband y0 y1 | rect x0 x1 y0 y1 | vline x | hline y w | band pts=[[x, lo, hi]] edge |
   line pts=[[x, y]] w mk open | pt x y r open | txt x y s n al bl dx dy b
 
-and the optional keys c (colour: ink sub grid a b c d e g), al (opacity), dash, ax ('R' for
+and the optional keys c (color: ink sub grid a b c d e g), al (opacity), dash, ax ('R' for
 the right axis). n is the canvas backend's narrow-screen label and is ignored here.
 
   render(fig, width=700) -> str

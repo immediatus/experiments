@@ -9,3 +9,22 @@ venv/
 
 # Output of the cluster suite: <experiment>/cluster/runs/
 runs/
+
+# Output of the P compiler (`p compile`) and checker (`p check`), wherever P is run, and of the
+# .NET build it drives.
+**/PGenerated/
+**/PCheckerOutput/
+**/bin/
+**/obj/
+
+# TLA+ tooling output, wherever TLC, the Toolbox, the VS Code extension or TLAPS is run: TLC's
+# states directory (its default -metadir), the trace specifications and their binary traces it
+# writes for a violation, Toolbox model folders, the proof manager's caches, and the backups the
+# PlusCal translator leaves.
+**/states/
+*_TTrace_*.tla
+*_TTrace_*.bin
+*.toolbox/
+**/.tlacache/
+**/__tlacache__/
+*.tla.old

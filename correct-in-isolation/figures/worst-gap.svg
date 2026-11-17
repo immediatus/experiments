@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>The worst a setting can do, over every gap, against the cost of knowing the gap</title>
+<desc>Worst cost over all gaps as a multiple of the cost with the gap known, against the exchange rate. Break-even holding: 4: 1.152, 16: 1.368, 41.4: 1.519, 64: 1.571, 256: 1.663. The 600-second default: 4: 2.568, 16: 1.951, 41.4: 1.519, 64: 1.715, 256: 2.490. Releasing at once: 4: 1.178, 16: 1.580, 41.4: 2.077, 64: 2.329, 256: 2.963.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="320" class="f-bg"/>
+<path d="M52.00 278.50 H684.00" class="s-grid" fill="none"/>
+<text x="47.00" y="281.85" text-anchor="end" class="f-sub">1.0</text>
+<path d="M52.00 220.50 H684.00" class="s-grid" fill="none"/>
+<text x="47.00" y="223.85" text-anchor="end" class="f-sub">1.5</text>
+<path d="M52.00 163.50 H684.00" class="s-grid" fill="none"/>
+<text x="47.00" y="167.85" text-anchor="end" class="f-sub">2.0</text>
+<path d="M52.00 105.50 H684.00" class="s-grid" fill="none"/>
+<text x="47.00" y="109.85" text-anchor="end" class="f-sub">2.5</text>
+<path d="M52.00 47.50 H684.00" class="s-grid" fill="none"/>
+<text x="47.00" y="51.85" text-anchor="end" class="f-sub">3.0</text>
+<text x="83.00" y="292.80" text-anchor="middle" class="f-sub">4</text>
+<text x="273.00" y="292.80" text-anchor="middle" class="f-sub">16</text>
+<text x="403.00" y="292.80" text-anchor="middle" class="f-sub">41.4</text>
+<text x="463.00" y="292.80" text-anchor="middle" class="f-sub">64</text>
+<text x="653.00" y="292.80" text-anchor="middle" class="f-sub">256</text>
+<path d="M52.00 278.50 H684.00" class="s-sub" fill="none"/>
+<text x="52.00" y="12.80" text-anchor="start" class="f-ink">worst cost over all gaps, as a multiple of knowing the gap</text>
+<text x="684.00" y="315.80" text-anchor="end" class="f-ink">exchange rate: node-seconds per second short of capacity, log scale</text>
+<path d="M52.00 163.50 H684.00" class="s-g" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="83.00" y="175.80" text-anchor="start" class="f-g">twice the hindsight cost</text>
+<path d="M82.62 257.45 L272.87 211.04 L403.34 153.66 L463.13 124.56 L653.38 51.36" class="s-g" fill="none" stroke-width="2"/>
+<circle cx="82.62" cy="257.45" r="3" class="f-g"/>
+<circle cx="272.87" cy="211.04" r="3" class="f-g"/>
+<circle cx="403.34" cy="153.66" r="3" class="f-g"/>
+<circle cx="463.13" cy="124.56" r="3" class="f-g"/>
+<circle cx="653.38" cy="51.36" r="3" class="f-g"/>
+<text x="645.00" y="40.80" text-anchor="end" class="f-g">release at once</text>
+<path d="M82.62 96.97 L272.87 168.20 L403.34 218.08 L463.13 195.45 L653.38 105.97" class="s-a" fill="none" stroke-width="2"/>
+<circle cx="82.62" cy="96.97" r="3" class="f-a"/>
+<circle cx="272.87" cy="168.20" r="3" class="f-a"/>
+<circle cx="403.34" cy="218.08" r="3" class="f-a"/>
+<circle cx="463.13" cy="195.45" r="3" class="f-a"/>
+<circle cx="653.38" cy="105.97" r="3" class="f-a"/>
+<text x="645.00" y="95.80" text-anchor="end" class="f-a">600 s default</text>
+<path d="M82.62 260.45 L272.87 235.51 L403.34 218.08 L463.13 212.08 L653.38 201.45" class="s-b" fill="none" stroke-width="2"/>
+<circle cx="82.62" cy="260.45" r="3" class="f-b"/>
+<circle cx="272.87" cy="235.51" r="3" class="f-b"/>
+<circle cx="403.34" cy="218.08" r="3" class="f-b"/>
+<circle cx="463.13" cy="212.08" r="3" class="f-b"/>
+<circle cx="653.38" cy="201.45" r="3" class="f-b"/>
+<text x="645.00" y="219.80" text-anchor="end" class="f-b" font-weight="bold">break-even holding</text>
+</svg>

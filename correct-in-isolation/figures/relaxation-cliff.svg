@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" width="700" height="300" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>Components still stranded as the controller relaxes the components of its set one at a time, in the order it chose them, on one drawn graph of 1,000 components for each kind of degree</title>
+<desc>Components still stranded after relaxing the first k components of the controller's relaxation, at two needs per component. Independent degrees: 0: 761, 1: 760, 2: 757, 4: 757, 8: 752, 16: 734, 24: 729, 32: 705, 48: 630, 62: 277, 63: 3, 64: 0. Hubs, Pareto 1.8: 0: 680, 1: 653, 2: 634, 4: 617, 8: 597, 16: 556, 24: 502, 32: 436, 35: 308, 36: 190, 37: 0.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="300" class="f-bg"/>
+<path d="M48.00 252.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="255.85" text-anchor="end" class="f-sub">0</text>
+<path d="M48.00 195.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="199.85" text-anchor="end" class="f-sub">200</text>
+<path d="M48.00 138.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="141.85" text-anchor="end" class="f-sub">400</text>
+<path d="M48.00 81.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="85.85" text-anchor="end" class="f-sub">600</text>
+<path d="M48.00 24.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="27.85" text-anchor="end" class="f-sub">800</text>
+<text x="57.00" y="272.80" text-anchor="middle" class="f-sub">0</text>
+<text x="209.00" y="272.80" text-anchor="middle" class="f-sub">16</text>
+<text x="361.00" y="272.80" text-anchor="middle" class="f-sub">32</text>
+<text x="513.00" y="272.80" text-anchor="middle" class="f-sub">48</text>
+<text x="665.00" y="272.80" text-anchor="middle" class="f-sub">64</text>
+<path d="M48.00 258.50 H684.00" class="s-sub" fill="none"/>
+<text x="48.00" y="12.80" text-anchor="start" class="f-ink">components still stranded, of 1,000</text>
+<text x="684.00" y="295.80" text-anchor="end" class="f-ink">components relaxed, in the controller's order</text>
+<path d="M57.49 35.13 L66.99 35.41 L76.48 36.27 L95.46 36.27 L133.43 37.70 L209.37 42.83 L285.31 44.26 L361.25 51.11 L513.13 72.51 L646.03 173.25 L655.52 251.44 L665.01 252.29" class="s-b" fill="none" stroke-width="2"/>
+<circle cx="57.49" cy="35.13" r="3" class="f-b"/>
+<circle cx="66.99" cy="35.41" r="3" class="f-b"/>
+<circle cx="76.48" cy="36.27" r="3" class="f-b"/>
+<circle cx="95.46" cy="36.27" r="3" class="f-b"/>
+<circle cx="133.43" cy="37.70" r="3" class="f-b"/>
+<circle cx="209.37" cy="42.83" r="3" class="f-b"/>
+<circle cx="285.31" cy="44.26" r="3" class="f-b"/>
+<circle cx="361.25" cy="51.11" r="3" class="f-b"/>
+<circle cx="513.13" cy="72.51" r="3" class="f-b"/>
+<circle cx="646.03" cy="173.25" r="3" class="f-b"/>
+<circle cx="655.52" cy="251.44" r="3" class="f-b"/>
+<circle cx="665.01" cy="252.29" r="3" class="f-b"/>
+<path d="M57.49 58.24 L66.99 65.95 L76.48 71.37 L95.46 76.22 L133.43 81.93 L209.37 93.63 L285.31 109.04 L361.25 127.87 L389.73 164.40 L399.22 198.07 L408.72 252.29" class="s-a" fill="none" stroke-width="2"/>
+<circle cx="57.49" cy="58.24" r="3" class="f-a"/>
+<circle cx="66.99" cy="65.95" r="3" class="f-a"/>
+<circle cx="76.48" cy="71.37" r="3" class="f-a"/>
+<circle cx="95.46" cy="76.22" r="3" class="f-a"/>
+<circle cx="133.43" cy="81.93" r="3" class="f-a"/>
+<circle cx="209.37" cy="93.63" r="3" class="f-a"/>
+<circle cx="285.31" cy="109.04" r="3" class="f-a"/>
+<circle cx="361.25" cy="127.87" r="3" class="f-a"/>
+<circle cx="389.73" cy="164.40" r="3" class="f-a"/>
+<circle cx="399.22" cy="198.07" r="3" class="f-a"/>
+<circle cx="408.72" cy="252.29" r="3" class="f-a"/>
+<text x="507.00" y="91.80" text-anchor="end" class="f-b">independent: 630 left after 48 of 64</text>
+<text x="355.00" y="142.80" text-anchor="end" class="f-a" font-weight="bold">hubs: 436 left after 32 of 37</text>
+</svg>

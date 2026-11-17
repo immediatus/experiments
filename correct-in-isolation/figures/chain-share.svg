@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" width="700" height="300" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>What the second pass buys and what a match link takes away</title>
+<desc>Share of orders of an enabling chain of n webhooks that reach the common fixed point. Value links, opted in, two passes: 2: 1.0000, 3: 0.8333, 4: 0.5000, 5: 0.2250, 6: 0.0806. Value links whose members run once, and match links at any number of passes: 2: 0.5000, 3: 0.1667, 4: 0.0417, 5: 0.0083, 6: 0.0014.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="300" class="f-bg"/>
+<path d="M54.00 30.50 H684.00" class="s-grid" fill="none"/>
+<text x="49.00" y="33.85" text-anchor="end" class="f-sub">100%</text>
+<path d="M54.00 106.50 H684.00" class="s-grid" fill="none"/>
+<text x="49.00" y="109.85" text-anchor="end" class="f-sub">10%</text>
+<path d="M54.00 182.50 H684.00" class="s-grid" fill="none"/>
+<text x="49.00" y="185.85" text-anchor="end" class="f-sub">1%</text>
+<path d="M54.00 258.50 H684.00" class="s-grid" fill="none"/>
+<text x="49.00" y="261.85" text-anchor="end" class="f-sub">0.1%</text>
+<text x="83.00" y="272.80" text-anchor="middle" class="f-sub">2</text>
+<text x="226.00" y="272.80" text-anchor="middle" class="f-sub">3</text>
+<text x="369.00" y="272.80" text-anchor="middle" class="f-sub">4</text>
+<text x="512.00" y="272.80" text-anchor="middle" class="f-sub">5</text>
+<text x="655.00" y="272.80" text-anchor="middle" class="f-sub">6</text>
+<path d="M54.00 258.50 H684.00" class="s-sub" fill="none"/>
+<text x="54.00" y="12.80" text-anchor="start" class="f-ink">share of orders that reach the common fixed point (log scale)</text>
+<text x="684.00" y="295.80" text-anchor="end" class="f-ink">webhooks in an enabling chain</text>
+<path d="M82.64 30.02 L225.82 36.04 L369.00 52.89 L512.18 79.25 L655.36 113.13" class="s-b" fill="none" stroke-width="2"/>
+<circle cx="82.64" cy="30.02" r="3" class="f-b"/>
+<circle cx="225.82" cy="36.04" r="3" class="f-b"/>
+<circle cx="369.00" cy="52.89" r="3" class="f-b"/>
+<circle cx="512.18" cy="79.25" r="3" class="f-b"/>
+<circle cx="655.36" cy="113.13" r="3" class="f-b"/>
+<path d="M82.64 52.89 L225.82 89.15 L369.00 134.88 L512.18 188.16 L655.36 246.90" class="s-a" fill="none" stroke-width="2"/>
+<circle cx="82.64" cy="52.89" r="3" class="f-a"/>
+<circle cx="225.82" cy="89.15" r="3" class="f-a"/>
+<circle cx="369.00" cy="134.88" r="3" class="f-a"/>
+<circle cx="512.18" cy="188.16" r="3" class="f-a"/>
+<circle cx="655.36" cy="246.90" r="3" class="f-a"/>
+<text x="383.00" y="43.80" text-anchor="start" class="f-b" font-weight="bold">value links, opted in, two passes</text>
+<text x="312.00" y="160.80" text-anchor="end" class="f-a" font-weight="bold">run once, or match links: 1/n!</text>
+</svg>

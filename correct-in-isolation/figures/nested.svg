@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>Time until capacity meets a surge, against the surge's size, with 90-second pods and 210-second nodes and no free slots</title>
+<desc>Time until capacity meets a surge, against its size, for a pod loop nested in a node loop with no free slots. Nested: 3x 300 s, 5x 600 s, 10x 900 s, 30x 1200 s, 100x 1800 s. Node loop that sees the final need: 3x 300 s, 5x 390 s, 10x 480 s, 30x 570 s, 100x 750 s. Ample nodes: 3x 90 s, 5x 180 s, 10x 270 s, 30x 360 s, 100x 540 s.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="320" class="f-bg"/>
+<path d="M52.00 278.50 H684.00" class="s-grid" fill="none"/>
+<text x="47.00" y="281.85" text-anchor="end" class="f-sub">0 s</text>
+<path d="M52.00 214.50 H684.00" class="s-grid" fill="none"/>
+<text x="47.00" y="217.85" text-anchor="end" class="f-sub">500 s</text>
+<path d="M52.00 151.50 H684.00" class="s-grid" fill="none"/>
+<text x="47.00" y="155.85" text-anchor="end" class="f-sub">1000 s</text>
+<path d="M52.00 88.50 H684.00" class="s-grid" fill="none"/>
+<text x="47.00" y="91.85" text-anchor="end" class="f-sub">1500 s</text>
+<path d="M52.00 24.50 H684.00" class="s-grid" fill="none"/>
+<text x="47.00" y="27.85" text-anchor="end" class="f-sub">2000 s</text>
+<text x="76.00" y="292.80" text-anchor="middle" class="f-sub">3x</text>
+<text x="160.00" y="292.80" text-anchor="middle" class="f-sub">5x</text>
+<text x="274.00" y="292.80" text-anchor="middle" class="f-sub">10x</text>
+<text x="455.00" y="292.80" text-anchor="middle" class="f-sub">30x</text>
+<text x="654.00" y="292.80" text-anchor="middle" class="f-sub">100x</text>
+<path d="M52.00 278.50 H684.00" class="s-sub" fill="none"/>
+<text x="52.00" y="12.80" text-anchor="start" class="f-ink">time until capacity meets the surge</text>
+<text x="684.00" y="315.80" text-anchor="end" class="f-ink">surge, log scale</text>
+<path d="M75.60 239.90 L159.85 201.80 L274.17 163.70 L455.36 125.60 L653.93 49.40" class="s-a" fill="none" stroke-width="2"/>
+<circle cx="75.60" cy="239.90" r="3" class="f-a"/>
+<circle cx="159.85" cy="201.80" r="3" class="f-a"/>
+<circle cx="274.17" cy="163.70" r="3" class="f-a"/>
+<circle cx="455.36" cy="125.60" r="3" class="f-a"/>
+<circle cx="653.93" cy="49.40" r="3" class="f-a"/>
+<text x="652.00" y="38.80" text-anchor="end" class="f-a" font-weight="bold">nested: every round waits for nodes</text>
+<path d="M75.60 239.90 L159.85 228.47 L274.17 217.04 L455.36 205.61 L653.93 182.75" class="s-b" fill="none" stroke-width="2"/>
+<circle cx="75.60" cy="239.90" r="3" class="f-b"/>
+<circle cx="159.85" cy="228.47" r="3" class="f-b"/>
+<circle cx="274.17" cy="217.04" r="3" class="f-b"/>
+<circle cx="455.36" cy="205.61" r="3" class="f-b"/>
+<circle cx="653.93" cy="182.75" r="3" class="f-b"/>
+<text x="652.00" y="172.80" text-anchor="end" class="f-b">node loop sees the final need</text>
+<path d="M75.60 266.57 L159.85 255.14 L274.17 243.71 L455.36 232.28 L653.93 209.42" class="s-g" fill="none" stroke-width="2"/>
+<circle cx="75.60" cy="266.57" r="3" class="f-g"/>
+<circle cx="159.85" cy="255.14" r="3" class="f-g"/>
+<circle cx="274.17" cy="243.71" r="3" class="f-g"/>
+<circle cx="455.36" cy="232.28" r="3" class="f-g"/>
+<circle cx="653.93" cy="209.42" r="3" class="f-g"/>
+<text x="652.00" y="198.80" text-anchor="end" class="f-g">ample nodes</text>
+<text x="72.00" y="233.80" text-anchor="end" class="f-a">1 round</text>
+<text x="156.00" y="195.80" text-anchor="end" class="f-a">2 rounds</text>
+<text x="270.00" y="157.80" text-anchor="end" class="f-a">3 rounds</text>
+<text x="451.00" y="119.80" text-anchor="end" class="f-a">4 rounds</text>
+</svg>

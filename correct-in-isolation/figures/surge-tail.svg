@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 340" width="700" height="340" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>Mean pod-seconds short (left axis, log scale) and mean nested time to capacity (green, right axis) as the tail of surge sizes gets heavier toward the left</title>
+<desc>Mean pod-seconds short (left, log scale) and mean nested time to capacity (right) against the tail exponent of surge sizes. Nested: 1.1: 716771, 1.2: 185401, 1.5: 32776, 2: 9600, 3: 3200. Node loop that sees the final need: 248631, 72420, 16553, 6240, 2640. Ample nodes: 215031, 55620, 9833, 2880, 960. Mean nested time: 0.69: 789 s, 1: 600 s, 1.1: 562 s, 1.2: 531 s, 1.5: 464 s, 2: 400 s, 3: 343 s. At or below an exponent of 1 the mean shortfall is infinite.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="340" class="f-bg"/>
+<path d="M56.00 276.50 H652.00" class="s-grid" fill="none"/>
+<text x="51.00" y="279.85" text-anchor="end" class="f-sub">1k</text>
+<path d="M56.00 204.50 H652.00" class="s-grid" fill="none"/>
+<text x="51.00" y="207.85" text-anchor="end" class="f-sub">10k</text>
+<path d="M56.00 131.50 H652.00" class="s-grid" fill="none"/>
+<text x="51.00" y="135.85" text-anchor="end" class="f-sub">100k</text>
+<path d="M56.00 59.50 H652.00" class="s-grid" fill="none"/>
+<text x="51.00" y="63.85" text-anchor="end" class="f-sub">1M</text>
+<text x="657.00" y="301.85" text-anchor="start" class="f-c">0 s</text>
+<text x="657.00" y="233.85" text-anchor="start" class="f-c">250 s</text>
+<text x="657.00" y="164.85" text-anchor="start" class="f-c">500 s</text>
+<text x="657.00" y="95.85" text-anchor="start" class="f-c">750 s</text>
+<text x="657.00" y="27.85" text-anchor="start" class="f-c">1000 s</text>
+<text x="77.00" y="312.80" text-anchor="middle" class="f-sub">0.69</text>
+<text x="151.00" y="312.80" text-anchor="middle" class="f-sub">1</text>
+<text x="271.00" y="312.80" text-anchor="middle" class="f-sub">1.5</text>
+<text x="390.00" y="312.80" text-anchor="middle" class="f-sub">2</text>
+<text x="509.00" y="312.80" text-anchor="middle" class="f-sub">2.5</text>
+<text x="628.00" y="312.80" text-anchor="middle" class="f-sub">3</text>
+<path d="M56.00 298.50 H652.00" class="s-sub" fill="none"/>
+<text x="56.00" y="12.80" text-anchor="start" class="f-ink">mean pod-seconds short</text>
+<text x="652.00" y="12.80" text-anchor="end" class="f-c">mean time to capacity</text>
+<text x="652.00" y="335.80" text-anchor="end" class="f-ink">tail exponent of surge sizes</text>
+<path d="M151.50 24.00 V298.00" class="s-g" fill="none"/>
+<text x="157.00" y="49.85" text-anchor="start" class="f-g">no finite mean shortfall at or below 1</text>
+<path d="M175.20 69.09 L199.04 111.68 L270.56 166.26 L389.76 204.93 L628.16 239.53" class="s-a" fill="none" stroke-width="2"/>
+<circle cx="175.20" cy="69.09" r="3" class="f-a"/>
+<circle cx="199.04" cy="111.68" r="3" class="f-a"/>
+<circle cx="270.56" cy="166.26" r="3" class="f-a"/>
+<circle cx="389.76" cy="204.93" r="3" class="f-a"/>
+<circle cx="628.16" cy="239.53" r="3" class="f-a"/>
+<path d="M175.20 102.44 L199.04 141.29 L270.56 187.77 L389.76 218.50 L628.16 245.59" class="s-b" fill="none" stroke-width="2"/>
+<circle cx="175.20" cy="102.44" r="3" class="f-b"/>
+<circle cx="199.04" cy="141.29" r="3" class="f-b"/>
+<circle cx="270.56" cy="187.77" r="3" class="f-b"/>
+<circle cx="389.76" cy="218.50" r="3" class="f-b"/>
+<circle cx="628.16" cy="245.59" r="3" class="f-b"/>
+<path d="M175.20 107.01 L199.04 149.60 L270.56 204.18 L389.76 242.85 L628.16 277.45" class="s-g" fill="none" stroke-width="2"/>
+<circle cx="175.20" cy="107.01" r="3" class="f-g"/>
+<circle cx="199.04" cy="149.60" r="3" class="f-g"/>
+<circle cx="270.56" cy="204.18" r="3" class="f-g"/>
+<circle cx="389.76" cy="242.85" r="3" class="f-g"/>
+<circle cx="628.16" cy="277.45" r="3" class="f-g"/>
+<text x="624.00" y="231.80" text-anchor="end" class="f-a" font-weight="bold">nested</text>
+<text x="394.00" y="231.80" text-anchor="start" class="f-b">final need</text>
+<text x="624.00" y="289.80" text-anchor="end" class="f-g">ample nodes</text>
+<path d="M77.46 81.81 L151.36 133.60 L175.20 144.01 L199.04 152.51 L270.56 170.86 L389.76 188.40 L628.16 204.02" class="s-c" fill="none" stroke-width="2" stroke-dasharray="5 4"/>
+<circle cx="77.46" cy="81.81" r="3" class="f-c"/>
+<circle cx="151.36" cy="133.60" r="3" class="f-c"/>
+<circle cx="175.20" cy="144.01" r="3" class="f-c"/>
+<circle cx="199.04" cy="152.51" r="3" class="f-c"/>
+<circle cx="270.56" cy="170.86" r="3" class="f-c"/>
+<circle cx="389.76" cy="188.40" r="3" class="f-c"/>
+<circle cx="628.16" cy="204.02" r="3" class="f-c"/>
+<text x="81.00" y="73.80" text-anchor="start" class="f-c" font-weight="bold">789 s</text>
+<text x="394.00" y="179.80" text-anchor="start" class="f-c">mean time to capacity, right axis</text>
+</svg>

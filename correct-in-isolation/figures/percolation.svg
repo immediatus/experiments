@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>Share of components that never start after a full restart, against the mean number of components each one needs, for random start-time graphs of 1,000 components, the mean of 30 draws</title>
+<desc>Share of 1,000 components stranded after a full restart against the mean number of start-time needs per component. Independent degrees: 0.2: 0, 0.5: 0.001, 0.8: 0.020, 1.0: 0.079, 1.2: 0.265, 1.5: 0.563, 2.0: 0.792. Hubs, Pareto weights of exponent 2.5: 0.001, 0.012, 0.129, 0.293, 0.423, 0.584, 0.741. Hubs, exponent 1.8: 0.006, 0.074, 0.245, 0.350, 0.441, 0.553, 0.687.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="320" class="f-bg"/>
+<path d="M48.00 273.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="277.85" text-anchor="end" class="f-sub">0%</text>
+<path d="M48.00 211.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="215.85" text-anchor="end" class="f-sub">25%</text>
+<path d="M48.00 149.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="153.85" text-anchor="end" class="f-sub">50%</text>
+<path d="M48.00 86.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="89.85" text-anchor="end" class="f-sub">75%</text>
+<text x="165.00" y="292.80" text-anchor="middle" class="f-sub">0.5</text>
+<text x="333.00" y="292.80" text-anchor="middle" class="f-sub">1</text>
+<text x="500.00" y="292.80" text-anchor="middle" class="f-sub">1.5</text>
+<text x="667.00" y="292.80" text-anchor="middle" class="f-sub">2</text>
+<path d="M48.00 278.50 H684.00" class="s-sub" fill="none"/>
+<text x="48.00" y="12.80" text-anchor="start" class="f-ink">share stranded after a full restart</text>
+<text x="684.00" y="315.80" text-anchor="end" class="f-ink">mean start-time needs per component</text>
+<path d="M333.50 24.00 V278.00" class="s-g" fill="none"/>
+<path d="M64.74 273.02 L165.16 272.77 L265.58 268.04 L332.53 253.35 L399.47 207.03 L499.89 132.82 L667.26 75.80" class="s-b" fill="none" stroke-width="2"/>
+<circle cx="64.74" cy="273.02" r="3" class="f-b"/>
+<circle cx="165.16" cy="272.77" r="3" class="f-b"/>
+<circle cx="265.58" cy="268.04" r="3" class="f-b"/>
+<circle cx="332.53" cy="253.35" r="3" class="f-b"/>
+<circle cx="399.47" cy="207.03" r="3" class="f-b"/>
+<circle cx="499.89" cy="132.82" r="3" class="f-b"/>
+<circle cx="667.26" cy="75.80" r="3" class="f-b"/>
+<path d="M64.74 272.77 L165.16 270.03 L265.58 240.90 L332.53 200.06 L399.47 167.68 L499.89 127.59 L667.26 88.50" class="s-d" fill="none" stroke-width="2"/>
+<circle cx="64.74" cy="272.77" r="3" class="f-d"/>
+<circle cx="165.16" cy="270.03" r="3" class="f-d"/>
+<circle cx="265.58" cy="240.90" r="3" class="f-d"/>
+<circle cx="332.53" cy="200.06" r="3" class="f-d"/>
+<circle cx="399.47" cy="167.68" r="3" class="f-d"/>
+<circle cx="499.89" cy="127.59" r="3" class="f-d"/>
+<circle cx="667.26" cy="88.50" r="3" class="f-d"/>
+<path d="M64.74 271.53 L165.16 254.59 L265.58 212.01 L332.53 185.86 L399.47 163.20 L499.89 135.31 L667.26 101.94" class="s-a" fill="none" stroke-width="2"/>
+<circle cx="64.74" cy="271.53" r="3" class="f-a"/>
+<circle cx="165.16" cy="254.59" r="3" class="f-a"/>
+<circle cx="265.58" cy="212.01" r="3" class="f-a"/>
+<circle cx="332.53" cy="185.86" r="3" class="f-a"/>
+<circle cx="399.47" cy="163.20" r="3" class="f-a"/>
+<circle cx="499.89" cy="135.31" r="3" class="f-a"/>
+<circle cx="667.26" cy="101.94" r="3" class="f-a"/>
+<text x="405.00" y="217.80" text-anchor="start" class="f-b">independent degrees</text>
+<text x="492.00" y="119.80" text-anchor="end" class="f-d">hubs, exponent 2.5</text>
+<text x="159.00" y="248.80" text-anchor="end" class="f-a" font-weight="bold">hubs, exponent 1.8</text>
+<text x="337.00" y="39.85" text-anchor="start" class="f-g">one need per component</text>
+</svg>

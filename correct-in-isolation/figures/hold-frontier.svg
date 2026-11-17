@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>Each point is one hold, the time the controller keeps lists on their own level after the last 410, at list costs of 150 (blue) and 200 (red)</title>
+<desc>Re-watches answered 410 against minutes the controller keeps lists split off, for holds of 0, 60, 120, 300, 600, 1200, 1800 and 3600 seconds. List cost 150: 14.0 min 1164, 14.7 min 842, 22.2 min 967, 55.0 min 1709, 55.5 min 687, 63.5 min 466, 93.2 min 442, 122.2 min 199. List cost 200: 79.0 min 11836 (storm kept), 38.7 min 3574, 85.3 min 6050, 215.3 min 10008 (storm kept), 100.3 min 1885, 105.7 min 1037, 124.5 min 810, 122.3 min 369.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="320" class="f-bg"/>
+<path d="M56.00 262.50 H684.00" class="s-grid" fill="none"/>
+<text x="51.00" y="265.85" text-anchor="end" class="f-sub">200</text>
+<path d="M56.00 173.50 H684.00" class="s-grid" fill="none"/>
+<text x="51.00" y="177.85" text-anchor="end" class="f-sub">1,000</text>
+<path d="M56.00 85.50 H684.00" class="s-grid" fill="none"/>
+<text x="51.00" y="89.85" text-anchor="end" class="f-sub">5,000</text>
+<text x="56.00" y="292.80" text-anchor="start" class="f-sub">0</text>
+<text x="220.00" y="292.80" text-anchor="middle" class="f-sub">60</text>
+<text x="384.00" y="292.80" text-anchor="middle" class="f-sub">120</text>
+<text x="547.00" y="292.80" text-anchor="middle" class="f-sub">180</text>
+<path d="M56.00 278.50 H684.00" class="s-sub" fill="none"/>
+<text x="56.00" y="12.80" text-anchor="start" class="f-ink">re-watches answered 410</text>
+<text x="684.00" y="315.80" text-anchor="end" class="f-ink">minutes the lists stay split off</text>
+<circle cx="94.23" cy="164.99" r="4" class="f-b"/>
+<circle cx="96.14" cy="182.85" r="4" class="f-b"/>
+<circle cx="116.62" cy="175.21" r="4" class="f-b"/>
+<circle cx="206.17" cy="143.81" r="4" class="f-b"/>
+<circle cx="207.54" cy="194.07" r="4" class="f-b"/>
+<circle cx="229.38" cy="215.48" r="4" class="f-b"/>
+<circle cx="310.48" cy="218.39" r="4" class="f-b"/>
+<circle cx="389.66" cy="262.41" r="4" class="f-b"/>
+<circle cx="271.70" cy="37.07" r="5" class="s-a" fill="none" stroke-width="1.8"/>
+<circle cx="161.67" cy="103.11" r="4" class="f-a"/>
+<circle cx="288.91" cy="74.08" r="4" class="f-a"/>
+<circle cx="643.86" cy="46.32" r="5" class="s-a" fill="none" stroke-width="1.8"/>
+<circle cx="329.86" cy="138.40" r="4" class="f-a"/>
+<circle cx="344.61" cy="171.36" r="4" class="f-a"/>
+<circle cx="395.94" cy="184.99" r="4" class="f-a"/>
+<circle cx="389.93" cy="228.35" r="4" class="f-a"/>
+<path d="M94.23 164.99 L96.14 182.85 L207.54 194.07 L229.38 215.48 L310.48 218.39 L389.66 262.41" class="s-b" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
+<path d="M161.67 103.11 L329.86 138.40 L344.61 171.36 L389.93 228.35" class="s-a" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="64.00" y="37.85" text-anchor="start" class="f-b">blue: list cost 150</text>
+<text x="64.00" y="56.85" text-anchor="start" class="f-a">red: list cost 200</text>
+<text x="212.00" y="154.80" text-anchor="start" class="f-b">150: hold 300 s, dominated</text>
+<text x="638.00" y="39.80" text-anchor="end" class="f-a" font-weight="bold">200: hold 300 s, storm kept</text>
+<text x="280.00" y="40.85" text-anchor="start" class="f-a">no hold, storm kept</text>
+<text x="396.00" y="231.85" text-anchor="start" class="f-a">hold 1 h</text>
+</svg>

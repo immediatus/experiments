@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>Time until capacity meets a 30x surge against free slots held in advance</title>
+<desc>Time until capacity meets a 30x surge against free slots held in advance, as a multiple of 64 running pods. Closed-form steps at 56, 176, 416, 896 slots, to 1200, 990, 780, 570, 360 seconds. Simulated: 0 slots: 1200 s; 53 slots: 1290 s; 56 slots: 990 s; 64 slots: 990 s; 169 slots: 1080 s; 176 slots: 780 s; 192 slots: 780 s; 402 slots: 870 s; 416 slots: 570 s; 448 slots: 570 s; 896 slots: 360 s. Just short of a step, 53 slots take 1290 s; 169 slots take 1080 s; 402 slots take 870 s.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="320" class="f-bg"/>
+<path d="M52.00 255.50 H684.00" class="s-grid" fill="none"/>
+<text x="47.00" y="259.85" text-anchor="end" class="f-sub">400 s</text>
+<path d="M52.00 209.50 H684.00" class="s-grid" fill="none"/>
+<text x="47.00" y="213.85" text-anchor="end" class="f-sub">600 s</text>
+<path d="M52.00 163.50 H684.00" class="s-grid" fill="none"/>
+<text x="47.00" y="167.85" text-anchor="end" class="f-sub">800 s</text>
+<path d="M52.00 116.50 H684.00" class="s-grid" fill="none"/>
+<text x="47.00" y="119.85" text-anchor="end" class="f-sub">1000 s</text>
+<path d="M52.00 70.50 H684.00" class="s-grid" fill="none"/>
+<text x="47.00" y="73.85" text-anchor="end" class="f-sub">1200 s</text>
+<text x="65.00" y="292.80" text-anchor="middle" class="f-sub">0 x</text>
+<text x="150.00" y="292.80" text-anchor="middle" class="f-sub">2 x</text>
+<text x="234.00" y="292.80" text-anchor="middle" class="f-sub">4 x</text>
+<text x="319.00" y="292.80" text-anchor="middle" class="f-sub">6 x</text>
+<text x="404.00" y="292.80" text-anchor="middle" class="f-sub">8 x</text>
+<text x="489.00" y="292.80" text-anchor="middle" class="f-sub">10 x</text>
+<text x="574.00" y="292.80" text-anchor="middle" class="f-sub">12 x</text>
+<text x="659.00" y="292.80" text-anchor="middle" class="f-sub">14 x</text>
+<path d="M52.00 278.50 H684.00" class="s-sub" fill="none"/>
+<text x="52.00" y="12.80" text-anchor="start" class="f-ink">time until capacity meets a 30x surge</text>
+<text x="684.00" y="315.80" text-anchor="end" class="f-ink">free slots held in advance, as a multiple of the running pods</text>
+<path d="M64.72 70.18 L101.84 70.18 L101.84 118.67 L181.37 118.67 L181.37 167.16 L340.43 167.16 L340.43 215.65 L658.55 215.65 L658.55 264.15 L684.00 264.15" class="s-b" fill="none" stroke-width="1.5" stroke-dasharray="5 4"/>
+<circle cx="64.72" cy="70.18" r="4" class="f-b"/>
+<circle cx="99.85" cy="49.40" r="5" class="f-a"/>
+<circle cx="101.84" cy="118.67" r="4" class="f-b"/>
+<circle cx="107.14" cy="118.67" r="4" class="f-b"/>
+<circle cx="176.73" cy="97.89" r="5" class="f-a"/>
+<circle cx="181.37" cy="167.16" r="4" class="f-b"/>
+<circle cx="191.97" cy="167.16" r="4" class="f-b"/>
+<circle cx="331.15" cy="146.38" r="5" class="f-a"/>
+<circle cx="340.43" cy="215.65" r="4" class="f-b"/>
+<circle cx="361.64" cy="215.65" r="4" class="f-b"/>
+<circle cx="658.55" cy="264.15" r="4" class="f-b"/>
+<text x="108.00" y="44.80" text-anchor="start" class="f-a" font-weight="bold">53 slots, just short of a step: 1290 s, slower than none</text>
+<text x="110.00" y="133.80" text-anchor="start" class="f-b">each step saves a node wait: 56, 176, 416, 896 slots</text>
+<text x="651.00" y="253.80" text-anchor="end" class="f-b">896 slots, 14 x: 360 s</text>
+</svg>

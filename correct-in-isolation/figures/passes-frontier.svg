@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>Share of orders of an enabling chain that converge within a number of passes, for chains of three to seven webhooks</title>
+<desc>Share of orders of an enabling chain of value links that reach the common fixed point within P passes. 3 webhooks: 1 pass 0.1667, 2 passes 0.8333, 3 passes 1. 4: 0.0417, 0.5, 0.9583, 1. 5: 0.0083, 0.225, 0.775, 0.9917, 1. 6: 0.0014, 0.0806, 0.5, 0.9194, 0.9986, 1. 7: 0.0002, 0.024, 0.2603, 0.7397, 0.976, 0.9998, 1.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="320" class="f-bg"/>
+<path d="M48.00 271.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="275.85" text-anchor="end" class="f-sub">0%</text>
+<path d="M48.00 215.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="219.85" text-anchor="end" class="f-sub">25%</text>
+<path d="M48.00 159.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="163.85" text-anchor="end" class="f-sub">50%</text>
+<path d="M48.00 103.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="107.85" text-anchor="end" class="f-sub">75%</text>
+<path d="M48.00 46.50 H684.00" class="s-grid" fill="none"/>
+<text x="43.00" y="49.85" text-anchor="end" class="f-sub">100%</text>
+<text x="68.00" y="292.80" text-anchor="middle" class="f-sub">1</text>
+<text x="167.00" y="292.80" text-anchor="middle" class="f-sub">2</text>
+<text x="267.00" y="292.80" text-anchor="middle" class="f-sub">3</text>
+<text x="366.00" y="292.80" text-anchor="middle" class="f-sub">4</text>
+<text x="465.00" y="292.80" text-anchor="middle" class="f-sub">5</text>
+<text x="565.00" y="292.80" text-anchor="middle" class="f-sub">6</text>
+<text x="664.00" y="292.80" text-anchor="middle" class="f-sub">7</text>
+<path d="M48.00 278.50 H684.00" class="s-sub" fill="none"/>
+<text x="48.00" y="12.80" text-anchor="start" class="f-ink">share of orders that converge</text>
+<text x="684.00" y="315.80" text-anchor="end" class="f-ink">passes allowed</text>
+<path d="M167.50 24.00 V278.00" class="s-g" fill="none"/>
+<text x="171.00" y="36.85" text-anchor="start" class="f-g">the contract's two passes</text>
+<path d="M67.88 233.79 L167.25 83.95 L266.62 46.48" class="s-g" fill="none" stroke-width="2"/>
+<circle cx="67.88" cy="233.79" r="3" class="f-g"/>
+<circle cx="167.25" cy="83.95" r="3" class="f-g"/>
+<circle cx="266.62" cy="46.48" r="3" class="f-g"/>
+<path d="M67.88 261.88 L167.25 158.87 L266.62 55.85 L366.00 46.48" class="s-c" fill="none" stroke-width="2"/>
+<circle cx="67.88" cy="261.88" r="3" class="f-c"/>
+<circle cx="167.25" cy="158.87" r="3" class="f-c"/>
+<circle cx="266.62" cy="55.85" r="3" class="f-c"/>
+<circle cx="366.00" cy="46.48" r="3" class="f-c"/>
+<path d="M67.88 269.39 L167.25 220.68 L266.62 97.05 L366.00 48.34 L465.38 46.48" class="s-b" fill="none" stroke-width="2"/>
+<circle cx="67.88" cy="269.39" r="3" class="f-b"/>
+<circle cx="167.25" cy="220.68" r="3" class="f-b"/>
+<circle cx="266.62" cy="97.05" r="3" class="f-b"/>
+<circle cx="366.00" cy="48.34" r="3" class="f-b"/>
+<circle cx="465.38" cy="46.48" r="3" class="f-b"/>
+<path d="M67.88 270.94 L167.25 253.14 L266.62 158.87 L366.00 64.60 L465.38 46.79 L564.75 46.48" class="s-d" fill="none" stroke-width="2"/>
+<circle cx="67.88" cy="270.94" r="3" class="f-d"/>
+<circle cx="167.25" cy="253.14" r="3" class="f-d"/>
+<circle cx="266.62" cy="158.87" r="3" class="f-d"/>
+<circle cx="366.00" cy="64.60" r="3" class="f-d"/>
+<circle cx="465.38" cy="46.79" r="3" class="f-d"/>
+<circle cx="564.75" cy="46.48" r="3" class="f-d"/>
+<path d="M67.88 271.21 L167.25 265.86 L266.62 212.75 L366.00 104.99 L465.38 51.87 L564.75 46.52 L664.12 46.48" class="s-a" fill="none" stroke-width="2"/>
+<circle cx="67.88" cy="271.21" r="3" class="f-a"/>
+<circle cx="167.25" cy="265.86" r="3" class="f-a"/>
+<circle cx="266.62" cy="212.75" r="3" class="f-a"/>
+<circle cx="366.00" cy="104.99" r="3" class="f-a"/>
+<circle cx="465.38" cy="51.87" r="3" class="f-a"/>
+<circle cx="564.75" cy="46.52" r="3" class="f-a"/>
+<circle cx="664.12" cy="46.48" r="3" class="f-a"/>
+<text x="495.00" y="135.85" text-anchor="start" class="f-g">3 webhooks</text>
+<text x="495.00" y="157.85" text-anchor="start" class="f-c">4 webhooks</text>
+<text x="495.00" y="180.85" text-anchor="start" class="f-b">5 webhooks</text>
+<text x="495.00" y="202.85" text-anchor="start" class="f-d">6 webhooks</text>
+<text x="495.00" y="225.85" text-anchor="start" class="f-a" font-weight="bold">7 webhooks</text>
+<text x="173.00" y="261.80" text-anchor="start" class="f-a" font-weight="bold">7 webhooks: 2.4%</text>
+</svg>

@@ -1,0 +1,21 @@
+AdmissionOrder | AdmissionOrder_contract2 | holds | 14 distinct states
+AdmissionOrder | AdmissionOrder_contract3 | violated: DoneAtFixedPoint | 54 distinct states
+AdmissionOrder | AdmissionOrder_orchestrated5 | holds | 2688 distinct states
+NestedPair | NestedPair_nested | holds | 282 distinct states
+NestedPair | NestedPair_nested_separated_deadline | violated: SeparatedDeadline | 109 distinct states
+NestedPair | NestedPair_pod_alone | holds | 107 distinct states
+NestedPair | NestedPair_separated | holds | 156 distinct states
+SharedQueue | SharedQueue_history | holds | 27 distinct states
+SharedQueue | SharedQueue_instant | holds | 5 distinct states
+SharedQueue | SharedQueue_net_bounded | holds | 4097 distinct states
+SharedQueue | SharedQueue_net_unbounded | violated: NoGone | 541 distinct states
+SharedQueue | SharedQueue_one | holds | 9 distinct states
+SharedQueue | SharedQueue_storm | violated: EventuallyCalm | 93 distinct states
+SharedSignal | SharedSignal_band | holds | 241 distinct states
+SharedSignal | SharedSignal_horizontal | holds | 212 distinct states
+SharedSignal | SharedSignal_pair | violated: PairSettles | 330 distinct states
+SharedSignal | SharedSignal_vertical | holds | 239 distinct states
+StartCycle | StartCycle_acyclic_AllUp | holds | 6 distinct states
+StartCycle | StartCycle_acyclic_EveryGuarantee | holds | 6 distinct states
+StartCycle | StartCycle_cycle_AllUp | violated: AllUp | 2 distinct states
+StartCycle | StartCycle_cycle_EveryGuarantee | holds | 2 distinct states

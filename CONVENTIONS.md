@@ -22,9 +22,11 @@ other. Shared utilities live in [`tools/`](tools/) and are covered by their own 
 <series-slug>/
   README.md          what the experiment is, the series and its posts, the checks, what is where
   experiment.json    the manifest (below)
-  reproduce.py       the single entry point: the sections, with the command line of tools/harness.py
+  reproduce.py       the single entry point for the numbers: the sections, with the command line of
+                     tools/harness.py
   NOTICE             optional: third-party sources the code derives from
   model/             the simulations and any port of third-party logic
+  sections/          optional: the sections reproduce.py collects, one module per part
   tests/             every test of the experiment, its kit's included, run by reproduce.py --check
   expected/          results.txt: the frozen output the posts quote
   figures/           optional: figspec.py and the SVG figures it draws from expected/results.txt
@@ -32,6 +34,8 @@ other. Shared utilities live in [`tools/`](tools/) and are covered by their own 
                      ASSUMPTIONS.md, SOURCES.md
   <kit>/             optional: a kit for testing predictions on real infrastructure
                      (cluster/ in capacity-in-arrears)
+  <tool>/            optional: a tool readers run on their own systems, named for what it does
+                     (audit/ in correct-in-isolation); never named tools/, which is the repository's
 ```
 
 An experiment's top level holds only the four files named above; everything else lives in a
@@ -115,9 +119,11 @@ python3 tools/check_all.py --full   # every check of every experiment, as CI run
 ```
 
 It runs the shared tools' tests, `tools/check_repo.py`, the Python 3.10 floor and a compile of
-every file, then, for each experiment, `tests/`, `tools/check_docs.py`,
-`reproduce.py --figures --check` and `reproduce.py --check`. Lint runs separately with the pinned tools
-in `requirements-dev.txt`.
+every file and `tools/lint.py`, then, for each experiment, `tests/`, `tools/check_docs.py`,
+`reproduce.py --figures --check` and `reproduce.py --check`, the last twice, under hash seeds 0 and 1, so
+that no number depends on the order Python gives a set. `tools/lint.py` runs ruff with the pinned rules of
+`requirements-dev.txt` when it is installed, and a standard-library fallback for unused and private imports
+when it is not.
 
 Continuous integration runs `python3 tools/check_all.py` on every push to main and every pull
 request, on Python 3.10 to 3.14, and `--full` weekly, on release tags and on demand, on Python
