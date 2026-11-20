@@ -7,21 +7,51 @@ dated erratum recorded here, with what changed, why, and which numbers moved.
 
 ### Repository
 
-- Shared checks extended: a lint step (`tools/lint.py`), line coverage on demand (`tools/coverage.py`),
-  documentation coverage in `tools/check_docs.py`, and every reproduction run under two hash seeds; a
-  development container (`.devcontainer/`) with every tool the checks use, so TLC and P run instead of
-  being skipped; and the TLA+, P and .NET build output kept out of version control.
+- Shared checks: `tools/check_all.py` runs every check of every experiment, locally and in continuous
+  integration, with each reproduction under two hash seeds; `tools/lint.py` runs ruff with the pinned rules
+  (pycodestyle, pyflakes, sorted imports, imports at module top, no import of another module's private name,
+  explicit file encodings) and a standard-library fallback; `tools/coverage.py` measures model coverage;
+  `tools/check_docs.py` checks every document against the code and the results.
+- CONVENTIONS.md sets the standard every experiment follows: one function per closed form and per simulated
+  mechanism, constants called from the function that computes them, `math.fsum` for floating-point sums, and a
+  part page per post that restates its belief, mechanism, law, results, bill and reversal condition.
+- A development container (`.devcontainer/`) with every tool the checks use, so TLC and P run instead of being
+  skipped; TLA+, P and .NET build output kept out of version control.
+
+### adoption-mechanics
+
+- The experiment behind *Adoption Mechanics* (two parts): one member model for people and agents, with
+  sensors, aggregation, hand-off and actuator composed for a running case of 15 reviewers, 3 layers and 4
+  approvers (architecture board, engineering manager, security, product); every lever priced on better and worse
+  designs, and the achievable region of all 64 combinations; the write-back loop with its non-identification.
+  The review can be held by groups that hold unequal evidence and decide apart, and the life of a design records
+  where each review ends, including the deaths that cross-communication causes without anyone saying no (the
+  decision window, conclusions carried between groups, vetoes multiplying, and the law of triviality, under which
+  a design split into simple pieces stalls); the actuator includes the agenda setter, whose one compromise lands
+  the status quo in the approvers' hull and ends change. 28 sections, 123 unit tests, 4 figures (two of them
+  interactive in the posts, one replaying 800 simulated reviews vote by vote, all four built from the frozen
+  results), 13 falsification criteria and a companion page per part.
+- Measured: pairwise right/wrong counts, overall and within 5 and 10 strata of question difficulty, for Stanford
+  HELM Lite MMLU (95 models) and HELM Capabilities GPQA (65) and MMLU-Pro (64); counts only, licence unstated.
+  Pooled dependence of errors rises with capability on all three; within difficulty it sits at an
+  item-response null except among the strongest pairs, which exceed it; no measured upgrade meets the
+  condition under which a better panel becomes a worse one.
+- Calibrated: reviewer precision and within-review error correlation against peer review (journal reliability
+  meta-analysis; NeurIPS 2014 and 2021 consistency experiments; panel and field experiments), with the running
+  case rerun at calibrated constants, with asymmetric precision and negativity-biased herding, and with part of
+  the shared error local to each partitioned group.
 
 ### correct-in-isolation
 
-- First version of the experiment behind *Correct in Isolation* (six parts, November and December 2026): the
-  simulations and closed forms of the five seams and the whole, 121 result sections, 33 figures, TLA+ models of
-  each seam's formal side and P models of three, per-part documentation, the claim map, the falsification criteria, the
-  assumptions, and `audit/seam_audit.py`, which runs the five whole-system tests on a cluster's own objects.
+- The experiment behind *Correct in Isolation* (six parts, November and December 2026): the simulations and
+  closed forms of the five seams and the whole, 121 sections, 386 unit tests, 33 figures, TLA+ models of each
+  seam's formal side (5) and P models of three, a companion page per part with its bill and reversal condition,
+  the claim map, 67 falsification criteria, the assumptions, a notation page and a field guide, and
+  `audit/seam_audit.py`, which runs the five whole-system tests on a cluster's own objects.
 
 ### capacity-in-arrears
 
-- First release of the experiment behind *Capacity in Arrears* (four parts, October 2026):
-  the port of the Kubernetes v1.34.0 replica calculation and its upstream test cases, the
-  simulations, 49 result sections, 24 figures, per-part documentation, the claim map, the
-  falsification criteria and the cluster kit.
+- The experiment behind *Capacity in Arrears* (four parts, October 2026): the port of the Kubernetes v1.34.0
+  replica calculation with its upstream test cases, the simulations of the scaling loop, the backlog loop, the
+  setup-time farm and the overload study, 49 sections, 34 unit tests, 24 figures, a companion page per part,
+  the claim map, 14 falsification criteria and the cluster kit.

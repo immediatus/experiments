@@ -6,6 +6,7 @@ degrees of mean c, and Pareto weights give hubs whose in- and out-degrees both g
 in-component appears where E[k_in k_out] = E[k] (Dorogovtsev, Mendes and Samukhin 2001), which for these
 graphs is c = E[w]^2 / E[w^2].
 """
+import math
 import sys
 
 from audit import cyclic_components
@@ -14,14 +15,15 @@ sys.setrecursionlimit(100000)
 
 
 def pareto_weights(n, exponent, rng):
-    """n weights Pareto above 1 with the given exponent."""
+    """n component weights drawn from a Pareto distribution above 1 with tail exponent `exponent` (larger is
+    lighter-tailed), from the seeded rng; dimensionless multipliers of a component's chance of a dependency."""
     return [(1.0 - rng.random()) ** (-1.0 / exponent) for _ in range(n)]
 
 
 def gen_needs(c, weights, rng):
     """A start-time graph on len(weights) components with mean degree about c."""
     n = len(weights)
-    m = sum(weights) / n
+    m = math.fsum(weights) / n
     k = c / (n * m * m)
     return {i: {j for j in range(n) if j != i and rng.random() < min(1.0, k * weights[i] * weights[j])}
             for i in range(n)}
@@ -30,7 +32,7 @@ def gen_needs(c, weights, rng):
 def predicted_threshold(weights):
     """E[w]^2 / E[w^2]: the mean degree at which the giant stranded set appears."""
     n = len(weights)
-    return (sum(weights) / n) ** 2 / (sum(w * w for w in weights) / n)
+    return (math.fsum(weights) / n) ** 2 / (math.fsum(w * w for w in weights) / n)
 
 
 def stranded(needs):

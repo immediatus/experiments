@@ -2,6 +2,7 @@
 passes one; the ratio's dependence on scale says which tests a scaled-down cluster keeps."""
 from __future__ import annotations
 
+import math
 from typing import Hashable
 
 from audit import cyclic_components
@@ -54,7 +55,7 @@ def assumption_ratio(needs: Needs, tol: float = 1e-10, iterations: int = 200000)
         nodes = sorted(core, key=str)
         x = {v: 1.0 for v in nodes}
         for _ in range(iterations):
-            y = {v: x[v] + sum(x[w] for w in needs.get(v, ()) if w in core) for v in nodes}
+            y = {v: x[v] + math.fsum(x[w] for w in needs.get(v, ()) if w in core) for v in nodes}
             ratios = [y[v] / x[v] for v in nodes]
             lo, hi = min(ratios), max(ratios)
             top = max(y.values())

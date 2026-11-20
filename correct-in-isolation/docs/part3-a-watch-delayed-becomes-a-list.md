@@ -35,6 +35,8 @@ default request timeout and then a 429, and the client-go Reflector's backoff as
 
 ![Where the second wave starts](../figures/second-wave.svg)
 
+*Where the second wave starts. The idealized queue answers its first re-watch with 410 exactly above a LIST cost of 30, where the forced backlog outlasts the shortest watch plus the history. With the wait limit and the client's backoff the first 410s appear at 31 to 33 and grow from there, with fair queuing and with one queue alike.*
+
 ## The gap and the intervention
 
 - **Bound. Every contract holds, by construction.** Both safeguards keep their safety contracts in a storm, and neither bounds the time
@@ -52,11 +54,17 @@ default request timeout and then a 429, and the client-go Reflector's backoff as
 - **Estimate. The controller.** Moving lists to a priority level of their own while 410s persist ends storms;
   without a hold it hunts; on the default streaming path no FlowSchema can express it (T99).
 
-## The numbers
+## The results
 
 Every claim, with its section, is in [CLAIMS.md](CLAIMS.md): the second wave with the wait limit (T42,
 [second-wave](../figures/second-wave.svg)), the storm and its onset (T41, T43, T44), the rejection runs
 (T45), and the rejection shares that make the onset sharp (T46).
+
+## The bill, and when the advice reverses
+
+In the specimen, a second wave from a list cost of about 31 seat-seconds, a storm from 114 that spends all capacity on lists indefinitely, and a wait limit that protects only between about 90 and 114. With the watch cache's two and a half minutes of history, a storm from 79. Near the onset, storms that end by themselves only after hours, up to 56 hours in the runs; and without bookmarks, narrow watches that list steadily with no trigger at all.
+
+**When the advice reverses.** The advice of this post is to compute the backlog a full trigger would build and to keep it below the mean watch plus the history. It reverses where re-watches are not cheap, as for watches that must resend their initial state. A delayed re-watch then already costs what a list costs, and there is no ratio for the delay to multiply.
 
 ## What you can vary
 

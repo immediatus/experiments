@@ -6,7 +6,6 @@ import itertools
 import math
 
 
-
 def eulerian(n, k):
     """Eulerian number A(n, k): permutations of n items with exactly k descents."""
     return sum((-1) ** j * math.comb(n + 1, j) * (k + 1 - j) ** n for j in range(k + 2))

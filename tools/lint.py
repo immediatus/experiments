@@ -4,7 +4,8 @@
 
 The fallback needs only the standard library and checks the rules most likely to rot in research code: an
 imported name that is never used (ruff's F401), a name imported from another module that the module keeps
-private by a leading underscore, and a text-mode open() without an explicit encoding (PLW1514). A line marked
+private by a leading underscore (PLC2701), an import inside a function (PLC0415), and a text-mode open() without
+an explicit encoding (PLW1514). A line marked
 ``# noqa: F401`` re-exports on purpose and is skipped.
 Prints one line per problem and exits 1 on any.
 """
@@ -54,7 +55,8 @@ def _used_names(tree: ast.AST) -> set[str]:
 
 
 def fallback(files: list[str]) -> list[str]:
-    """Unused imports and private imports in the files, one message each."""
+    """Unused imports, private imports, imports inside a function and open() without an encoding in the files, one
+    message each."""
     problems = []
     for path in files:
         with open(path, encoding='utf-8') as f:
@@ -79,6 +81,11 @@ def fallback(files: list[str]) -> list[str]:
                     problems.append('%s:%d: unused import %s' % (path, node.lineno, name))
                 if isinstance(node, ast.ImportFrom) and alias.name.startswith('_') and not alias.name.startswith('__'):
                     problems.append('%s:%d: imports private name %s from %s' % (path, node.lineno, alias.name, node.module))
+        for func in ast.walk(tree):
+            if isinstance(func, (ast.FunctionDef, ast.AsyncFunctionDef)):
+                for node in ast.walk(func):
+                    if isinstance(node, (ast.Import, ast.ImportFrom)):
+                        problems.append('%s:%d: import inside a function (%s)' % (path, node.lineno, func.name))
         for node in ast.walk(tree):
             if isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id == 'open':
                 mode = node.args[1] if len(node.args) > 1 else next((k.value for k in node.keywords if k.arg == 'mode'), None)

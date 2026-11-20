@@ -1,0 +1,24 @@
+{
+  "title": "Adoption Mechanics: Why Correct Designs Die in Healthy Organizations, Human and Artificial",
+  "slug": "adoption-mechanics",
+  "blog": "https://e-mindset.space",
+  "posts": [
+    {
+      "part": 1,
+      "title": "Correct, and Rejected",
+      "url": "https://e-mindset.space/blog/adoption-mechanics-part1-correct-and-rejected/"
+    },
+    {
+      "part": 2,
+      "title": "Smarter Agents, Fewer Opinions",
+      "url": "https://e-mindset.space/blog/adoption-mechanics-part2-smarter-agents-fewer-opinions/"
+    }
+  ],
+  "specimen": {
+    "running case": "a successor control design reviewed by 15 members in 3 reporting layers with 4 veto gates (architecture board, SRE, security, product); titles and URLs provisional",
+    "data": "public per-question results from Stanford HELM (Lite MMLU; Capabilities GPQA and MMLU-Pro), reduced to pairwise 2x2 correctness counts overall and within difficulty strata; no prompts or answers stored"
+  },
+  "python": ">=3.10",
+  "dependencies": [],
+  "criteria": 13
+}

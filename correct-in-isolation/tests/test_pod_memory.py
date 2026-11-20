@@ -9,12 +9,12 @@ Run: python3 -m unittest discover -s tests
 """
 import os
 import sys
+
 sys.path[:0] = [os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'model')]
 
 import unittest
 
-from formulas import (WINDOW_CAP, expected_held, expected_time, memory_cost, memory_split, nested_time,
-                      pod_break_even, pod_worst_ratio, second_surge_time)
+from formulas import WINDOW_CAP, expected_held, expected_time, memory_cost, memory_split, nested_time, pod_break_even, pod_worst_ratio, second_surge_time
 from nested import simulate_two_surges
 
 SPARE, S, POD, NODE, K = 58, 300, 90, 210, 30

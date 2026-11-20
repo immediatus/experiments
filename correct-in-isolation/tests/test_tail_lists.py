@@ -8,8 +8,10 @@ Run: python3 -m unittest discover -s tests
 """
 import os
 import sys
+
 sys.path[:0] = [os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'model')]
 
+import random
 import unittest
 
 from tail_lists import heterogeneous_storm_possible, pareto_costs, storm_share
@@ -29,7 +31,6 @@ class Necessary(unittest.TestCase):
 class Costs(unittest.TestCase):
 
     def test_mean_is_the_target(self):
-        import random
         c = pareto_costs(200000, 1.5, 112.5, random.Random(3))
         self.assertLess(abs(sum(c) / len(c) / 112.5 - 1), 0.05)
 

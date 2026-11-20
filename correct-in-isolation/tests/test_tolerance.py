@@ -8,7 +8,7 @@ import unittest
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, '..', 'model'))
 
-from formulas import directional_band, equilibrium_band, stopping_scale_up_tolerance, step_factor
+from formulas import directional_band, equilibrium_band, step_factor, stopping_scale_up_tolerance
 from hpa_vpa import simulate
 
 

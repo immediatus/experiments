@@ -682,8 +682,9 @@ def fig_storm():
     s['X'] = dict(lo=25, hi=210, log=True, ticks=[[v, '%d' % v] for v in (30, 50, 90, 114, 200)], title='LIST cost, seat-seconds, log scale', ntitle='LIST cost (log)')
     s['Y'] = dict(lo=0, hi=4500, ticks=[[v, '%d' % v] for v in (0, 1000, 2000, 3000, 4000)], title='LISTs in hour 8 after the trigger', ntitle='LISTs, hour 8')
     e = s['els']
-    e.append(dict(t='line', pts=[[c, 3600 * 100.0 / c] for c in (90, 100, 120, 150, 200)], c='g', w=1, dash=True))
-    e.append(dict(t='txt', x=200, y=1800, s='all capacity on LISTs', n='capacity', al='right', bl='top', dx=-4, dy=10, c='g'))
+    # a wide gray band under the storms: they run exactly at all capacity, so the band shows as a halo around them
+    e.append(dict(t='band', pts=[[c, 3600 * 100.0 / c - 90, 3600 * 100.0 / c + 90] for c in (90, 100, 110, 120, 135, 150, 175, 200)], c='g', al=0.28))
+    e.append(dict(t='txt', x=200, y=1800, s='gray band: all capacity on LISTs', n='all capacity', al='right', bl='top', dx=-4, dy=12, c='g'))
     e.append(dict(t='vline', x=37.5, c='g', dash=True))
     e.append(dict(t='txt', x=37.5, y=4500, s='necessary: 37.5', n='37.5', al='left', bl='top', dx=4, dy=4, c='g'))
     # each series is calm up to its onset and storms after it; nothing was measured in between, so no line crosses the jump
@@ -695,11 +696,11 @@ def fig_storm():
     on_i = min(c for c, v in zip(cost, ideal) if v > 0)
     on_l = min(c for c, v in zip(cost, limited) if v > 0)
     e.append(dict(t='txt', x=on_i, y=[v for c, v in zip(cost, ideal) if c == on_i][0], s='idealized: %d' % on_i, n='%d' % on_i, al='right', bl='bottom', dx=-6, dy=-4, c='a', b=True))
-    e.append(dict(t='txt', x=on_l, y=800, s='documented: %d' % on_l, n='%d' % on_l, al='right', bl='middle', dx=-10, c='b', b=True))
+    e.append(dict(t='txt', x=on_l, y=0, s='documented: %d' % on_l, n='%d' % on_l, al='left', bl='bottom', dx=4, dy=-6, c='b', b=True))
     aria = ('LISTs completed in the eighth hour after a trigger forcing all 2000 informers to LIST, against LIST cost. Idealized queue: %s. With the wait limit and the Reflector backoff: %s. '
             'A saturated storm is impossible below a cost of 37.5.' % (', '.join('%d: %d' % (a, b) for a, b in zip(cost, ideal)), ', '.join('%d: %d' % (a, b) for a, b in zip(cost, limited))))
     cap = ('LISTs still running eight hours after a trigger, against the cost of one LIST. A storm that holds spends all capacity on '
-           'LISTs (gray dashed). The idealized queue storms from a cost of 90, the real server, with its wait limit and the client\'s '
+           'LISTs, the gray band both storms sit on. The idealized queue storms from a cost of 90, the real server, with its wait limit and the client\'s '
            'backoff, from 114, and each line breaks where the count jumps. Below 37.5 no order of service can sustain a storm.')
     FIGS.append(Figure('storm', s, aria, cap))
 

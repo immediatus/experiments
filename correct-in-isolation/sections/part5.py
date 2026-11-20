@@ -2,12 +2,34 @@
 import itertools
 import math
 
-from admission import (admit, admit_trace, chain, digest, drop_capabilities, final_round_clean, injector, label,
-                       matches, mesh_init, mesh_label, outcomes, pod, pull_policy, readmission_clean, sidecar,
-                       signer, typed_chain)
+from admission import (
+    admit,
+    admit_patches,
+    admit_trace,
+    chain,
+    classify_patches,
+    digest,
+    drop_capabilities,
+    final_round_clean,
+    injector,
+    iterate_admission,
+    label,
+    matches,
+    mesh_init,
+    mesh_label,
+    orchestrate,
+    outcomes,
+    pod,
+    pull_policy,
+    readmission_clean,
+    sidecar,
+    signer,
+    typed_chain,
+    writer,
+)
+from admission import chain as value_chain
 from audit import admission_order, config_order
-from formulas import (converged_share, fact_passes, match_ceiling, mixed_within, time_to_mixed,
-                      typed_chain_share)
+from formulas import converged_share, fact_passes, match_ceiling, mix_share, mixed_within, never_share, time_to_mixed, typed_chain_share
 
 
 def t15():
@@ -29,7 +51,6 @@ def t16():
     print('T16 enabling chain of n webhooks (depth n - 1), all IfNeeded: n | passes the worst order needs | '
           'share of orders converged in 2 passes (closed form) | (enumerated) | share converged in one pass, '
           'as under Never, 1/n! | share for a chain of match links at any number of passes, 1/n!')
-    import itertools
     for n in (2, 3, 4, 5, 6):
         ws = chain(n - 1)
         full = admit(pod(), ws, passes=1)
@@ -64,7 +85,6 @@ def t51():
     print('T51 chains with value and match links, all IfNeeded, every order equally likely: links in chain '
           'order | share converged within 2 rounds, closed | enumerated | share converged at any number of '
           'rounds, closed | 1 / (m + 2)!, m the last match link')
-    import itertools
     for kinds in (('value', 'value'), ('match', 'value'), ('value', 'match'), ('match', 'match'),
                   ('value', 'value', 'value'), ('match', 'value', 'value'), ('value', 'value', 'match'),
                   ('match', 'match', 'match')):
@@ -81,7 +101,6 @@ def t52():
           'scenario | orders | admitted object a common fixed point | final round clean | clean but not a '
           'fixed point | dirty but a fixed point | second admission clean | second admission disagrees with '
           'the fixed-point verdict')
-    import itertools
     for name, ws in ORDER_SCENARIOS:
         rows = []
         for order in itertools.permutations(ws):
@@ -165,8 +184,6 @@ def t77():
 
 
 def t82():
-    from admission import chain as value_chain
-    from formulas import never_share
     print('T82 a chain of value links with a member whose configuration keeps the default reinvocationPolicy '
           'Never (Istio, Linkerd, Vault and Gatekeeper ship it), every other member IfNeeded, two passes, '
           'every order equally likely: members | position of the last Never member, the first counted as 0 | '
@@ -187,7 +204,6 @@ def t82():
 
 
 def t83():
-    from admission import writer
     print('T83 a conflict: webhooks that each set one field to a value of their own, two passes, every order: '
           'policies of the writers | the writer whose value is admitted, as a share of orders | the last '
           'writer in the order, as a share of orders it is admitted in')
@@ -204,7 +220,6 @@ def t83():
 
 
 def t84():
-    from admission import admit_patches, classify_patches
     print('T84 the patch trail (Request audit level) over every order of each scenario, two passes, every '
           'webhook IfNeeded: scenario | orders | orders admitting a common fixed point | orders with a '
           'contested field | orders with late input | orders with neither that do not admit a common fixed '
@@ -227,7 +242,6 @@ def t84():
 
 
 def t85():
-    from formulas import mix_share, never_share
     print("T85 the survey's mix: each member of a value chain after the first keeps reinvocationPolicy Never "
           'with probability q, two passes, every order equally likely: members | share of orders that converge '
           'with every member IfNeeded | expected share at q = 10/13, the share of the thirteen surveyed '
@@ -237,7 +251,6 @@ def t85():
 
 
 def t102():
-    from admission import iterate_admission, orchestrate, typed_chain, writer
     print('T102 the passes a chain needs, and an orchestrator that iterates dry-run admission to a common '
           'fixed point. Rows "frontier": webhooks in an enabling chain of value links | passes allowed | share '
           'of orders that converge, Eulerian sum | mean passes needed, 1 + (n - 1)/2. Rows "orchestrate": '

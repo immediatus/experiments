@@ -54,9 +54,15 @@ annotation records it. `final_round_clean` reads that trail; `readmission_clean`
   conflicting writers have no fixed point and fool that stopping rule (`orchestrate` in
   [`model/admission.py`](../model/admission.py), T102).
 
-## The numbers
+## The results
 
 Every claim, with its section, is in [CLAIMS.md](CLAIMS.md).
+
+## The bill, and when the advice reverses
+
+A signed pod admitted with a stale signature in one order of six. A pod admitted with its injection label and no sidecar in half of all orders, with a clean audit trail. A capability policy that holds or fails by the names of two configurations. At their default settings, Istio's injector missing the container Vault's injector adds whenever Vault's release name sorts after it. A Kyverno digest pin that pins Istio's proxy and leaves Linkerd's tag at the projects' default names. And a security mutation that keeps the default and loses, in every order, to any injector that opts in.
+
+**When the advice reverses.** The advice of this post is to find every link and conflict in a chain and remove the ones the contract cannot repair. It reverses where an order dependency is deliberate, as for a final webhook meant to override every other on one field. There the dependency is a design, and the price is that it holds only while that webhook's configuration name keeps it last.
 
 ## What you can vary
 
@@ -67,3 +73,5 @@ closed forms are in [`model/formulas.py`](../model/formulas.py): `passes_needed`
 `typed_chain_rounds`, `typed_chain_share`, `match_ceiling`. The assumptions are in [ASSUMPTIONS.md](ASSUMPTIONS.md).
 
 ![Share of orders of an enabling chain that converge, by chain length](../figures/chain-share.svg)
+
+*What the second pass buys and what a match link takes away. With every webhook opted in, two passes keep a chain of value links converging in a share of orders that falls slowly at first; when they run once only the order with every enabler first converges, one in n!. A chain of match links falls to that same curve at any number of passes, because a webhook skipped in the first pass is never called.*

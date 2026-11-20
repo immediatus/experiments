@@ -13,16 +13,16 @@ Run: python3 -m unittest discover -s tests
 """
 import os
 import sys
+
 sys.path[:0] = [os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'model')]
 
-import unittest
-
-from formulas import equilibrium_band, rounds
 import random
+import unittest
 
 import hpa_vpa
 import nested
 import relist
+from formulas import equilibrium_band, rounds
 from percolation import gen_needs
 from ratios import assumption_ratio, order_ratio, scaled_state_ratio, signal_ratio, state_ratio, time_ratio
 

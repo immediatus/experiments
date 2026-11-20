@@ -7,14 +7,25 @@ Run: python3 -m unittest discover -s tests
 """
 import os
 import sys
+
 sys.path[:0] = [os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'model')]
 
 import random
 import unittest
 
-from formulas import (coupled_relative_gain, custom_metric_relative_gain, doubling_bracket, step_factor,
-                      step_interval, equilibrium_band, resting_margin, relative_gain_array,
-                      same_metric_gain, split_metric_gain, vpa_utilisation)
+from formulas import (
+    coupled_relative_gain,
+    custom_metric_relative_gain,
+    doubling_bracket,
+    equilibrium_band,
+    relative_gain_array,
+    resting_margin,
+    same_metric_gain,
+    split_metric_gain,
+    step_factor,
+    step_interval,
+    vpa_utilisation,
+)
 from hpa_vpa import simulate
 
 

@@ -6,8 +6,9 @@ line-length = 160
 target-version = "py310"
 
 [tool.ruff.lint]
-select = ["E", "F", "W", "PLW1514"]
-# PLW1514 (open() without an encoding) is still a preview rule: enable preview for named rules only.
+select = ["E", "F", "W", "I", "PLW1514", "PLC0415", "PLC2701"]
+# I sorts each block of imports. PLW1514 (open() without an encoding), PLC0415 (an import inside a function) and
+# PLC2701 (an import of another module's private name) are preview rules: enable preview for named rules only.
 preview = true
 explicit-preview-rules = true
 

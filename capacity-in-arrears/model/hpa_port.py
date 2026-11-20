@@ -63,7 +63,9 @@ def resource_replicas(current, ready_usage, n_unready, request_milli, target_pct
 
 
 def external_per_pod_replicas(status_replicas, usage, target_per_pod, tol=TOLERANCE):
-    """GetExternalPerPodMetricReplicas (AverageValue target)."""
+    """GetExternalPerPodMetricReplicas with an AverageValue target: the replica count for an external metric of
+    total `usage` (the metric's units) against `target_per_pod` per pod, from `status_replicas` running; the
+    current count when the usage ratio is within the tolerance `tol`, otherwise ceil(usage / target_per_pod)."""
     ratio = usage / (target_per_pod * status_replicas)
     if within(ratio, tol):
         return status_replicas

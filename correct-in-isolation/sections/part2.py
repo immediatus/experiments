@@ -1,10 +1,42 @@
 """Sections of Part 2, a shared time scale: T6, T7, T8, T9, T25, T26, T27, T28, T29, T30, T31, T32, T33, T34, T35, T36, T37, T38, T40, T79, T93, T94, T95, T96, T106."""
 import math
+import random
+import statistics
 
-from formulas import (WINDOW_CAP, break_even, covered_rounds, expected_held, expected_time, hazard_window,
-                      kept_rounds, nested_time, node_tail_cost, node_tail_slope, pod_break_even, pod_worst_ratio,
-                      rounds, second_surge_time, separated_time, weibull_pod_cost, weibull_scale, worst_ratio)
-from nested import simulate as nested, simulate_two_surges as surges
+from formulas import (
+    WINDOW_CAP,
+    break_even,
+    censored_naive,
+    censoring_crossing,
+    cover_cost,
+    covered_rounds,
+    expected_held,
+    expected_time,
+    hazard_window,
+    kept_rounds,
+    nested_time,
+    nesting_multiplier,
+    node_tail_cost,
+    node_tail_slope,
+    optimal_cover,
+    pareto_mean_time,
+    pareto_rounds_tail,
+    pareto_shortfall,
+    pareto_shortfall_slots,
+    pod_break_even,
+    pod_worst_ratio,
+    ramp_shortfall,
+    rounds,
+    second_surge_time,
+    separated_time,
+    weibull_pod_cost,
+    weibull_scale,
+    worst_ratio,
+)
+from formulas_time import headroom_for, step_slots
+from nested import simulate as nested
+from nested import simulate_two_surges as surges
+from tail_buffer import run
 
 from .common import NODE, POD
 
@@ -249,8 +281,6 @@ def t93():
 
 
 def t94():
-    from formulas import nesting_multiplier, pareto_mean_time, pareto_rounds_tail, pareto_shortfall, ramp_shortfall
-    import random
     print('T94 surge sizes Pareto with exponent alpha above the surge that saturates the running pods (k >= 2 '
           'at target 0.5, so the need is Pareto above n0 = 16); pod 90 s, node 210 s, g 2. Rows "tail": alpha '
           '| P(R >= 2) | P(R >= 4) | mean rounds | mean nested time, s | mean pod-seconds short: ample nodes | '
@@ -280,7 +310,6 @@ def t94():
 
 
 def t95():
-    from formulas import cover_cost, optimal_cover
     print('T95 the headroom frontier over the tail: slots covering c rounds, 16 (2^c - 1), held for a mean gap '
           'of 3600 s between surges, against price slot-seconds per pod-second short in the mean ramp (pod 90 '
           's, node 210 s). Rows: price | alpha | x* = 1 + slots / n0 at the continuous optimum | best whole '
@@ -294,9 +323,6 @@ def t95():
 
 
 def t96():
-    import statistics
-    from formulas import censored_naive, censoring_crossing
-    from tail_buffer import run
     print('T96 a buffer controller that estimates the tail exponent after every surge by maximum likelihood '
           'and holds the optimal cover for it (price 100, mean gap 3600 s, buffer limit 8 rounds, 1000 surges, '
           'seeds 1 to 20). Rows "policy": alpha | rule | median over seeds of the expected cost per surge over '
@@ -323,7 +349,6 @@ def t96():
 
 
 def t106():
-    from formulas import pareto_shortfall_slots
     print('T106 the headroom frontier in slots rather than whole rounds: surges Pareto above the saturating '
           'surge, n0 16, pod 90 s, node 210 s, a round covered when the pods it adds fit in the free slots. '
           'Rows "step": alpha | slots at a whole round\'s price | mean pod-seconds short one slot below | at it '
@@ -342,8 +367,6 @@ def t106():
 
 
 def t121():
-    from formulas_time import headroom_for, rounds, step_slots
-    from nested import simulate as nested_sim
     print('T121 the two headroom thresholds (n0 64, target 0.5, one pod per node, pod 90 s, node 210 s): k | rounds covered c | '
           'slots that keep the first c rounds free of pending pods, n0 (g^c - 1) | fewest slots that remove c node waits, '
           'ceil(need g^(c - R)) - n0 | seconds to capacity with that many slots | with one slot fewer')
@@ -351,5 +374,5 @@ def t121():
         for c in range(1, rounds(k) + 1):
             h = step_slots(c, 64, k)
             print('  %d | %d | %d | %d | %d | %d' % (k, c, headroom_for(c, 64, k), h,
-                                                      nested_sim(k, n0=64, headroom=h, per_node=1),
-                                                      nested_sim(k, n0=64, headroom=h - 1, per_node=1)))
+                                                      nested(k, n0=64, headroom=h, per_node=1),
+                                                      nested(k, n0=64, headroom=h - 1, per_node=1)))

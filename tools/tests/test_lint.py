@@ -1,5 +1,5 @@
-"""lint runs ruff when it is installed and otherwise a standard-library check that catches unused imports and
-imports of another module's private names."""
+"""lint runs ruff when it is installed and otherwise a standard-library check that catches unused imports,
+imports of another module's private names, imports inside a function and open() without an encoding."""
 import os
 import sys
 import tempfile
@@ -39,6 +39,12 @@ class LintTest(unittest.TestCase):
 
     def test_reexport_marked_noqa_passes(self):
         self.assertEqual(_check('from math import (  # noqa: F401\n    floor, pi)\n'), [])
+
+    def test_import_inside_a_function_fails(self):
+        self.assertTrue(any('import inside a function' in e for e in _check('def f():\n    import math\n    return math.pi\n')))
+
+    def test_import_at_module_top_passes(self):
+        self.assertEqual(_check('import math\n\n\ndef f():\n    return math.pi\n'), [])
 
     def test_name_used_only_in_a_string_annotation_is_used(self):
         self.assertEqual(_check('import typing\n\nx: "typing.Any" = 1\n'), [])

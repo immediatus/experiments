@@ -1,11 +1,11 @@
 """Sections of Part 4, a shared assumption: T13, T14, T47, T48, T49, T58, T59, T60, T61, T62, T63, T64, T80, T89, T100, T101, T114."""
 import math
+import random
 
-from audit import cyclic_components, min_feedback_arc_set, min_feedback_vertex_set
-from formulas import (app_loss_distribution, bind_probability, cold_start_chain, cycle_mean_time_to_bind,
-                      rejection_life, stalled_rollout)
-from recovery import (drain_order_losses, eviction_regime, heartbeat_unknown, placed_drain, recover,
-                      rolling_drain, simulated_life, simulated_time_to_bind)
+from audit import SURVEY_DEFAULTS, cyclic_components, default_start_graph, min_feedback_arc_set, min_feedback_vertex_set
+from formulas import app_loss_distribution, bind_probability, cold_start_chain, cycle_mean_time_to_bind, rejection_life, stalled_rollout
+from percolation import gen_needs, greedy_relaxation, hard_floor, pareto_weights, predicted_threshold, residual_hidden, stranded
+from recovery import drain_order_losses, eviction_regime, heartbeat_unknown, placed_drain, recover, rolling_drain, simulated_life, simulated_time_to_bind
 
 
 def t47():
@@ -83,7 +83,6 @@ def t58():
           'pods, failurePolicy Fail; webhook on nodes 0, 3, 6, DNS on 1, 4, app on 2, 5, 8; 20000 random drain '
           'orders, seed 1): placement | app replicas lost 0 | 1 | 2 | 3 (share of orders) | mean lost | mean '
           'evictions per drain')
-    import random
     place = {'webhook': [0, 3, 6], 'dns': [1, 4], 'app': [2, 5, 8]}
     needs, rejects = {'app': {'webhook'}, 'webhook': {'webhook'}}, {'webhook': {'webhook'}}
     for label, policy, extra in (('out of reach of later drains (T49)', 'out of reach', 0), ('spread, the scheduler default (LeastAllocated)', 'spread', 0),
@@ -179,7 +178,6 @@ def t64():
           'full restart, mean | fewest exclusions that leave no cycle (minimum feedback arc set), mean | '
           'fewest webhooks switched to Ignore (minimum feedback vertex set), mean; 2000 random clusters per '
           'row where p < 1, seed 1')
-    import random
     rng = random.Random(1)
     for k in (2, 3, 4, 5):
         for p in (1.0, 0.5, 0.25):
@@ -214,8 +212,6 @@ def t80():
 
 
 def t89():
-    from audit import SURVEY_DEFAULTS, default_start_graph
-    from recovery import recover
     print('T89 the start-time graph of the surveyed projects at their shipped defaults, each in its own '
           'namespace (the AWS Load Balancer Controller and the vertical autoscaler in kube-system, as their '
           'installation guides place them), Kyverno with a policy on Pods; a full restart fails every node: '
@@ -237,8 +233,6 @@ def t89():
 
 
 def t100():
-    import random
-    from percolation import gen_needs, pareto_weights, predicted_threshold, stranded
     print('T100 random start-time graphs of 1,000 components, an edge i -> j (i needs j) with probability '
           'min(1, c w_i w_j / (n E[w]^2)); weights equal (independent degrees), or Pareto with exponent 2.5 or '
           '1.8 (hubs whose in- and out-degrees grow together); a full restart. Rows "share": weights | mean '
@@ -255,13 +249,10 @@ def t100():
                     ths.append(predicted_threshold(w))
                 out += len(stranded(gen_needs(c, w, rng)))
             print('  share | %s | %.1f | %.3f' % (label, c, out / 30000.0))
-        print('  threshold | %s | %.3f' % (label, sum(ths) / 30))
+        print('  threshold | %s | %.3f' % (label, math.fsum(ths) / 30))
 
 
 def t101():
-    import random
-    from percolation import gen_needs, greedy_relaxation, hard_floor, pareto_weights, residual_hidden, stranded
-    from audit import SURVEY_DEFAULTS, default_start_graph, min_feedback_vertex_set
     print('T101 a recovery controller that relaxes the in-edges of components chosen greedily from the largest '
           'cycle core until none is left (1,000 components, seed 0). Rows "relax": weights | mean degree | '
           'components stranded without it | components it relaxes. Rows "hidden": weights | mean degree | '

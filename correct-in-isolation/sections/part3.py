@@ -1,12 +1,33 @@
 """Sections of Part 3, a shared state: T10, T11, T12, T41, T42, T43, T44, T45, T46, T57, T65, T66, T67, T68, T69, T70, T86, T87, T97, T98, T99, T104, T105, T108."""
 import math
+import random
+from concurrent.futures import ProcessPoolExecutor
 
-from formulas import (backlog, failed_list_rate, failed_state_delay, failed_state_possible,
-                      fresh_rejections_to_pass, no_bookmark_gone_probability, no_bookmark_load,
-                      pages_before_expiry, rejections_before_gone, saturated_storm_possible, second_wave,
-                      watch_cache_span)
-from relist import (simulate as relist, simulate_fair as relist_fair, simulate_limited as relist_limited,
-                    simulated_no_bookmark_gone)
+from formulas import (
+    backlog,
+    failed_list_rate,
+    failed_state_delay,
+    failed_state_possible,
+    fresh_rejections_to_pass,
+    level_limits,
+    list_seats,
+    list_time_threshold,
+    meanfield_onset,
+    no_bookmark_gone_probability,
+    no_bookmark_load,
+    pages_before_expiry,
+    rejections_before_gone,
+    saturated_storm_possible,
+    second_wave,
+    watch_cache_span,
+)
+from percolation import gen_needs, greedy_relaxation, pareto_weights, relax, stranded
+from relist import simulate as relist
+from relist import simulate_fair as relist_fair
+from relist import simulate_limited as limited
+from relist import simulate_limited as relist_limited
+from relist import simulated_no_bookmark_gone
+from tail_lists import pareto_costs, storm_share
 
 from .common import CLIENTS, MEAN, RETENTION, SEATS, SHORT
 
@@ -223,7 +244,6 @@ def t70():
 
 
 def t86():
-    from formulas import level_limits, list_seats, list_time_threshold
     print('T86 prices in seats on a server of 600 seats, the default --max-requests-inflight 400 plus '
           '--max-mutating-requests-inflight 200, the default priority levels, and SizeBasedListCostEstimate: '
           'level | nominal concurrency limit, seats | most seats one request may take')
@@ -240,7 +260,6 @@ def t86():
 
 
 def t87():
-    from relist import simulate_limited as limited
     costs = list(range(100, 160, 2)) + list(range(160, 401, 5))
 
     def onset(**kw):
@@ -279,8 +298,6 @@ def t97():
 
 
 def t98():
-    import random
-    from tail_lists import pareto_costs, storm_share
     print('T98 list costs Pareto with exponent alpha, one cost per informer, mean set so that 2,000 informers '
           'average a backlog of 2,260 s (the onset of identical informers). Rows "boundary": alpha | clusters '
           'run (seeds 1 to 40) | lowest backlog that stormed, s | highest that stayed calm, s | clusters on '
@@ -318,8 +335,6 @@ def t99():
 
 
 def t104():
-    import random
-    from percolation import gen_needs, greedy_relaxation, pareto_weights, relax, stranded
     print('T104 frontiers of the controllers of Parts 3 and 4. Rows "hold": the split controller of T99 (share '
           '0.5) with the hold varied: list cost | hold, s | re-watches answered 410 | minutes split | switches '
           '| storm in hour 8. Rows "band": list cost 200 | hold, s | seeds 1 to 3 still storming in hour 8. '
@@ -366,7 +381,6 @@ def _hyst_run(args):
 
 
 def t108():
-    from formulas import meanfield_onset
     print('T108 Part 3\'s storm onset as a mean-field fold, and its memory. Rows "fold": backoff state a run '
           'starts in | rejections a re-watch must lose, mean jitter | backlog at the fold, s | list cost at '
           'the fold | rejection probability at the fold. Rows "admitted": the fresh fold with the served '
@@ -380,7 +394,6 @@ def t108():
     for wait in (7.5, 15.0):
         b, cost, _, _ = meanfield_onset(admitted_wait=wait)
         print('  admitted | %.1f | %.0f | %.1f' % (wait, b, cost))
-    from concurrent.futures import ProcessPoolExecutor
     costs = (100.0, 106.0, 110.0, 111.0, 112.0, 113.0)
     jobs = [(c, w, sd) for c in costs for w in (False, True) for sd in (1, 2, 3, 4)]
     with ProcessPoolExecutor() as ex:

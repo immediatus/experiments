@@ -16,6 +16,9 @@ import itertools
 
 
 def pod(containers=(('app', 'registry/app:1', None, frozenset()),), labels=(), annotations=()):
+    """A pod-like object, (containers, labels, annotations), immutable so outcomes can be compared: containers as
+    (name, image, pull policy or None, frozenset of capabilities), labels as 'key=value' strings, annotations as
+    (key, value) pairs, sorted. The default is one application container with no labels or annotations."""
     return (tuple(containers), frozenset(labels), tuple(sorted(annotations)))
 
 

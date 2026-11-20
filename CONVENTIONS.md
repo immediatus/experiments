@@ -76,9 +76,14 @@ listing the experiment.
   command works from any directory.
 - Files in `model/` are libraries: no `__main__` block, defaults equal to the series' specimen,
   and a docstring for every public function that names its inputs, outputs and units. Each
-  closed-form result of the posts is one function, used by every section that compares with it.
+  closed-form result of the posts is one function, used by every section that compares with it,
+  and each mechanism the model simulates (a draw, a decision rule) is one function, used by every
+  module and section that needs it rather than written again.
+- Imports sit at the top of a module, sorted, and no module imports another's private name: a
+  name another module needs is public and documented. [`tools/lint.py`](tools/lint.py) enforces both.
 - A section derives every scale it reports in (pods needed, seconds of demand) from the run
-  it reports on, never from a constant that assumes the default inputs.
+  it reports on, never from a constant that assumes the default inputs, and never from a rounded
+  copy of a number another section computes: it calls the function that computes it.
 - `tests/` checks the model as well as any port: properties the model must have whatever its
   inputs, such as conservation of work, and each closed form against the simulation.
 - Files are read and written as UTF-8 explicitly.
@@ -122,8 +127,8 @@ It runs the shared tools' tests, `tools/check_repo.py`, the Python 3.10 floor an
 every file and `tools/lint.py`, then, for each experiment, `tests/`, `tools/check_docs.py`,
 `reproduce.py --figures --check` and `reproduce.py --check`, the last twice, under hash seeds 0 and 1, so
 that no number depends on the order Python gives a set. `tools/lint.py` runs ruff with the pinned rules of
-`requirements-dev.txt` when it is installed, and a standard-library fallback for unused and private imports
-when it is not.
+`requirements-dev.txt` when it is installed, and a standard-library fallback for unused and private imports,
+imports inside a function and `open()` without an encoding when it is not.
 
 Continuous integration runs `python3 tools/check_all.py` on every push to main and every pull
 request, on Python 3.10 to 3.14, and `--full` weekly, on release tags and on demand, on Python

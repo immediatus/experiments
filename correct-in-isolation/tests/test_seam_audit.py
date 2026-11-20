@@ -7,9 +7,11 @@ import json
 import os
 import subprocess
 import sys
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path[:0] = [os.path.join(HERE, '..', 'audit'), os.path.join(HERE, '..', 'model')]
 
+import tempfile
 import unittest
 
 import seam_audit as sa
@@ -109,7 +111,6 @@ class Audit(unittest.TestCase):
         self.assertIn('list_cost', str(ctx.exception))
 
     def test_command_line(self):
-        import tempfile
         with tempfile.TemporaryDirectory() as d:
             c, s = os.path.join(d, 'c.json'), os.path.join(d, 'd.json')
             json.dump(CLUSTER, open(c, 'w', encoding='utf-8'))

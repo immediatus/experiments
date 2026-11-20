@@ -5,7 +5,6 @@ Every input is a documented contract or a named parameter; defaults are the seri
 import math
 
 
-
 def bind_probability(n, u, k):
     """Probability that k node failures, all sets equally likely among n nodes, take out every
     node of a start-time cycle whose replicas occupy u distinct nodes: C(n - u, k - u) / C(n, k),

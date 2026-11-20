@@ -2,9 +2,9 @@
 backoff and the runs of rejections behind a 410, the mean-field fold, and API Priority and Fairness's levels.
 
 Every input is a documented contract or a named parameter; defaults are the series' specimen."""
+import collections
 import itertools
 import math
-
 
 
 def backlog(cost_list, clients, capacity):
@@ -143,7 +143,6 @@ def watch_cache_span(rate, fresh=75.0, lower=100, upper=100 * 1024, horizon=None
     default, a minute of bookmarks plus 15 s) and halves if the first event of its newest quarter
     is older than it; a full cache then drops its oldest event. Returns the span from the oldest
     retained event to the newest, the history a re-watch through the cache has."""
-    import collections
     dt = 1.0 / rate
     n = int((horizon if horizon is not None else max(4000.0, 4.0 * upper * dt)) * rate)
     cap, cache = lower, collections.deque()

@@ -9,12 +9,12 @@ Run: python3 -m unittest discover -s tests
 import math
 import os
 import sys
+
 sys.path[:0] = [os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'model')]
 
 import unittest
 
-from formulas import (cover_cost, nesting_multiplier, optimal_cover, pareto_mean_time, pareto_mle,
-                      pareto_rounds_tail, pareto_shortfall, ramp_shortfall)
+from formulas import cover_cost, nesting_multiplier, optimal_cover, pareto_mean_time, pareto_mle, pareto_rounds_tail, pareto_shortfall, ramp_shortfall
 from nested import simulate
 
 

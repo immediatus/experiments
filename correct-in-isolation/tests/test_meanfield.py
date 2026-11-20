@@ -9,11 +9,13 @@ Run: python3 -m unittest discover -s tests
 """
 import os
 import sys
+
 sys.path[:0] = [os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'model')]
 
 import unittest
 
 from formulas import backoff_schedule, gone_after, meanfield_onset, saturated_storm_possible
+from relist import simulate_limited
 
 
 class Schedule(unittest.TestCase):
@@ -73,21 +75,18 @@ class Onset(unittest.TestCase):
 class Hysteresis(unittest.TestCase):
 
     def test_cost_switch_keeps_the_plain_run_when_unused(self):
-        from relist import simulate_limited
         self.assertEqual(simulate_limited(100.0, hours=2, seed=1)[0],
                          simulate_limited(100.0, hours=2, seed=1, cost_switch=None)[0])
 
     def test_no_hysteresis_below_the_onset(self):
         # the backoff resets two minutes after its last reset, faster than a watch cycle, so a storm entered
         # at 116 and lowered to 110 ends as a cold trigger at 110 does: the memory does not outlive a cycle
-        from relist import simulate_limited
         cold = simulate_limited(110.0, hours=8, seed=1)[0]
         warm = simulate_limited(116.0, hours=8, seed=1, cost_switch=(3600.0, 110.0))[0]
         self.assertEqual(cold[-1], 0)
         self.assertEqual(warm[-1], 0)
 
     def test_storm_entered_above_onset_runs_at_the_onset(self):
-        from relist import simulate_limited
         self.assertGreater(simulate_limited(116.0, hours=8, seed=1, cost_switch=(3600.0, 113.0))[0][-1], 0)
 
 

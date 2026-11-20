@@ -11,12 +11,14 @@ Run: python3 -m unittest discover -s tests
 """
 import os
 import sys
+
 sys.path[:0] = [os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'model')]
 
 import math
 import unittest
 
-from recovery import drain_losses, rolling_drain
+from formulas import app_loss_distribution, rejection_life
+from recovery import drain_losses, drain_order_losses, rolling_drain, simulated_life
 
 NODES = list(range(9))
 PLACE = {'webhook': [0, 3, 6], 'dns': [1, 4], 'app': [2, 5, 8]}
@@ -61,19 +63,15 @@ if __name__ == '__main__':
 class FiniteLife(unittest.TestCase):
 
     def test_expected_life_is_the_harmonic_number_over_the_failure_rate(self):
-        from formulas import rejection_life
         self.assertAlmostEqual(rejection_life(1, 30.0), 30.0)
         self.assertAlmostEqual(rejection_life(3, 30.0), 30.0 * (1 + 1 / 2 + 1 / 3))
 
     def test_simulated_life_matches(self):
-        from formulas import rejection_life
-        from recovery import simulated_life
         for n in (1, 3, 5):
             sim = simulated_life(n, 30.0, runs=20000)
             self.assertLess(abs(sim / rejection_life(n, 30.0) - 1), 0.02, n)
 
     def test_drain_order_decides_what_the_app_loses(self):
-        from recovery import drain_order_losses
         dist = drain_order_losses(PLACE, needs={'app': {'webhook'}, 'webhook': {'webhook'}},
                                   rejects={'webhook': {'webhook'}}, orders=2000)
         self.assertEqual(sum(dist.values()), 2000)
@@ -84,8 +82,6 @@ class FiniteLife(unittest.TestCase):
 class DrainOrder(unittest.TestCase):
 
     def test_closed_form_matches_random_orders(self):
-        from formulas import app_loss_distribution
-        from recovery import drain_order_losses
         closed = app_loss_distribution(3, 3)
         self.assertAlmostEqual(math.fsum(closed.values()), 1.0)
         self.assertEqual([round(closed[j], 2) for j in range(4)], [0.5, 0.3, 0.15, 0.05])
@@ -95,7 +91,6 @@ class DrainOrder(unittest.TestCase):
             self.assertLess(abs(sim.get(j, 0) / 20000 - closed[j]), 0.01, j)
 
     def test_expected_loss(self):
-        from formulas import app_loss_distribution
         for na, nw in ((3, 3), (5, 2), (2, 5)):
             d = app_loss_distribution(na, nw)
             self.assertAlmostEqual(math.fsum(j * p for j, p in d.items()), na / (nw + 1))

@@ -5,7 +5,6 @@ Every input is a documented contract or a named parameter; defaults are the seri
 import math
 
 
-
 def rounds(k, target=0.5, limit=1.0):
     """Rounds a saturated utilisation metric needs before a k-fold overload is served, restated
     from "One Bit per Dead Time" (Proposition 2): ceil(log_g(k u* / l)), with growth factor

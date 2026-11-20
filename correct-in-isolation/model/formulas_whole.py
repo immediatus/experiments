@@ -5,7 +5,6 @@ Every input is a documented contract or a named parameter; defaults are the seri
 import math
 
 
-
 def symmetric_gain(k, a):
     """Gain matrix of k loops, each with unit gain on its own output and coupling a to every other."""
     return [[1.0 if i == j else a for j in range(k)] for i in range(k)]

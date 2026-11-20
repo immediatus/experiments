@@ -14,15 +14,15 @@ Run: python3 -m unittest discover -s tests
 """
 import os
 import sys
+
 sys.path[:0] = [os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'model')]
 
 import itertools
 import random
 import unittest
 
-from formulas import fact_passes, subset_facts, spread_order, symmetric_gain, singular_coupling
-from interaction import (assumption_order, has_cycle, is_p_matrix, order_order, signal_order, signal_set_passes,
-                         state_order)
+from formulas import fact_passes, singular_coupling, spread_order, subset_facts, symmetric_gain
+from interaction import assumption_order, has_cycle, is_p_matrix, order_order, signal_order, signal_set_passes, state_order
 
 
 def brute_min_failing(items, fails):

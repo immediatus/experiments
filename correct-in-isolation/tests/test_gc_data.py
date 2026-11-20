@@ -6,11 +6,13 @@ Run: python3 -m unittest discover -s tests
 """
 import os
 import sys
+
 sys.path[:0] = [os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'model')]
 
 import unittest
 
-from gc_data import CYCLE_LBO, HEAPS, peak_elasticity, pair_elasticities
+from formulas_signal import off_heap_gain, singular_heap_share, split_relative_gain
+from gc_data import CYCLE_LBO, HEAPS, pair_elasticities, peak_elasticity
 
 
 class CycleLBO(unittest.TestCase):
@@ -43,17 +45,14 @@ class OffHeapBound(unittest.TestCase):
     beta (1 - s_H) reaches one, below a heap share of 1 - 1 / beta."""
 
     def test_parallel_needs_a_heap_under_a_fifth_of_memory(self):
-        from formulas_signal import singular_heap_share
         self.assertAlmostEqual(singular_heap_share(1.28), 1 - 1 / 1.28)
         self.assertAlmostEqual(singular_heap_share(1.28), 0.21875)
 
     def test_beta_below_one_is_never_singular_off_heap(self):
-        from formulas_signal import singular_heap_share
         self.assertIsNone(singular_heap_share(0.92))
         self.assertIsNone(singular_heap_share(1.0))
 
     def test_off_heap_gain_follows_the_heap_share(self):
-        from formulas_signal import off_heap_gain, split_relative_gain
         self.assertAlmostEqual(off_heap_gain(1.28, 0.5), split_relative_gain(1.28, 0.5))
         self.assertIsNone(off_heap_gain(1.28, 0.21875))
         self.assertLess(off_heap_gain(1.28, 0.1), 0)

@@ -64,13 +64,23 @@ at $1/((1+m)q)$, 0.870 at the defaults and a steady load (T2).
 
 ![The staircase](../figures/drift.svg)
 
+*The specimen's drift: 100 cores of steady demand, a 50% horizontal target and the vertical autoscaler on the same CPU metric, documented defaults. Replicas, on the left and in logarithms, climb a staircase from 10 to 8,000: one step about every three and a third days, when the vertical loop's percentile lets go of the previous level. Requested cores, on the right, stay between 200.0 and 205.2. The line every capacity dashboard draws is the flat one.*
+
 ![The staircase law at other settings](../figures/settings.svg)
 
-## The numbers
+*The staircase away from the defaults: each setting's doubling time against the hours between its steps. A different percentile or half-life moves along the band, in proportion. The margin changes the slope instead: zero doubles the replicas at every step, 0.3 multiplies them by 1.54. Bars are the closed form, dots the simulation, which rounds the replica count up and can dip just under its bar.*
+
+## The results
 
 Every claim, with its section, is in [CLAIMS.md](CLAIMS.md). The staircase at a 0.5 target (T23), the doubling
 bracket and the replica counts (T4, T21, T22), the margin a shared pair would need to rest (T20), the
 recommender's settings (T24), and the coupling from collectors of 2005 and 2022 (T5, T39).
+
+## The bill, and when the advice reverses
+
+At a 50% target, a replica count stepping up by about 70% every 79.7 hours and doubling every 99.9 to 109.5, with nothing on the CPU dashboards moving. Near a collector's knee, in the configuration the documentation recommends, a relative gain of 2.78 with half the memory in the heap, and a reversed pairing, -2.48, once the heap grows into its limit.
+
+**When the advice reverses.** The advice of this post is to read any two loops on related numbers as a gain matrix before running them together. It reverses for loops whose outputs share nothing, where the matrix is diagonal and the reading adds nothing.
 
 ## What you can vary
 

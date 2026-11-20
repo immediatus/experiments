@@ -3,7 +3,7 @@ rest band and the staircase, the history statistic, the split pairing through th
 
 Every input is a documented contract or a named parameter; defaults are the series' specimen."""
 import math
-
+from statistics import NormalDist
 
 
 def relative_gain_array(g):
@@ -230,7 +230,6 @@ def resting_margin(u_h, q=1.0, tol=0.1, vtol=0.0):
 
 
 def _z(p):
-    from statistics import NormalDist
     return NormalDist().inv_cdf(p)
 
 

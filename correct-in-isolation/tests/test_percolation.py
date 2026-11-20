@@ -10,13 +10,13 @@ Run: python3 -m unittest discover -s tests
 import os
 import random
 import sys
+
 sys.path[:0] = [os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'model')]
 
 import unittest
 
 from audit import min_feedback_vertex_set
-from percolation import (gen_needs, greedy_relaxation, hard_floor, pareto_weights, predicted_threshold,
-                         relax, residual_hidden, stranded)
+from percolation import gen_needs, greedy_relaxation, hard_floor, pareto_weights, predicted_threshold, relax, residual_hidden, stranded
 
 
 def share(c, exponent=None, n=1000, seeds=3):

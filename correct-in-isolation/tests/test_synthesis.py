@@ -8,6 +8,7 @@ Run: python3 -m unittest discover -s tests
 """
 import os
 import sys
+
 sys.path[:0] = [os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'model')]
 
 import itertools
@@ -16,8 +17,7 @@ import unittest
 
 from admission import admit, fact_webhooks, pod, typed_chain
 from audit import admission_order, config_order, cyclic_components, relative_gains
-from formulas import (subset_facts, fact_passes, informers_to_bind, pair_gain_at_singular, singular_coupling, spread_order, subset_gain,
-                      symmetric_gain)
+from formulas import fact_passes, informers_to_bind, pair_gain_at_singular, singular_coupling, spread_order, subset_facts, subset_gain, symmetric_gain
 from recovery import recover
 
 

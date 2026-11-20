@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 496" width="700" height="496" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>What each choice buys</title>
+<desc>For today's review and each choice of levers, how often a better design and a worse design are adopted. Today: better 0.717, worse 0.196. decorrelated panel: better 0.745, worse 0.169. reversible pilot: better 0.757, worse 0.209. flatter chain: better 0.752, worse 0.207. one exterior gate removed: better 0.729, worse 0.203. insured champion speaks first: better 0.843, worse 0.381. blind poll: better 0.435, worse 0.038. reversible pilot + one exterior gate removed + blind poll + insured champion speaks first + decorrelated panel + flatter chain: better 0.709, worse 0.070. reversible pilot + one exterior gate removed + decorrelated panel + flatter chain: better 0.802, worse 0.186. reversible pilot + decorrelated panel + flatter chain: better 0.799, worse 0.184. reversible pilot + blind poll + insured champion speaks first + decorrelated panel + flatter chain: better 0.666, worse 0.053. reversible pilot + one exterior gate removed + decorrelated panel: better 0.791, worse 0.179. With the status quo inside the approvers' hull every choice adopts neither: 0.000, 0.000.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="496" class="f-bg"/>
+<text x="25.00" y="474.80" text-anchor="middle" class="f-sub">0%</text>
+<text x="186.00" y="474.80" text-anchor="middle" class="f-sub">25%</text>
+<text x="348.00" y="474.80" text-anchor="middle" class="f-sub">50%</text>
+<text x="510.00" y="474.80" text-anchor="middle" class="f-sub">75%</text>
+<text x="671.00" y="474.80" text-anchor="middle" class="f-sub">100%</text>
+<path d="M12.00 460.50 H684.00" class="s-sub" fill="none"/>
+<text x="12.00" y="12.80" text-anchor="start" class="f-ink"></text>
+<text x="684.00" y="491.80" text-anchor="end" class="f-ink">share of reviews that adopt the design</text>
+<text x="25.00" y="18.85" text-anchor="start" class="f-sub">blue: a better design adopted; grey: a worse one; the line between them is the gap</text>
+<text x="25.00" y="53.85" text-anchor="start" class="f-a">today: no lever</text>
+<path d="M151.31 61.77 L488.02 61.77" class="s-g" fill="none" stroke-width="3"/>
+<circle cx="151.31" cy="61.77" r="5" class="f-g"/>
+<circle cx="488.02" cy="61.77" r="5" class="f-b"/>
+<text x="496.00" y="65.85" text-anchor="start" class="f-b" font-weight="bold">72%</text>
+<text x="143.00" y="65.85" text-anchor="end" class="f-g">20%</text>
+<text x="25.00" y="89.85" text-anchor="start" class="f-ink" font-weight="bold">one lever at a time</text>
+<text x="25.00" y="112.85" text-anchor="start" class="f-ink">decorrelated panel</text>
+<path d="M134.12 120.85 L505.98 120.85" class="s-g" fill="none" stroke-width="3"/>
+<circle cx="134.12" cy="120.85" r="5" class="f-g"/>
+<circle cx="505.98" cy="120.85" r="5" class="f-b"/>
+<text x="514.00" y="124.85" text-anchor="start" class="f-b" font-weight="bold">74%</text>
+<text x="126.00" y="124.85" text-anchor="end" class="f-g">17%</text>
+<text x="25.00" y="142.85" text-anchor="start" class="f-ink">reversible pilot</text>
+<path d="M160.10 150.39 L514.06 150.39" class="s-g" fill="none" stroke-width="3"/>
+<circle cx="160.10" cy="150.39" r="5" class="f-g"/>
+<circle cx="514.06" cy="150.39" r="5" class="f-b"/>
+<text x="522.00" y="153.85" text-anchor="start" class="f-b" font-weight="bold">76%</text>
+<text x="152.00" y="153.85" text-anchor="end" class="f-g">21%</text>
+<text x="25.00" y="171.85" text-anchor="start" class="f-ink">flatter chain</text>
+<path d="M158.81 179.94 L510.96 179.94" class="s-g" fill="none" stroke-width="3"/>
+<circle cx="158.81" cy="179.94" r="5" class="f-g"/>
+<circle cx="510.96" cy="179.94" r="5" class="f-b"/>
+<text x="519.00" y="183.85" text-anchor="start" class="f-b" font-weight="bold">75%</text>
+<text x="151.00" y="183.85" text-anchor="end" class="f-g">21%</text>
+<text x="25.00" y="201.85" text-anchor="start" class="f-ink">one exterior gate removed</text>
+<path d="M155.96 209.48 L495.97 209.48" class="s-g" fill="none" stroke-width="3"/>
+<circle cx="155.96" cy="209.48" r="5" class="f-g"/>
+<circle cx="495.97" cy="209.48" r="5" class="f-b"/>
+<text x="504.00" y="212.85" text-anchor="start" class="f-b" font-weight="bold">73%</text>
+<text x="148.00" y="212.85" text-anchor="end" class="f-g">20%</text>
+<text x="25.00" y="230.85" text-anchor="start" class="f-ink">insured champion speaks first</text>
+<path d="M270.85 239.02 L569.31 239.02" class="s-g" fill="none" stroke-width="3"/>
+<circle cx="270.85" cy="239.02" r="5" class="f-g"/>
+<circle cx="569.31" cy="239.02" r="5" class="f-b"/>
+<text x="577.00" y="242.85" text-anchor="start" class="f-b" font-weight="bold">84%</text>
+<text x="263.00" y="242.85" text-anchor="end" class="f-g">38%</text>
+<text x="25.00" y="260.85" text-anchor="start" class="f-ink">blind poll</text>
+<path d="M49.74 268.56 L305.74 268.56" class="s-g" fill="none" stroke-width="3"/>
+<circle cx="49.74" cy="268.56" r="5" class="f-g"/>
+<circle cx="305.74" cy="268.56" r="5" class="f-b"/>
+<text x="314.00" y="272.85" text-anchor="start" class="f-b" font-weight="bold">43%</text>
+<text x="42.00" y="272.85" text-anchor="end" class="f-g">4%</text>
+<text x="25.00" y="296.85" text-anchor="start" class="f-ink" font-weight="bold">the widest gaps</text>
+<text x="25.00" y="319.85" text-anchor="start" class="f-ink">all six levers</text>
+<path d="M70.02 327.65 L482.72 327.65" class="s-g" fill="none" stroke-width="3"/>
+<circle cx="70.02" cy="327.65" r="5" class="f-g"/>
+<circle cx="482.72" cy="327.65" r="5" class="f-b"/>
+<text x="491.00" y="331.85" text-anchor="start" class="f-b" font-weight="bold">71%</text>
+<text x="62.00" y="331.85" text-anchor="end" class="f-g">7%</text>
+<text x="25.00" y="348.85" text-anchor="start" class="f-ink">reversible pilot + one exterior gate removed + decorrelated panel + flatter chain</text>
+<path d="M145.43 357.19 L542.88 357.19" class="s-g" fill="none" stroke-width="3"/>
+<circle cx="145.43" cy="357.19" r="5" class="f-g"/>
+<circle cx="542.88" cy="357.19" r="5" class="f-b"/>
+<text x="551.00" y="360.85" text-anchor="start" class="f-b" font-weight="bold">80%</text>
+<text x="137.00" y="360.85" text-anchor="end" class="f-g">19%</text>
+<text x="25.00" y="378.85" text-anchor="start" class="f-ink">reversible pilot + decorrelated panel + flatter chain</text>
+<path d="M144.14 386.73 L541.07 386.73" class="s-g" fill="none" stroke-width="3"/>
+<circle cx="144.14" cy="386.73" r="5" class="f-g"/>
+<circle cx="541.07" cy="386.73" r="5" class="f-b"/>
+<text x="549.00" y="390.85" text-anchor="start" class="f-b" font-weight="bold">80%</text>
+<text x="136.00" y="390.85" text-anchor="end" class="f-g">18%</text>
+<text x="25.00" y="407.85" text-anchor="start" class="f-ink">reversible pilot + blind poll + insured champion speaks first + decorrelated panel + flatter chain</text>
+<path d="M58.98 416.28 L455.26 416.28" class="s-g" fill="none" stroke-width="3"/>
+<circle cx="58.98" cy="416.28" r="5" class="f-g"/>
+<circle cx="455.26" cy="416.28" r="5" class="f-b"/>
+<text x="463.00" y="419.85" text-anchor="start" class="f-b" font-weight="bold">67%</text>
+<text x="51.00" y="419.85" text-anchor="end" class="f-g">5%</text>
+<text x="25.00" y="437.85" text-anchor="start" class="f-ink">reversible pilot + one exterior gate removed + decorrelated panel</text>
+<path d="M140.58 445.82 L536.29 445.82" class="s-g" fill="none" stroke-width="3"/>
+<circle cx="140.58" cy="445.82" r="5" class="f-g"/>
+<circle cx="536.29" cy="445.82" r="5" class="f-b"/>
+<text x="544.00" y="449.85" text-anchor="start" class="f-b" font-weight="bold">79%</text>
+<text x="133.00" y="449.85" text-anchor="end" class="f-g">18%</text>
+</svg>

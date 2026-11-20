@@ -7,14 +7,14 @@ Run: python3 -m unittest discover -s tests
 """
 import os
 import sys
+
 sys.path[:0] = [os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'model')]
 
 import itertools
 import math
 import unittest
 
-from admission import (admit, chain, drop_capabilities, label, mesh_init, outcomes, pod, pull_policy,
-                       sidecar)
+from admission import admit, chain, drop_capabilities, label, mesh_init, outcomes, pod, pull_policy, sidecar
 from formulas import converged_share, eulerian, passes_needed
 
 

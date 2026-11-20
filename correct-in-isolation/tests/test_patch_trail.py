@@ -11,13 +11,28 @@ Run: python3 -m unittest discover -s tests
 """
 import os
 import sys
+
 sys.path[:0] = [os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'model')]
 
 import itertools
 import unittest
 
-from admission import (admit, admit_patches, chain, classify_patches, digest, drop_capabilities, injector,
-                       mesh_init, mesh_label, pod, pull_policy, sidecar, signer, writer)
+from admission import (
+    admit,
+    admit_patches,
+    chain,
+    classify_patches,
+    digest,
+    drop_capabilities,
+    injector,
+    mesh_init,
+    mesh_label,
+    pod,
+    pull_policy,
+    sidecar,
+    signer,
+    writer,
+)
 
 
 class PatchTrail(unittest.TestCase):

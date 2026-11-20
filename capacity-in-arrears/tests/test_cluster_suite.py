@@ -5,6 +5,7 @@ Run: python3 tests/test_cluster_suite.py   or   python3 -m unittest discover -s 
 """
 import os
 import sys
+
 sys.path[:0] = [os.path.join(os.path.dirname(os.path.abspath(__file__)), p) for p in [os.path.join('..', 'cluster')]]
 
 import json

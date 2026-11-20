@@ -8,12 +8,16 @@ Run: python3 -m unittest discover -s tests
 """
 import os
 import sys
+
 sys.path[:0] = [os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'model')]
 
 import itertools
+import math
 import unittest
 
 from admission import admit, chain, pod, typed_chain
+from formulas import converged_share as eulerian_share
+from formulas import mix_share, never_share
 
 
 def converged_share(webhooks, passes=2):
@@ -60,15 +64,12 @@ if __name__ == '__main__':
 class ClosedForm(unittest.TestCase):
 
     def test_two_pass_share_matches_enumeration(self):
-        from formulas import never_share
         for n in (2, 3, 4, 5):
             for eta in range(n):
                 ws = with_never(chain(n - 1), [eta] if eta else [])
                 self.assertAlmostEqual(never_share(n, eta), converged_share(ws), msg=(n, eta))
 
     def test_reduces_to_the_earlier_shares(self):
-        import math
-        from formulas import converged_share as eulerian_share, never_share
         for n in (2, 3, 4, 5, 6):
             self.assertAlmostEqual(never_share(n, 0), eulerian_share(n, 2))
             self.assertAlmostEqual(never_share(n, n - 1), 1 / math.factorial(n))
@@ -77,15 +78,12 @@ class ClosedForm(unittest.TestCase):
 class SurveyMix(unittest.TestCase):
 
     def test_mix_share_bounds(self):
-        from formulas import converged_share as eulerian_share, mix_share, never_share
         for n in (2, 3, 4, 5):
             self.assertAlmostEqual(mix_share(n, 0.0), eulerian_share(n, 2))
             self.assertAlmostEqual(mix_share(n, 1.0), never_share(n, n - 1))
             self.assertLess(mix_share(n, 10 / 13), mix_share(n, 0.0) + 1e-12)
 
     def test_mix_share_by_enumeration(self):
-        import itertools
-        from formulas import mix_share, never_share
         n, q = 4, 0.3
         total = 0.0
         for flags in itertools.product((0, 1), repeat=n - 1):

@@ -22,6 +22,8 @@ closed forms they are checked against, their frozen output, and the figures draw
 
 ![LISTs still running eight hours after a trigger, against the cost of one LIST](figures/storm.svg)
 
+*LISTs still running eight hours after a trigger, against the cost of one LIST. A storm that holds spends all capacity on LISTs, the gray band both storms sit on. The idealized queue storms from a cost of 90, the real server, with its wait limit and the client's backoff, from 114, and each line breaks where the count jumps. Below 37.5 no order of service can sustain a storm.*
+
 ## Check it yourself
 
 Python 3.10 or later, standard library only. Nothing to install. From this folder:
@@ -61,7 +63,7 @@ failure but never invent one, and a coupling it leaves out can move the signal's
 | [`p/`](p/) | The hidden memory checked with P: models of Part 3's backoff, Part 4's repair race and Part 5's second pass as communicating state machines, what each abstracts and why it is sound (`p/README.md`), the frozen verdicts and a runner that needs the .NET 8 SDK and the `p` tool |
 | [`audit/`](audit/) | `seam_audit.py`, the five whole-system tests run on a cluster's own objects |
 | [`figures/`](figures/) | The figures as SVG, and `figspec.py`, which builds them from the results |
-| [`docs/`](docs/) | A page per part; [CLAIMS](docs/CLAIMS.md), every claim mapped to its evidence; [SECTIONS](docs/SECTIONS.md), what each section prints; [FALSIFICATION](docs/FALSIFICATION.md), the predictions and their status; [ASSUMPTIONS](docs/ASSUMPTIONS.md); [SOURCES](docs/SOURCES.md), the documentation and source read |
+| [`docs/`](docs/) | A page per part; [CLAIMS](docs/CLAIMS.md), every claim mapped to its evidence; [SECTIONS](docs/SECTIONS.md), what each section prints; [FALSIFICATION](docs/FALSIFICATION.md), the predictions and their status; [ASSUMPTIONS](docs/ASSUMPTIONS.md); [SOURCES](docs/SOURCES.md), the documentation and source read; [NOTATION](docs/NOTATION.md), every symbol of the series; [FIELD_GUIDE](docs/FIELD_GUIDE.md), each seam's symptom, test and fixes for an operator |
 
 `reproduce.py` is the entry point for the results and `audit/seam_audit.py` for auditing a cluster; the model files are
 libraries with no entry point of their own. The simulators take their settings as one record (`PairSettings` in

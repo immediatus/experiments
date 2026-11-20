@@ -10,12 +10,12 @@ Run: python3 -m unittest discover -s tests
 import math
 import os
 import sys
+
 sys.path[:0] = [os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'model')]
 
 import unittest
 
-from formulas import (break_even, expected_held, expected_time, gap_cost, hold_through, rounds,
-                      second_surge_time, worst_ratio)
+from formulas import break_even, expected_held, expected_time, gap_cost, hold_through, rounds, second_surge_time, worst_ratio
 from nested import simulate_two_surges
 
 SPARE, S, POD, NODE, K = 58, 300, 90, 210, 30

@@ -1,24 +1,57 @@
 """Sections of Part 6, the whole: T17, T18, T53, T54, T55, T56, T73, T74, T75, T81, T88, T109, T110, T111, T112, T115, T116, T117."""
 import itertools
 import math
+import random
+from concurrent.futures import ProcessPoolExecutor
 
+import hpa_vpa
+import relist
 from admission import admit, digest, fact_webhooks, outcomes, pod, sidecar, signer, typed_chain
-from audit import config_order, cyclic_components, enabling_depth, pairwise_relative_gains, relative_gains
-from formulas import (backlog, bind_probability, covered_rounds, custom_metric_relative_gain, doubling_bracket,
-                      equilibrium_band, fact_passes, failed_state_possible, headroom_for, informers_to_bind,
-                      nested_time, pair_gain_at_singular, rounds, second_wave, separated_time, singular_coupling,
-                      spread_order, step_factor, step_interval, stopping_scale_up_tolerance, subset_facts,
-                      subset_gain, symmetric_gain, vpa_utilisation)
+from audit import SURVEY_DEFAULTS, config_order, cyclic_components, default_start_graph, enabling_depth, pairwise_relative_gains, relative_gains
+from formulas import (
+    backlog,
+    bind_probability,
+    covered_rounds,
+    custom_metric_relative_gain,
+    doubling_bracket,
+    equilibrium_band,
+    fact_passes,
+    failed_state_possible,
+    headroom_for,
+    informers_to_bind,
+    matched_tolerance,
+    nested_time,
+    pair_gain_at_singular,
+    resting_rounds,
+    rounds,
+    second_wave,
+    separated_time,
+    singular_coupling,
+    spread_order,
+    step_factor,
+    step_interval,
+    stopping_scale_up_tolerance,
+    subset_facts,
+    subset_gain,
+    symmetric_gain,
+    vpa_utilisation,
+)
+from formulas_signal import split_gain_matrix
+from incomplete import omit_needs, omit_prereqs, random_facts, signal_flips
+from interaction import assumption_order, determinant, order_order, signal_order, signal_set_passes, state_order
 from nested import simulate as nested
+from percolation import gen_needs, pareto_weights, stranded
+from ratios import assumption_ratio, order_ratio, signal_ratio, state_ratio, time_ratio
 from recovery import recover
 from relist import simulate_limited as relist_limited
+from supervisor_whole import greedy, joint
+from tail_lists import pareto_costs
 
 from .common import CLIENTS, MEAN, NODE, POD, RETENTION, SEATS, SHORT
 
 
 def t17():
     print('T17 every pair passes, the whole fails: seam | three mechanisms | pairwise verdicts | whole-system verdict')
-    import itertools
     for a in (-0.3, -0.45, -0.49, -0.5, -0.6):
         g = [[1, a, a], [a, 1, a], [a, a, 1]]
         pairs = pairwise_relative_gains(g)
@@ -75,7 +108,6 @@ def t53():
           'loops there | 2 (k - 1) / k | assumption: stranded after full failure, the whole cycle of k | the '
           'worst proper subset | order: passes the spread order needs | the worst proper subset in the order '
           'it inherits')
-    import itertools
     for k in (3, 4, 5, 6):
         a = singular_coupling(k)
         sub = relative_gains(symmetric_gain(k - 1, a))
@@ -101,7 +133,6 @@ def t54():
           '(150 random dependency graphs, 2 to 4 webhooks, 2 to 7 facts, every order of each; seed 7): graphs '
           '| orders | orders needing 1 pass | 2 | 3 | 4 or more | orders where the count and the simulation '
           'disagree')
-    import random
     rng = random.Random(7)
     graphs = orders = disagree = 0
     needs = [0, 0, 0, 0]
@@ -172,7 +203,6 @@ def t73():
           '(n to 8 facts, prerequisite probability 0.35, 3000 graphs, seed 7), every order | orders needing '
           "more than the contract's 2 passes | of those, share in which every pair, in the order it inherits, "
           'needs at most 2 | share in which every proper subset does')
-    import random
     rng = random.Random(3)
     for n in (3, 4, 5):
         for c in (0.8, 0.95):
@@ -272,7 +302,6 @@ def t81():
 
 
 def t88():
-    import random
 
     def wrap(f, never):
         def w(obj):
@@ -317,7 +346,6 @@ def t88():
 
 
 def t109():
-    from formulas import matched_tolerance, resting_rounds, step_interval, vpa_utilisation
     print('T109 the cross-seam frontier of Parts 1 and 2 on one deployment (16 pods, limit = request, 8 pods '
           'per node, pod 90 s, node 210 s, a surge to 30 times the demand the pair carries before it): Rows '
           '"target": horizontal target | scale-up tolerance | drift, doublings per 1,000 h at a steady load '
@@ -357,7 +385,6 @@ def t110():
           '100 seat-s/s, wait limit, sudden trigger, no borrowing): Rows: shares of 245 | seat-s/s | least '
           'list cost at which a storm is still running in hour 8 | backlog there, s | the onset backlog of the '
           'whole server scaled to the share, 2260 x share / 245 x 100 / 2000')
-    from concurrent.futures import ProcessPoolExecutor
     parts = (15, 30, 50, 70, 100, 150, 200, 245)
     with ProcessPoolExecutor() as ex:
         res = list(ex.map(_onset_at, parts))
@@ -366,12 +393,6 @@ def t110():
 
 
 def t111():
-    from formulas_signal import split_gain_matrix
-    from interaction import assumption_order, order_order, signal_order, state_order
-    from audit import SURVEY_DEFAULTS, default_start_graph
-    from percolation import gen_needs, pareto_weights
-    from tail_lists import pareto_costs
-    import random
     print('T111 the order of each seam: the size of the smallest set of mechanisms its test fails, which every '
           'check of fewer passes. Rows "signal": system | order (smallest principal submatrix, rows scaled to '
           'unit self-gain, with a non-positive determinant). Rows "signal-random": loops | couplings uniform '
@@ -425,36 +446,26 @@ def t111():
     for alpha in (3.0, 1.5, 1.2):
         ks = sorted(state_order(pareto_costs(2000, alpha, 112.5, rng), 100.0, 450.0, 300.0) or 2001 for _ in range(200))
         print('  state | 2000 | Pareto %.1f, mean 112.5 | median %d, 10th percentile %d' % (alpha, ks[100], ks[20]))
-    from interaction import determinant, signal_set_passes
-    from audit import relative_gains as _rga
-    import itertools as _it
     row = [1.0, 2.0, 2.0, -2.0]
     g = [[row[(j - i) % 4] for j in range(4)] for i in range(4)]
 
     def verdicts(k):
         return ', '.join('%s %s' % ('-'.join(str(x + 1) for x in sub), 'passes' if signal_set_passes(g, sub) else 'fails')
-                         for sub in _it.combinations(range(4), k))
+                         for sub in itertools.combinations(range(4), k))
     print('  signal-whole-passes | 4 loops, circulant with first row (1, 2, 2, -2) | whole: determinant %.0f, relative '
           'gains %s, passes %s | triples: %s | pairs: %s' % (
-              determinant(g), ', '.join('%.3f' % _rga(g)[k][k] for k in range(4)), signal_set_passes(g, range(4)),
+              determinant(g), ', '.join('%.3f' % relative_gains(g)[k][k] for k in range(4)), signal_set_passes(g, range(4)),
               verdicts(3), verdicts(2)))
     w = [[1.0, 1.5, 1.0], [1.5, 1.0, -2.0], [1.5, -1.0, 1.0]]
     print('  signal-negative-determinant | 3 loops, rows (1, 1.5, 1), (1.5, 1, -2), (1.5, -1, 1) | determinant %.2f, '
-          'relative gains %s, passes %s' % (determinant(w), ', '.join('%.3f' % _rga(w)[k][k] for k in range(3)),
+          'relative gains %s, passes %s' % (determinant(w), ', '.join('%.3f' % relative_gains(w)[k][k] for k in range(3)),
                                             signal_set_passes(w, [0, 1, 2])))
     print('  signal-negative-determinant | 4 symmetric loops at coupling -0.55 | determinant %.4f, relative gain %.3f, '
-          'passes %s' % (determinant(symmetric_gain(4, -0.55)), _rga(symmetric_gain(4, -0.55))[0][0],
+          'passes %s' % (determinant(symmetric_gain(4, -0.55)), relative_gains(symmetric_gain(4, -0.55))[0][0],
                          signal_set_passes(symmetric_gain(4, -0.55), range(4))))
 
 
 def t112():
-    import random
-    import hpa_vpa
-    import nested
-    import relist
-    from audit import SURVEY_DEFAULTS, default_start_graph
-    from percolation import gen_needs, pareto_weights, stranded
-    from ratios import assumption_ratio, order_ratio, signal_ratio, state_ratio, time_ratio
     print("T112 each seam's ratio of what the composite asks to what its contract gives, binding above one "
           '(the assumption at one), and a test cluster at a tenth of the scale. Rows "signal": target | ratio, '
           'the larger of v/((1+tol) u_h) and u_h (1-tol)/v, margin 0.15, tolerance 0.1. Rows "time": free '
@@ -493,9 +504,9 @@ def t112():
             print('  assumption-random | %s | %.1f | %.3f | %.3f | %d' % (label, c, assumption_ratio(needs), prod / mean, len(stranded(needs))))
     print('  tenth | signal, target 0.5 | %.2f | %.2f' % (hpa_vpa.simulate(0.5, demand=100.0, replicas=10, days=40)[1],
                                                          hpa_vpa.simulate(0.5, demand=10.0, replicas=1, days=40)[1]))
-    print('  tenth | time, no headroom | %d | %d' % (nested.simulate(30, n0=160), nested.simulate(30, n0=16)))
-    print('  tenth | time, headroom 1 pod in 1 | %d | %d' % (nested.simulate(30, n0=160, headroom=160), nested.simulate(30, n0=16, headroom=16)))
-    print('  tenth | time, headroom 16 slots at both | %d | %d' % (nested.simulate(30, n0=160, headroom=16), nested.simulate(30, n0=16, headroom=16)))
+    print('  tenth | time, no headroom | %d | %d' % (nested(30, n0=160), nested(30, n0=16)))
+    print('  tenth | time, headroom 1 pod in 1 | %d | %d' % (nested(30, n0=160, headroom=160), nested(30, n0=16, headroom=16)))
+    print('  tenth | time, headroom 16 slots at both | %d | %d' % (nested(30, n0=160, headroom=16), nested(30, n0=16, headroom=16)))
     full = relist.simulate_limited(120.0, clients=2000, capacity=100.0, hours=4)[0]
     kept = relist.simulate_limited(120.0, clients=200, capacity=100.0, hours=4)[0]
     scaled = relist.simulate_limited(120.0, clients=200, capacity=10.0, hours=4)[0]
@@ -506,10 +517,6 @@ def t112():
 
 
 def t115():
-    import random
-    from incomplete import omit_needs, omit_prereqs, random_facts, signal_flips
-    from percolation import gen_needs, stranded
-    from ratios import state_ratio
     print('T115 whole-system tests on incomplete descriptions: a share of the description dropped at random, '
           'as an inventory that missed it would. Rows "assumption": 30 components, equal weights, seeds 0 to '
           '299 | mean needs | share of needs dropped | graphs with a cycle | share of them judged acyclic from '
@@ -558,8 +565,6 @@ def t115():
         mid = (lo + hi) / 2.0
         lo, hi = (lo, mid) if state_ratio(2000, mid, 100.0, 450.0, 300.0) > 1.0 else (mid, hi)
     print('  state | %.1f' % hi)
-    from audit import relative_gains as rga
-    from interaction import determinant, signal_set_passes
     sym = [[1.0, -0.5, -0.5], [-0.5, 1.0, -0.5], [-0.5, -0.5, 1.0]]
     mixed = [[1.0, -0.8, -0.8], [-0.8, 1.0, 0.0], [-0.8, 0.8, 1.0]]
     for label, g, (i, j) in (('three symmetric loops at -0.5', sym, (0, 1)), ('loop 3 coupled to loop 2 at +0.8', mixed, (2, 1))):
@@ -567,13 +572,11 @@ def t115():
         h[i][j] = 0.0
         for which, m in (('complete', g), ('coupling %d-%d left out' % (i + 1, j + 1), h)):
             d = determinant(m)
-            gains = 'singular' if abs(d) < 1e-12 else ', '.join('%.3f' % rga(m)[k][k] for k in range(3))
+            gains = 'singular' if abs(d) < 1e-12 else ', '.join('%.3f' % relative_gains(m)[k][k] for k in range(3))
             print('  example | %s | %s | %.3f | %s | %s' % (label, which, d, gains, 'pass' if signal_set_passes(m, [0, 1, 2]) else 'fail'))
 
 
 def t116():
-    from audit import SURVEY_DEFAULTS, default_start_graph
-    from recovery import recover
     print('T116 the assumption x order frontier at the surveyed defaults (T89): four settings of Kyverno and '
           'Consul, each run through a full restart of the fifteen components. variant | components still down '
           '| namespaces whose pods Kyverno never pins (its exclusions) | namespaces whose pods Consul never '
@@ -597,7 +600,6 @@ def t116():
 
 
 def t117():
-    from supervisor_whole import greedy, joint
     print('T117 a whole-system supervisor on the signal and time-scale seams of one deployment (16 pods, limit '
           '= request, 8 pods per node, pod 90 s, node 210 s, a surge to 30 times the demand the pair carries). '
           'Rows "greedy": seams in order of their ratios, each given the smallest one-setting change that '

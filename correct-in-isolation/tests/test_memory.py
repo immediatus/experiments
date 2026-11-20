@@ -8,11 +8,13 @@ Run: python3 -m unittest discover -s tests
 """
 import os
 import sys
+
 sys.path[:0] = [os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'model')]
 
 import unittest
 
 from hpa_vpa import simulate
+from relist import simulate_limited
 
 
 class Memory(unittest.TestCase):
@@ -31,7 +33,6 @@ class Memory(unittest.TestCase):
 class BackoffMemory(unittest.TestCase):
 
     def test_raised_backoff_changes_the_run_at_the_same_queue_state(self):
-        from relist import simulate_limited
         fresh = simulate_limited(113.0, seed=1)
         raised = simulate_limited(113.0, seed=1, backoff_raised=True)
         self.assertNotEqual(fresh[1], raised[1])

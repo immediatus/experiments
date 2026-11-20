@@ -23,8 +23,7 @@ import harness
 from backlog_boundary import boundary, hunts, phi
 from backlog_ideal import critical_a, growth, step_response
 from backlog_sim import run as backlog_run
-from formulas import (hottest_target, phi_harmonic_balance, recovery_long_spike, recovery_piecewise,
-                      rounds, stale_gain_bound)
+from formulas import hottest_target, phi_harmonic_balance, recovery_long_spike, recovery_piecewise, rounds, stale_gain_bound
 from hpa_port import external_per_pod_replicas, resource_replicas
 from loop_sim import RATE, pods_needed, run, step
 from request_sim import simulate

@@ -42,6 +42,8 @@ delay after a scale-up.
 
 ![A second surge after the first is scaled down](../figures/second-surge.svg)
 
+*Time until capacity meets a second 30x surge (red, left axis) and the node-hours held in the gap (gray dashed, right axis). While the first surge's pods are still up, the second costs nothing. After that, each round the leftover nodes no longer cover adds a 210-second node wait, while the node-hours keep rising. Open blue points: the documented bulk deletion, which only shifts the steps.*
+
 ## The gap and the intervention
 
 - **Bound. Deadlines alone, liveness together.** In isolation each loop meets a deadline, and nested the pair stays live; its own
@@ -58,9 +60,15 @@ delay after a scale-up.
   autoscaler settles at $k\,n_0$ replicas after a $k$-fold surge, so a maximum of ten times the running pods is a
   cap of tenfold.
 
-## The numbers
+## The results
 
 Every claim, with its section, is in [CLAIMS.md](CLAIMS.md).
+
+## The bill, and when the advice reverses
+
+1,200 seconds for a thirtyfold surge where 360 would do; fourteen times the running pods held idle to remove every wait; a frontier with cliffs, where a little more headroom can cost a round. After a surge, the default scale-down memory serves a second surge in full only within 630 seconds; later than that it either deletes nodes mid-ramp or holds 14.4 node-hours that buy nothing. With gaps that have no memory, ten minutes is never the cheapest setting at any price. Against the worst gap it costs up to 2.57 times what knowing the gap would. The same fifteen minutes kept as pods instead of empty nodes would serve every second surge inside them at once, for the same node-hours.
+
+**When the advice reverses.** The advice of this post is to multiply a pair's dead times by the rounds a surge needs and to buy headroom by the round. It reverses when the metric does not saturate, so that one round sizes the surge: then nesting costs one node wait, as the documented sum says. The advice to buy headroom reverses at or below a tail exponent of 1, where no headroom bounds the expected cost and the surge accepted has to be bounded instead.
 
 ## What you can vary
 

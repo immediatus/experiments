@@ -21,8 +21,8 @@
 <path d="M54.00 288.50 H684.00" class="s-sub" fill="none"/>
 <text x="54.00" y="12.80" text-anchor="start" class="f-ink">LISTs in hour 8 after the trigger</text>
 <text x="684.00" y="325.80" text-anchor="end" class="f-ink">LIST cost, seat-seconds, log scale</text>
-<path d="M433.18 53.33 L464.37 76.80 L518.34 112.00 L584.40 147.20 L669.56 182.40" class="s-g" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
-<text x="666.00" y="200.80" text-anchor="end" class="f-g">all capacity on LISTs</text>
+<path d="M433.18 48.05 L464.37 71.52 L492.59 90.72 L518.34 106.72 L553.21 126.28 L584.40 141.92 L630.03 162.03 L669.56 177.12 L669.56 187.68 L630.03 172.59 L584.40 152.48 L553.21 136.84 L518.34 117.28 L492.59 101.28 L464.37 82.08 L433.18 58.61 Z" class="f-g" fill-opacity="0.28"/>
+<text x="666.00" y="202.80" text-anchor="end" class="f-g">gray band: all capacity on LISTs</text>
 <path d="M174.50 24.00 V288.00" class="s-g" fill="none" stroke-dasharray="5 4"/>
 <text x="178.00" y="36.80" text-anchor="start" class="f-g">necessary: 37.5</text>
 <path d="M107.97 288.00 L117.68 288.00 L153.60 288.00 L193.13 288.00 L259.19 288.00 L358.79 288.00" class="s-a" fill="none" stroke-width="2"/>
@@ -60,5 +60,5 @@
 <circle cx="584.40" cy="147.26" r="3" class="f-b"/>
 <circle cx="669.56" cy="182.40" r="3" class="f-b"/>
 <text x="427.00" y="46.80" text-anchor="end" class="f-a" font-weight="bold">idealized: 90</text>
-<text x="493.00" y="244.85" text-anchor="end" class="f-b" font-weight="bold">documented: 114</text>
+<text x="507.00" y="279.80" text-anchor="start" class="f-b" font-weight="bold">documented: 114</text>
 </svg>

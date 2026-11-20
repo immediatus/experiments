@@ -15,11 +15,12 @@ Run: python3 tests/test_hpa_port.py   or   python3 -m unittest discover -s tests
 """
 import os
 import sys
+
 sys.path[:0] = [os.path.join(os.path.dirname(os.path.abspath(__file__)), p) for p in [os.path.join('..', 'model')]]
 
 import unittest
 
-from hpa_port import resource_replicas, external_per_pod_replicas
+from hpa_port import external_per_pod_replicas, resource_replicas
 
 REQUEST = 1000  # millicores, "1.0" upstream
 

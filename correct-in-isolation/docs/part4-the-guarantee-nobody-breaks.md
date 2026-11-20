@@ -53,9 +53,15 @@ setting". It honours disruption budgets as the Eviction API does.
   from its graph or cannot be relaxed ([`model/percolation.py`](../model/percolation.py), T101).
 - **Estimate. A relaxation is a cliff.** Prefixes of the relaxation free almost nothing until it is complete (T104).
 
-## The numbers
+## The results
 
 Every claim, with its section, is in [CLAIMS.md](CLAIMS.md).
+
+## The bill, and when the advice reverses
+
+A webhook that strands the cluster on every full restart whatever its spread. One rolling upgrade that removes a webhook rejecting its own pods, or stops at a stuck eviction if it has a budget, which the documented remedy then completes. With packing, an application that loses all of its replicas in most upgrades. A webhook that cannot roll out its own next version and keeps fewer replicas than it was given. Cluster-wide webhooks that each exclude their own namespace and still strand one another on a full restart. After an outage, a way back up to 2.95 times as long as the outage made necessary at the default restart cap, 1.90 times at a cap of 60 seconds.
+
+**When the advice reverses.** The advice of this post is to find every start-time edge and remove the ones that can bind. It reverses where the check a webhook performs matters more than the cluster's recovery, as for a security control that must not be bypassed during an outage. There an availability edge is the point, and the price is an out-of-band recovery path, planned in advance.
 
 ## What you can vary
 
@@ -72,6 +78,8 @@ packed onto the one with most. Section T58 runs 20000 drain orders under each, w
 
 ![Application replicas lost to one rolling upgrade, by placement policy](../figures/placement.svg)
 
+*What one rolling upgrade takes from an application whose pods need a webhook that rejects its own. With replacements out of reach of later drains, or spread by the default scorer, the loss is graded. Packed by the most-allocated scorer, the replicas gather on one node not yet drained, and the application keeps all three or loses all three.*
+
 ## The stuck eviction and the way back
 
 `rolling_drain(..., bypass=True)` applies the eviction guide's remedy, deleting the pod at each refused eviction
@@ -79,3 +87,5 @@ packed onto the one with most. Section T58 runs 20000 drain orders under each, w
 compose the two documented backoffs on a full restart (T60).
 
 ![Seconds until the application is ready after a full restart, against seconds until DNS is ready](../figures/cold-start.svg)
+
+*The way back through two backoffs. With instant retries the application follows DNS by a fixed 100 seconds. With the kubelet's restart backoff and the workqueue's retry backoff it follows a sawtooth that passes twice that time, nearly three times at worst, and falls back only where the caps of 300 and 1000 seconds bind.*

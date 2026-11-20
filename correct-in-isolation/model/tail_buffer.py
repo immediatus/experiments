@@ -21,6 +21,14 @@ from formulas import cover_cost, optimal_cover, pareto_mle, ramp_shortfall
 
 def run(alpha, rule='mle', surges=200, seed=1, n0=16, price=100.0, mean_gap=3600.0, tau_pod=90, tau_node=210,
         cap=None, fix=True, start_c=0, max_c=8, kmin=2.0, warm=5, target=0.5, limit=1.0):
+    """Run the buffer controller of the module docstring over `surges` surges whose sizes are Pareto above kmin
+    with tail exponent alpha, from seed. Inputs: the rule ('oracle', 'fixed', 'peak' or 'mle'); n0 running pods;
+    price in slot-seconds per pod-second short; mean_gap between surges and tau_pod, tau_node start-up times, in
+    seconds; cap on a reading (maxReplicas) and fix, whether the estimator treats capped readings as censored;
+    start_c and max_c rounds of cover; warm readings before the estimator acts; target utilisation and limit, whose
+    ratio is the growth g per round. Returns a dict: final_c, the covers held and surge sizes, per-surge costs
+    in slot-seconds with their mean (mean_cost) and the policy's expected cost per surge (expected_cost), and the
+    last estimated exponent alpha_hat (None if never estimated)."""
     g = limit / target
     rng = random.Random(seed)
     c = optimal_cover(alpha, price, mean_gap, tau_node, g)[1] if rule == 'oracle' else start_c

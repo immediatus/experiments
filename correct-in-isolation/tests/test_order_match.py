@@ -9,15 +9,33 @@ Run: python3 -m unittest discover -s tests
 """
 import os
 import sys
+
 sys.path[:0] = [os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'model')]
 
 import itertools
 import math
 import unittest
 
-from admission import (admit, admit_trace, chain, digest, drop_capabilities, final_round_clean, injector,
-                       label, matches, mesh_init, mesh_label, outcomes, pod, pull_policy, readmission_clean,
-                       sidecar, signer, typed_chain)
+from admission import (
+    admit,
+    admit_trace,
+    chain,
+    digest,
+    drop_capabilities,
+    final_round_clean,
+    injector,
+    label,
+    matches,
+    mesh_init,
+    mesh_label,
+    outcomes,
+    pod,
+    pull_policy,
+    readmission_clean,
+    sidecar,
+    signer,
+    typed_chain,
+)
 from formulas import converged_share, match_ceiling, typed_chain_share
 
 SCENARIOS = ([label, sidecar], [sidecar, pull_policy], [sidecar, digest, signer],

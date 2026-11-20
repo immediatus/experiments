@@ -1,14 +1,38 @@
 """Sections of Part 1, a shared signal: T1, T2, T3, T4, T5, T19, T20, T21, T22, T23, T24, T39, T78, T90, T91, T92, T103, T107, T113, T118, T119."""
 import math
 
-from formulas import (coupled_relative_gain, custom_metric_relative_gain, directional_band, doubling_bracket,
-                      elasticity, equilibrium_band, relative_gain_array, resting_margin, same_metric_gain,
-                      split_metric_gain, step_factor, step_interval, stopping_scale_up_tolerance,
-                      vpa_utilisation)
+from formulas import (
+    coupled_relative_gain,
+    critical_xi,
+    custom_metric_relative_gain,
+    directional_band,
+    doubling_bracket,
+    drift_rate,
+    elasticity,
+    equilibrium_band,
+    first_step_delay,
+    lognormal_q,
+    max_resting_target,
+    pareto_q,
+    pod_mean_cv,
+    prior_weight,
+    regime,
+    regime_boundaries,
+    relative_gain_array,
+    resting_margin,
+    same_metric_gain,
+    spike_share,
+    split_metric_gain,
+    split_relative_gain,
+    step_factor,
+    step_interval,
+    stopping_scale_up_tolerance,
+    vpa_utilisation,
+)
+from formulas_signal import off_heap_gain, singular_heap_share
 from gc_data import CYCLE_LBO, pair_elasticities, peak_elasticity
 from hpa_vpa import simulate
 from relist import simulate_limited as relist_limited
-
 
 TARGETS = (0.5, 0.6, 0.7, 0.8, 0.9)
 
@@ -178,7 +202,6 @@ def t78():
 
 
 def t90():
-    from formulas import lognormal_q, pareto_q, regime, regime_boundaries
     print("T90 the paired loops over the tail weight of per-pod usage: each pod's samples are the mean times a "
           'lognormal factor of mean one and shape sigma, the horizontal loop holds the mean, the vertical loop '
           'sizes from the 90th percentile; margin 0.15, tolerance 0.1. Rows "edges": target | sigma at which '
@@ -212,7 +235,6 @@ def t91():
 
 
 def t92():
-    from formulas import drift_rate, lognormal_q, max_resting_target
     print('T92 the transition at the band\'s edge and the frontier over the tail. Rows "rate": target | drift '
           'rate, per hour, ln F / s* (0 inside the band) | doubling time, hours. Rows "frontier": lognormal '
           'shape sigma | q | highest target that rests at some margin of at least zero, 1 / (q (1 - tol)) | '
@@ -250,7 +272,6 @@ def t103():
 
 
 def t107():
-    from formulas import first_step_delay, prior_weight
     print("T107 Part 1's history statistic: the remembered weight sets when the percentile lets go, and inside "
           'the band it selects where the pair rests. Rows "first": the pair at a 0.5 target, the histogram '
           'also holding a burst: multiple | hours before | samples | remembered weight, start units | first '
@@ -267,7 +288,6 @@ def t107():
 
 
 def t113():
-    from formulas import pod_mean_cv, spike_share
     print('T113 the scope of the tail regimes (T90): per-pod samples the mean times a lognormal factor of mean '
           'one and shape sigma. Rows "scope": sigma | coefficient of variation of the horizontal loop\'s '
           'reading, the mean of n pods, at n = 3, 10, 100, 1000 | pods at which it falls to the tolerance 0.1, '
@@ -279,8 +299,6 @@ def t113():
 
 
 def t118():
-    from formulas import critical_xi, split_relative_gain
-    from gc_data import CYCLE_LBO, peak_elasticity
     print('T118 the split pairing with the heap structure explicit (Proposition 6), theta = 1: memory the '
           'vertical loop observes follows per-pod load. Columns: source | beta | relative gain with a live set '
           'that does not follow load and a heap that does not grow with its limit (theta_live = 0, xi = 0) | '
@@ -307,7 +325,6 @@ def t119():
 
 
 def t120():
-    from formulas_signal import off_heap_gain, singular_heap_share
     print('T120 the split pairing with a live set that does not follow load: only memory outside the heap follows '
           'load, so theta is at most one minus the heap\'s share of observed memory. collector | beta | heap share '
           'below which the pairing is singular (none when beta is at most 1) | gain with the heap at 3/4 of memory | '

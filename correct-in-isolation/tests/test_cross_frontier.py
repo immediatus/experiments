@@ -11,14 +11,14 @@ Run: python3 -m unittest discover -s tests
 """
 import os
 import sys
+
 sys.path[:0] = [os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'model')]
 
 import unittest
 
 from formulas import matched_tolerance, resting_rounds, vpa_utilisation
-from nested import simulate as nested
 from hpa_vpa import simulate as pair
-
+from nested import simulate as nested
 
 V = vpa_utilisation()
 
