@@ -1596,3 +1596,11 @@ T36 roles of one model stacked against the floor: k inputs from one source, each
   channel | within 0.6 | debate with an evidence channel | better 0.9102 | worse 0.0424 | gap 0.8678
   channel | within 0.9 | debate as a fourth role | better 0.8355 | worse 0.0630 | gap 0.7726
   channel | within 0.9 | debate with an evidence channel | better 0.9073 | worse 0.0538 | gap 0.8535
+T37 exact majority error of a correlated panel (one-factor model; a tie counts as wrong), by integration over the shared factor, against the simulation of T2 and the large-panel floor: p | rho | floor | exact at n = 15, 51, 201
+  0.30 | 0.10 | 0.0486 | 0.1154 | 0.0710 | 0.0545
+  0.30 | 0.25 | 0.1471 | 0.1793 | 0.1577 | 0.1499
+  0.20 | 0.35 | 0.0774 | 0.0960 | 0.0832 | 0.0789
+  0.15 | 0.60 | 0.0904 | 0.0977 | 0.0926 | 0.0910
+  0.10 | 0.60 | 0.0490 | 0.0547 | 0.0507 | 0.0495
+  0.30 | 0.40 | 0.2035 | 0.2200 | 0.2087 | 0.2049
+  capture band of the running panel, fifteen members right 0.70 of the time and correlated at 0.25, with no probing weight: from 0.7000 to 0.8207

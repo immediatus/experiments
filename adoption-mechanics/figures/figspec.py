@@ -336,7 +336,87 @@ def fig_region():
     FIGS.append(Figure('region', s, aria, cap))
 
 
-BUILDERS = [fig_frontier, fig_correlation, fig_lifecycle, fig_upgrade, fig_reading, fig_region]
+def fig_instruments():
+    pts = {}
+    for r in section('T34'):
+        c = cells(r)
+        if c[0] == 'region' and c[1] == 'pilot team first':
+            pts[c[2]] = (number(c[3].split()[-1]), number(c[4].split()[-1]))
+    rules = ['groups apart', 'agreement mediator', 'pooled by reliability']
+    path = [('no reading', 'no debate', 'no critic'), ('no reading', 'debate first', 'no critic'),
+            ('reading in parts', 'debate first', 'no critic'), ('reading in parts', 'debate first', 'verified critic')]
+    stages = [[list(pts[' + '.join((r, rule, d, c))]) for rule in rules] for r, d, c in path]
+    s0, s1, s2, s3 = stages
+    assert all(v == s1[0] for v in s1) and all(v == s2[0] for v in s2), 'the debate heard first captures the panel'
+
+    def pc(v):
+        return '%.0f%%' % (100 * v)
+
+    def span(k, m):
+        lo, hi = min(v[m] for v in stages[k]), max(v[m] for v in stages[k])
+        return pc(lo) if pc(lo) == pc(hi) else '%s to %s' % (pc(lo), pc(hi))
+    s = base('chart-instruments', 320, ml=(40, 46), mr=(16, 24))
+    s['X'] = dict(lo=0.0, hi=3.0, ticks=[[0, 'meeting alone'], [1, '+ debate'], [2, '+ reader'], [3, '+ verified critic']],
+                  title='instruments heard before the vote, added one at a time', ntitle='instruments added')
+    s['Y'] = dict(lo=0.0, hi=1.0, ticks=[[0.0, '0%'], [0.25, '25%'], [0.5, '50%'], [0.75, '75%'], [1.0, '100%']],
+                  title='designs adopted', ntitle='adopted')
+    for j, col in enumerate(('g', 'd', 'b')):
+        s['els'].append(dict(t='line', pts=[[k, stages[k][j][0]] for k in range(4)], c=col, w=2, mk=3))
+        s['els'].append(dict(t='line', pts=[[k, stages[k][j][1]] for k in range(4)], c=col, w=2, mk=3, dash=True))
+    for j, (name, col, dy) in enumerate((('apart', 'g', 12), ('agreement', 'd', -12), ('reliability', 'b', -12))):
+        s['els'].append(dict(t='txt', x=0, y=s0[j][0], s=name, al='left', bl='middle', dx=8, dy=dy, c=col, b=True))
+    s['els'].append(dict(t='txt', x=3, y=max(v[0] for v in s3), s='better designs', al='right', bl='bottom', dy=-8, c='ink'))
+    s['els'].append(dict(t='txt', x=1, y=s1[0][1], s='worse designs, dashed', al='center', bl='bottom', dy=-8, c='ink'))
+    aria = ('How often a better and a worse design are adopted as instruments heard before the vote are added one at a '
+            'time, for each of three ways the groups combine their views. Meeting alone: better designs %s, %s and %s; '
+            'worse %s, %s and %s. With a debate heard first all three give %s and %s; with a reader added, %s and %s; '
+            'with a verified critic, better %s and worse %s.' % (
+                pc(s0[0][0]), pc(s0[1][0]), pc(s0[2][0]), pc(s0[0][1]), pc(s0[1][1]), pc(s0[2][1]), pc(s1[0][0]),
+                pc(s1[0][1]), pc(s2[0][0]), pc(s2[0][1]), span(3, 0), span(3, 1)))
+    cap = ('Instruments take over the meeting. Without instruments, how the groups combine their views moves adoption of a '
+           'better design from %s to %s. A debate heard first captures the panel, and from then on the three ways of '
+           'combining give the same result or nearly so: the instruments heard first decide, and adding a reader and a '
+           'verified critic moves that result toward the corner every review wants, %s better and %s worse.' % (
+               pc(min(v[0] for v in s0)), pc(max(v[0] for v in s0)), span(3, 0), span(3, 1)))
+    FIGS.append(Figure('instruments', s, aria, cap))
+
+
+def fig_capture():
+    n, p, rho = 15, 0.30, 0.25
+    row = [cells(r) for r in section('T37') if r.strip()[:4] == '%.2f' % p and number(cells(r)[1]) == rho][0]
+    pmaj = number(row[3])
+    q = 1 - p
+    room = 1 - pmaj
+
+    def pc(v):
+        return '%.1f%%' % (100 * v) if round(100 * v, 1) != round(100 * v) else '%.0f%%' % (100 * v)
+    s = base('anim-capture', 300, ml=(40, 46), mr=(14, 18))
+    s['ix'] = dict(n=n, q=q, rho=rho, pmaj=pmaj)
+    s['X'] = dict(lo=0.5, hi=1.0, ticks=[[0.5, '50%'], [0.6, '60%'], [0.7, '70%'], [0.8, '80%'], [0.9, '90%'], [1.0, '100%']],
+                  title='how often the instrument heard first is right', ntitle='instrument right')
+    s['Y'] = dict(lo=0.5, hi=1.0, ticks=[[0.5, '50%'], [0.75, '75%'], [1.0, '100%']], title='how often the review is right',
+                  ntitle='review right')
+    s['els'] += [dict(t='rect', x0=q, x1=room, y0=0.5, y1=1.0, c='a', al=0.08),
+                 dict(t='line', pts=[[0.5, 0.5], [1.0, 1.0]], c='g', w=1, dash=True),
+                 dict(t='hline', y=room, c='g', dash=True),
+                 dict(t='line', pts=[[0.5, room], [q, room]], c='b', w=3),
+                 dict(t='line', pts=[[q, q], [1.0, 1.0]], c='b', w=3),
+                 dict(t='txt', x=0.5, y=room, s='the room alone, %s' % pc(room), al='left', bl='bottom', dx=4, dy=-4, c='sub'),
+                 dict(t='txt', x=(q + room) / 2, y=0.52, s='worse than the room', al='center', bl='bottom', c='a', b=True),
+                 dict(t='txt', x=0.93, y=0.93, s='the instrument alone', al='right', bl='bottom', dx=-6, dy=-6, c='sub')]
+    aria = ('How often a review of %d members, each right %s of the time with errors correlated at %s, is right when an '
+            'instrument is heard before the vote, against how often the instrument is right. Below %s the members ignore it '
+            'and the review is right %s of the time; above it every member follows the instrument and the review is right '
+            'exactly as often as the instrument, which is worse than the room alone between %s and %s.' % (
+                n, pc(q), rho, pc(q), pc(room), pc(q), pc(room)))
+    cap = ('The captured panel (Proposition 6). An instrument heard first is ignored until it sounds surer than one member, '
+           'then every member follows it, and the review becomes exactly as good as the instrument. Between one member\'s '
+           '%s and the room\'s %s, that is worse than the room alone. Members who hold their own reading more firmly move '
+           'the point of capture to the right; the dots are reviews simulated on this page under the same model.' % (pc(q), pc(room)))
+    FIGS.append(Figure('capture', s, aria, cap))
+
+
+BUILDERS = [fig_frontier, fig_correlation, fig_lifecycle, fig_upgrade, fig_reading, fig_region, fig_instruments, fig_capture]
 
 
 def figures(results_path):

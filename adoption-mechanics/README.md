@@ -23,9 +23,9 @@ python3 adoption-mechanics/reproduce.py --figures --check  # prints "figures ide
 |---|---|
 | [`model/`](model/) | The member model's stages, standard library only |
 | [`tests/`](tests/) | Unit tests of every model function, run by `reproduce.py --check` |
-| [`sections/`](sections/) | Sections T1 to T36, listed in [`docs/SECTIONS.md`](docs/SECTIONS.md) |
+| [`sections/`](sections/) | Sections T1 to T37, listed in [`docs/SECTIONS.md`](docs/SECTIONS.md) |
 | [`expected/results.txt`](expected/results.txt) | The frozen output every claim is checked against |
-| [`figures/`](figures/) | The six figures of the posts, drawn from the frozen output |
+| [`figures/`](figures/) | The eight figures, drawn from the frozen output: seven in the posts, and the region of all 81 combinations of instruments in the Part 3 companion |
 | [`data/`](data/) | Pairwise right/wrong counts, overall and within difficulty strata, for Stanford HELM Lite MMLU and HELM Capabilities GPQA and MMLU-Pro, and the script that fetched them |
 | [`docs/`](docs/) | [Claims](docs/CLAIMS.md), [falsification criteria](docs/FALSIFICATION.md), [assumptions](docs/ASSUMPTIONS.md), [sources](docs/SOURCES.md), and a companion page per part |
 

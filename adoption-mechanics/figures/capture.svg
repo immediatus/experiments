@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" width="700" height="300" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>The captured panel (Proposition 6)</title>
+<desc>How often a review of 15 members, each right 70% of the time with errors correlated at 0.25, is right when an instrument is heard before the vote, against how often the instrument is right. Below 70% the members ignore it and the review is right 82.1% of the time; above it every member follows the instrument and the review is right exactly as often as the instrument, which is worse than the room alone between 70% and 82.1%.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="300" class="f-bg"/>
+<path d="M46.00 258.50 H682.00" class="s-grid" fill="none"/>
+<text x="41.00" y="261.85" text-anchor="end" class="f-sub">50%</text>
+<path d="M46.00 141.50 H682.00" class="s-grid" fill="none"/>
+<text x="41.00" y="145.85" text-anchor="end" class="f-sub">75%</text>
+<path d="M46.00 24.50 H682.00" class="s-grid" fill="none"/>
+<text x="41.00" y="27.85" text-anchor="end" class="f-sub">100%</text>
+<text x="46.00" y="272.80" text-anchor="start" class="f-sub">50%</text>
+<text x="173.00" y="272.80" text-anchor="middle" class="f-sub">60%</text>
+<text x="300.00" y="272.80" text-anchor="middle" class="f-sub">70%</text>
+<text x="428.00" y="272.80" text-anchor="middle" class="f-sub">80%</text>
+<text x="555.00" y="272.80" text-anchor="middle" class="f-sub">90%</text>
+<text x="682.00" y="272.80" text-anchor="end" class="f-sub">100%</text>
+<path d="M46.00 258.50 H682.00" class="s-sub" fill="none"/>
+<text x="46.00" y="12.80" text-anchor="start" class="f-ink">how often the review is right</text>
+<text x="682.00" y="295.80" text-anchor="end" class="f-ink">how often the instrument heard first is right</text>
+<rect x="300.40" y="24.00" width="153.53" height="234.00" class="f-a" fill-opacity="0.08"/>
+<path d="M46.00 258.00 L682.00 24.00" class="s-g" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
+<path d="M46.00 108.50 H682.00" class="s-g" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
+<path d="M46.00 107.91 L300.40 107.91" class="s-b" fill="none" stroke-width="3"/>
+<path d="M300.40 164.40 L682.00 24.00" class="s-b" fill="none" stroke-width="3"/>
+<text x="50.00" y="101.80" text-anchor="start" class="f-sub">the room alone, 82.1%</text>
+<text x="377.00" y="246.80" text-anchor="middle" class="f-a" font-weight="bold">worse than the room</text>
+<text x="587.00" y="48.80" text-anchor="end" class="f-sub">the instrument alone</text>
+</svg>

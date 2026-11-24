@@ -57,9 +57,9 @@ signals correlate.
 | Within-difficulty odds ratio, middle three fifths, all benchmarks | 0.82 to 1.09 | T13, T19 |
 | Opinions in a vote, strongest fifth | 1.96, 2.23, 1.93 | T13, T19 |
 | Strongest tier: floor and member error; last upgrade's elasticity and critical value | 0.2172, 0.2451; 0.02, 2.81 | T12 |
-| Correlation 0.75: wrong cascades myopic, blind majority of 30, floor | 0.2823, 0.2820, 0.2724 | T14 |
+| Latent correlation 0.75: wrong cascades myopic, blind majority of 30, floor | 0.2823, 0.2820, 0.2724 | T14 |
 | Five people, agent correlation 0.6: surprisingly popular, people alone (A+ and A-) | 0.5489/0.4086, 0.5310/0.0145 | T15 |
-| Herding at correlation 0.75, hard and misleading questions: sequence against blind | 0.2584/0.1513, 0.7192/0.8812 | T24 |
+| Herding at latent correlation 0.75, hard and misleading questions: sequence against blind | 0.2584/0.1513, 0.7192/0.8812 | T24 |
 | Item-response null, strongest fifth (mean of 20 seeds): MMLU, GPQA, MMLU-Pro | 1.16, 1.17, 1.36 | T25 |
 | Agents help: midpoint gap past the people's 0.5165 at agent information | 0.2 to 0.3 (rho 0.3), 0.3 to 0.4 (rho 0.6) | T17 |
 

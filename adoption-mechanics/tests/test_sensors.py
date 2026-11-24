@@ -1,5 +1,6 @@
 """Checks the sensors stage: the majority-vote error floor of a large correlated panel against simulation,
-its limits at rho 0 and 1, the tie rule for even panels, and the effective number of independent opinions.
+its limits at rho 0 and 1, the tie rule for even panels, the exact majority error of a finite panel by integration over
+the shared factor, and the effective number of independent opinions.
 
 Run: python3 -m unittest discover -s tests
 """
@@ -13,7 +14,7 @@ import random
 import unittest
 from statistics import NormalDist
 
-from sensors import effective_n, error_floor, indicator_correlation, latent_votes, majority_error, variance_floor
+from sensors import effective_n, error_floor, exact_majority_error, indicator_correlation, latent_votes, majority_error, variance_floor
 
 
 class LatentVotes(unittest.TestCase):
@@ -45,6 +46,29 @@ class Floor(unittest.TestCase):
     def test_even_panel_ties_count_as_errors(self):
         # two independent members who each err half the time: the panel errs unless both are right
         self.assertAlmostEqual(majority_error(2, 0.5, 0.0, trials=40000, seed=3), 0.75, delta=0.01)
+
+
+class ExactMajority(unittest.TestCase):
+
+    def test_independent_panel_is_the_binomial_tail(self):
+        for n in (15, 4):
+            tail = math.fsum(math.comb(n, j) * 0.3 ** j * 0.7 ** (n - j) for j in range((n + 1) // 2, n + 1))
+            self.assertAlmostEqual(exact_majority_error(n, 0.3, 0.0), tail, places=12)
+
+    def test_even_panel_ties_count_as_errors(self):
+        self.assertGreater(exact_majority_error(4, 0.3, 0.25), exact_majority_error(5, 0.3, 0.25))
+
+    def test_matches_simulation(self):
+        exact, sim = exact_majority_error(15, 0.3, 0.25), majority_error(15, 0.3, 0.25, 40000, 3)
+        self.assertLess(abs(exact - sim), 4 * math.sqrt(exact * (1 - exact) / 40000))
+
+    def test_approaches_the_floor(self):
+        self.assertAlmostEqual(exact_majority_error(201, 0.3, 0.25), error_floor(0.3, 0.25), delta=0.006)
+
+    def test_edges(self):
+        self.assertEqual(exact_majority_error(15, 0.0, 0.25), 0.0)
+        self.assertEqual(exact_majority_error(15, 1.0, 0.25), 1.0)
+        self.assertAlmostEqual(exact_majority_error(15, 0.3, 1.0), 0.3, places=12)
 
 
 class EffectiveSize(unittest.TestCase):

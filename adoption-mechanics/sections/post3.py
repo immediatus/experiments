@@ -1,7 +1,8 @@
 """Sections of Post 3, AI as an instrument for human review: reading a long design (T29), mediation for agreement and
 for difference (T30), a two-sided debate against a single advocate (T31), positional recall calibrated to published
 measurements (T32), the critic and tuning (T33), the region of instrument combinations (T34), instruments that share
-a source (T35), and roles of one model stacked against the floor, with and without an evidence channel (T36)."""
+a source (T35), roles of one model stacked against the floor, with and without an evidence channel (T36), and the
+exact majority error of a correlated panel, which sets the upper edge of the capture band (T37)."""
 import itertools
 import json
 import os
@@ -9,7 +10,7 @@ import random
 
 from instruments import document_use, fact_detection, fit_recall, position_recall
 from pipeline import Committee, SharedInput, bikeshed, committee_run, frontier, shared_lead, stage_fates, window_survival
-from sensors import error_floor, indicator_correlation
+from sensors import error_floor, exact_majority_error, indicator_correlation
 
 from sections.post1 import GROUPS, ROOM_SHARE
 
@@ -253,3 +254,15 @@ def t36():
             rates = [stage_fates(Committee(design_better=b, first_speaker_silent=True, inputs=base + (debate,), family_rho=rho),
                                  TRIALS, 1, groups=GROUPS, local=ROOM_SHARE)['adopted'] for b in (True, False)]
             print('  channel | within %.1f | %s | better %.4f | worse %.4f | gap %.4f' % (rho, name, rates[0], rates[1], rates[0] - rates[1]))
+
+
+def t37():
+    print('T37 exact majority error of a correlated panel (one-factor model; a tie counts as wrong), by integration over '
+          'the shared factor, against the simulation of T2 and the large-panel floor: p | rho | floor | exact at n = 15, '
+          '51, 201')
+    for p, rho in ((0.30, 0.10), (0.30, 0.25), (0.20, 0.35), (0.15, 0.60), (0.10, 0.60), (0.30, 0.40)):
+        exact = ' | '.join('%.4f' % exact_majority_error(n, p, rho) for n in (15, 51, 201))
+        print('  %.2f | %.2f | %.4f | %s' % (p, rho, error_floor(p, rho), exact))
+    room = 1 - exact_majority_error(15, 0.30, 0.25)
+    print('  capture band of the running panel, fifteen members right 0.70 of the time and correlated at 0.25, with no '
+          'probing weight: from 0.7000 to %.4f' % room)

@@ -45,7 +45,7 @@ system does (T35, T36). Members weigh every input by its accuracy as if the inpu
 - **Bound. Definition 6.** The agreement and difference mediators.
 - **Bound. Proposition 6.** A shared input heard first captures every member once its log-odds exceed one member's by
   more than the probing weight, and then lowers accuracy if and only if it is less accurate than the panel's own
-  majority. With members right 0.7 of the time and a majority error of 0.1746 (T2), the band runs from 0.7 to 0.8254.
+  majority. With members right 0.7 of the time and a majority error of 0.1793 (T37), the band runs from 0.7 to 0.8207.
 - **Bound. Corollary 2.** Once shared inputs heard first capture every member, neither the combining rule nor the
   order of speaking changes the verdict.
 - **Bound. Definition 7 and Corollary 3.** Instruments from one source (one model, however prompted) err together;
@@ -58,7 +58,7 @@ system does (T35, T36). Members weigh every input by its accuracy as if the inpu
   models (T32); agreement and difference mediation by speaking order, the window and triviality with faster settling
   (T30); debate before and after the vote, and single advocates (T31); critics and tuning (T33); the region of
   instruments (T34); instruments that share a source (T35); roles stacked against the floor and an evidence channel
-  (T36).
+  (T36); the exact majority error that sets the upper edge of the capture band (T37).
 
 ## The results
 
@@ -84,6 +84,14 @@ system does (T35, T36). Members weigh every input by its accuracy as if the inpu
 ![Every combination of instruments on the two numbers of the series](../figures/region.svg)
 
 *The region of instruments (T34). Every combination of reading, combining rule, debate and critic; the widest gaps combine a verified critic and a debate heard first, and the combining rule barely matters once they are there (Corollary 2).*
+
+![How often the review is right against how often an instrument heard first is right](../figures/capture.svg)
+
+*The captured panel (Proposition 6, T37). Fifteen members right 70% of the time and correlated at 0.25 ignore an instrument heard first until it is right more than 70% of the time, then all follow it, so between 70% and the room's 82.1% the review is worse than the room alone. The interactive version in the post simulates these reviews live and lets the probing weight move the point of capture.*
+
+![Adoption of better and worse designs as instruments are added one at a time, for each way the groups combine](../figures/instruments.svg)
+
+*Instruments take over the meeting (T34). Without instruments the three ways of combining the groups move adoption of a better design from 40% to 79%; once a debate is heard first they give the same result, and the reader and the verified critic move it to 91% to 94% against 1% to 2% (Corollary 2).*
 
 ![Chance a model uses the decisive fact, read whole or in parts, for a fact in one place and a fact in two passages](../figures/reading.svg)
 

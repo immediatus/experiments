@@ -35,8 +35,10 @@ dated erratum recorded here, with what changed, why, and which numbers moved.
   after the vote, single advocates, and critics whose false flags people verify in part, under the condition by which
   a shared input captures the panel; the region of all 81 combinations of instruments; and instruments that share a source, where roles of one model
   prompted differently err together at the floor of that source however many there are, while a check grounded
-  in the running system (tests, telemetry, static analysis) is a source of its own. 36 sections, 151 unit
-  tests, 6 figures (three of them interactive in the posts, one replaying 800 simulated reviews vote by vote, all six
+  in the running system (tests, telemetry, static analysis) is a source of its own; the majority error of a
+  correlated panel is computed exactly as well as simulated. 37 sections, 156 unit
+  tests, 8 figures (three of them interactive in the posts, one replaying 800 simulated reviews vote by vote and one
+  simulating the captured panel live, all eight
   built from the frozen results), 20 falsification criteria (one testing a review protocol the series proposes) and a companion page per part.
 - Measured: pairwise right/wrong counts, overall and within 5 and 10 strata of question difficulty, for Stanford
   HELM Lite MMLU (95 models) and HELM Capabilities GPQA (65) and MMLU-Pro (64); counts only, licence unstated.

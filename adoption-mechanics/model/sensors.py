@@ -41,6 +41,26 @@ def majority_error(n: int, p: float, rho: float, trials: int, seed: int) -> floa
     return wrong / trials
 
 
+def exact_majority_error(n: int, p: float, rho: float, steps: int = 4000) -> float:
+    """The probability that the majority of n members errs, with ties counted as errors as in majority_error,
+    computed exactly rather than simulated: given the shared factor g each member errs independently with
+    probability Phi((Phi^-1(p) - sqrt(rho) g) / sqrt(1 - rho)), so the error is the binomial tail of at least
+    half the members, averaged over g by the midpoint rule on [-8, 8] with `steps` points. At rho = 0 it is the
+    binomial tail, at rho = 1 it is p, and as n grows it approaches error_floor."""
+    if p <= 0.0 or p >= 1.0:
+        return 0.0 if p <= 0.0 else 1.0
+    if rho >= 1.0:
+        return p
+    k0 = (n + 1) // 2
+    def tail(q):
+        return math.fsum(math.comb(n, j) * q ** j * (1.0 - q) ** (n - j) for j in range(k0, n + 1))
+    if rho <= 0.0:
+        return tail(p)
+    tau, a, b, h = _N.inv_cdf(p), math.sqrt(rho), math.sqrt(1.0 - rho), 16.0 / steps
+    return math.fsum(_N.pdf(g) * tail(_N.cdf((tau - a * g) / b)) * h
+                     for g in (-8.0 + (k + 0.5) * h for k in range(steps)))
+
+
 def error_floor(p: float, rho: float) -> float:
     """The limit of majority_error as n grows: Phi(Phi^-1(p) / sqrt(rho)) for p < 0.5. At rho = 0 the floor is
     0 (independent errors average out); at rho = 1 it is p (one member's verdict, repeated)."""
