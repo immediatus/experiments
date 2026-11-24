@@ -87,13 +87,38 @@ def partition_divergence(groups: int, members: int, rho: float, trials: int, see
 
 
 @dataclass(frozen=True)
+class SharedInput:
+    """One input every member hears, such as a model's report, a debate's verdict or a critic's flag. It says for the
+    design with probability p_better when the design is better and p_worse when it is worse, and against it
+    otherwise; it is there at all with probability `present`. Members weigh it by its log-likelihood ratio, in
+    signals, unless `weight` gives the weight they put on it whatever it is worth (a persuasive source). Heard before
+    the vote it is a public lead; with `after` it is added to the tally once the members have acted. Inputs that name
+    the same `source` (one model family, however it is prompted) err together: each is right with its own accuracy,
+    through a latent score sharing the committee's family_rho with every input of that source; inputs with no source
+    (people checking against a ground-truth channel) err independently."""
+    p_better: float
+    p_worse: float
+    after: bool = False
+    present: float = 1.0
+    weight: float | None = None
+    source: str = ''
+
+
+@dataclass(frozen=True)
 class Committee:
     """The running case. Members after the champion err with probability 1 - precision and correlate at rho;
     the champion argues for the design whether or not it is better (design_better);
     merit_scale is the design's true merit advantage in units of the merit walk's step. precision_worse, when set,
     is the members' precision on a worse design (peer review is better at spotting weak proposals than strong ones);
     probe_for and probe_against are the log-odds weights members put on their own signal before following a lead
-    for the design or against it (unequal weights model a negativity bias: critical leads are followed sooner)."""
+    for the design or against it (unequal weights model a negativity bias: critical leads are followed sooner).
+    debate, when above 0, is the accuracy in (0.5, 1) of a two-sided debate every member hears before acting: its
+    verdict enters as a public lead of its log-odds, in signals. With debate_after the members act first, without
+    hearing it, and the debate's verdict is added to their tally as one more input weighted by its log-odds in
+    signals. advocate_lead is a public lead toward the design,
+    in signals, whatever its merit: a single advocate heard first (0: none). inputs is a tuple of SharedInput every
+    member hears, drawn after the debate. family_rho is the latent correlation of the errors of two inputs from one
+    source, and cross_rho (at most family_rho) that of two inputs from different model sources."""
     members: int = 15
     precision: float = 0.7
     rho: float = 0.25
@@ -113,6 +138,12 @@ class Committee:
     precision_worse: float | None = None
     probe_for: float = 0.0
     probe_against: float = 0.0
+    debate: float = 0.0
+    debate_after: bool = False
+    advocate_lead: float = 0.0
+    inputs: tuple = ()
+    family_rho: float = 0.0
+    cross_rho: float = 0.0
 
 
 def _sq(a, b) -> float:
@@ -134,8 +165,74 @@ def verdict_margin(c: Committee, rng: random.Random) -> float:
     truth = 1 if c.design_better else -1
     others = [-truth if e else truth for e in errs]
     signals = ([] if c.first_speaker_silent else [1]) + others
-    acts = sequence(signals, c.precision, c.probe_for, c.probe_against) if c.cascades else signals
-    return sum(acts) / len(acts)
+    lead, after = shared_lead(c, truth, rng)
+    if c.cascades:
+        acts = sequence(signals, c.precision, c.probe_for, c.probe_against, lead=lead)
+    elif lead:
+        acts = [sequence([s], c.precision, c.probe_for, c.probe_against, lead=lead)[0] for s in signals]
+    else:
+        acts = signals
+    return (sum(acts) + after) / (len(acts) + abs(after))
+
+
+def shared_lead(c: Committee, truth: int, rng: random.Random) -> float:
+    """The lead every member faces before acting, in signals (a single advocate's, plus a debate verdict's log-odds
+    toward the side it found for, right with probability c.debate), and the debate's input to the tally after the
+    members act (with c.debate_after, the verdict moves there instead). Draws from rng only when there is a debate."""
+    lead, after = c.advocate_lead, 0.0
+    if c.debate:
+        if not 0.5 < c.debate < 1.0:
+            raise ValueError('debate accuracy must lie in (0.5, 1), got %r' % c.debate)
+        side = truth if rng.random() < c.debate else -truth
+        weight = side * math.log(c.debate / (1.0 - c.debate)) / math.log(c.precision / (1.0 - c.precision))
+        if c.debate_after:
+            after = weight
+        else:
+            lead += weight
+    step = math.log(c.precision / (1.0 - c.precision))
+    factors = {}
+    for s in c.inputs:
+        if s.present <= 0.0 or (s.present < 1.0 and rng.random() >= s.present):
+            continue
+        p_for = s.p_better if truth > 0 else s.p_worse
+        if s.source and c.family_rho > 0.0 and 0.0 < p_for < 1.0:
+            if not 0.0 <= c.cross_rho <= c.family_rho < 1.0:
+                raise ValueError('need 0 <= cross_rho <= family_rho < 1, got %r, %r' % (c.cross_rho, c.family_rho))
+            if '' not in factors:
+                factors[''] = rng.gauss(0.0, 1.0)
+            if s.source not in factors:
+                factors[s.source] = rng.gauss(0.0, 1.0)
+            p_right = p_for if truth > 0 else 1.0 - p_for
+            z = (math.sqrt(c.cross_rho) * factors[''] + math.sqrt(c.family_rho - c.cross_rho) * factors[s.source]
+                 + math.sqrt(1.0 - c.family_rho) * rng.gauss(0.0, 1.0))
+            right = z < _N.inv_cdf(p_right)
+            says_for = right if truth > 0 else not right
+        else:
+            says_for = p_for >= 1.0 or (p_for > 0.0 and rng.random() < p_for)
+        if s.weight is not None:
+            weight = s.weight * (1 if says_for else -1)
+        else:
+            num, den = (s.p_better, s.p_worse) if says_for else (1.0 - s.p_better, 1.0 - s.p_worse)
+            weight = math.log(max(num, 1e-12) / max(den, 1e-12)) / step
+        if s.after:
+            after += weight
+        else:
+            lead += weight
+    return lead, after
+
+
+def _group_signals(c: Committee, k: int, size: int, precision: float, rng: random.Random, g: float, local: float,
+                   truth: int) -> list[int]:
+    """The signals of group k (+1 for the design): its members' errors share the organization-wide factor g and, when
+    local > 0, a factor of the group's own room; the champion speaks first in group 0 unless silent."""
+    n = size - 1 if k == 0 else size
+    if local == 0.0:
+        errs = latent_votes(n, 1.0 - precision, c.rho, rng, shared=g)
+    else:
+        a, w, b = math.sqrt(c.rho - local), math.sqrt(local), math.sqrt(1.0 - c.rho)
+        h, tau = rng.gauss(0.0, 1.0), _N.inv_cdf(1.0 - precision)
+        errs = [a * g + w * h + b * rng.gauss(0.0, 1.0) < tau for _ in range(n)]
+    return ([1] if k == 0 and not c.first_speaker_silent else []) + [-truth if e else truth for e in errs]
 
 
 def group_review(c: Committee, groups: tuple, rng: random.Random, local: float = 0.0, carry: float = 0.0,
@@ -155,20 +252,20 @@ def group_review(c: Committee, groups: tuple, rng: random.Random, local: float =
         raise ValueError('local must lie in [0, rho], got %r' % local)
     truth = 1 if c.design_better else -1
     g = rng.gauss(0.0, 1.0)
-    a, w, b = math.sqrt(c.rho - local), math.sqrt(local), math.sqrt(1.0 - c.rho)
     favor, acts_all, heard, per_group, info = True, [], 0.0, [], []
+    shared, after = shared_lead(c, truth, rng) if (c.inputs or c.debate or c.advocate_lead) else (0.0, 0.0)
     for k, (size, precision) in enumerate(groups):
-        n = size - 1 if k == 0 else size
-        if local == 0.0:
-            errs = latent_votes(n, 1.0 - precision, c.rho, rng, shared=g)
+        signals = _group_signals(c, k, size, precision, rng, g, local, truth)
+        lead0 = carry * heard + shared
+        if c.cascades:
+            acts = sequence(signals, precision, c.probe_for, c.probe_against, lead=lead0)
+        elif lead0:
+            acts = [sequence([s], precision, c.probe_for, c.probe_against, lead=lead0)[0] for s in signals]
         else:
-            h, tau = rng.gauss(0.0, 1.0), _N.inv_cdf(1.0 - precision)
-            errs = [a * g + w * h + b * rng.gauss(0.0, 1.0) < tau for _ in range(n)]
-        signals = ([1] if k == 0 and not c.first_speaker_silent else []) + [-truth if e else truth for e in errs]
-        acts = sequence(signals, precision, c.probe_for, c.probe_against, lead=carry * heard) if c.cascades else signals
+            acts = signals
         tally = sum(acts)
         if details:
-            lock, lead, step = None, carry * heard, math.log(precision / (1.0 - precision))
+            lock, lead, step = None, lead0, math.log(precision / (1.0 - precision))
             for i, sg in enumerate(signals if c.cascades else []):
                 if locked(lead, step, c.probe_for if lead > 0 else c.probe_against):
                     lock = i
@@ -179,10 +276,40 @@ def group_review(c: Committee, groups: tuple, rng: random.Random, local: float =
         heard += (tally > 0) - (tally < 0)
         acts_all += acts
         per_group.append(tally)
-    out = (favor, sum(acts_all) / len(acts_all))
+    out = (favor, (sum(acts_all) + after) / (len(acts_all) + abs(after)))
     if details:
         return out + (info,)
     return out + (per_group,) if tallies else out
+
+
+def pooled_review(c: Committee, groups: tuple, rng: random.Random, local: float = 0.0,
+                  weights: str = 'equal') -> tuple[bool, float]:
+    """One review whose groups vote blind and pool their evidence instead of exchanging conclusions: the errors are
+    drawn as in group_review, every member acts on their own signal, and the review favors the design when the
+    pooled tally is positive. weights 'equal' counts every member once; 'reliability' counts each member of a group
+    by the log-odds of its precision, ln(q / (1 - q)), the weight an informed decision maker gives that evidence.
+    Returns (whether the pooled tally favors the design, the weighted net share of endorsements in [-1, 1]).
+    One group with weights 'equal' reproduces group_review's blind review draw for draw."""
+    if weights not in ('equal', 'reliability'):
+        raise ValueError('weights must be equal or reliability, got %r' % weights)
+    if not 0.0 <= local <= c.rho:
+        raise ValueError('local must lie in [0, rho], got %r' % local)
+    truth = 1 if c.design_better else -1
+    g = rng.gauss(0.0, 1.0)
+    total = mass = 0.0
+    shared, after = shared_lead(c, truth, rng) if (c.inputs or c.debate or c.advocate_lead) else (0.0, 0.0)
+    for k, (size, precision) in enumerate(groups):
+        signals = _group_signals(c, k, size, precision, rng, g, local, truth)
+        if shared:
+            signals = [sequence([s], precision, c.probe_for, c.probe_against, lead=shared)[0] for s in signals]
+        weight = 1.0 if weights == 'equal' else math.log(precision / (1.0 - precision))
+        total += weight * sum(signals)
+        mass += weight * len(signals)
+    if after:
+        unit = math.log(c.precision / (1.0 - c.precision))
+        total += after * unit
+        mass += abs(after) * unit
+    return total > 0, total / mass
 
 
 def _erlang_survival(channels: int, window: float, mean_settle: float) -> float:
@@ -283,12 +410,14 @@ def review_traces(c: Committee, trials: int, seed: int, groups: tuple | None = N
 
 
 def stage_fates(c: Committee, trials: int, seed: int, groups: tuple | None = None,
-                local: float = 0.0, carry: float = 0.0) -> dict[str, float]:
+                local: float = 0.0, carry: float = 0.0, pool: str | None = None) -> dict[str, float]:
     """Where each of `trials` reviews of the design ends: the share that dies in the review (its verdict does not
     favor the design), in the hand-off (the unweakened verdict would have cleared every approver, the relayed one
     does not), at the approvals (the spatial test fails, or the verdict fails even unweakened), and the share
     adopted. Without groups the review is one room, as committee_run reviews it; with groups (see group_review) a
-    group that does not favor the design stops it there, and carry passes to group_review."""
+    group that does not favor the design stops it there, and carry passes to group_review. With pool ('equal' or
+    'reliability') the groups vote blind and pool their evidence instead (pooled_review), and the review stops the
+    design when the pooled tally does not favor it."""
     spatial = _spatial_pass(c)
     adopt = _adopt_threshold(c.c_switch, c.loss_aversion, c.discount)
     keep = c.candor ** c.layers
@@ -297,6 +426,8 @@ def stage_fates(c: Committee, trials: int, seed: int, groups: tuple | None = Non
     for _ in range(trials):
         if groups is None:
             favor, margin = True, verdict_margin(c, rng)
+        elif pool:
+            favor, margin = pooled_review(c, groups, rng, local, pool)
         else:
             favor, margin = group_review(c, groups, rng, local, carry)
         noise = [rng.gauss(0.0, c.gate_noise) for _ in c.gate_ideals]

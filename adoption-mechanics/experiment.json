@@ -12,13 +12,18 @@
       "part": 2,
       "title": "Smarter Agents, Fewer Opinions",
       "url": "https://e-mindset.space/blog/adoption-mechanics-part2-smarter-agents-fewer-opinions/"
+    },
+    {
+      "part": 3,
+      "title": "The Machine Gets the First Word",
+      "url": "https://e-mindset.space/blog/adoption-mechanics-part3-the-machine-gets-the-first-word/"
     }
   ],
   "specimen": {
-    "running case": "a successor control design reviewed by 15 members in 3 reporting layers with 4 veto gates (architecture board, SRE, security, product); titles and URLs provisional",
+    "running case": "a successor control design reviewed by 15 members in 3 reporting layers with 4 veto gates (architecture board, engineering manager, security, product)",
     "data": "public per-question results from Stanford HELM (Lite MMLU; Capabilities GPQA and MMLU-Pro), reduced to pairwise 2x2 correctness counts overall and within difficulty strata; no prompts or answers stored"
   },
   "python": ">=3.10",
   "dependencies": [],
-  "criteria": 13
+  "criteria": 20
 }

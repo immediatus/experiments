@@ -15,9 +15,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path[:0] = [HERE, os.path.join(HERE, 'model'), os.path.join(HERE, '..', 'tools')]
 
 import harness
-from sections import post1, post2
+from sections import post1, post2, post3
 
-POSTS = (post1, post2)
+POSTS = (post1, post2, post3)
 SECTIONS = harness.collect({name: fn for post in POSTS for name, fn in vars(post).items()})
 
 if __name__ == '__main__':

@@ -1255,3 +1255,344 @@ T28 review traces: the first 100 reviews of each setting of T26 (the same seed a
   trace | one room, the champion speaks first, the status quo among the approvers' priorities | worse | 98 | acts +-------------- | signals +-------------- | locks 4 | margin -0.8667 | relayed -1.300 -1.105 -0.939 -0.798 | noise 0.235 -0.381 0.057 -0.005 | vetoes 0 2 3 | review
   trace | one room, the champion speaks first, the status quo among the approvers' priorities | worse | 99 | acts +-------------- | signals +---+---+-+++++ | locks 4 | margin -0.8667 | relayed -1.300 -1.105 -0.939 -0.798 | noise -0.152 -0.100 0.058 0.406 | vetoes 0 2 3 | review
   trace | one room, the champion speaks first, the status quo among the approvers' priorities | worse | 100 | acts +-------------- | signals +--------+----- | locks 4 | margin -0.8667 | relayed -1.300 -1.105 -0.939 -0.798 | noise 0.188 -0.093 -0.271 0.343 | vetoes 0 2 3 | review
+T29 a model reading a design document: the chance it uses the decisive fact, by how much of its effective window the document fills and by how many overlapping parts it is read in (each part read in its own call, each covering 1.25 / parts of the document); a local fact sits at one uniform position, a relational fact at two that must be read together; recall by position r(x, f) = base - depth f (1 - P exp(-x/0.1) - exp(-(1 - x)/0.1)), base 0.9, primacy P fading from half the window to the window; depth swept; 20,000 documents, seed 1
+  depth 0.2 | local fact | fills 0.25 of the window | parts 1, 2, 4, 8 | 0.8601 | 0.9022 | 0.9107 | 0.9169
+  depth 0.2 | local fact | fills 0.50 of the window | parts 1, 2, 4, 8 | 0.8202 | 0.8814 | 0.8995 | 0.9113
+  depth 0.2 | local fact | fills 1.00 of the window | parts 1, 2, 4, 8 | 0.7202 | 0.8364 | 0.8771 | 0.8999
+  depth 0.2 | relational fact | fills 0.25 of the window | parts 1, 2, 4, 8 | 0.7399 | 0.5623 | 0.2918 | 0.1517
+  depth 0.2 | relational fact | fills 0.50 of the window | parts 1, 2, 4, 8 | 0.6730 | 0.5327 | 0.2838 | 0.1496
+  depth 0.2 | relational fact | fills 1.00 of the window | parts 1, 2, 4, 8 | 0.5188 | 0.4718 | 0.2682 | 0.1455
+  depth 0.3 | local fact | fills 0.25 of the window | parts 1, 2, 4, 8 | 0.8402 | 0.8918 | 0.9051 | 0.9141
+  depth 0.3 | local fact | fills 0.50 of the window | parts 1, 2, 4, 8 | 0.7803 | 0.8602 | 0.8883 | 0.9056
+  depth 0.3 | local fact | fills 1.00 of the window | parts 1, 2, 4, 8 | 0.6302 | 0.7915 | 0.8544 | 0.8885
+  depth 0.3 | relational fact | fills 0.25 of the window | parts 1, 2, 4, 8 | 0.7061 | 0.5474 | 0.2878 | 0.1507
+  depth 0.3 | relational fact | fills 0.50 of the window | parts 1, 2, 4, 8 | 0.6093 | 0.5037 | 0.2760 | 0.1476
+  depth 0.3 | relational fact | fills 1.00 of the window | parts 1, 2, 4, 8 | 0.3974 | 0.4158 | 0.2530 | 0.1415
+  depth 0.4 | local fact | fills 0.25 of the window | parts 1, 2, 4, 8 | 0.8202 | 0.8814 | 0.8995 | 0.9113
+  depth 0.4 | local fact | fills 0.50 of the window | parts 1, 2, 4, 8 | 0.7405 | 0.8389 | 0.8771 | 0.8999
+  depth 0.4 | local fact | fills 1.00 of the window | parts 1, 2, 4, 8 | 0.5403 | 0.7454 | 0.8316 | 0.8770
+  depth 0.4 | relational fact | fills 0.25 of the window | parts 1, 2, 4, 8 | 0.6730 | 0.5327 | 0.2838 | 0.1496
+  depth 0.4 | relational fact | fills 0.50 of the window | parts 1, 2, 4, 8 | 0.5487 | 0.4753 | 0.2682 | 0.1455
+  depth 0.4 | relational fact | fills 1.00 of the window | parts 1, 2, 4, 8 | 0.2922 | 0.3627 | 0.2382 | 0.1375
+T30 mediation for agreement and for difference, in the review of T26 (three groups deciding apart, 0.12 of the 0.25 correlation local to each room, champion silent): where reviews of a better and a worse design end when the groups decide apart, when an agreement mediator carries each group's conclusion to the next as a lead of 1 or 2 signals, and when a difference mediator has every member vote blind and pools the evidence, each member counted once or by the log-odds of their group's precision; for the evidence split evenly, and for the best-informed group (0.8 or 0.9 against 0.65 or 0.6, the same mean precision) speaking first, second or last; then the decision window of T27 and the law of triviality when the mediator shortens each pairwise settling; 20,000 reviews and 4,000 draws, seed 1
+  evidence 0.70 / 0.70 / 0.70 | decide apart | better design | dies in review 0.5404 | dies in hand-off 0.0498 | dies at approvals 0.0046 | adopted 0.4052
+  evidence 0.70 / 0.70 / 0.70 | decide apart | worse design | dies in review 0.9726 | dies in hand-off 0.0042 | dies at approvals 0.0010 | adopted 0.0222
+  evidence 0.70 / 0.70 / 0.70 | agreement, carry 1 | better design | dies in review 0.3948 | dies in hand-off 0.0338 | dies at approvals 0.0009 | adopted 0.5705
+  evidence 0.70 / 0.70 / 0.70 | agreement, carry 1 | worse design | dies in review 0.9074 | dies in hand-off 0.0060 | dies at approvals 0.0003 | adopted 0.0862
+  evidence 0.70 / 0.70 / 0.70 | agreement, carry 2 | better design | dies in review 0.3174 | dies in hand-off 0.0255 | dies at approvals 0.0002 | adopted 0.6570
+  evidence 0.70 / 0.70 / 0.70 | agreement, carry 2 | worse design | dies in review 0.8245 | dies in hand-off 0.0078 | dies at approvals 0.0001 | adopted 0.1677
+  evidence 0.70 / 0.70 / 0.70 | difference, pooled equally | better design | dies in review 0.1941 | dies in hand-off 0.1917 | dies at approvals 0.2066 | adopted 0.4077
+  evidence 0.70 / 0.70 / 0.70 | difference, pooled equally | worse design | dies in review 0.8809 | dies in hand-off 0.0238 | dies at approvals 0.0710 | adopted 0.0244
+  evidence 0.70 / 0.70 / 0.70 | difference, pooled by reliability | better design | dies in review 0.1941 | dies in hand-off 0.1917 | dies at approvals 0.2066 | adopted 0.4077
+  evidence 0.70 / 0.70 / 0.70 | difference, pooled by reliability | worse design | dies in review 0.8809 | dies in hand-off 0.0238 | dies at approvals 0.0710 | adopted 0.0244
+  evidence 0.80 / 0.65 / 0.65 | decide apart | better design | dies in review 0.5378 | dies in hand-off 0.0536 | dies at approvals 0.0054 | adopted 0.4032
+  evidence 0.80 / 0.65 / 0.65 | decide apart | worse design | dies in review 0.9784 | dies in hand-off 0.0030 | dies at approvals 0.0006 | adopted 0.0180
+  evidence 0.80 / 0.65 / 0.65 | agreement, carry 1 | better design | dies in review 0.3212 | dies in hand-off 0.0383 | dies at approvals 0.0009 | adopted 0.6395
+  evidence 0.80 / 0.65 / 0.65 | agreement, carry 1 | worse design | dies in review 0.9446 | dies in hand-off 0.0038 | dies at approvals 0.0003 | adopted 0.0513
+  evidence 0.80 / 0.65 / 0.65 | agreement, carry 2 | better design | dies in review 0.1837 | dies in hand-off 0.0295 | dies at approvals 0.0002 | adopted 0.7866
+  evidence 0.80 / 0.65 / 0.65 | agreement, carry 2 | worse design | dies in review 0.9117 | dies in hand-off 0.0043 | dies at approvals 0.0001 | adopted 0.0838
+  evidence 0.80 / 0.65 / 0.65 | difference, pooled equally | better design | dies in review 0.2008 | dies in hand-off 0.1902 | dies at approvals 0.2160 | adopted 0.3931
+  evidence 0.80 / 0.65 / 0.65 | difference, pooled equally | worse design | dies in review 0.8774 | dies in hand-off 0.0254 | dies at approvals 0.0729 | adopted 0.0244
+  evidence 0.80 / 0.65 / 0.65 | difference, pooled by reliability | better design | dies in review 0.1344 | dies in hand-off 0.1991 | dies at approvals 0.2173 | adopted 0.4492
+  evidence 0.80 / 0.65 / 0.65 | difference, pooled by reliability | worse design | dies in review 0.8881 | dies in hand-off 0.0187 | dies at approvals 0.0725 | adopted 0.0208
+  evidence 0.65 / 0.80 / 0.65 | decide apart | better design | dies in review 0.5675 | dies in hand-off 0.0464 | dies at approvals 0.0037 | adopted 0.3825
+  evidence 0.65 / 0.80 / 0.65 | decide apart | worse design | dies in review 0.9744 | dies in hand-off 0.0043 | dies at approvals 0.0009 | adopted 0.0204
+  evidence 0.65 / 0.80 / 0.65 | agreement, carry 1 | better design | dies in review 0.4176 | dies in hand-off 0.0299 | dies at approvals 0.0007 | adopted 0.5518
+  evidence 0.65 / 0.80 / 0.65 | agreement, carry 1 | worse design | dies in review 0.9180 | dies in hand-off 0.0051 | dies at approvals 0.0003 | adopted 0.0767
+  evidence 0.65 / 0.80 / 0.65 | agreement, carry 2 | better design | dies in review 0.3891 | dies in hand-off 0.0237 | dies at approvals 0.0001 | adopted 0.5871
+  evidence 0.65 / 0.80 / 0.65 | agreement, carry 2 | worse design | dies in review 0.7718 | dies in hand-off 0.0104 | dies at approvals 0.0001 | adopted 0.2178
+  evidence 0.65 / 0.80 / 0.65 | difference, pooled equally | better design | dies in review 0.1835 | dies in hand-off 0.1952 | dies at approvals 0.2119 | adopted 0.4093
+  evidence 0.65 / 0.80 / 0.65 | difference, pooled equally | worse design | dies in review 0.8891 | dies in hand-off 0.0214 | dies at approvals 0.0679 | adopted 0.0216
+  evidence 0.65 / 0.80 / 0.65 | difference, pooled by reliability | better design | dies in review 0.1155 | dies in hand-off 0.1961 | dies at approvals 0.2142 | adopted 0.4742
+  evidence 0.65 / 0.80 / 0.65 | difference, pooled by reliability | worse design | dies in review 0.8845 | dies in hand-off 0.0173 | dies at approvals 0.0789 | adopted 0.0193
+  evidence 0.65 / 0.65 / 0.80 | decide apart | better design | dies in review 0.5674 | dies in hand-off 0.0436 | dies at approvals 0.0038 | adopted 0.3852
+  evidence 0.65 / 0.65 / 0.80 | decide apart | worse design | dies in review 0.9758 | dies in hand-off 0.0040 | dies at approvals 0.0008 | adopted 0.0194
+  evidence 0.65 / 0.65 / 0.80 | agreement, carry 1 | better design | dies in review 0.4787 | dies in hand-off 0.0297 | dies at approvals 0.0010 | adopted 0.4905
+  evidence 0.65 / 0.65 / 0.80 | agreement, carry 1 | worse design | dies in review 0.8660 | dies in hand-off 0.0085 | dies at approvals 0.0005 | adopted 0.1250
+  evidence 0.65 / 0.65 / 0.80 | agreement, carry 2 | better design | dies in review 0.3891 | dies in hand-off 0.0237 | dies at approvals 0.0001 | adopted 0.5871
+  evidence 0.65 / 0.65 / 0.80 | agreement, carry 2 | worse design | dies in review 0.7718 | dies in hand-off 0.0104 | dies at approvals 0.0001 | adopted 0.2178
+  evidence 0.65 / 0.65 / 0.80 | difference, pooled equally | better design | dies in review 0.1815 | dies in hand-off 0.1936 | dies at approvals 0.2150 | adopted 0.4098
+  evidence 0.65 / 0.65 / 0.80 | difference, pooled equally | worse design | dies in review 0.8899 | dies in hand-off 0.0235 | dies at approvals 0.0660 | adopted 0.0205
+  evidence 0.65 / 0.65 / 0.80 | difference, pooled by reliability | better design | dies in review 0.1163 | dies in hand-off 0.1993 | dies at approvals 0.2104 | adopted 0.4739
+  evidence 0.65 / 0.65 / 0.80 | difference, pooled by reliability | worse design | dies in review 0.8837 | dies in hand-off 0.0171 | dies at approvals 0.0820 | adopted 0.0172
+  evidence 0.90 / 0.60 / 0.60 | decide apart | better design | dies in review 0.5746 | dies in hand-off 0.0491 | dies at approvals 0.0057 | adopted 0.3706
+  evidence 0.90 / 0.60 / 0.60 | decide apart | worse design | dies in review 0.9894 | dies in hand-off 0.0011 | dies at approvals 0.0001 | adopted 0.0094
+  evidence 0.90 / 0.60 / 0.60 | agreement, carry 1 | better design | dies in review 0.2853 | dies in hand-off 0.0379 | dies at approvals 0.0006 | adopted 0.6763
+  evidence 0.90 / 0.60 / 0.60 | agreement, carry 1 | worse design | dies in review 0.9798 | dies in hand-off 0.0008 | dies at approvals 0.0000 | adopted 0.0193
+  evidence 0.90 / 0.60 / 0.60 | agreement, carry 2 | better design | dies in review 0.0693 | dies in hand-off 0.0303 | dies at approvals 0.0001 | adopted 0.9002
+  evidence 0.90 / 0.60 / 0.60 | agreement, carry 2 | worse design | dies in review 0.9724 | dies in hand-off 0.0010 | dies at approvals 0.0000 | adopted 0.0266
+  evidence 0.90 / 0.60 / 0.60 | difference, pooled equally | better design | dies in review 0.2041 | dies in hand-off 0.1878 | dies at approvals 0.2343 | adopted 0.3740
+  evidence 0.90 / 0.60 / 0.60 | difference, pooled equally | worse design | dies in review 0.8802 | dies in hand-off 0.0243 | dies at approvals 0.0752 | adopted 0.0203
+  evidence 0.90 / 0.60 / 0.60 | difference, pooled by reliability | better design | dies in review 0.0567 | dies in hand-off 0.1913 | dies at approvals 0.1207 | adopted 0.6313
+  evidence 0.90 / 0.60 / 0.60 | difference, pooled by reliability | worse design | dies in review 0.9536 | dies in hand-off 0.0074 | dies at approvals 0.0308 | adopted 0.0082
+  evidence 0.60 / 0.90 / 0.60 | decide apart | better design | dies in review 0.6242 | dies in hand-off 0.0359 | dies at approvals 0.0022 | adopted 0.3377
+  evidence 0.60 / 0.90 / 0.60 | decide apart | worse design | dies in review 0.9869 | dies in hand-off 0.0023 | dies at approvals 0.0003 | adopted 0.0104
+  evidence 0.60 / 0.90 / 0.60 | agreement, carry 1 | better design | dies in review 0.4632 | dies in hand-off 0.0252 | dies at approvals 0.0004 | adopted 0.5112
+  evidence 0.60 / 0.90 / 0.60 | agreement, carry 1 | worse design | dies in review 0.9477 | dies in hand-off 0.0030 | dies at approvals 0.0001 | adopted 0.0493
+  evidence 0.60 / 0.90 / 0.60 | agreement, carry 2 | better design | dies in review 0.4580 | dies in hand-off 0.0215 | dies at approvals 0.0001 | adopted 0.5203
+  evidence 0.60 / 0.90 / 0.60 | agreement, carry 2 | worse design | dies in review 0.7165 | dies in hand-off 0.0120 | dies at approvals 0.0001 | adopted 0.2714
+  evidence 0.60 / 0.90 / 0.60 | difference, pooled equally | better design | dies in review 0.1641 | dies in hand-off 0.2014 | dies at approvals 0.2278 | adopted 0.4067
+  evidence 0.60 / 0.90 / 0.60 | difference, pooled equally | worse design | dies in review 0.9072 | dies in hand-off 0.0165 | dies at approvals 0.0617 | adopted 0.0146
+  evidence 0.60 / 0.90 / 0.60 | difference, pooled by reliability | better design | dies in review 0.0372 | dies in hand-off 0.1762 | dies at approvals 0.1171 | adopted 0.6696
+  evidence 0.60 / 0.90 / 0.60 | difference, pooled by reliability | worse design | dies in review 0.9628 | dies in hand-off 0.0062 | dies at approvals 0.0248 | adopted 0.0063
+  evidence 0.60 / 0.60 / 0.90 | decide apart | better design | dies in review 0.6239 | dies in hand-off 0.0346 | dies at approvals 0.0022 | adopted 0.3393
+  evidence 0.60 / 0.60 / 0.90 | decide apart | worse design | dies in review 0.9886 | dies in hand-off 0.0016 | dies at approvals 0.0001 | adopted 0.0097
+  evidence 0.60 / 0.60 / 0.90 | agreement, carry 1 | better design | dies in review 0.5602 | dies in hand-off 0.0260 | dies at approvals 0.0009 | adopted 0.4129
+  evidence 0.60 / 0.60 / 0.90 | agreement, carry 1 | worse design | dies in review 0.8174 | dies in hand-off 0.0117 | dies at approvals 0.0003 | adopted 0.1706
+  evidence 0.60 / 0.60 / 0.90 | agreement, carry 2 | better design | dies in review 0.4580 | dies in hand-off 0.0215 | dies at approvals 0.0001 | adopted 0.5203
+  evidence 0.60 / 0.60 / 0.90 | agreement, carry 2 | worse design | dies in review 0.7165 | dies in hand-off 0.0120 | dies at approvals 0.0001 | adopted 0.2714
+  evidence 0.60 / 0.60 / 0.90 | difference, pooled equally | better design | dies in review 0.1648 | dies in hand-off 0.2021 | dies at approvals 0.2261 | adopted 0.4070
+  evidence 0.60 / 0.60 / 0.90 | difference, pooled equally | worse design | dies in review 0.9080 | dies in hand-off 0.0176 | dies at approvals 0.0601 | adopted 0.0143
+  evidence 0.60 / 0.60 / 0.90 | difference, pooled by reliability | better design | dies in review 0.0341 | dies in hand-off 0.1836 | dies at approvals 0.1128 | adopted 0.6695
+  evidence 0.60 / 0.60 / 0.90 | difference, pooled by reliability | worse design | dies in review 0.9659 | dies in hand-off 0.0052 | dies at approvals 0.0234 | adopted 0.0055
+  window | mean settling 1.00 weeks | groups 3 to 8 | 0.9998 0.9893 0.8342 0.3249 0.0250 0.0002
+  window | mean settling 0.50 weeks | groups 3 to 8 | 1.0000 1.0000 0.9999 0.9924 0.8613 0.3730
+  window | mean settling 0.25 weeks | groups 3 to 8 | 1.0000 1.0000 1.0000 1.0000 1.0000 0.9999
+  triviality | mean settling 0.2500 weeks | pieces 1, 2, 4, 8 | decides and accepted 0.7387 0.3527 0.0003 0.0000
+  triviality | mean settling 0.1250 weeks | pieces 1, 2, 4, 8 | decides and accepted 0.7387 0.3600 0.0091 0.0000
+  triviality | mean settling 0.0625 weeks | pieces 1, 2, 4, 8 | decides and accepted 0.7387 0.3600 0.0302 0.0000
+T31 a two-sided debate against a single advocate, in the one-room running case with the champion silent: adoption of a better and a worse design when the members vote in order or blind, with no advocate, with the champion first, with a single advocate whose public lead toward the design is 1 or 2 signals whatever its merit, and with a debate of accuracy 0.6, 0.75 or 0.9 heard before the vote (its verdict a public lead of its log-odds, in signals) or after it (added to the tally with that weight); 20,000 reviews, seed 1
+  in order | no advocate | better adopted 0.7167 | worse adopted 0.1956 | gap 0.5211
+  in order | champion first | better adopted 0.8425 | worse adopted 0.3806 | gap 0.4619
+  in order | single advocate, lead 1 | better adopted 0.8396 | worse adopted 0.3787 | gap 0.4609
+  in order | single advocate, lead 2 | better adopted 0.9722 | worse adopted 0.9722 | gap 0.0000
+  in order | debate 0.60 heard before | better adopted 0.7255 | worse adopted 0.2423 | gap 0.4832
+  in order | debate 0.60 heard after | better adopted 0.7137 | worse adopted 0.1956 | gap 0.5181
+  in order | debate 0.75 heard before | better adopted 0.7310 | worse adopted 0.2394 | gap 0.4915
+  in order | debate 0.75 heard after | better adopted 0.7065 | worse adopted 0.1786 | gap 0.5279
+  in order | debate 0.90 heard before | better adopted 0.8825 | worse adopted 0.0975 | gap 0.7850
+  in order | debate 0.90 heard after | better adopted 0.7049 | worse adopted 0.1402 | gap 0.5647
+  blind | no advocate | better adopted 0.4346 | worse adopted 0.0384 | gap 0.3962
+  blind | champion first | better adopted 0.4607 | worse adopted 0.0421 | gap 0.4186
+  blind | single advocate, lead 1 | better adopted 0.4346 | worse adopted 0.0384 | gap 0.3962
+  blind | single advocate, lead 2 | better adopted 0.9722 | worse adopted 0.9722 | gap 0.0000
+  blind | debate 0.60 heard before | better adopted 0.4445 | worse adopted 0.0386 | gap 0.4059
+  blind | debate 0.60 heard after | better adopted 0.4261 | worse adopted 0.0341 | gap 0.3920
+  blind | debate 0.75 heard before | better adopted 0.7310 | worse adopted 0.2394 | gap 0.4915
+  blind | debate 0.75 heard after | better adopted 0.4354 | worse adopted 0.0311 | gap 0.4043
+  blind | debate 0.90 heard before | better adopted 0.8825 | worse adopted 0.0975 | gap 0.7850
+  blind | debate 0.90 heard after | better adopted 0.4784 | worse adopted 0.0173 | gap 0.4612
+T32 positional recall calibrated to published measurements (Liu and coauthors 2024, multi-document question answering, 10, 20 and 30 documents): for each model, the use of the document holding the answer, (accuracy - closed book) / (oracle - closed book) clipped to [0, 1], at each printed position; the least-squares fit of Definition 5 with free weights for the beginning and the end (base, depth and the two weights are not separately identified; the fitted curve is), its use at the start, middle and end, and its root-mean-square error; then, for the fits to 20 and 30 documents, the chance a local and a relational fact are used when the document is read whole and in 4 and 8 overlapping parts, each part read at its share of the fill; 20,000 documents, seed 1
+  10 documents | Claude-1.3 | use 0.5252 0.3597 0.4101 | fit start, middle, end 0.6348 0.3589 0.4444 | rms 0.0002
+  10 documents | Claude-1.3 (100K) | use 0.5284 0.3582 0.4078 | fit start, middle, end 0.6411 0.3570 0.4427 | rms 0.0001
+  10 documents | GPT-3.5-Turbo | use 0.6429 0.1584 0.1957 | fit start, middle, end 0.9639 0.1536 0.2293 | rms 0.0012
+  10 documents | GPT-3.5-Turbo (16K) | use 0.6411 0.1534 0.1994 | fit start, middle, end 0.9622 0.1528 0.2284 | rms 0.0024
+  10 documents | MPT-30B-Instruct | use 0.5694 0.4901 0.5595 | fit start, middle, end 0.6224 0.4898 0.6056 | rms 0.0001
+  10 documents | LongChat-13B (16K) | use 0.7665 0.4938 0.4855 | fit start, middle, end 0.9479 0.4902 0.4871 | rms 0.0013
+  20 documents | Claude-1.3 | use 0.4173 0.2734 0.3058 0.3201 0.4245 | fit start, middle, end 0.4473 0.2929 0.4647 | rms 0.0183
+  reading | 20 documents | Claude-1.3 | local fact | whole, 4 parts, 8 parts | 0.3241 | 0.5985 | 0.6488
+  reading | 20 documents | Claude-1.3 | relational fact | whole, 4 parts, 8 parts | 0.1052 | 0.1109 | 0.0674
+  20 documents | Claude-1.3 (100K) | use 0.4113 0.2730 0.3121 0.3262 0.4184 | fit start, middle, end 0.4378 0.2977 0.4556 | rms 0.0203
+  reading | 20 documents | Claude-1.3 (100K) | local fact | whole, 4 parts, 8 parts | 0.3262 | 0.6076 | 0.6591
+  reading | 20 documents | Claude-1.3 (100K) | relational fact | whole, 4 parts, 8 parts | 0.1066 | 0.1146 | 0.0698
+  20 documents | GPT-3.5-Turbo | use 0.6118 0.0342 0.0000 0.0000 0.2205 | fit start, middle, end 0.7868 0.0000 0.2982 | rms 0.0114
+  reading | 20 documents | GPT-3.5-Turbo | local fact | whole, 4 parts, 8 parts | 0.0940 | 0.6203 | 0.7266
+  reading | 20 documents | GPT-3.5-Turbo | relational fact | whole, 4 parts, 8 parts | 0.0091 | 0.1220 | 0.0884
+  20 documents | GPT-3.5-Turbo (16K) | use 0.6043 0.0399 0.0000 0.0000 0.2178 | fit start, middle, end 0.7789 0.0000 0.2882 | rms 0.0094
+  reading | 20 documents | GPT-3.5-Turbo (16K) | local fact | whole, 4 parts, 8 parts | 0.0937 | 0.6733 | 0.7876
+  reading | 20 documents | GPT-3.5-Turbo (16K) | relational fact | whole, 4 parts, 8 parts | 0.0091 | 0.1468 | 0.1068
+  20 documents | MPT-30B-Instruct | use 0.4405 0.4028 0.4107 0.4206 0.4921 | fit start, middle, end 0.4484 0.4085 0.5167 | rms 0.0050
+  reading | 20 documents | MPT-30B-Instruct | local fact | whole, 4 parts, 8 parts | 0.4226 | 0.6571 | 0.6973
+  reading | 20 documents | MPT-30B-Instruct | relational fact | whole, 4 parts, 8 parts | 0.1787 | 0.1363 | 0.0793
+  20 documents | LongChat-13B (16K) | use 0.6942 0.4628 0.4194 0.3616 0.4132 | fit start, middle, end 0.7824 0.4011 0.4176 | rms 0.0217
+  reading | 20 documents | LongChat-13B (16K) | local fact | whole, 4 parts, 8 parts | 0.4392 | 0.7252 | 0.7762
+  reading | 20 documents | LongChat-13B (16K) | relational fact | whole, 4 parts, 8 parts | 0.1932 | 0.1716 | 0.1021
+  30 documents | Claude-1.3 | use 0.3885 0.2446 0.2338 0.2662 0.2914 0.2842 0.4173 | fit start, middle, end 0.4000 0.2521 0.4501 | rms 0.0227
+  reading | 30 documents | Claude-1.3 | local fact | whole, 4 parts, 8 parts | 0.2852 | 0.6606 | 0.7309
+  reading | 30 documents | Claude-1.3 | relational fact | whole, 4 parts, 8 parts | 0.0815 | 0.1385 | 0.0886
+  30 documents | Claude-1.3 (100K) | use 0.3865 0.2447 0.2376 0.2660 0.2979 0.2801 0.4184 | fit start, middle, end 0.3977 0.2538 0.4499 | rms 0.0235
+  reading | 30 documents | Claude-1.3 (100K) | local fact | whole, 4 parts, 8 parts | 0.2863 | 0.4627 | 0.4936
+  reading | 30 documents | Claude-1.3 (100K) | relational fact | whole, 4 parts, 8 parts | 0.0821 | 0.0630 | 0.0366
+  30 documents | GPT-3.5-Turbo (16K) | use 0.5337 0.0000 0.0000 0.0000 0.0000 0.0000 0.2362 | fit start, middle, end 0.5754 0.0000 0.3100 | rms 0.0377
+  reading | 30 documents | GPT-3.5-Turbo (16K) | local fact | whole, 4 parts, 8 parts | 0.0643 | 0.7428 | 0.8756
+  reading | 30 documents | GPT-3.5-Turbo (16K) | relational fact | whole, 4 parts, 8 parts | 0.0043 | 0.1836 | 0.1374
+  30 documents | MPT-30B-Instruct | use 0.3988 0.3929 0.3909 0.3472 0.3591 0.3929 0.4484 | fit start, middle, end 0.4093 0.3705 0.4639 | rms 0.0141
+  reading | 30 documents | MPT-30B-Instruct | local fact | whole, 4 parts, 8 parts | 0.3831 | 0.5012 | 0.5172
+  reading | 30 documents | MPT-30B-Instruct | relational fact | whole, 4 parts, 8 parts | 0.1469 | 0.0746 | 0.0405
+  30 documents | LongChat-13B (16K) | use 0.6591 0.4091 0.3616 0.3698 0.3554 0.3368 0.4153 | fit start, middle, end 0.7110 0.3479 0.4234 | rms 0.0136
+  reading | 30 documents | LongChat-13B (16K) | local fact | whole, 4 parts, 8 parts | 0.3900 | 0.7639 | 0.8317
+  reading | 30 documents | LongChat-13B (16K) | relational fact | whole, 4 parts, 8 parts | 0.1524 | 0.1937 | 0.1204
+T33 the critic and tuning, in the one-room running case with the champion silent, voting in order: adoption of a better and a worse design with no critic; a contrarian critic arguing against every design with a lead of 1 or 2 signals; a critic that flags a worse design 0.85 of the time and a better one falsely 0.3 of the time, with people verifying a share 0, 0.5 or 0.9 of the false flags away, heard before or after the vote; and members tuned to stop agreeing, putting a probing weight of 0.5, 1 or 2 log-odds on their own signal; 20,000 reviews, seed 1
+  no critic | better adopted 0.7167 | worse adopted 0.1956 | gap 0.5211
+  contrarian critic, lead 1 | better adopted 0.5409 | worse adopted 0.0955 | gap 0.4454
+  contrarian critic, lead 2 | better adopted 0.0000 | worse adopted 0.0000 | gap 0.0000
+  critic, 0.0 of false flags verified away, heard before | better adopted 0.6790 | worse adopted 0.1401 | gap 0.5389
+  critic, 0.0 of false flags verified away, heard after | better adopted 0.7033 | worse adopted 0.1813 | gap 0.5220
+  critic, 0.5 of false flags verified away, heard before | better adopted 0.8291 | worse adopted 0.1401 | gap 0.6890
+  critic, 0.5 of false flags verified away, heard after | better adopted 0.7058 | worse adopted 0.1615 | gap 0.5443
+  critic, 0.9 of false flags verified away, heard before | better adopted 0.9438 | worse adopted 0.1401 | gap 0.8037
+  critic, 0.9 of false flags verified away, heard after | better adopted 0.7157 | worse adopted 0.1092 | gap 0.6066
+  members tuned to stop agreeing, probing weight 0.5 | better adopted 0.7167 | worse adopted 0.1956 | gap 0.5211
+  members tuned to stop agreeing, probing weight 1.0 | better adopted 0.6727 | worse adopted 0.1283 | gap 0.5445
+  members tuned to stop agreeing, probing weight 2.0 | better adopted 0.6165 | worse adopted 0.0925 | gap 0.5240
+T34 the region of instruments: every combination of reading (none; a model reading the design whole, or in 4 overlapping parts, reporting the decisive local fact when it uses it, the report right with the given accuracy), combining (groups apart; an agreement mediator carrying conclusions as 2 signals; blind judgments pooled by reliability), debate (none, heard first, heard after) and critic (none; contrarian with a lead of 1; verified, flagging 0.85 and 0.3 with the given share of false flags verified away), in the review of T26 with the pilot team first or last; adoption of a better and a worse design, the frontier, and the widest gaps; first the running constants (report 0.95, debate 0.75, verification 0.9), then each changed alone; 20,000 reviews, seed 1
+  region | pilot team first | no reading + groups apart + no debate + no critic | better 0.4032 | worse 0.0180 | -
+  region | pilot team first | no reading + groups apart + no debate + contrarian critic | better 0.2271 | worse 0.0054 | -
+  region | pilot team first | no reading + groups apart + no debate + verified critic | better 0.9443 | worse 0.1440 | -
+  region | pilot team first | no reading + groups apart + debate first + no critic | better 0.7295 | worse 0.2420 | -
+  region | pilot team first | no reading + groups apart + debate first + contrarian critic | better 0.4203 | worse 0.0163 | -
+  region | pilot team first | no reading + groups apart + debate first + verified critic | better 0.8451 | worse 0.0452 | -
+  region | pilot team first | no reading + groups apart + debate after + no critic | better 0.3991 | worse 0.0161 | -
+  region | pilot team first | no reading + groups apart + debate after + contrarian critic | better 0.2228 | worse 0.0049 | -
+  region | pilot team first | no reading + groups apart + debate after + verified critic | better 0.9298 | worse 0.1351 | -
+  region | pilot team first | no reading + agreement mediator + no debate + no critic | better 0.7866 | worse 0.0838 | -
+  region | pilot team first | no reading + agreement mediator + no debate + contrarian critic | better 0.5667 | worse 0.0308 | -
+  region | pilot team first | no reading + agreement mediator + no debate + verified critic | better 0.9443 | worse 0.1440 | -
+  region | pilot team first | no reading + agreement mediator + debate first + no critic | better 0.7295 | worse 0.2420 | -
+  region | pilot team first | no reading + agreement mediator + debate first + contrarian critic | better 0.6548 | worse 0.0559 | -
+  region | pilot team first | no reading + agreement mediator + debate first + verified critic | better 0.9235 | worse 0.0624 | -
+  region | pilot team first | no reading + agreement mediator + debate after + no critic | better 0.7691 | worse 0.0791 | -
+  region | pilot team first | no reading + agreement mediator + debate after + contrarian critic | better 0.5565 | worse 0.0253 | -
+  region | pilot team first | no reading + agreement mediator + debate after + verified critic | better 0.9298 | worse 0.1351 | -
+  region | pilot team first | no reading + pooled by reliability + no debate + no critic | better 0.4492 | worse 0.0208 | -
+  region | pilot team first | no reading + pooled by reliability + no debate + contrarian critic | better 0.4492 | worse 0.0208 | -
+  region | pilot team first | no reading + pooled by reliability + no debate + verified critic | better 0.9443 | worse 0.1440 | -
+  region | pilot team first | no reading + pooled by reliability + debate first + no critic | better 0.7295 | worse 0.2420 | -
+  region | pilot team first | no reading + pooled by reliability + debate first + contrarian critic | better 0.3407 | worse 0.0045 | frontier
+  region | pilot team first | no reading + pooled by reliability + debate first + verified critic | better 0.8207 | worse 0.0403 | -
+  region | pilot team first | no reading + pooled by reliability + debate after + no critic | better 0.4533 | worse 0.0137 | -
+  region | pilot team first | no reading + pooled by reliability + debate after + contrarian critic | better 0.4533 | worse 0.0137 | -
+  region | pilot team first | no reading + pooled by reliability + debate after + verified critic | better 0.9296 | worse 0.1349 | -
+  region | pilot team first | whole reading + groups apart + no debate + no critic | better 0.7317 | worse 0.0358 | -
+  region | pilot team first | whole reading + groups apart + no debate + contrarian critic | better 0.6648 | worse 0.0313 | -
+  region | pilot team first | whole reading + groups apart + no debate + verified critic | better 0.9170 | worse 0.0604 | -
+  region | pilot team first | whole reading + groups apart + debate first + no critic | better 0.8507 | worse 0.1222 | -
+  region | pilot team first | whole reading + groups apart + debate first + contrarian critic | better 0.7316 | worse 0.0377 | -
+  region | pilot team first | whole reading + groups apart + debate first + verified critic | better 0.8939 | worse 0.0223 | -
+  region | pilot team first | whole reading + groups apart + debate after + no critic | better 0.7136 | worse 0.0357 | -
+  region | pilot team first | whole reading + groups apart + debate after + contrarian critic | better 0.6524 | worse 0.0312 | -
+  region | pilot team first | whole reading + groups apart + debate after + verified critic | better 0.8981 | worse 0.0559 | -
+  region | pilot team first | whole reading + agreement mediator + no debate + no critic | better 0.8732 | worse 0.0603 | -
+  region | pilot team first | whole reading + agreement mediator + no debate + contrarian critic | better 0.7920 | worse 0.0392 | -
+  region | pilot team first | whole reading + agreement mediator + no debate + verified critic | better 0.9259 | worse 0.0621 | -
+  region | pilot team first | whole reading + agreement mediator + debate first + no critic | better 0.8507 | worse 0.1222 | -
+  region | pilot team first | whole reading + agreement mediator + debate first + contrarian critic | better 0.8182 | worse 0.0536 | -
+  region | pilot team first | whole reading + agreement mediator + debate first + verified critic | better 0.9336 | worse 0.0338 | -
+  region | pilot team first | whole reading + agreement mediator + debate after + no critic | better 0.8515 | worse 0.0611 | -
+  region | pilot team first | whole reading + agreement mediator + debate after + contrarian critic | better 0.7735 | worse 0.0404 | -
+  region | pilot team first | whole reading + agreement mediator + debate after + verified critic | better 0.9054 | worse 0.0574 | -
+  region | pilot team first | whole reading + pooled by reliability + no debate + no critic | better 0.7497 | worse 0.0363 | -
+  region | pilot team first | whole reading + pooled by reliability + no debate + contrarian critic | better 0.7497 | worse 0.0363 | -
+  region | pilot team first | whole reading + pooled by reliability + no debate + verified critic | better 0.9212 | worse 0.0607 | -
+  region | pilot team first | whole reading + pooled by reliability + debate first + no critic | better 0.8507 | worse 0.1222 | -
+  region | pilot team first | whole reading + pooled by reliability + debate first + contrarian critic | better 0.7026 | worse 0.0324 | -
+  region | pilot team first | whole reading + pooled by reliability + debate first + verified critic | better 0.8809 | worse 0.0186 | -
+  region | pilot team first | whole reading + pooled by reliability + debate after + no critic | better 0.7352 | worse 0.0350 | -
+  region | pilot team first | whole reading + pooled by reliability + debate after + contrarian critic | better 0.7352 | worse 0.0350 | -
+  region | pilot team first | whole reading + pooled by reliability + debate after + verified critic | better 0.9010 | worse 0.0560 | -
+  region | pilot team first | reading in parts + groups apart + no debate + no critic | better 0.8494 | worse 0.0440 | -
+  region | pilot team first | reading in parts + groups apart + no debate + contrarian critic | better 0.8238 | worse 0.0419 | -
+  region | pilot team first | reading in parts + groups apart + no debate + verified critic | better 0.9105 | worse 0.0278 | -
+  region | pilot team first | reading in parts + groups apart + debate first + no critic | better 0.8982 | worse 0.0772 | -
+  region | pilot team first | reading in parts + groups apart + debate first + contrarian critic | better 0.8533 | worse 0.0456 | -
+  region | pilot team first | reading in parts + groups apart + debate first + verified critic | better 0.9187 | worse 0.0165 | frontier
+  region | pilot team first | reading in parts + groups apart + debate after + no critic | better 0.8354 | worse 0.0427 | -
+  region | pilot team first | reading in parts + groups apart + debate after + contrarian critic | better 0.8112 | worse 0.0415 | -
+  region | pilot team first | reading in parts + groups apart + debate after + verified critic | better 0.8978 | worse 0.0270 | -
+  region | pilot team first | reading in parts + agreement mediator + no debate + no critic | better 0.9038 | worse 0.0529 | -
+  region | pilot team first | reading in parts + agreement mediator + no debate + contrarian critic | better 0.8722 | worse 0.0452 | -
+  region | pilot team first | reading in parts + agreement mediator + no debate + verified critic | better 0.9219 | worse 0.0296 | -
+  region | pilot team first | reading in parts + agreement mediator + debate first + no critic | better 0.8982 | worse 0.0772 | -
+  region | pilot team first | reading in parts + agreement mediator + debate first + contrarian critic | better 0.8875 | worse 0.0513 | -
+  region | pilot team first | reading in parts + agreement mediator + debate first + verified critic | better 0.9449 | worse 0.0249 | frontier
+  region | pilot team first | reading in parts + agreement mediator + debate after + no critic | better 0.8906 | worse 0.0520 | -
+  region | pilot team first | reading in parts + agreement mediator + debate after + contrarian critic | better 0.8587 | worse 0.0447 | -
+  region | pilot team first | reading in parts + agreement mediator + debate after + verified critic | better 0.9072 | worse 0.0289 | -
+  region | pilot team first | reading in parts + pooled by reliability + no debate + no critic | better 0.8556 | worse 0.0435 | -
+  region | pilot team first | reading in parts + pooled by reliability + no debate + contrarian critic | better 0.8556 | worse 0.0435 | -
+  region | pilot team first | reading in parts + pooled by reliability + no debate + verified critic | better 0.9154 | worse 0.0282 | -
+  region | pilot team first | reading in parts + pooled by reliability + debate first + no critic | better 0.8982 | worse 0.0772 | -
+  region | pilot team first | reading in parts + pooled by reliability + debate first + contrarian critic | better 0.8427 | worse 0.0444 | -
+  region | pilot team first | reading in parts + pooled by reliability + debate first + verified critic | better 0.9109 | worse 0.0134 | frontier
+  region | pilot team first | reading in parts + pooled by reliability + debate after + no critic | better 0.8446 | worse 0.0427 | -
+  region | pilot team first | reading in parts + pooled by reliability + debate after + contrarian critic | better 0.8446 | worse 0.0427 | -
+  region | pilot team first | reading in parts + pooled by reliability + debate after + verified critic | better 0.9012 | worse 0.0269 | -
+  summary | pilot team first | frontier points 4 | with a verified critic 3 | with reading in parts 3 | widest gaps reading in parts + agreement mediator + debate first + verified critic 0.9449 / 0.0249; reading in parts + groups apart + debate first + verified critic 0.9187 / 0.0165; whole reading + agreement mediator + debate first + verified critic 0.9336 / 0.0338
+  summary | pilot team last | frontier points 6 | with a verified critic 4 | with reading in parts 3 | widest gaps reading in parts + groups apart + debate first + verified critic 0.9193 / 0.0167; reading in parts + agreement mediator + debate first + verified critic 0.9352 / 0.0351; reading in parts + pooled by reliability + debate first + verified critic 0.9113 / 0.0131
+  summary | pilot team first, report 0.75 | frontier points 17 | with a verified critic 9 | with reading in parts 3 | widest gaps no reading + agreement mediator + debate first + verified critic 0.9235 / 0.0624; reading in parts + agreement mediator + debate first + verified critic 0.9282 / 0.0717; whole reading + agreement mediator + debate first + verified critic 0.9220 / 0.0670
+  summary | pilot team first, debate 0.9 | frontier points 11 | with a verified critic 8 | with reading in parts 4 | widest gaps reading in parts + agreement mediator + debate first + verified critic 0.9575 / 0.0261; reading in parts + pooled by reliability + debate first + verified critic 0.9546 / 0.0255; reading in parts + groups apart + debate first + verified critic 0.9513 / 0.0252
+  summary | pilot team first, verification 0.5 | frontier points 4 | with a verified critic 2 | with reading in parts 2 | widest gaps reading in parts + agreement mediator + debate first + verified critic 0.9395 / 0.0357; reading in parts + pooled by reliability + debate first + verified critic 0.9016 / 0.0231; whole reading + agreement mediator + debate first + verified critic 0.9214 / 0.0456
+T35 instruments that share a source: the leading instruments of T34 in the review of T26 (pilot team first, groups deciding apart or pooled by reliability), when every model-made instrument errs independently, when each comes from a different model family whose errors correlate at the given latent cross-family value, and when all come from one family prompted into different roles, correlating at the given latent within-family value; the critic's verification is done by people and stays independent; members add every instrument's log-odds as if independent; then the right-or-wrong correlation each latent value implies at an error of 0.25, for comparison with measured judge correlations; 20,000 reviews, seed 1
+  independent instruments | debate first | groups apart | better 0.7295 | worse 0.2420 | gap 0.4874
+  independent instruments | debate first | pooled by reliability | better 0.7295 | worse 0.2420 | gap 0.4874
+  independent instruments | critic, unverified | groups apart | better 0.6815 | worse 0.1440 | gap 0.5375
+  independent instruments | critic, unverified | pooled by reliability | better 0.6815 | worse 0.1440 | gap 0.5375
+  independent instruments | critic, verified | groups apart | better 0.9443 | worse 0.1440 | gap 0.8003
+  independent instruments | critic, verified | pooled by reliability | better 0.9443 | worse 0.1440 | gap 0.8003
+  independent instruments | reading in parts + debate first + critic, unverified | groups apart | better 0.8803 | worse 0.0276 | gap 0.8528
+  independent instruments | reading in parts + debate first + critic, unverified | pooled by reliability | better 0.8732 | worse 0.0231 | gap 0.8501
+  independent instruments | reading in parts + debate first + critic, verified | groups apart | better 0.9187 | worse 0.0165 | gap 0.9022
+  independent instruments | reading in parts + debate first + critic, verified | pooled by reliability | better 0.9109 | worse 0.0134 | gap 0.8975
+  separate families, cross 0.3 | debate first | groups apart | better 0.7286 | worse 0.2456 | gap 0.4829
+  separate families, cross 0.3 | debate first | pooled by reliability | better 0.7286 | worse 0.2456 | gap 0.4829
+  separate families, cross 0.3 | critic, unverified | groups apart | better 0.6782 | worse 0.1496 | gap 0.5286
+  separate families, cross 0.3 | critic, unverified | pooled by reliability | better 0.6782 | worse 0.1496 | gap 0.5286
+  separate families, cross 0.3 | critic, verified | groups apart | better 0.9450 | worse 0.1496 | gap 0.7954
+  separate families, cross 0.3 | critic, verified | pooled by reliability | better 0.9450 | worse 0.1496 | gap 0.7954
+  separate families, cross 0.3 | reading in parts + debate first + critic, unverified | groups apart | better 0.8665 | worse 0.0367 | gap 0.8299
+  separate families, cross 0.3 | reading in parts + debate first + critic, unverified | pooled by reliability | better 0.8573 | worse 0.0345 | gap 0.8227
+  separate families, cross 0.3 | reading in parts + debate first + critic, verified | groups apart | better 0.9125 | worse 0.0267 | gap 0.8857
+  separate families, cross 0.3 | reading in parts + debate first + critic, verified | pooled by reliability | better 0.9063 | worse 0.0228 | gap 0.8834
+  separate families, cross 0.6 | debate first | groups apart | better 0.7257 | worse 0.2485 | gap 0.4772
+  separate families, cross 0.6 | debate first | pooled by reliability | better 0.7257 | worse 0.2485 | gap 0.4772
+  separate families, cross 0.6 | critic, unverified | groups apart | better 0.6773 | worse 0.1495 | gap 0.5277
+  separate families, cross 0.6 | critic, unverified | pooled by reliability | better 0.6773 | worse 0.1495 | gap 0.5277
+  separate families, cross 0.6 | critic, verified | groups apart | better 0.9435 | worse 0.1495 | gap 0.7940
+  separate families, cross 0.6 | critic, verified | pooled by reliability | better 0.9435 | worse 0.1495 | gap 0.7940
+  separate families, cross 0.6 | reading in parts + debate first + critic, unverified | groups apart | better 0.8579 | worse 0.0490 | gap 0.8089
+  separate families, cross 0.6 | reading in parts + debate first + critic, unverified | pooled by reliability | better 0.8461 | worse 0.0478 | gap 0.7984
+  separate families, cross 0.6 | reading in parts + debate first + critic, verified | groups apart | better 0.9073 | worse 0.0419 | gap 0.8654
+  separate families, cross 0.6 | reading in parts + debate first + critic, verified | pooled by reliability | better 0.9035 | worse 0.0379 | gap 0.8656
+  one family in three roles, within 0.3 | debate first | groups apart | better 0.7308 | worse 0.2434 | gap 0.4874
+  one family in three roles, within 0.3 | debate first | pooled by reliability | better 0.7308 | worse 0.2434 | gap 0.4874
+  one family in three roles, within 0.3 | critic, unverified | groups apart | better 0.6845 | worse 0.1444 | gap 0.5400
+  one family in three roles, within 0.3 | critic, unverified | pooled by reliability | better 0.6845 | worse 0.1444 | gap 0.5400
+  one family in three roles, within 0.3 | critic, verified | groups apart | better 0.9435 | worse 0.1444 | gap 0.7991
+  one family in three roles, within 0.3 | critic, verified | pooled by reliability | better 0.9435 | worse 0.1444 | gap 0.7991
+  one family in three roles, within 0.3 | reading in parts + debate first + critic, unverified | groups apart | better 0.8641 | worse 0.0381 | gap 0.8260
+  one family in three roles, within 0.3 | reading in parts + debate first + critic, unverified | pooled by reliability | better 0.8540 | worse 0.0362 | gap 0.8178
+  one family in three roles, within 0.3 | reading in parts + debate first + critic, verified | groups apart | better 0.9105 | worse 0.0261 | gap 0.8844
+  one family in three roles, within 0.3 | reading in parts + debate first + critic, verified | pooled by reliability | better 0.9049 | worse 0.0231 | gap 0.8819
+  one family in three roles, within 0.6 | debate first | groups apart | better 0.7303 | worse 0.2439 | gap 0.4864
+  one family in three roles, within 0.6 | debate first | pooled by reliability | better 0.7303 | worse 0.2439 | gap 0.4864
+  one family in three roles, within 0.6 | critic, unverified | groups apart | better 0.6837 | worse 0.1454 | gap 0.5383
+  one family in three roles, within 0.6 | critic, unverified | pooled by reliability | better 0.6837 | worse 0.1454 | gap 0.5383
+  one family in three roles, within 0.6 | critic, verified | groups apart | better 0.9455 | worse 0.1454 | gap 0.8001
+  one family in three roles, within 0.6 | critic, verified | pooled by reliability | better 0.9455 | worse 0.1454 | gap 0.8001
+  one family in three roles, within 0.6 | reading in parts + debate first + critic, unverified | groups apart | better 0.8536 | worse 0.0507 | gap 0.8029
+  one family in three roles, within 0.6 | reading in parts + debate first + critic, unverified | pooled by reliability | better 0.8411 | worse 0.0494 | gap 0.7917
+  one family in three roles, within 0.6 | reading in parts + debate first + critic, verified | groups apart | better 0.9058 | worse 0.0423 | gap 0.8636
+  one family in three roles, within 0.6 | reading in parts + debate first + critic, verified | pooled by reliability | better 0.9017 | worse 0.0387 | gap 0.8629
+  one family in three roles, within 0.9 | debate first | groups apart | better 0.7313 | worse 0.2429 | gap 0.4884
+  one family in three roles, within 0.9 | debate first | pooled by reliability | better 0.7313 | worse 0.2429 | gap 0.4884
+  one family in three roles, within 0.9 | critic, unverified | groups apart | better 0.6811 | worse 0.1477 | gap 0.5334
+  one family in three roles, within 0.9 | critic, unverified | pooled by reliability | better 0.6811 | worse 0.1477 | gap 0.5334
+  one family in three roles, within 0.9 | critic, verified | groups apart | better 0.9446 | worse 0.1477 | gap 0.7969
+  one family in three roles, within 0.9 | critic, verified | pooled by reliability | better 0.9446 | worse 0.1477 | gap 0.7969
+  one family in three roles, within 0.9 | reading in parts + debate first + critic, unverified | groups apart | better 0.8372 | worse 0.0624 | gap 0.7748
+  one family in three roles, within 0.9 | reading in parts + debate first + critic, unverified | pooled by reliability | better 0.8210 | worse 0.0614 | gap 0.7596
+  one family in three roles, within 0.9 | reading in parts + debate first + critic, verified | groups apart | better 0.9080 | worse 0.0632 | gap 0.8448
+  one family in three roles, within 0.9 | reading in parts + debate first + critic, verified | pooled by reliability | better 0.9041 | worse 0.0590 | gap 0.8451
+  latent 0.3 | right-or-wrong correlation at an error of 0.25 | 0.1739
+  latent 0.6 | right-or-wrong correlation at an error of 0.25 | 0.3840
+  latent 0.9 | right-or-wrong correlation at an error of 0.25 | 0.6962
+T36 roles of one model stacked against the floor: k inputs from one source, each right 0.75 of the time, heard first by every member and added as if independent; the share of reviews in which their combined verdict is wrong, for k = 1, 3, 9, 21 and 41 roles and a latent within-source correlation of 0, 0.3, 0.6 and 0.9, against the floor of Proposition 1 at an error of 0.25; then the blind one-room review hearing the stack first; then a debate heard first that is a fourth role of the same source (0.75) against one with an evidence channel the panel lacks (0.9, independent), alongside a reader and an unverified critic from the source; 20,000 reviews, seed 1
+  stack | within 0.0 | wrong for 1, 3, 9, 21, 41 roles | 0.2505 0.1573 0.0505 0.0062 0.0004 | floor 0.0000
+  stack | within 0.3 | wrong for 1, 3, 9, 21, 41 roles | 0.2500 0.1946 0.1504 0.1270 0.1202 | floor 0.1091
+  stack | within 0.6 | wrong for 1, 3, 9, 21, 41 roles | 0.2515 0.2210 0.2034 0.1975 0.1961 | floor 0.1919
+  stack | within 0.9 | wrong for 1, 3, 9, 21, 41 roles | 0.2520 0.2424 0.2386 0.2382 0.2401 | floor 0.2385
+  review | within 0.3 | 1 roles heard first | better 0.7324 | worse 0.2413
+  review | within 0.3 | 9 roles heard first | better 0.8260 | worse 0.1452
+  review | within 0.3 | 41 roles heard first | better 0.8566 | worse 0.1159
+  review | within 0.6 | 1 roles heard first | better 0.7376 | worse 0.2460
+  review | within 0.6 | 9 roles heard first | better 0.7734 | worse 0.2011
+  review | within 0.6 | 41 roles heard first | better 0.7835 | worse 0.1870
+  review | within 0.9 | 1 roles heard first | better 0.7301 | worse 0.2454
+  review | within 0.9 | 9 roles heard first | better 0.7360 | worse 0.2374
+  review | within 0.9 | 41 roles heard first | better 0.7394 | worse 0.2331
+  channel | within 0.3 | debate as a fourth role | better 0.8639 | worse 0.0383 | gap 0.8256
+  channel | within 0.3 | debate with an evidence channel | better 0.9139 | worse 0.0335 | gap 0.8804
+  channel | within 0.6 | debate as a fourth role | better 0.8549 | worse 0.0503 | gap 0.8046
+  channel | within 0.6 | debate with an evidence channel | better 0.9102 | worse 0.0424 | gap 0.8678
+  channel | within 0.9 | debate as a fourth role | better 0.8355 | worse 0.0630 | gap 0.7726
+  channel | within 0.9 | debate with an evidence channel | better 0.9073 | worse 0.0538 | gap 0.8535

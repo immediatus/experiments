@@ -45,6 +45,7 @@ each is used for. Each post cites at most 20.
 | Kim, E., Garg, A., Peng, K. and Garg, N. (2025). *Correlated Errors in Large Language Models.* Proceedings of the 42nd International Conference on Machine Learning (ICML 2025). | Errors agree more among stronger models (an agreement rate) |
 | Goel, S. and coauthors (2025). *Great Models Think Alike and this Undermines AI Oversight.* Proceedings of the 42nd International Conference on Machine Learning (ICML 2025). | Similarity of model mistakes rising with capability |
 | Kohli, G. (2026). *Nine Judges, Two Effective Votes: Correlated Errors Undermine LLM Evaluation Panels.* arXiv:2605.29800. | Nine frontier judges carry about two independent votes |
+| Hossain, E., Yousefi, N. and Lim, S.-N. (2026). *Agreement Overstates Evidence: Error Dependence in LLM Judge Consensus.* arXiv:2609.22512. | Judges of preference tasks: ten open judges worth about 3.5, frontier judges across providers most dependent; difficulty conditioning explains part of the dependence |
 | Kim, D. (2026). *Are Diversity Metrics Measuring Diversity? A Capability-Controlled Audit of Majority-Vote Gain in LLM Ensembles.* arXiv:2607.20768. | Voting beats the best member in 9.98% of size-3 panels |
 | Turkmen, Y., Buyukates, B. and Bastopcu, M. (2026). *Don't Always Pick the Highest-Performing Model: An Information Theoretic View of LLM Ensemble Selection.* arXiv:2602.08003. | An information-theoretic error floor for correlated ensembles |
 | Lopez, J.A. (2004). *The Empirical Relationship between Average Asset Correlation, Firm Probability of Default, and Asset Size.* Journal of Financial Intermediation 13(2), 265-283. | Higher asset correlation for better borrowers |
@@ -53,3 +54,32 @@ each is used for. Each post cites at most 20.
 | Denisov-Blanch, Y. and six coauthors (2026). *Consensus is Not Verification: Why Crowd Wisdom Strategies Fail for LLM Truthfulness.* arXiv:2603.06612. | The rule failing in pure model crowds |
 | Hong, L. and Page, S.E. (2004). *Groups of Diverse Problem Solvers Can Outperform Groups of High-Ability Problem Solvers.* Proceedings of the National Academy of Sciences 101(46), 16385-16389. | When diversity beats ability |
 | Kuncheva, L.I. and Whitaker, C.J. (2003). *Measures of Diversity in Classifier Ensembles and Their Relationship with the Ensemble Accuracy.* Machine Learning 51(2), 181-207. | Prior art on ensemble diversity |
+
+## Part 3: AI as an Instrument for Review
+
+| Source | Used for |
+|---|---|
+| Liu, N.F., Lin, K., Hewitt, J., Paranjape, A., Bevilacqua, M., Petroni, F. and Liang, P. (2024). *Lost in the Middle: How Language Models Use Long Contexts.* Transactions of the Association for Computational Linguistics 12, 157-173. | The U-shaped use of position behind T29 |
+| Veseli, B., Chibane, J., Toneva, M. and Koller, A. (2025). *Positional Biases Shift as Inputs Approach Context Window Limits.* COLM 2025, arXiv:2508.07479. | Near the window the advantage of the beginning fades and the advantage of the end stays |
+| Hsieh, C.-P. and coauthors (2024). *RULER: What's the Real Context Size of Your Long-Context Language Models?* COLM 2024, arXiv:2404.06654. | The effective window is shorter than the advertised one |
+| Tessler, M.H. and coauthors (2024). *AI Can Help Humans Find Common Ground in Democratic Deliberation.* Science 386(6719), eadq2852. | The agreement mediator as built: statements preferred to human mediators', groups less divided |
+| Khan, A. and coauthors (2024). *Debating with More Persuasive LLMs Leads to More Truthful Answers.* Proceedings of the 41st International Conference on Machine Learning, PMLR 235, 23662-23733. | Debate against consultancy: judges at 88% with debate, 78% with one consultant, worse as the consultant persuades more |
+| McAleese, N. and coauthors (2024). *LLM Critics Help Catch LLM Bugs.* arXiv:2407.00215. | A fine-tuned critic catches more bugs and invents more; people with the critic invent fewer |
+| Wei, J., Huang, D., Lu, Y., Zhou, D. and Le, Q.V. (2023). *Simple Synthetic Data Reduces Sycophancy in Large Language Models.* arXiv:2308.03958. | Sycophancy grows with scale and falls with a light fine-tuning step |
+| Stasser, G. and Titus, W. (1985). *Pooling of Unshared Information in Group Decision Making: Biased Information Sampling during Discussion.* Journal of Personality and Social Psychology 48(6), 1467-1478. | Groups discuss what they share and miss what one member holds |
+| Steyvers, M., Tejeda, H., Kerrigan, G. and Smyth, P. (2022). *Bayesian Modeling of Human-AI Complementarity.* Proceedings of the National Academy of Sciences 119(11), e2111547119. | A combination beats either alone when their errors differ |
+| Vaccaro, M., Almaatouq, A. and Malone, T. (2024). *When Combinations of Humans and AI Are Useful: A Systematic Review and Meta-Analysis.* Nature Human Behaviour 8, 2293-2303. | On average, human-AI combinations underperform the better of the two on decisions |
+| Kohli, G. (2026). *Nine Judges, Two Effective Votes: Correlated Errors Undermine LLM Evaluation Panels.* arXiv:2605.29800. | An instrument must not add correlated voices (Part 3) |
+| Du, Y., Li, S., Torralba, A., Tenenbaum, J.B. and Mordatch, I. (2024). *Improving Factuality and Reasoning in Language Models through Multiagent Debate.* Proceedings of the 41st International Conference on Machine Learning, PMLR 235, 11733-11763. | An agreement mediator built from models |
+| Lorenz, J., Rauhut, H., Schweitzer, F. and Helbing, D. (2011). *How Social Influence Can Undermine the Wisdom of Crowd Effect.* Proceedings of the National Academy of Sciences 108(22), 9020-9025. | Influence narrows estimates without making them more accurate, and raises confidence |
+| Parisi, A., Thain, N., Hallak, A., Tsai, V. and Qian, C. (2026). *Real-Time Group Dynamics with LLM Facilitation: Evidence from a Charity Allocation Task.* FAccT 2026, doi:10.1145/3805689.3812253. | AI facilitation did not improve consensus, steered allocations, and raised trust where it steered |
+| Mannes, A.E., Soll, J.B. and Larrick, R.P. (2014). *The Wisdom of Select Crowds.* Journal of Personality and Social Psychology 107(2), 276-299. | Weighting by record: a small crowd chosen by recent accuracy |
+| Budescu, D.V. and Chen, E. (2015). *Identifying Expertise to Extract the Wisdom of Crowds.* Management Science 61(2), 267-280. | Weighting by contribution beats the unweighted average |
+| Irving, G., Christiano, P. and Amodei, D. (2018). *AI Safety via Debate.* arXiv:1805.00899. | Debate as oversight by a weaker judge |
+| Hao, X. and six coauthors (2026). *Not All Flips Are Conformity.* arXiv:2606.00820. | Agreement measured in agent debate (Part 3) |
+| Sharma, M. and coauthors (2024). *Towards Understanding Sycophancy in Language Models.* ICLR 2024. | Agreement traced to preference training (Part 3) |
+| Kleinberg, J. and Raghavan, M. (2021). *Algorithmic Monoculture and Social Welfare.* Proceedings of the National Academy of Sciences 118(22), e2018340118. | One instrument across every review correlates the organization's decisions |
+| Choi, H.K., Zhu, X. and Li, S. (2025). *Debate or Vote: Which Yields Better Decisions in Multi-Agent Large Language Models?* NeurIPS 2025, arXiv:2508.17536. | Majority voting explains most of the gain credited to multi-agent debate; debate leaves expected correctness unchanged |
+| Wynn, A., Satija, H. and Hadfield, G. (2025). *Talk Isn't Always Cheap: Understanding Failure Modes in Multi-Agent Debate.* ICML 2025, arXiv:2509.05396. | Debate can leave a group worse than one agent |
+| Zheng, M. and coauthors (2024). *When "A Helpful Assistant" Is Not Really Helpful: Personas in System Prompts Do Not Improve Performances of Large Language Models.* Findings of EMNLP 2024. | Personas in system prompts have no or small negative effects, largely random |
+| Panickssery, A., Bowman, S.R. and Feng, S. (2024). *LLM Evaluators Recognize and Favor Their Own Generations.* NeurIPS 2024. | Self-preference: a model judging text favors its own |

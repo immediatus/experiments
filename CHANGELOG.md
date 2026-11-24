@@ -20,7 +20,7 @@ dated erratum recorded here, with what changed, why, and which numbers moved.
 
 ### adoption-mechanics
 
-- The experiment behind *Adoption Mechanics* (two parts): one member model for people and agents, with
+- The experiment behind *Adoption Mechanics* (three parts): one member model for people and agents, with
   sensors, aggregation, hand-off and actuator composed for a running case of 15 reviewers, 3 layers and 4
   approvers (architecture board, engineering manager, security, product); every lever priced on better and worse
   designs, and the achievable region of all 64 combinations; the write-back loop with its non-identification.
@@ -28,9 +28,16 @@ dated erratum recorded here, with what changed, why, and which numbers moved.
   where each review ends, including the deaths that cross-communication causes without anyone saying no (the
   decision window, conclusions carried between groups, vetoes multiplying, and the law of triviality, under which
   a design split into simple pieces stalls); the actuator includes the agenda setter, whose one compromise lands
-  the status quo in the approvers' hull and ends change. 28 sections, 123 unit tests, 4 figures (two of them
-  interactive in the posts, one replaying 800 simulated reviews vote by vote, all four built from the frozen
-  results), 13 falsification criteria and a companion page per part.
+  the status quo in the approvers' hull and ends change. AI enters the same review as an instrument: a model's
+  recall of a fact by its position in a long document, calibrated on the published accuracy-by-position of six
+  models, read whole or in overlapping parts; an agreement mediator that carries conclusions between groups against
+  a difference mediator that pools blind judgments by reliability, in every speaking order; a debate heard before or
+  after the vote, single advocates, and critics whose false flags people verify in part, under the condition by which
+  a shared input captures the panel; the region of all 81 combinations of instruments; and instruments that share a source, where roles of one model
+  prompted differently err together at the floor of that source however many there are, while a check grounded
+  in the running system (tests, telemetry, static analysis) is a source of its own. 36 sections, 151 unit
+  tests, 6 figures (three of them interactive in the posts, one replaying 800 simulated reviews vote by vote, all six
+  built from the frozen results), 20 falsification criteria (one testing a review protocol the series proposes) and a companion page per part.
 - Measured: pairwise right/wrong counts, overall and within 5 and 10 strata of question difficulty, for Stanford
   HELM Lite MMLU (95 models) and HELM Capabilities GPQA (65) and MMLU-Pro (64); counts only, licence unstated.
   Pooled dependence of errors rises with capability on all three; within difficulty it sits at an

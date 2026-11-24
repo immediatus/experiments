@@ -256,7 +256,87 @@ def fig_upgrade():
     FIGS.append(Figure('upgrade', s, aria, cap))
 
 
-BUILDERS = [fig_frontier, fig_correlation, fig_lifecycle, fig_upgrade]
+def fig_reading():
+    rows = {}
+    for r in section('T29'):
+        c = cells(r)
+        if c[0] == 'depth 0.3':
+            rows[(c[1].split()[0], c[2].split()[1])] = [number(v) for v in c[4:8]]
+    xs = [1, 2, 3, 4]
+    s = base('chart-reading', 340, ml=(40, 48), mr=(70, 136))
+    s['X'] = dict(lo=0.7, hi=4.3, ticks=[[1, 'whole'], [2, '2 parts'], [3, '4 parts'], [4, '8 parts']],
+                  title='how the document is read, each part in its own call', ntitle='read in')
+    s['Y'] = dict(lo=0.0, hi=1.0, ticks=[[0.0, '0%'], [0.25, '25%'], [0.5, '50%'], [0.75, '75%'], [1.0, '100%']],
+                  title='chance the model uses the decisive fact', ntitle='fact used')
+    e = s['els']
+    lines = [(('local', '0.25'), 'b', 1.5, True, 'local, quarter window'), (('local', '1.00'), 'b', 2.5, False, 'local, full window'),
+             (('relational', '0.25'), 'a', 1.5, True, 'two passages, quarter'), (('relational', '1.00'), 'a', 2.5, False, 'two passages, full')]
+    for key, col, w, dash, name in lines:
+        v = rows[key]
+        e.append(dict(t='line', pts=[[x, y] for x, y in zip(xs, v)], c=col, w=w, dash=dash, mk=3))
+    for kind, col, text in (('local', 'b', 'fact in one place'), ('relational', 'a', 'fact in two passages')):
+        y = (rows[(kind, '0.25')][3] + rows[(kind, '1.00')][3]) / 2
+        e.append(dict(t='txt', x=4, y=y, s=text, n=text.split(' in ')[-1], al='left', bl='middle', dx=8, c=col, b=True))
+    e.append(dict(t='txt', x=0.75, y=0.985, s='solid: document fills the whole window; dashed: a quarter of it',
+                  n='solid: full window; dashed: quarter', al='left', bl='middle', c='g'))
+    assert rows[('local', '1.00')][2] > rows[('local', '1.00')][0] and rows[('relational', '0.25')][3] < rows[('relational', '0.25')][0]
+    aria = ('The chance a model uses the decisive fact of a design document, read whole or in 2, 4 or 8 overlapping parts. '
+            + ' '.join('%s: %s.' % (name, ', '.join('%.2f' % v for v in rows[key])) for key, _, _, _, name in lines))
+    cap = ('Split the reading, not the design. A fact in one place is used more often when the model reads the design in '
+           'parts: near a full window, %.0f%% whole and %.0f%% in four parts. A fact that needs two distant passages goes '
+           'the other way: at a quarter window, %.0f%% whole and %.0f%% in eight parts, because the two passages rarely land '
+           'in the same call. Recall by position follows Definition 5 with a dip of depth 0.3; the direction holds at every '
+           'depth swept.' % (100 * rows[('local', '1.00')][0], 100 * rows[('local', '1.00')][2],
+                              100 * rows[('relational', '0.25')][0], 100 * rows[('relational', '0.25')][3]))
+    FIGS.append(Figure('reading', s, aria, cap))
+
+
+def fig_region():
+    pts = []
+    for r in section('T34'):
+        c = cells(r)
+        if c[0] != 'region' or c[1] != 'pilot team first':
+            continue
+        reading, combining, debate, critic = c[2].split(' + ')
+        stage = 3 if critic != 'no critic' else 2 if reading != 'no reading' else 1 if debate != 'no debate' else 0
+        pts.append([c[2], number(c[3].split()[-1]), number(c[4].split()[-1]), stage])
+    def widest(k):
+        ix = [i for i, p in enumerate(pts) if p[3] <= k]
+        return max(ix, key=lambda i: pts[i][1] - pts[i][2])
+    marks = [widest(k) for k in range(4)]
+    start = [p for p in pts if p[0] == 'no reading + groups apart + no debate + no critic'][0]
+    agree = [p for p in pts if p[0] == 'no reading + agreement mediator + no debate + no critic'][0]
+    best = pts[marks[3]]
+    assert 'verified critic' in best[0] and 'debate first' in best[0]
+    def pc(v):
+        return '%.0f%%' % (100 * v)
+    steps = [
+        dict(mark=marks[0], label='widest gap', text='Without instruments the meeting has three ways to combine its groups. Deciding apart adopts a better design %s of the time and a worse one %s; an agreement mediator raises the first to %s and the second to %s.' % (pc(start[1]), pc(start[2]), pc(agree[1]), pc(agree[2]))),
+        dict(mark=marks[1], label='widest gap', text='A debate between two models, right 75%% of the time, heard before or after the vote. Heard first it captures the panel; the widest gap so far is %s against %s.' % (pc(pts[marks[1]][1]), pc(pts[marks[1]][2]))),
+        dict(mark=marks[2], label='widest gap', text='A model reads the design whole or in four parts and reports the decisive local fact when it uses it. The reports are accurate, so heard first they pull every combination upward: %s against %s.' % (pc(pts[marks[2]][1]), pc(pts[marks[2]][2]))),
+        dict(mark=marks[3], label='widest gap', text='A critic whose false flags people verify away, or a contrarian one. The verified critic with the debate first and the reading in parts gives the widest gap, %s against %s, and the combining rule barely matters any more.' % (pc(best[1]), pc(best[2])))]
+    s = base('anim-region', 380)
+    s['ix'] = dict(points=pts, steps=steps, xmax=0.3, xticks=[0.0, 0.1, 0.2, 0.3])
+    s['X'] = dict(lo=0.0, hi=0.3, ticks=[[0.0, '0%'], [0.1, '10%'], [0.2, '20%'], [0.3, '30%']],
+                  title='worse design adopted', ntitle='worse adopted')
+    s['Y'] = dict(lo=0.0, hi=1.0, ticks=[[0.0, '0%'], [0.25, '25%'], [0.5, '50%'], [0.75, '75%'], [1.0, '100%']],
+                  title='better design adopted', ntitle='better adopted')
+    for p in pts:
+        s['els'].append(dict(t='pt', x=min(p[2], 0.3), y=p[1], r=3 if p[3] == 3 else 2.5, c='b' if p[3] == 3 else 'g'))
+    s['els'].append(dict(t='txt', x=min(best[2], 0.3), y=best[1], s='widest gap: verified critic, debate first, reading in parts',
+                         n='widest gap', al='left', bl='middle', dx=10, dy=12, c='ink', b=True))
+    aria = ('Adoption of a better design against adoption of a worse one for every combination of reading, combining rule, '
+            'debate and critic in the running review. Without instruments, groups deciding apart: %s and %s. Widest gap: %s, '
+            '%s and %s.' % (pc(start[1]), pc(start[2]), best[0], pc(best[1]), pc(best[2])))
+    cap = ('The region of instruments. Every combination of four instruments in the running review, plotted on the two numbers '
+           'of the series. Without instruments the meeting sits near %s and %s. Each instrument heard first is a shared input, '
+           'and accurate shared inputs capture the panel, so the widest gaps come from the instruments themselves: a verified '
+           'critic and a debate heard first, with the design read in parts, reach %s against %s. Once they are there, the '
+           'meeting\'s own rule for combining views no longer decides the outcome.' % (pc(start[1]), pc(start[2]), pc(best[1]), pc(best[2])))
+    FIGS.append(Figure('region', s, aria, cap))
+
+
+BUILDERS = [fig_frontier, fig_correlation, fig_lifecycle, fig_upgrade, fig_reading, fig_region]
 
 
 def figures(results_path):

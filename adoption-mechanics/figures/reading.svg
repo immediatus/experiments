@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 340" width="700" height="340" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
+<title>Split the reading, not the design</title>
+<desc>The chance a model uses the decisive fact of a design document, read whole or in 2, 4 or 8 overlapping parts. local, quarter window: 0.84, 0.89, 0.91, 0.91. local, full window: 0.63, 0.79, 0.85, 0.89. two passages, quarter: 0.71, 0.55, 0.29, 0.15. two passages, full: 0.40, 0.42, 0.25, 0.14.</desc>
+<style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
+<rect x="0" y="0" width="700" height="340" class="f-bg"/>
+<path d="M48.00 298.50 H564.00" class="s-grid" fill="none"/>
+<text x="43.00" y="301.85" text-anchor="end" class="f-sub">0%</text>
+<path d="M48.00 230.50 H564.00" class="s-grid" fill="none"/>
+<text x="43.00" y="233.85" text-anchor="end" class="f-sub">25%</text>
+<path d="M48.00 161.50 H564.00" class="s-grid" fill="none"/>
+<text x="43.00" y="165.85" text-anchor="end" class="f-sub">50%</text>
+<path d="M48.00 92.50 H564.00" class="s-grid" fill="none"/>
+<text x="43.00" y="95.85" text-anchor="end" class="f-sub">75%</text>
+<path d="M48.00 24.50 H564.00" class="s-grid" fill="none"/>
+<text x="43.00" y="27.85" text-anchor="end" class="f-sub">100%</text>
+<text x="91.00" y="312.80" text-anchor="middle" class="f-sub">whole</text>
+<text x="234.00" y="312.80" text-anchor="middle" class="f-sub">2 parts</text>
+<text x="378.00" y="312.80" text-anchor="middle" class="f-sub">4 parts</text>
+<text x="521.00" y="312.80" text-anchor="middle" class="f-sub">8 parts</text>
+<path d="M48.00 298.50 H564.00" class="s-sub" fill="none"/>
+<text x="48.00" y="12.80" text-anchor="start" class="f-ink">chance the model uses the decisive fact</text>
+<text x="564.00" y="335.80" text-anchor="end" class="f-ink">how the document is read, each part in its own call</text>
+<path d="M91.00 67.79 L234.33 53.65 L377.67 50.00 L521.00 47.54" class="s-b" fill="none" stroke-width="1.5" stroke-dasharray="5 4"/>
+<circle cx="91.00" cy="67.79" r="3" class="f-b"/>
+<circle cx="234.33" cy="53.65" r="3" class="f-b"/>
+<circle cx="377.67" cy="50.00" r="3" class="f-b"/>
+<circle cx="521.00" cy="47.54" r="3" class="f-b"/>
+<path d="M91.00 125.33 L234.33 81.13 L377.67 63.89 L521.00 54.55" class="s-b" fill="none" stroke-width="2.5"/>
+<circle cx="91.00" cy="125.33" r="3" class="f-b"/>
+<circle cx="234.33" cy="81.13" r="3" class="f-b"/>
+<circle cx="377.67" cy="63.89" r="3" class="f-b"/>
+<circle cx="521.00" cy="54.55" r="3" class="f-b"/>
+<path d="M91.00 104.53 L234.33 148.01 L377.67 219.14 L521.00 256.71" class="s-a" fill="none" stroke-width="1.5" stroke-dasharray="5 4"/>
+<circle cx="91.00" cy="104.53" r="3" class="f-a"/>
+<circle cx="234.33" cy="148.01" r="3" class="f-a"/>
+<circle cx="377.67" cy="219.14" r="3" class="f-a"/>
+<circle cx="521.00" cy="256.71" r="3" class="f-a"/>
+<path d="M91.00 189.11 L234.33 184.07 L377.67 228.68 L521.00 259.23" class="s-a" fill="none" stroke-width="2.5"/>
+<circle cx="91.00" cy="189.11" r="3" class="f-a"/>
+<circle cx="234.33" cy="184.07" r="3" class="f-a"/>
+<circle cx="377.67" cy="228.68" r="3" class="f-a"/>
+<circle cx="521.00" cy="259.23" r="3" class="f-a"/>
+<text x="529.00" y="54.85" text-anchor="start" class="f-b" font-weight="bold">fact in one place</text>
+<text x="529.00" y="261.85" text-anchor="start" class="f-a" font-weight="bold">fact in two passages</text>
+<text x="55.00" y="31.85" text-anchor="start" class="f-g">solid: document fills the whole window; dashed: a quarter of it</text>
+</svg>
