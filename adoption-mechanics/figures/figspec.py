@@ -2,7 +2,8 @@
 
 Every plotted number is parsed from the results file, so a figure cannot drift from the executed code. A
 specification is a plain dict (id, height, margins, axes X, Y and optional R, and a list of elements); the
-shared canvas engine draws it for the posts and tools/svg.py for the repository.
+shared canvas engine draws it for the posts and tools/svg.py for the repository. A figure laid out as a table
+(table) has no axes: x runs from 0 to 100 across the width and y counts rows from the bottom.
 
   figures(results_path) -> list of Figure(name, spec, aria, caption)
 """
@@ -25,11 +26,26 @@ def base(fid, h, ml=(40, 50), mr=(14, 16), mt=24, mb=42):
     return dict(id=fid, h=h, ml=list(ml), mr=list(mr), mt=mt, mb=mb, els=[])
 
 
+def table(fid, h, rows):
+    """An empty specification laid out as a table: no axes, x from 0 to 100 across the width and y from 0 at the
+    bottom to `rows` at the top, so that row r (0 is the header) spans y from rows - r - 1 to rows - r."""
+    s = base(fid, h, ml=(8, 8), mr=(8, 8), mt=8, mb=8)
+    s['X'] = dict(lo=0.0, hi=100.0, ticks=[], title='', ntitle='')
+    s['Y'] = dict(lo=0.0, hi=float(rows), ticks=[], title='', ntitle='')
+    return s
+
+
+def rule(s, y):
+    """A thin horizontal rule across the table at height y."""
+    s['els'].append(dict(t='hline', y=y, c='grid'))
+
+
 LEVER_NAMES = {'pilot': 'reversible pilot', 'gate': 'one exterior gate removed', 'poll': 'blind poll',
                'champion': 'insured champion speaks first', 'decorrelate': 'decorrelated panel', 'layers': 'flatter chain'}
 
 
 def fig_frontier():
+    """Part 1: the achievable region of the six levers, adoption of a better design against a worse one (T18)."""
     rows = [cells(r) for r in section('T18')]
     hull = [r for r in rows if r[0].startswith('status quo inside the hull')][0]
     combos = [(r[0], number(r[1]), number(r[2]), r[4] == 'frontier') for r in rows if not r[0].startswith('status quo inside')]
@@ -83,6 +99,7 @@ def fig_frontier():
 
 
 def fig_correlation():
+    """Part 2: how often stronger models share a mistake, overall and within question difficulty (T13, T19)."""
     series = {'MMLU': [cells(r) for r in section('T13') if not r.strip().startswith('5 strata')]}
     for r in section('T19'):
         c = cells(r)
@@ -137,6 +154,7 @@ def _counts100(f):
 
 
 def fig_lifecycle():
+    """Part 1: where reviews of a better and a worse design end, replayed review by review in the post (T26, T28)."""
     steps = []
     for r in section('T26'):
         c = cells(r)
@@ -201,6 +219,7 @@ def _floor(p, rho):
 
 
 def fig_upgrade():
+    """Part 2: the upgrade path, member error against correlation and the large-panel floor (T11, T12)."""
     path = []
     for r in section('T11'):
         c = cells(r)
@@ -257,6 +276,7 @@ def fig_upgrade():
 
 
 def fig_reading():
+    """Part 3: how often a model uses the decisive fact, read whole or in parts, for local and relational facts (T29)."""
     rows = {}
     for r in section('T29'):
         c = cells(r)
@@ -271,7 +291,7 @@ def fig_reading():
     e = s['els']
     lines = [(('local', '0.25'), 'b', 1.5, True, 'local, quarter window'), (('local', '1.00'), 'b', 2.5, False, 'local, full window'),
              (('relational', '0.25'), 'a', 1.5, True, 'two passages, quarter'), (('relational', '1.00'), 'a', 2.5, False, 'two passages, full')]
-    for key, col, w, dash, name in lines:
+    for key, col, w, dash, _label in lines:
         v = rows[key]
         e.append(dict(t='line', pts=[[x, y] for x, y in zip(xs, v)], c=col, w=w, dash=dash, mk=3))
     for kind, col, text in (('local', 'b', 'fact in one place'), ('relational', 'a', 'fact in two passages')):
@@ -285,13 +305,14 @@ def fig_reading():
     cap = ('Split the reading, not the design. A fact in one place is used more often when the model reads the design in '
            'parts: near a full window, %.0f%% whole and %.0f%% in four parts. A fact that needs two distant passages goes '
            'the other way: at a quarter window, %.0f%% whole and %.0f%% in eight parts, because the two passages rarely land '
-           'in the same call. Recall by position follows Definition 5 with a dip of depth 0.3; the direction holds at every '
+           'in the same call. Recall by position follows Definition 7 with a dip of depth 0.3; the direction holds at every '
            'depth swept.' % (100 * rows[('local', '1.00')][0], 100 * rows[('local', '1.00')][2],
                               100 * rows[('relational', '0.25')][0], 100 * rows[('relational', '0.25')][3]))
     FIGS.append(Figure('reading', s, aria, cap))
 
 
 def fig_region():
+    """Part 3: every combination of instruments on the two numbers of the series (T34)."""
     pts = []
     for r in section('T34'):
         c = cells(r)
@@ -337,6 +358,7 @@ def fig_region():
 
 
 def fig_instruments():
+    """Part 3: adoption as instruments are added one at a time, for each way the groups combine (T34)."""
     pts = {}
     for r in section('T34'):
         c = cells(r)
@@ -347,7 +369,8 @@ def fig_instruments():
             ('reading in parts', 'debate first', 'no critic'), ('reading in parts', 'debate first', 'verified critic')]
     stages = [[list(pts[' + '.join((r, rule, d, c))]) for rule in rules] for r, d, c in path]
     s0, s1, s2, s3 = stages
-    assert all(v == s1[0] for v in s1) and all(v == s2[0] for v in s2), 'the debate heard first captures the panel'
+    spread = [max(v[0] for v in st) - min(v[0] for v in st) for st in stages]
+    assert spread[0] > spread[1] > spread[2] > spread[3], 'the combining rules converge as instruments are added'
 
     def pc(v):
         return '%.0f%%' % (100 * v)
@@ -366,22 +389,25 @@ def fig_instruments():
     for j, (name, col, dy) in enumerate((('apart', 'g', 12), ('agreement', 'd', -12), ('reliability', 'b', -12))):
         s['els'].append(dict(t='txt', x=0, y=s0[j][0], s=name, al='left', bl='middle', dx=8, dy=dy, c=col, b=True))
     s['els'].append(dict(t='txt', x=3, y=max(v[0] for v in s3), s='better designs', al='right', bl='bottom', dy=-8, c='ink'))
-    s['els'].append(dict(t='txt', x=1, y=s1[0][1], s='worse designs, dashed', al='center', bl='bottom', dy=-8, c='ink'))
+    s['els'].append(dict(t='txt', x=0, y=max(v[1] for v in s0), s='worse designs, dashed', al='left', bl='bottom', dx=8, dy=-10,
+                         c='ink'))
     aria = ('How often a better and a worse design are adopted as instruments heard before the vote are added one at a '
             'time, for each of three ways the groups combine their views. Meeting alone: better designs %s, %s and %s; '
-            'worse %s, %s and %s. With a debate heard first all three give %s and %s; with a reader added, %s and %s; '
-            'with a verified critic, better %s and worse %s.' % (
-                pc(s0[0][0]), pc(s0[1][0]), pc(s0[2][0]), pc(s0[0][1]), pc(s0[1][1]), pc(s0[2][1]), pc(s1[0][0]),
-                pc(s1[0][1]), pc(s2[0][0]), pc(s2[0][1]), span(3, 0), span(3, 1)))
-    cap = ('Instruments take over the meeting. Without instruments, how the groups combine their views moves adoption of a '
-           'better design from %s to %s. A debate heard first captures the panel, and from then on the three ways of '
-           'combining give the same result or nearly so: the instruments heard first decide, and adding a reader and a '
-           'verified critic moves that result toward the corner every review wants, %s better and %s worse.' % (
-               pc(min(v[0] for v in s0)), pc(max(v[0] for v in s0)), span(3, 0), span(3, 1)))
+            'worse %s, %s and %s. With a debate heard first, better %s and worse %s; with a reader added, better %s and '
+            'worse %s; with a verified critic, better %s and worse %s.' % (
+                pc(s0[0][0]), pc(s0[1][0]), pc(s0[2][0]), pc(s0[0][1]), pc(s0[1][1]), pc(s0[2][1]), span(1, 0), span(1, 1),
+                span(2, 0), span(2, 1), span(3, 0), span(3, 1)))
+    cap = ('Instruments take over the meeting, one group at a time. Without instruments, how the groups combine their views '
+           'moves adoption of a better design from %s to %s. A debate heard first outweighs the two weaker groups but not the '
+           'pilot team, so the rules still differ, %s. The reader and the verified critic add evidence until it outweighs '
+           'every member, and the three rules converge on %s better against %s worse.' % (
+               pc(min(v[0] for v in s0)), pc(max(v[0] for v in s0)), span(1, 0), span(3, 0), span(3, 1)))
     FIGS.append(Figure('instruments', s, aria, cap))
 
 
 def fig_capture():
+    """Part 3, Proposition 7: what an AI verdict heard first does to the review, zone by zone along its accuracy,
+    against answers recorded first (T37)."""
     n, p, rho = 15, 0.30, 0.25
     row = [cells(r) for r in section('T37') if r.strip()[:4] == '%.2f' % p and number(cells(r)[1]) == rho][0]
     pmaj = number(row[3])
@@ -390,33 +416,116 @@ def fig_capture():
 
     def pc(v):
         return '%.1f%%' % (100 * v) if round(100 * v, 1) != round(100 * v) else '%.0f%%' % (100 * v)
-    s = base('anim-capture', 300, ml=(40, 46), mr=(14, 18))
-    s['ix'] = dict(n=n, q=q, rho=rho, pmaj=pmaj)
-    s['X'] = dict(lo=0.5, hi=1.0, ticks=[[0.5, '50%'], [0.6, '60%'], [0.7, '70%'], [0.8, '80%'], [0.9, '90%'], [1.0, '100%']],
-                  title='how often the instrument heard first is right', ntitle='instrument right')
-    s['Y'] = dict(lo=0.5, hi=1.0, ticks=[[0.5, '50%'], [0.75, '75%'], [1.0, '100%']], title='how often the review is right',
-                  ntitle='review right')
-    s['els'] += [dict(t='rect', x0=q, x1=room, y0=0.5, y1=1.0, c='a', al=0.08),
-                 dict(t='line', pts=[[0.5, 0.5], [1.0, 1.0]], c='g', w=1, dash=True),
-                 dict(t='hline', y=room, c='g', dash=True),
-                 dict(t='line', pts=[[0.5, room], [q, room]], c='b', w=3),
-                 dict(t='line', pts=[[q, q], [1.0, 1.0]], c='b', w=3),
-                 dict(t='txt', x=0.5, y=room, s='the room alone, %s' % pc(room), al='left', bl='bottom', dx=4, dy=-4, c='sub'),
-                 dict(t='txt', x=(q + room) / 2, y=0.52, s='worse than the room', al='center', bl='bottom', c='a', b=True),
-                 dict(t='txt', x=0.93, y=0.93, s='the instrument alone', al='right', bl='bottom', dx=-6, dy=-6, c='sub')]
-    aria = ('How often a review of %d members, each right %s of the time with errors correlated at %s, is right when an '
-            'instrument is heard before the vote, against how often the instrument is right. Below %s the members ignore it '
-            'and the review is right %s of the time; above it every member follows the instrument and the review is right '
-            'exactly as often as the instrument, which is worse than the room alone between %s and %s.' % (
-                n, pc(q), rho, pc(q), pc(room), pc(q), pc(room)))
-    cap = ('The captured panel (Proposition 6). An instrument heard first is ignored until it sounds surer than one member, '
-           'then every member follows it, and the review becomes exactly as good as the instrument. Between one member\'s '
-           '%s and the room\'s %s, that is worse than the room alone. Members who hold their own reading more firmly move '
-           'the point of capture to the right; the dots are reviews simulated on this page under the same model.' % (pc(q), pc(room)))
+    s = base('chart-capture', 230, ml=(10, 14), mr=(10, 14), mt=10, mb=42)
+    s['X'] = dict(lo=0.5, hi=1.0, ticks=[[0.5, '50%'], [0.6, '60%'], [0.7, '70%'], [0.8, '80%'], [0.9, '90%'],
+                                       [1.0, '100%']], title='how often the AI verdict is right', ntitle='AI right')
+    s['Y'] = dict(lo=0.0, hi=2.4, ticks=[], title='', ntitle='')
+    s['els'] += [dict(t='rect', x0=0.5, x1=q, y0=1.1, y1=1.7, c='g', al=0.15),
+                 dict(t='rect', x0=q, x1=room, y0=1.1, y1=1.7, c='a', al=0.25),
+                 dict(t='rect', x0=room, x1=1.0, y0=1.1, y1=1.7, c='b', al=0.18),
+                 dict(t='rect', x0=0.5, x1=1.0, y0=0.1, y1=0.7, c='g', al=0.15),
+                 dict(t='line', pts=[[q, 1.1], [q, 2.4]], c='sub', w=1, dash=True),
+                 dict(t='line', pts=[[room, 1.1], [room, 2.4]], c='sub', w=1, dash=True),
+                 dict(t='txt', x=q, y=2.25, s='one reviewer: %s' % pc(q), n=pc(q), al='right', bl='middle', dx=-5, c='sub'),
+                 dict(t='txt', x=room, y=2.25, s='the room alone: %s' % pc(room), n=pc(room), al='left', bl='middle', dx=5,
+                      c='sub'),
+                 dict(t='txt', x=0.5, y=1.9, s='AI heard first', al='left', bl='middle', dx=2, b=True),
+                 dict(t='txt', x=0.5, y=0.9, s='Answers recorded first', al='left', bl='middle', dx=2, b=True),
+                 dict(t='txt', x=(0.5 + q) / 2, y=1.4, s='ignored: right %s' % pc(room), n='ignored', al='center',
+                      bl='middle', c='ink'),
+                 dict(t='txt', x=(q + room) / 2, y=1.4, s='copied: worse', n='worse', al='center', bl='middle', c='a',
+                      b=True),
+                 dict(t='txt', x=(room + 1.0) / 2, y=1.4, s='copied: as good as the AI', n='= AI', al='center',
+                      bl='middle', c='b', b=True),
+                 dict(t='txt', x=0.75, y=0.4, s='nothing to copy: the room decides, right %s' % pc(room), n='right %s' % pc(room),
+                      al='center', bl='middle', c='ink')]
+    aria = ('How often a review of %d members, each right %s of the time with errors correlated at %s, is right, '
+            'against how often an AI verdict is right. Heard first, the verdict is ignored up to %s, where the review is '
+            'right %s of the time; above it every member follows the verdict and the review is right exactly as often as '
+            'the verdict, which is worse than the room between %s and %s. With answers recorded first the review stays at '
+            '%s whatever the verdict.' % (n, pc(q), rho, pc(q), pc(room), pc(q), pc(room), pc(room)))
+    cap = ('Who speaks first (Proposition 7). Heard first, an AI verdict is ignored until it is surer than one reviewer, '
+           'then everyone copies it, and the review becomes exactly as good as the AI: worse than the room between %s and '
+           '%s, better above. With answers recorded first, the room keeps its %s whatever the AI.' % (pc(q), pc(room),
+                                                                                                   pc(room)))
     FIGS.append(Figure('capture', s, aria, cap))
 
 
-BUILDERS = [fig_frontier, fig_correlation, fig_lifecycle, fig_upgrade, fig_reading, fig_region, fig_instruments, fig_capture]
+def fig_energy():
+    """Part 3, Proposition 8: disagreements each kind of review must settle against what a quarter holds, and how
+    often it decides right, by number of pieces (T39, T41). The post draws the grid key as a table; the
+    repository draws the same table from the elements."""
+    pieces = (1, 2, 4, 8)
+    rows = {}
+    for r in section('T41'):
+        c = cells(r)
+        if len(c) == 6:
+            rows[(c[0], int(c[1]))] = dict(plus=number(c[2]), minus=number(c[3]), settle=number(c[4]),
+                                           weeks=number(c[5]))
+    meet = {p: rows[('meeting', p)] for p in pieces}
+    fact = {p: rows[('protocol, 2 holders of the fact', p)] for p in pieces}
+    const = [cells(r) for r in section('T39') if cells(r)[0] == 'constants'][0]
+    k = {c.split()[0]: number(c.split()[-1]) for c in const[1:]}
+    window = k['window']
+
+    def right(v):
+        """How often the review decides right when half the designs it sees are better: it adopts the better ones
+        and rejects the worse ones."""
+        return (v['plus'] + 1.0 - v['minus']) / 2.0
+
+    def pc(v):
+        return '%.0f%%' % (100 * v)
+    fits = int(round(window / k['settlement']))
+    names = {1: 'Whole design', 2: '2 pieces', 4: '4 pieces', 8: '8 pieces'}
+    nrows = len(pieces) + 1.5
+    s = table('chart-energy', 400, nrows)
+    s['grid'] = dict(window=window, fits=fits,
+                     rows=[dict(label=names[p],
+                                meeting=dict(right=round(right(meet[p]), 4), settle=meet[p]['settle']),
+                                protocol=dict(right=round(right(fact[p]), 4), settle=fact[p]['settle']))
+                           for p in pieces])
+    top = nrows
+    s['els'] += [dict(t='txt', x=18, y=top - 0.35, s='The meeting', b=True, bl='middle'),
+                 dict(t='txt', x=18, y=top - 0.7, s='everyone settles with everyone', c='sub', bl='middle'),
+                 dict(t='txt', x=59, y=top - 0.35, s='The Residual Protocol', b=True, bl='middle'),
+                 dict(t='txt', x=59, y=top - 0.7, s='two people who hold the fact', c='sub', bl='middle')]
+    step, size, per_row = 1.0, 0.72, 26
+    for r, p in enumerate(pieces, start=1):
+        y = top - r
+        rule(s, y)
+        s['els'].append(dict(t='txt', x=1, y=y - 0.45, s=names[p], c='sub', bl='middle'))
+        for x0, v in ((18, meet[p]), (59, fact[p])):
+            ok, n = right(v), v['settle']
+            coin, over = ok < 0.55, n > fits
+            s['els'].append(dict(t='txt', x=x0, y=y - 0.2, s='%s right%s' % (pc(ok), ', a coin flip' if coin else ''),
+                                 c='g' if coin else 'b', b=True, bl='middle'))
+            filled = min(fits, int(round(n)))
+            for d in range(fits):
+                cx, cy = x0 + (d % per_row) * step, y - 0.38 - (d // per_row) * 0.12
+                s['els'].append(dict(t='rect', x0=cx, x1=cx + size, y0=cy, y1=cy - 0.08,
+                                     c=('a' if over else 'b') if d < filled else 'grid'))
+            text = 'under 1 disagreement' if n < 1 else '%d disagreement%s' % (round(n), '' if round(n) == 1 else 's')
+            if over:
+                text += ', %d more than a quarter holds' % round(n - fits)
+            s['els'].append(dict(t='txt', x=x0, y=y - 0.78, s=text, c='a' if over else 'sub', b=over, bl='middle'))
+    rule(s, 0.5)
+    s['els'].append(dict(t='txt', x=1, y=0.25, s='Right: decisions correct when half the designs are better. Each box is one '
+                         'quarter: %d disagreements settled at about a day and a quarter each.' % fits, c='sub', bl='middle'))
+    aria = ('How often a review decides right, with half the designs better, and how many disagreements people must '
+            'settle, as the design is split into 1, 2, 4 or 8 pieces; a %.0f-week quarter fits %d. The meeting: %s, %s, %s '
+            'and %s right, with %.0f, %.0f, %.0f and %.0f disagreements. The Residual Protocol: %s, %s, %s and %s right, '
+            'with at most %.1f.' % tuple([window, fits] + [pc(right(meet[p])) for p in pieces]
+                                         + [meet[p]['settle'] for p in pieces]
+                                         + [pc(right(fact[p])) for p in pieces] + [fact[8]['settle']]))
+    cap = ('What the review costs (Proposition 8). Each dot is a disagreement someone must settle, and each box holds '
+           'one quarter. Split a design, and the meeting must settle every pair of opinions until it overflows the '
+           'quarter and stalls at a coin flip. The Residual Protocol asks only the people who hold the facts: a dot or '
+           'two, and it stays right.')
+    FIGS.append(Figure('energy', s, aria, cap))
+
+
+BUILDERS = [fig_frontier, fig_correlation, fig_lifecycle, fig_upgrade, fig_reading, fig_region, fig_instruments, fig_capture,
+            fig_energy]
 
 
 def figures(results_path):

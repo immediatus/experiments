@@ -23,13 +23,16 @@ review records or an agent panel can test them and report the outcome, refutatio
 | F11 | [2](https://e-mindset.space/blog/adoption-mechanics-part2-smarter-agents-fewer-opinions/) | The upgrade condition | T11, T12 | predicted, not yet run |
 | F12 | [2](https://e-mindset.space/blog/adoption-mechanics-part2-smarter-agents-fewer-opinions/) | Correlation erases the cost of herding | T14 | predicted, not yet run |
 | F13 | [2](https://e-mindset.space/blog/adoption-mechanics-part2-smarter-agents-fewer-opinions/) | The informed minority, diluted | T15, T17 | predicted, not yet run |
-| F14 | [3](https://e-mindset.space/blog/adoption-mechanics-part3-the-machine-gets-the-first-word/) | A long document loses its middle | T29 | predicted, not yet run |
-| F15 | [3](https://e-mindset.space/blog/adoption-mechanics-part3-the-machine-gets-the-first-word/) | Agreement mediation depends on who speaks first | T30 | predicted, not yet run |
-| F16 | [3](https://e-mindset.space/blog/adoption-mechanics-part3-the-machine-gets-the-first-word/) | A debate heard first captures the panel | T31 | predicted, not yet run |
-| F17 | [3](https://e-mindset.space/blog/adoption-mechanics-part3-the-machine-gets-the-first-word/) | A persuasive single advocate captures the review | T31 | predicted, not yet run |
+| F14 | [3](https://e-mindset.space/blog/adoption-mechanics-part3-the-machine-gets-the-first-word/) | A debate heard first captures the panel | T31 | predicted, not yet run |
+| F15 | [3](https://e-mindset.space/blog/adoption-mechanics-part3-the-machine-gets-the-first-word/) | A persuasive single advocate captures the review | T31 | predicted, not yet run |
+| F16 | [3](https://e-mindset.space/blog/adoption-mechanics-part3-the-machine-gets-the-first-word/) | Agreement mediation depends on who speaks first | T30 | predicted, not yet run |
+| F17 | [3](https://e-mindset.space/blog/adoption-mechanics-part3-the-machine-gets-the-first-word/) | Roles of one model are one instrument | T35, T36 | predicted, not yet run |
 | F18 | [3](https://e-mindset.space/blog/adoption-mechanics-part3-the-machine-gets-the-first-word/) | A critic helps only through its verification | T33, T34 | predicted, not yet run |
-| F19 | [3](https://e-mindset.space/blog/adoption-mechanics-part3-the-machine-gets-the-first-word/) | Roles of one model are one instrument | T35, T36 | predicted, not yet run |
-| F20 | [3](https://e-mindset.space/blog/adoption-mechanics-part3-the-machine-gets-the-first-word/) | Reviewing the residual | proposal (T30, T33, T36) | predicted, not yet run |
+| F19 | [3](https://e-mindset.space/blog/adoption-mechanics-part3-the-machine-gets-the-first-word/) | A long document loses its middle | T29 | predicted, not yet run |
+| F20 | [3](https://e-mindset.space/blog/adoption-mechanics-part3-the-machine-gets-the-first-word/) | The residual surfaces unwritten facts | T39, T41, Definition 5 | predicted, not yet run |
+| F21 | [3](https://e-mindset.space/blog/adoption-mechanics-part3-the-machine-gets-the-first-word/) | The departure rate shows capture | T39 (constants), Definition 5 | predicted, not yet run |
+| F22 | [3](https://e-mindset.space/blog/adoption-mechanics-part3-the-machine-gets-the-first-word/) | Probes sharpen without aligning | T40 | predicted, not yet run |
+| F23 | [3](https://e-mindset.space/blog/adoption-mechanics-part3-the-machine-gets-the-first-word/) | Holders find what the list misses | T42 | predicted, not yet run |
 
 ## The criteria
 
@@ -109,27 +112,12 @@ run on questions where the fact favours the successor and where it opposes it, w
 to the fact measured on past questions. Prediction: agents whose answers do not move with the fact dilute the
 people's information under every unweighted rule tried, the surprisingly-popular rule included; agents
 whose answers move with it by enough improve on the people alone, and more dependent agents need to move more.
-Refuted if blind-spotted agents improve on the people alone, or informative agents fail to once they move with
-the fact by more than the predicted amount. Ground truth and null: the local fact verified after the decision; the null is the people's own majority.
+In large panels pooled without weights, adoption of a worse design does not fall as more of the people hold the
+fact (Proposition 6). Refuted if blind-spotted agents improve on the people alone, informative agents fail to once
+they move with the fact by more than the predicted amount, or adoption of a worse design in a large unweighted
+panel falls as more of the people hold the fact. Ground truth and null: the local fact verified after the decision; the null is the people's own majority.
 
-**F14. A long document loses its middle.** Agents: a model reviews design documents into which one decisive
-fact has been planted at a controlled position, either at one place (a local fact) or split between two places
-that must be read together (a relational fact), with documents filling a quarter, half and all of its effective
-window, read whole and in two, four and eight overlapping parts. Prediction: read whole, the model uses a local
-fact least often in the middle, and less often the more of the window the document fills; reading in parts raises
-its use of local facts and lowers its use of relational ones. Refuted if reading in parts fails to raise the use of
-local facts near a full window, or fails to lower the use of relational facts at eight parts. Ground truth and null:
-the planted fact and its positions are known; the null is use that does not depend on position or on parts.
-
-**F15. Agreement mediation depends on who speaks first.** People and agents: reviews of designs whose merit is
-later known, held by groups with unequal evidence, mediated either by carrying each group's conclusion to the next
-or by collecting every member's judgment blind and weighting each group by its record. Prediction: under carried
-conclusions, the adoption of worse designs rises when the best-informed group speaks last; under weighted pooling it
-does not depend on the order. Refuted if the order makes no difference to carried conclusions, or if weighted
-pooling adopts worse designs more often than carried conclusions in every order. Ground truth and null: merit judged
-after the decision from outcomes; the null is outcomes that do not depend on the order of speaking.
-
-**F16. A debate heard first captures the panel.** People and agents: panels that hear a two-sided debate between
+**F14. A debate heard first captures the panel.** People and agents: panels that hear a two-sided debate between
 models before voting, and panels that hear it after voting, on questions with known answers, with the debate's own
 accuracy measured. Prediction: when the debate is more accurate than one member's judgment, members who hear it first
 vote with its verdict, the panel's accuracy moves to the debate's, and hearing it first lowers accuracy whenever the
@@ -138,12 +126,29 @@ voting independently of its verdict, or if hearing a debate less accurate than t
 the panel's accuracy unchanged. Ground truth and null: the known answers; the null is member votes uncorrelated with
 the debate's verdict.
 
-**F17. A persuasive single advocate captures the review.** People and agents: reviews in which one model argues
+**F15. A persuasive single advocate captures the review.** People and agents: reviews in which one model argues
 for the design whatever its merit, at controlled persuasiveness, against reviews that hear a two-sided debate.
 Prediction: the adoption of worse designs rises with the single advocate's persuasiveness until the review adopts
 both kinds of design alike, and it does not rise under a two-sided debate. Refuted if worse designs are adopted no
 more often as the single advocate grows more persuasive. Ground truth and null: merit judged after the decision; the
 null is adoption that does not depend on the advocate.
+
+**F16. Agreement mediation depends on who speaks first.** People and agents: reviews of designs whose merit is
+later known, held by groups with unequal evidence, mediated either by carrying each group's conclusion to the next
+or by collecting every member's judgment blind and weighting each group by its record. Prediction: under carried
+conclusions, the adoption of worse designs rises when the best-informed group speaks last; under weighted pooling it
+does not depend on the order. Refuted if the order makes no difference to carried conclusions, or if weighted
+pooling adopts worse designs more often than carried conclusions in every order. Ground truth and null: merit judged
+after the decision from outcomes; the null is outcomes that do not depend on the order of speaking.
+
+**F17. Roles of one model are one instrument.** Agents: instruments built from one model with different system
+prompts (reviewer, advocate, critic), and instruments from different providers, run on questions or past decisions
+with known answers. Prediction: roles of one model err together far more than chance; adding roles lowers the
+combined verdict's error toward a floor well above zero rather than toward zero; instruments from different
+providers decorrelate less than their separate origins suggest; and heard first, such a stack raises adoption of
+worse designs above what independent instruments give. Refuted if the combined error of a growing number of roles
+of one model keeps falling toward zero, or roles of one model err no more together than instruments checked against
+a ground-truth channel. Ground truth and null: the known answers; the null is independent errors across roles.
 
 **F18. A critic helps only through its verification.** People and agents: reviews that hear a critic model's
 flags before voting, with a measured share of its false flags checked and removed by people, on designs whose
@@ -153,24 +158,50 @@ and the widest gaps among combinations of instruments include a verified critic 
 the critic's flags leaves the gap unchanged, or if combinations without a verified critic match the widest gaps.
 Ground truth and null: merit judged after the decision; the null is a gap that does not depend on verification.
 
-**F19. Roles of one model are one instrument.** Agents: instruments built from one model with different system
-prompts (reviewer, advocate, critic), and instruments from different providers, run on questions or past decisions
-with known answers. Prediction: roles of one model err together far more than chance; adding roles lowers the
-combined verdict's error toward a floor well above zero rather than toward zero; instruments from different
-providers decorrelate less than their separate origins suggest; and heard first, such a stack raises adoption of
-worse designs above what independent instruments give. Refuted if the combined error of a growing number of roles
-of one model keeps falling toward zero, or roles of one model err no more together than instruments checked against
-a ground-truth channel. Ground truth and null: the known answers; the null is independent errors across roles.
+**F19. A long document loses its middle.** Agents: a model reviews design documents into which one decisive
+fact has been planted at a controlled position, either at one place (a local fact) or split between two places
+that must be read together (a relational fact), with documents filling a quarter, half and all of its effective
+window, read whole and in two, four and eight overlapping parts. Prediction: read whole, the model uses a local
+fact least often in the middle, and less often the more of the window the document fills; reading in parts raises
+its use of local facts and lowers its use of relational ones. Refuted if reading in parts fails to raise the use of
+local facts near a full window, or fails to lower the use of relational facts at eight parts. Ground truth and null:
+the planted fact and its positions are known; the null is use that does not depend on position or on parts.
 
-**F20. Reviewing the residual.** People: comparable designs reviewed two ways, people reading the whole design
-after hearing model summaries and critics first, against people reading the whole design and recording judgments
-alone first, with the models' consensus computed separately and the meeting confined to departures from it, checked
-flags and relational questions. Prediction: the residual review surfaces more facts that only one reviewer held,
-adopts worse designs less often, and detects no fewer defects that span distant parts of the design. Refuted if the
-residual review adopts worse designs as often or more, surfaces no more single-holder facts, or misses more defects
-that span distant parts of the design. Ground truth and null: incidents, rollbacks and defects traced to the reviewed
-designs over the following quarters; the null is no difference between the two ways. This criterion tests a proposal
-derived from the series, not a simulated result.
+**F20. The residual surfaces unwritten facts.** People: comparable designs reviewed two ways, people reading the
+whole design after hearing model summaries and critics first, against the Residual Protocol, with the machines' list
+of unsettled questions extended by holders, each question answered alone by its routed holders, and the meeting
+confined to departures. Prediction: the protocol surfaces more facts that only one reviewer held, adopts worse designs
+less often, detects no fewer defects that span distant parts of the design, and spends less owner-time. Refuted if the
+protocol adopts worse designs as often or more, surfaces no more single-holder facts, misses more defects that span
+distant parts of the design, or spends as much owner-time as the review it replaces. Ground truth and null: incidents,
+rollbacks and defects traced to the reviewed designs over the following quarters, and the owner-time each review
+spent; the null is no difference between the two ways. The protocol's energy and adoption are computed in T39 and T41
+(Proposition 8): it settles far fewer disagreements and decides in time where the meeting stalls. What no simulation
+reaches, whether the departures surface facts nobody wrote down, is what this criterion tests in people.
+
+**F21. The departure rate shows capture.** People: comparable design reviews run two ways, holders recording their
+answers before any AI summary, and holders recording answers after seeing one. Prediction: holders who answer first
+depart from the AI's answer at a steady rate well above zero, more often on pieces that later turn out to hide a local
+flaw; holders who saw the AI first depart much less often, whether or not it was right. Refuted if the departure rate
+does not differ between the two orders, or departures recorded first are no more frequent on flawed pieces than on
+sound ones. Ground truth and null: defects and incidents traced to the reviewed pieces; the null is the same departure
+rate under both orders.
+
+**F22. Probes sharpen without aligning.** People: holders answering the same residual questions three ways, alone with
+no machine evidence, with one shared machine summary, and with probes of their own (a query, test or trace different
+for each holder), on questions whose answers are later known. Prediction: both the summary and the probes raise each
+holder's accuracy; the summary raises the correlation of holders' errors and the probes do not, so at equal accuracy
+the probes widen the gap between adopting better and worse designs more (T40). Refuted if the probes raise the
+correlation of errors as much as the shared summary, or raise accuracy no more than answering alone. Ground truth and
+null: the known answers; the null is equal accuracy and equal error correlation under all three conditions.
+
+**F23. Holders find what the list misses.** People and agents: decisions run under the Residual Protocol with holders
+allowed to add questions, each question's origin recorded, and outcomes traced to the questions that decided them.
+Prediction: when the deciding question turned on a local fact, the machines' list contains it no more often than a
+question picked at random from the design, and questions holders added decide outcomes more often than their share of
+all questions (T42). Refuted if the machines' list contains the deciding local-fact question far more often than
+chance, or added questions decide outcomes no more often than listed ones. Ground truth and null: outcomes traced to
+the questions that decided them; the null is listing and adding equally likely to hold the deciding question.
 
 ## Reporting a run
 

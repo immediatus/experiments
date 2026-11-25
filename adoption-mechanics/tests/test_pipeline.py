@@ -14,6 +14,7 @@ import math
 import random
 import unittest
 
+from actuator import win_set_nonempty
 from pipeline import (
     Committee,
     adoption_probability,
@@ -21,6 +22,7 @@ from pipeline import (
     committee_run,
     frontier,
     group_review,
+    late_gates,
     lever_value,
     log_odds_ledger,
     partition_divergence,
@@ -135,6 +137,19 @@ class Committees(unittest.TestCase):
     def test_no_extra_vetoes_leave_the_case_unchanged(self):
         inside, passes = veto_crowding(0, 2000, 1)
         self.assertEqual((inside, passes), (0.0, 1.0))
+
+    def test_late_gates_keep_the_running_gates_and_add_the_extra(self):
+        c = Committee()
+        self.assertEqual(late_gates(c, 0, 0.5, random.Random(1)), list(c.gate_ideals))
+        gates = late_gates(c, 3, 0.5, random.Random(1))
+        self.assertEqual(gates[:4], list(c.gate_ideals))
+        self.assertEqual(len(gates), 7)
+
+    def test_veto_crowding_counts_the_late_gates_it_draws(self):
+        c, rng, inside = Committee(), random.Random(5), 0
+        for _ in range(300):
+            inside += not win_set_nonempty(c.status_quo, late_gates(c, 4, 0.5, rng))
+        self.assertEqual(veto_crowding(4, 300, 5)[0], inside / 300)
 
     def test_more_vetoes_trap_the_status_quo(self):
         self.assertGreater(veto_crowding(6, 4000, 1)[0], veto_crowding(1, 4000, 1)[0] + 0.1)

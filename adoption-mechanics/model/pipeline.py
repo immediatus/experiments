@@ -221,6 +221,15 @@ def shared_lead(c: Committee, truth: int, rng: random.Random) -> float:
     return lead, after
 
 
+def _in_units(lead: float, c: 'Committee', precision: float) -> float:
+    """A shared lead, which shared_lead counts in signals of the committee's precision, recounted in signals of a group
+    of the given precision, so that the lock test compares the input's log-odds with that group's members' own
+    (Proposition 7): a group sharper than the committee needs a stronger input before it follows one."""
+    if not lead or precision == c.precision:
+        return lead
+    return lead * math.log(c.precision / (1.0 - c.precision)) / math.log(precision / (1.0 - precision))
+
+
 def _group_signals(c: Committee, k: int, size: int, precision: float, rng: random.Random, g: float, local: float,
                    truth: int) -> list[int]:
     """The signals of group k (+1 for the design): its members' errors share the organization-wide factor g and, when
@@ -256,7 +265,7 @@ def group_review(c: Committee, groups: tuple, rng: random.Random, local: float =
     shared, after = shared_lead(c, truth, rng) if (c.inputs or c.debate or c.advocate_lead) else (0.0, 0.0)
     for k, (size, precision) in enumerate(groups):
         signals = _group_signals(c, k, size, precision, rng, g, local, truth)
-        lead0 = carry * heard + shared
+        lead0 = carry * heard + _in_units(shared, c, precision)
         if c.cascades:
             acts = sequence(signals, precision, c.probe_for, c.probe_against, lead=lead0)
         elif lead0:
@@ -301,7 +310,8 @@ def pooled_review(c: Committee, groups: tuple, rng: random.Random, local: float 
     for k, (size, precision) in enumerate(groups):
         signals = _group_signals(c, k, size, precision, rng, g, local, truth)
         if shared:
-            signals = [sequence([s], precision, c.probe_for, c.probe_against, lead=shared)[0] for s in signals]
+            lead = _in_units(shared, c, precision)
+            signals = [sequence([s], precision, c.probe_for, c.probe_against, lead=lead)[0] for s in signals]
         weight = 1.0 if weights == 'equal' else math.log(precision / (1.0 - precision))
         total += weight * sum(signals)
         mass += weight * len(signals)
@@ -312,7 +322,10 @@ def pooled_review(c: Committee, groups: tuple, rng: random.Random, local: float 
     return total > 0, total / mass
 
 
-def _erlang_survival(channels: int, window: float, mean_settle: float) -> float:
+def settle_in_time(channels: int, window: float, mean_settle: float) -> float:
+    """The chance that `channels` disagreements, settled one at a time by one owner, each taking an exponential time
+    of mean mean_settle, all settle within `window` (both in the same units). The total is Erlang, so the chance is
+    1 - sum over j below the channel count of exp(-x) x^j / j!, with x = window / mean_settle; 1 for no channels."""
     x = window / mean_settle
     term, terms = math.exp(-x), []
     for j in range(channels):
@@ -326,7 +339,7 @@ def window_survival(groups: int, window: float, mean_settle: float) -> float:
     settles the groups' pairwise disagreements one at a time: groups (groups - 1) / 2 channels, each taking an
     exponential time with mean mean_settle (the units of window). The total is Erlang, so the chance is
     1 - sum over j below the channel count of exp(-x) x^j / j!, with x = window / mean_settle."""
-    return _erlang_survival(groups * (groups - 1) // 2, window, mean_settle)
+    return settle_in_time(groups * (groups - 1) // 2, window, mean_settle)
 
 
 def bikeshed(pieces: int, trials: int, seed: int, reviewers: int = 15, share_whole: float = 0.2,
@@ -343,7 +356,7 @@ def bikeshed(pieces: int, trials: int, seed: int, reviewers: int = 15, share_who
     decides = accepted = both = 0.0
     for _ in range(trials):
         holders = [sum(rng.random() < share for _ in range(reviewers)) for _ in range(pieces)]
-        w = _erlang_survival(sum(h * (h - 1) // 2 for h in holders), window, mean_settle)
+        w = settle_in_time(sum(h * (h - 1) // 2 for h in holders), window, mean_settle)
         a = accept ** sum(holders)
         decides += w
         accepted += a
@@ -351,22 +364,30 @@ def bikeshed(pieces: int, trials: int, seed: int, reviewers: int = 15, share_who
     return decides / trials, accepted / trials, both / trials
 
 
+def late_gates(c: 'Committee', extra: int, spread: float, rng: random.Random) -> list[tuple[float, float]]:
+    """The running case's gates plus `extra` groups with a veto pulled in late, as ideal points in the plane. Each
+    extra group's ideal point lies a uniform share of the way from the status quo to the existing approvers'
+    centroid, plus normal scatter of standard deviation `spread` in each direction: a group pulled in late cares
+    partly about keeping what it has. Draws from `rng` in a fixed order (share, then x, then y, per group)."""
+    base = list(c.gate_ideals)
+    cx, cy = math.fsum(z[0] for z in base) / len(base), math.fsum(z[1] for z in base) / len(base)
+    sq = c.status_quo
+    gates = list(base)
+    for _ in range(extra):
+        u = rng.random()
+        gates.append((sq[0] + u * (cx - sq[0]) + rng.gauss(0.0, spread), sq[1] + u * (cy - sq[1]) + rng.gauss(0.0, spread)))
+    return gates
+
+
 def veto_crowding(extra: int, trials: int, seed: int, spread: float = 0.5, c: Committee | None = None) -> tuple[float, float]:
     """What `extra` more groups with a veto do to the running case's spatial test: (share of draws in which the
     status quo lies in the hull of all the approvers' ideal points, share in which every approver prefers the
-    design to the status quo). Each extra group's ideal point lies a uniform share of the way from the status quo
-    to the existing approvers' centroid, plus normal scatter of standard deviation `spread` in each direction: a
-    group pulled in late cares partly about keeping what it has."""
+    design to the status quo). The extra groups are placed by late_gates."""
     c = c or Committee()
-    base = list(c.gate_ideals)
-    cx, cy = math.fsum(z[0] for z in base) / len(base), math.fsum(z[1] for z in base) / len(base)
     sq, rng = c.status_quo, random.Random(seed)
     inside = passes = 0
     for _ in range(trials):
-        gates = list(base)
-        for _ in range(extra):
-            u = rng.random()
-            gates.append((sq[0] + u * (cx - sq[0]) + rng.gauss(0.0, spread), sq[1] + u * (cy - sq[1]) + rng.gauss(0.0, spread)))
+        gates = late_gates(c, extra, spread, rng)
         trapped = not win_set_nonempty(sq, gates)
         inside += trapped
         passes += (not trapped) and all(_sq(c.design, z) < _sq(sq, z) for z in gates)

@@ -1,7 +1,8 @@
 """Checks the surprisingly-popular rule (Prelec, Seung and McCoy 2017) in mixed panels. The rule picks the
 answer whose actual share exceeds the share members predicted. It recovers the truth against a wrong majority
 when some members hold information the rest lack; with no informed member it fails as the majority does, and
-with noise but no information it is no better than a coin.
+with noise but no information it is no better than a coin. In the large-panel limit, the unweighted threshold rule's
+adoption follows the closed form of Proposition 6 (common-mode dilution).
 
 Run: python3 -m unittest discover -s tests
 """
@@ -12,7 +13,7 @@ sys.path[:0] = [os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '
 
 import unittest
 
-from hybrid import panel_run, surprisingly_popular
+from hybrid import dilution_bound, dilution_limit, panel_run, surprisingly_popular
 
 
 class Rule(unittest.TestCase):
@@ -105,6 +106,48 @@ class ConditionalPredictions(unittest.TestCase):
         yes = panel_run(5, 20, 0.4, 0.6, True, 4000, 3, truth=1)
         no = panel_run(5, 20, 0.4, 0.6, True, 4000, 3, truth=0)
         self.assertLess(yes['surprisingly_popular'] - no['surprisingly_popular'], yes['people'] - no['people'] - 0.2)
+
+
+
+
+class CommonModeDilution(unittest.TestCase):
+
+    def test_matches_a_large_simulated_panel(self):
+        plus, minus = dilution_limit(0.3, 0.6, 0.25, 0.4)
+        sim = [panel_run(250, 1000, 0.4, 0.6, True, 1500, 5, truth=t)['threshold'] for t in (1, 0)]
+        self.assertAlmostEqual(plus, sim[0], delta=0.04)
+        self.assertAlmostEqual(minus, sim[1], delta=0.04)
+
+    def test_worse_adoption_ignores_the_people(self):
+        ref = dilution_limit(0.3, 0.6, 0.25, 0.4)[1]
+        for ratio, informed in ((0.1, 0.9), (1.0, 0.1), (3.0, 0.5)):
+            self.assertAlmostEqual(dilution_limit(0.3, 0.6, ratio, informed)[1], ref, places=12)
+
+    def test_worse_adoption_lies_between_the_base_rate_and_a_half(self):
+        prev = 1.0
+        for rho in (0.05, 0.3, 0.6, 0.9, 0.99):
+            minus = dilution_limit(0.3, rho, 0.25, 0.4)[1]
+            self.assertTrue(0.3 < minus < 0.5)
+            self.assertLess(minus, prev)
+            prev = minus
+
+    def test_the_bound_holds(self):
+        for rho in (0.1, 0.3, 0.6, 0.9):
+            for ratio, informed in ((0.25, 0.4), (0.1, 0.9), (0.5, 0.2)):
+                plus, minus = dilution_limit(0.3, rho, ratio, informed)
+                self.assertLessEqual(plus - minus, dilution_bound(0.3, rho, ratio, informed) + 1e-12)
+
+    def test_no_informed_people_cannot_discriminate(self):
+        plus, minus = dilution_limit(0.3, 0.6, 0.25, 0.0)
+        self.assertAlmostEqual(plus, minus, places=12)
+
+    def test_enough_informed_people_adopt_every_better_design(self):
+        self.assertEqual(dilution_limit(0.3, 0.6, 1.0, 0.4)[0], 1.0)
+
+    def test_correlation_must_lie_strictly_between_zero_and_one(self):
+        for rho in (0.0, 1.0):
+            with self.assertRaises(ValueError):
+                dilution_limit(0.3, rho, 0.25, 0.4)
 
 
 if __name__ == '__main__':

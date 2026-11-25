@@ -25,5 +25,5 @@
   },
   "python": ">=3.10",
   "dependencies": [],
-  "criteria": 20
+  "criteria": 23
 }

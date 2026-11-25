@@ -36,10 +36,19 @@ dated erratum recorded here, with what changed, why, and which numbers moved.
   a shared input captures the panel; the region of all 81 combinations of instruments; and instruments that share a source, where roles of one model
   prompted differently err together at the floor of that source however many there are, while a check grounded
   in the running system (tests, telemetry, static analysis) is a source of its own; the majority error of a
-  correlated panel is computed exactly as well as simulated. 37 sections, 156 unit
-  tests, 8 figures (three of them interactive in the posts, one replaying 800 simulated reviews vote by vote and one
-  simulating the captured panel live, all eight
-  built from the frozen results), 20 falsification criteria (one testing a review protocol the series proposes) and a companion page per part.
+  correlated panel is computed exactly as well as simulated. In mixed panels, Proposition 6 gives the large-panel law of
+  common-mode dilution: agents sharing a blind spot set the chance of adopting a worse design whatever the people know.
+  A shared input is weighed against each member's own signal, group by group, so an input can capture some groups of
+  a review and not others. The human energy budget runs through the series: a review's settlements form a mesh,
+  quadratic in the opinion holders, and the residual protocol reconciles against the machines' reference instead, a
+  star, linear in them (Proposition 8), computed exactly beside Part 1's law of triviality. Part 3's framework,
+  the Residual Protocol, is computed in its parts: past Part 1's levers only accuracy and the independence of errors
+  move a review, and a shared briefing buys less than evidence of one's own; routing to the holders of each fact; a
+  machine list blind to the flaw against the questions holders add; and the nearest version of a design every
+  approver prefers. 43 sections, 194 unit
+  tests, 9 figures (three of them interactive in the posts, one replaying 800 simulated reviews vote by vote and one
+  simulating the captured panel live, all nine
+  built from the frozen results), 23 falsification criteria (four testing the Residual Protocol, the framework the series proposes) and a companion page per part.
 - Measured: pairwise right/wrong counts, overall and within 5 and 10 strata of question difficulty, for Stanford
   HELM Lite MMLU (95 models) and HELM Capabilities GPQA (65) and MMLU-Pro (64); counts only, licence unstated.
   Pooled dependence of errors rises with capability on all three; within difficulty it sits at an

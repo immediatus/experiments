@@ -110,6 +110,22 @@ class Debate(unittest.TestCase):
         margins = {round(abs(verdict_margin(c, rng)), 6) for _ in range(500)}
         self.assertGreater(len(margins), 3)
 
+    def test_a_team_sharper_than_the_debate_is_not_captured(self):
+        # Proposition 7 compares the debate's log-odds with each member's own: 0.75 carries 1.10, a member right 0.8 of
+        # the time 1.39, so that member keeps their own vote whatever the committee's nominal precision
+        c = Committee(first_speaker_silent=True, cascades=False, debate=0.75)
+        for review in (group_review, pooled_review):
+            rng = random.Random(4)
+            margins = {round(abs(review(c, ((15, 0.8),), rng)[1]), 6) for _ in range(300)}
+            self.assertGreater(len(margins), 3)
+
+    def test_a_team_weaker_than_the_debate_is_captured(self):
+        c = Committee(first_speaker_silent=True, cascades=False, debate=0.75)
+        for review in (group_review, pooled_review):
+            rng = random.Random(4)
+            for _ in range(200):
+                self.assertEqual(abs(review(c, ((15, 0.65),), rng)[1]), 1.0)
+
     def test_a_debate_must_be_better_than_a_coin(self):
         with self.assertRaises(ValueError):
             committee_run(Committee(debate=0.5), 10, 1)

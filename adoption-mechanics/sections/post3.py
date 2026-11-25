@@ -1,18 +1,26 @@
 """Sections of Post 3, AI as an instrument for human review: reading a long design (T29), mediation for agreement and
 for difference (T30), a two-sided debate against a single advocate (T31), positional recall calibrated to published
 measurements (T32), the critic and tuning (T33), the region of instrument combinations (T34), instruments that share
-a source (T35), roles of one model stacked against the floor, with and without an evidence channel (T36), and the
-exact majority error of a correlated panel, which sets the upper edge of the capture band (T37)."""
+a source (T35), roles of one model stacked against the floor, with and without an evidence channel (T36), the
+exact majority error of a correlated panel, which sets the upper edge of the capture band (T37), and the human
+energy budget: the meeting's mesh of settlements against the unrouted protocol's star (T39); then the Residual Protocol's
+results: the accuracy-correlation plane beyond Part 1's levers (T40), routed review (T41), the blind-spot exhaust (T42)
+and the amendment of a design into the approvers' win-set (T43)."""
+import inspect
 import itertools
 import json
+import math
 import os
 import random
 
+from actuator import amend_to_win_set, win_set_nonempty
+from energy import SHARE_CAP, expected_settlements, review_energy
 from instruments import document_use, fact_detection, fit_recall, position_recall
-from pipeline import Committee, SharedInput, bikeshed, committee_run, frontier, shared_lead, stage_fates, window_survival
+from pipeline import Committee, SharedInput, bikeshed, committee_run, frontier, late_gates, shared_lead, stage_fates, window_survival
 from sensors import error_floor, exact_majority_error, indicator_correlation
+from upgrade import upgrade_margin
 
-from sections.post1 import GROUPS, ROOM_SHARE
+from sections.post1 import GROUPS, LEVERS, ROOM_SHARE
 
 TRIALS = 20000
 OVERLAP = 0.25                               # each part of a document covers (1 + overlap) / parts of it
@@ -90,7 +98,7 @@ def t32():
     print('T32 positional recall calibrated to published measurements (Liu and coauthors 2024, multi-document question '
           'answering, 10, 20 and 30 documents): for each model, the use of the document holding the answer, (accuracy - '
           'closed book) / (oracle - closed book) clipped to [0, 1], at each printed position; the least-squares fit of '
-          'Definition 5 with free weights for the beginning and the end (base, depth and the two weights are not '
+          'Definition 7 with free weights for the beginning and the end (base, depth and the two weights are not '
           'separately identified; the fitted curve is), its use at the start, middle and end, and its root-mean-square '
           'error; then, for the fits to 20 and 30 documents, the chance a local and a relational fact are used when the '
           'document is read whole and in 4 and 8 overlapping parts, each part read at its share of the fill; '
@@ -266,3 +274,168 @@ def t37():
     room = 1 - exact_majority_error(15, 0.30, 0.25)
     print('  capture band of the running panel, fifteen members right 0.70 of the time and correlated at 0.25, with no '
           'probing weight: from 0.7000 to %.4f' % room)
+
+
+ENERGY = ('meeting', 'residual', 'machine')
+
+
+def t39():
+    print('T39 the human energy budget (Proposition 8): a design reviewed in 1, 2, 4 or 8 pieces by 15 people, each holding '
+          'an opinion on a piece with chance min(0.95, 0.2 P^0.75), accepting a fine piece with chance 0.9, a holder of the '
+          'flawed piece catching the local flaw with chance 0.4, verification resolving a disputed piece to the truth '
+          'with chance 0.9, settlements taking 0.25 weeks each within a 13-week window (Part 1); the meeting settles every '
+          'pair of holders (mesh), the unrouted protocol only departures from the machines\' reference (star), the '
+          'machine heard first none; exact: protocol | pieces | better | worse | gap | in time | settlements | '
+          'owner-weeks | Markov bound on deciding in time, 1 - weeks / window')
+    for pieces in (1, 2, 4, 8):
+        for protocol in ENERGY:
+            b, w = review_energy(pieces, protocol, True), review_energy(pieces, protocol, False)
+            print('  %s | %d | %.4f | %.4f | %.4f | %.4f | %.2f | %.2f | %.4f'
+                  % (protocol, pieces, b['adopted'], w['adopted'], b['adopted'] - w['adopted'], b['in_time'],
+                     b['settlements'], b['weeks'], max(0.0, 1.0 - b['weeks'] / 13.0)))
+    for pieces in (1, 2, 4, 8):
+        share = min(0.95, 0.2 * pieces ** 0.75)
+        mesh, star = expected_settlements(15, share), expected_settlements(15, share, depart=0.1)
+        print('  per piece | %d | share %.4f | mesh C(n,2) s^2 %.4f | star n s d %.4f | star over mesh %.4f'
+              % (pieces, share, mesh, star, star / mesh))
+    for pieces in (1, 4):
+        share = min(0.95, 0.2 * pieces ** 0.75)
+        print('  twenty agents in the mesh | %d | settlements per piece, 15 people %.2f | 15 people and 20 agents %.2f | '
+              'residual, agents in the reference %.2f' % (pieces, expected_settlements(15, share),
+                                                          expected_settlements(35, share),
+                                                          expected_settlements(15, share, depart=0.1)))
+    sweeps = (('verification 0.8', {'verify': 0.8}), ('verification 1.0', {'verify': 1.0}),
+              ('catch 0.2', {'catch': 0.2}), ('catch 0.6', {'catch': 0.6}),
+              ('machine sees the flaw 0.5', {'machine_catch': 0.5}), ('acceptance 0.8', {'accept': 0.8}),
+              ('acceptance 0.95', {'accept': 0.95}), ('settlement 1 week', {'mean_settle': 1.0}))
+    for label, kw in sweeps:
+        for pieces in (2, 4):
+            row = []
+            for protocol in ENERGY:
+                b, w = review_energy(pieces, protocol, True, **kw), review_energy(pieces, protocol, False, **kw)
+                row.append('%s %.4f %.4f %.2f' % (protocol, b['adopted'], w['adopted'], b['settlements']))
+            print('  sweep | %s | %d | %s' % (label, pieces, ' | '.join(row)))
+    defaults = {k: v.default for k, v in inspect.signature(review_energy).parameters.items()
+                if v.default is not inspect.Parameter.empty}
+    print('  constants | reviewers %d | share %.2f | steepness %.2f | cap %.2f | accept %.2f | catch %.2f | window %.1f | '
+          'settlement %.2f | verification %.2f' % (defaults['reviewers'], defaults['share_whole'], defaults['steepness'],
+                                                   SHARE_CAP, defaults['accept'], defaults['catch'], defaults['window'],
+                                                   defaults['mean_settle'], defaults['verify']))
+    points = (('2 pieces', 2, {}), ('4 pieces', 4, {}), ('2 pieces, verification 1.0', 2, {'verify': 1.0}),
+              ('2 pieces, machine sees the flaw 0.5', 2, {'machine_catch': 0.5}))
+    for protocol in ('residual', 'meeting'):
+        for label, pieces, base in points:
+            def gap(n, base=base, protocol=protocol, **kw):
+                kw = dict(base, **kw)
+                return review_energy(n, protocol, True, **kw)['adopted'] - review_energy(n, protocol, False, **kw)['adopted']
+            g0 = gap(pieces)
+            steps = (('machine checks +0.25', gap(pieces, machine_catch=base.get('machine_catch', 0.0) + 0.25)),
+                     ('verification +0.1', gap(pieces, verify=min(1.0, base.get('verify', 0.9) + 0.1))),
+                     ('settling twice as fast', gap(pieces, mean_settle=0.125)),
+                     ('one more piece', gap(pieces + 1)))
+            print('  binding | %s | %s | gap %.4f | %s' % (protocol, label, g0,
+                                                         ' | '.join('%s %+.4f' % (k, round(g - g0, 4) or 0.0) for k, g in steps)))
+
+
+def _corner() -> dict:
+    """Part 1's six levers together, from the champion-silent baseline: the frontier corner of T18."""
+    kw = {'first_speaker_silent': True}
+    for _, change in LEVERS:
+        kw.update(change)
+    return kw
+
+
+def _gap(kw: dict) -> tuple[float, float]:
+    return committee_run(Committee(**kw), TRIALS, 1), committee_run(Committee(design_better=False, **kw), TRIALS, 1)
+
+
+def t40():
+    print('T40 the accuracy-correlation plane beyond Part 1\'s levers: from the frontier corner of T18 (all six levers), '
+          'adoption of a better and a worse design by member accuracy (precision) and the latent correlation of their '
+          'errors; then shared briefings that raise accuracy and correlation together, against the large-panel '
+          'upgrade margin of Proposition 5; then the hand-off and the gates at the corner; 20,000 trials, seed 1')
+    corner = _corner()
+    for precision in (0.65, 0.7, 0.75, 0.8, 0.85, 0.9):
+        row = []
+        for rho in (0.0, 0.1, 0.3, 0.5, 0.7):
+            good, bad = _gap(dict(corner, precision=precision, rho=rho))
+            row.append('%.4f %.4f' % (good, bad))
+        print('  plane | precision %.2f | rho 0.0, 0.1, 0.3, 0.5, 0.7 | %s' % (precision, ' | '.join(row)))
+    g0, b0 = _gap(corner)
+    for p1, rho1 in ((0.8, 0.1), (0.8, 0.3), (0.8, 0.5), (0.85, 0.5), (0.85, 0.7), (0.9, 0.7), (0.75, 0.5)):
+        good, bad = _gap(dict(corner, precision=p1, rho=rho1))
+        print('  briefing | 0.70 at 0.10 to %.2f at %.2f | margin %+.4f | gap %.4f to %.4f | change %+.4f'
+              % (p1, rho1, upgrade_margin(0.3, 0.1, 1.0 - p1, rho1), g0 - b0, good - bad, good - bad - (g0 - b0)))
+    for label, kw in (('corner', {}), ('verdict unweakened: candor 1.0', {'candor': 1.0}),
+                      ('quieter gates: gate noise 0.15', {'gate_noise': 0.15}),
+                      ('both, and precision 0.80', {'candor': 1.0, 'gate_noise': 0.15, 'precision': 0.8})):
+        good, bad = _gap(dict(corner, **kw))
+        print('  hand-off | %s | %.4f | %.4f | gap %.4f' % (label, good, bad, good - bad))
+
+
+def t41():
+    print('T41 routed review: a design reviewed in 1, 2, 4 or 8 pieces by 15 people (the constants of T39); the meeting '
+          'and the unrouted protocol with Part 1\'s opinion holders, against the Residual Protocol listing every piece and '
+          'routing each to 2 or 3 holders, chosen at random (each catches the flaw 0.4 of the time, as Part 2\'s '
+          'informed share) or chosen as holders of the fact (0.9); protocol | pieces | adoption of a better design | '
+          'of a worse design | settlements | owner-weeks')
+    settings = (('meeting', 'meeting', {}), ('unrouted protocol', 'residual', {}),
+                ('protocol, 2 random holders', 'protocol', {'route': 2}),
+                ('protocol, 2 holders of the fact', 'protocol', {'route': 2, 'catch': 0.9}),
+                ('protocol, 3 holders of the fact', 'protocol', {'route': 3, 'catch': 0.9}))
+    for label, protocol, kw in settings:
+        for pieces in (1, 2, 4, 8):
+            b = review_energy(pieces, protocol, True, **kw)
+            w = review_energy(pieces, protocol, False, **kw)
+            print('  %s | %d | %.4f | %.4f | %.2f | %.2f' % (label, pieces, b['adopted'], w['adopted'],
+                                                             b['settlements'], b['weeks']))
+    print('  constants | route 2 | holders of the fact catch 0.90 | random holders catch %.2f'
+          % inspect.signature(review_energy).parameters['catch'].default)
+
+
+def t42():
+    print('T42 the blind-spot exhaust: a design in 4 pieces, the flaw a local fact the machines do not see '
+          '(machine_catch 0); the machines list each piece as unsettled with chance lists, blind to which piece hides '
+          'the flaw; a holder of the fact adds the flawed piece when it was not listed with chance adds; listed and added '
+          'pieces go to 2 holders of the fact (catch 0.9); lists | adds | adoption of a better design | of a worse '
+          'design | settlements on a better design')
+    for lists in (0.0, 0.25, 0.5, 1.0):
+        for adds in (0.0, 0.25, 0.5, 0.75):
+            b = review_energy(4, 'protocol', True, route=2, catch=0.9, lists=lists, adds=adds)
+            w = review_energy(4, 'protocol', False, route=2, catch=0.9, lists=lists, adds=adds)
+            print('  %.2f | %.2f | %.4f | %.4f | %.2f' % (lists, adds, b['adopted'], w['adopted'], b['settlements']))
+
+
+def _median_text(values: list[float]) -> str:
+    return '%.3f' % sorted(values)[len(values) // 2] if values else '-'
+
+
+def t43():
+    print('T43 amending a design into the approvers\' win-set: the running case\'s four gates with 0, 1, 2, 4 or 6 '
+          'extra gates as in T27 (each a uniform share of the way from the status quo to the gates\' centroid, plus '
+          'normal scatter); the share of draws in which the design passes every gate as it stands, in which the '
+          'nearest change every gate prefers exists (the status quo outside the hull), and the cost of that amendment '
+          'when the design did not pass: the median distance moved and the median share of the design\'s advance '
+          'over the status quo kept (its projection on the design\'s direction); 4,000 draws, seed 7')
+    c = Committee()
+    sq, d = c.status_quo, c.design
+    length = math.hypot(d[0] - sq[0], d[1] - sq[1])
+    for spread in (0.25, 0.5, 1.0):
+        for extra in (0, 1, 2, 4, 6):
+            rng = random.Random(7)
+            passes = amendable = 0
+            moved, kept = [], []
+            for _ in range(4000):
+                gates = late_gates(c, extra, spread, rng)
+                if not win_set_nonempty(sq, gates):
+                    continue
+                amendable += 1
+                a = amend_to_win_set(d, sq, gates)
+                if a == d:
+                    passes += 1
+                    continue
+                moved.append(math.hypot(a[0] - d[0], a[1] - d[1]))
+                kept.append(((a[0] - sq[0]) * (d[0] - sq[0]) + (a[1] - sq[1]) * (d[1] - sq[1])) / length ** 2)
+            print('  scatter %.2f | extra %d | passes as it stands %.4f | amendable %.4f | median move %s of %.3f | '
+                  'median advance kept %s' % (spread, extra, passes / 4000, amendable / 4000, _median_text(moved), length,
+                                              _median_text(kept)))

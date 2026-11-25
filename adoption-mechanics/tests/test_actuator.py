@@ -14,7 +14,7 @@ import math
 import random
 import unittest
 
-from actuator import band_exponent, hysteresis_band, in_hull, setter_proposal, win_set_nonempty
+from actuator import amend_to_win_set, band_exponent, hysteresis_band, in_hull, setter_proposal, win_set_nonempty
 
 TRIANGLE = [(-1.0, -1.0), (1.0, -1.0), (0.0, 1.0)]
 
@@ -92,6 +92,43 @@ class AgendaSetter(unittest.TestCase):
         x = setter_proposal((5.0, 5.0), gates, 2)
         self.assertAlmostEqual(x[0], 0.5, places=9)
         self.assertAlmostEqual(x[1], 1.0, places=9)
+
+
+class Amendment(unittest.TestCase):
+    """The change nearest a design that every gate strictly prefers to the status quo."""
+
+    SQ = (0.0, 0.0)
+
+    def _passes(self, d, gates):
+        return all((d[0] - z[0]) ** 2 + (d[1] - z[1]) ** 2 < (self.SQ[0] - z[0]) ** 2 + (self.SQ[1] - z[1]) ** 2
+                   for z in gates)
+
+    def test_a_design_that_passes_is_kept(self):
+        gates = [(2.0, 0.5), (1.5, -0.5), (2.5, -0.2), (2.2, 0.8)]
+        self.assertEqual(amend_to_win_set((1.8, 0.1), self.SQ, gates), (1.8, 0.1))
+
+    def test_the_amendment_passes_every_gate(self):
+        rng = random.Random(3)
+        for _ in range(40):
+            gates = [(rng.uniform(0.5, 3), rng.uniform(-1, 1)) for _ in range(5)]
+            if not win_set_nonempty(self.SQ, gates):
+                continue
+            self.assertTrue(self._passes(amend_to_win_set((3.0, 2.0), self.SQ, gates), gates))
+
+    def test_no_passing_point_on_a_grid_is_nearer(self):
+        gates = [(2.0, 0.5), (1.5, -0.5), (0.6, 1.4)]
+        d = (2.5, -1.5)
+        a = amend_to_win_set(d, self.SQ, gates)
+        best = math.hypot(a[0] - d[0], a[1] - d[1])
+        for i in range(-60, 61):
+            for j in range(-60, 61):
+                q = (i / 20.0, j / 20.0)
+                if self._passes(q, gates):
+                    self.assertGreaterEqual(math.hypot(q[0] - d[0], q[1] - d[1]), best - 1e-6)
+
+    def test_an_empty_win_set_is_rejected(self):
+        with self.assertRaises(ValueError):
+            amend_to_win_set((1.0, 0.0), (1.0, 0.0), [(2.0, 0.0), (0.0, 1.0), (0.0, -1.0)])
 
 
 class Hysteresis(unittest.TestCase):

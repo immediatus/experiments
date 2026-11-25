@@ -10,6 +10,7 @@ import sys
 
 sys.path[:0] = [os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'model')]
 
+import math
 import unittest
 
 from cascades import cascade_share, public_lead, sequence
@@ -68,6 +69,32 @@ class PublicLead(unittest.TestCase):
 
     def test_lead_counts_revealed_signals_before_lock(self):
         self.assertEqual(public_lead([1, -1, -1], 0.7), -1)
+
+class BelowCapture(unittest.TestCase):
+    # Corollary 2 (ii): an input whose log-odds do not exceed one member's by more than the probing weight leaves a
+    # blind vote alone and acts in a sequence as a head start of its log-odds in signals
+
+    def test_one_agreeing_voice_starts_the_cascade(self):
+        head = math.log(0.65 / 0.35) / math.log(0.7 / 0.3)
+        self.assertEqual(sequence([1] + [-1] * 8, 0.7, lead=head), [1] * 9)
+        self.assertNotEqual(sequence([1] + [-1] * 8, 0.7), [1] * 9)
+
+    def test_a_cascade_against_it_needs_two_more(self):
+        head = math.log(0.65 / 0.35) / math.log(0.7 / 0.3)
+        self.assertEqual(sequence([-1, 1, -1, -1] + [1] * 5, 0.7, lead=head)[4:], [-1] * 5)
+        self.assertEqual(sequence([-1, 1, 1] + [-1] * 5, 0.7, lead=head)[3:], [1] * 5)
+
+    def test_a_blind_member_ignores_it(self):
+        head = math.log(0.65 / 0.35) / math.log(0.7 / 0.3)
+        for s in (1, -1):
+            self.assertEqual(sequence([s], 0.7, lead=head), [s])
+
+    def test_probing_weight_lengthens_the_head_start(self):
+        step = math.log(0.7 / 0.3)
+        head = math.log(0.65 / 0.35) / step
+        self.assertNotEqual(sequence([1] + [-1] * 8, 0.7, probe_weight=step, lead=head), [1] * 9)
+        self.assertEqual(sequence([1, 1] + [-1] * 8, 0.7, probe_weight=step, lead=head), [1] * 10)
+
 
 if __name__ == '__main__':
     unittest.main()

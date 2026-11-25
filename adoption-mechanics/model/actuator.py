@@ -65,7 +65,14 @@ def setter_proposal(sq: tuple[float, float], ideals: list[tuple[float, float]], 
     beats the result for every gate, so it lies in the closed convex hull of the ideal points and ends all further
     change."""
     radii = [math.hypot(sq[0] - z[0], sq[1] - z[1]) for z in ideals]
-    x = list(ideals[setter])
+    return _project(ideals[setter], ideals, radii, sweeps, tol)
+
+
+def _project(start: tuple[float, float], ideals: list[tuple[float, float]], radii: list[float], sweeps: int,
+             tol: float) -> tuple[float, float]:
+    """The point nearest `start` in the intersection of the disks of the given radii around the ideal points, by
+    Dykstra's alternating projections, which converge to the exact projection onto an intersection of convex sets."""
+    x = list(start)
     inc = [[0.0, 0.0] for _ in ideals]
     for _ in range(sweeps):
         moved = 0.0
@@ -79,6 +86,20 @@ def setter_proposal(sq: tuple[float, float], ideals: list[tuple[float, float]], 
         if moved < tol:
             break
     return x[0], x[1]
+
+
+def amend_to_win_set(design: tuple[float, float], sq: tuple[float, float], ideals: list[tuple[float, float]],
+                     margin: float = 1e-9, sweeps: int = 20000, tol: float = 1e-13) -> tuple[float, float]:
+    """The change nearest `design` that every gate strictly prefers to the status quo: the design itself when it
+    already passes, otherwise its projection onto the win-set with each disk shrunk by a relative `margin`, so
+    that every preference is strict. The cost of the amendment is the distance it moves the design. Raises
+    ValueError when the status quo lies in the hull of the ideal points and no change passes."""
+    if not win_set_nonempty(sq, ideals):
+        raise ValueError('the status quo lies in the hull of the ideal points: no change passes every gate')
+    radii = [math.hypot(sq[0] - z[0], sq[1] - z[1]) for z in ideals]
+    if all(math.hypot(design[0] - z[0], design[1] - z[1]) < r for z, r in zip(ideals, radii)):
+        return design
+    return _project(design, ideals, [r * (1.0 - margin) for r in radii], sweeps, tol)
 
 
 def _root(xs: list[float], margin: list[float]) -> float:

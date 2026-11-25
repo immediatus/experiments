@@ -3,8 +3,9 @@
 Measured long-context behaviour has three features this module keeps. Use of a fact falls in the middle of the
 input and holds at its ends, a U-shaped curve (Liu et al. 2024). As the input approaches the model's effective
 window, the advantage of the beginning fades while the advantage of the end stays (Positional Biases Shift as Inputs
-Approach Context Window Limits, 2025). And the effective window is shorter than the advertised one (Hsieh et al.
-2024), so `fill` is measured against the effective window.
+Approach Context Window Limits, 2025). And the effective window is shorter than the advertised one, most of all
+when the fact shares little wording with the question (NoLiMa, Modarressi et al. 2025), so `fill` is measured
+against the effective window.
 
 position_recall gives the chance the model uses a fact at relative position x of a document filling `fill` of its
 effective window. The shape follows those measurements; document_use and fit_recall fit it to published

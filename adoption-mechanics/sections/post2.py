@@ -1,4 +1,5 @@
-"""Sections of Post 2, scaling to agents and the blueprint: T11 to T21, T24, T25; and the calibration of Post 1: T22, T23."""
+"""Sections of Post 2, scaling to agents and the blueprint: T11 to T21, T24, T25, T38; and the calibration of Post 1: T22,
+T23."""
 import functools
 import math
 import os
@@ -8,7 +9,7 @@ from statistics import median
 from calibration import committee_reliability, disagreement, error_correlation, panel_agreement, precision_from_icc, shared_from_disagreement
 from cascades import cascade_share, public_lead
 from correlation import load_counts, mantel_haenszel, phi_from_counts, tetrachoric_from_counts
-from hybrid import panel_run
+from hybrid import dilution_bound, dilution_limit, panel_run
 from irt import null_within_odds
 from pipeline import Committee, committee_run, frontier
 from sensors import error_floor, latent_votes, majority_error
@@ -194,7 +195,7 @@ def t16():
     good = committee_run(Committee(**kw), TRIALS, 1)
     bad = committee_run(Committee(design_better=False, **kw), TRIALS, 1)
     print('  blind poll and insured champion together | aggregation | %.4f | %.4f | %.4f' % (good, bad, good - bad))
-    for name, stage, change in SINGLE:
+    for name, _stage, change in SINGLE:
         kw = dict(base, status_quo=(2.0, 0.2), **change)
         print('  status quo in hull | %s | %.4f' % (name, committee_run(Committee(**kw), TRIALS, 1)))
 
@@ -366,7 +367,7 @@ def t23():
         base, six = points[0], points[-1]
         best = max(range(len(points)), key=lambda i: points[i][0] - points[i][1])
 
-        def adopt(silent, cascades):
+        def adopt(silent, cascades, extra=extra):
             return committee_run(Committee(first_speaker_silent=silent, cascades=cascades, **extra), TRIALS, 1)
         inter = (adopt(False, True) - adopt(True, True)) - (adopt(False, False) - adopt(True, False))
         print('  %s | %.4f %.4f | %.4f %.4f | %s | %d, %d | %+.4f'
@@ -411,3 +412,20 @@ def t25():
             cols = list(zip(*[r[fifth] for r in runs]))
             print('  %s | %s | all %.2f (%.2f-%.2f) | without hardest tenth %.2f (%.2f-%.2f) | without hardest fifth %.2f '
                   '(%.2f-%.2f)' % ((label, fifth) + tuple(v for c in cols for v in (math.fsum(c) / len(c), min(c), max(c)))))
+
+
+def t38():
+    print('T38 common-mode dilution (Proposition 6): the threshold rule of T15, adopting when the panel\'s share for the '
+          'successor exceeds the share the incumbent world predicts, with agents answering the successor 0.3 of the time '
+          'whatever the truth, correlated at agent rho, and people of whom 40% hold the local fact; the large-panel limit '
+          'of A+ and A- and the bound on their gap, against the simulated rule with 20 agents and 5 people (T15) and with '
+          '1,000 agents and 250 people: agent rho | people per agent | limit A+ A- | gap | bound | 20 and 5 | 1,000 and '
+          '250; 8,000 and 2,000 trials, seed 3')
+    for rho in (0.3, 0.6):
+        for ratio in (0.25, 0.5):
+            plus, minus = dilution_limit(0.3, rho, ratio, 0.4)
+            small = [panel_run(round(20 * ratio), 20, 0.4, rho, True, 8000, 3, truth=t)['threshold'] for t in (1, 0)]
+            large = [panel_run(round(1000 * ratio), 1000, 0.4, rho, True, 2000, 3, truth=t)['threshold'] for t in (1, 0)]
+            print('  %.1f | %.2f | %.4f %.4f | %.4f | %.4f | %.4f %.4f | %.4f %.4f'
+                  % (rho, ratio, plus, minus, plus - minus, dilution_bound(0.3, rho, ratio, 0.4), small[0], small[1],
+                     large[0], large[1]))

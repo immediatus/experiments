@@ -41,6 +41,10 @@ signals correlate.
   (T11). It follows from Proposition 1.
 - **Bound. Corollary 1.** A small upgrade improves a large panel if and only if the elasticity of correlation
   with respect to error is below 2p/(abs(z) phi(z)), which falls toward zero as members improve (T11, T12).
+- **Bound. Proposition 6.** Common-mode dilution: in a large panel pooled without weights by a threshold at the share
+  expected when the successor is worse, agents that share a blind spot set the chance of adopting a worse design,
+  Phi(Phi^-1(y0)(1 - sqrt(1 - rho))/sqrt(rho)), whatever the people know; the gap the people can open shrinks as rho
+  grows. `dilution_limit` and `dilution_bound` in [`model/hybrid.py`](../model/hybrid.py) compute it (T38).
 - **Bound.** The spatial gate: with the status quo inside the gates' hull every other lever is worth nothing
   (T16).
 - **Estimate.** Pooled and within-difficulty dependence on three benchmarks and the opinions in a vote (T12,
@@ -62,6 +66,8 @@ signals correlate.
 | Herding at latent correlation 0.75, hard and misleading questions: sequence against blind | 0.2584/0.1513, 0.7192/0.8812 | T24 |
 | Item-response null, strongest fifth (mean of 20 seeds): MMLU, GPQA, MMLU-Pro | 1.16, 1.17, 1.36 | T25 |
 | Agents help: midpoint gap past the people's 0.5165 at agent information | 0.2 to 0.3 (rho 0.3), 0.3 to 0.4 (rho 0.6) | T17 |
+| Dilution limit at a quarter of a person per agent, rho 0.6 (A+/A-), against 20 agents and 5 people | 0.5041/0.4017, 0.5020/0.4014 | T38 |
+| Twenty agents voting in the meeting, settlements per piece whole and in four pieces (15 people alone) | 23.80, 190.40 (4.20, 33.60) | T39 |
 
 ![Odds ratio of a shared mistake by fifth of model pairs on three benchmarks, all questions and questions of similar difficulty](../figures/correlation.svg)
 

@@ -8,7 +8,7 @@ make adopting it the rational choice.
 |---|---|---|
 | 1 | [Correct, and Rejected](https://e-mindset.space/blog/adoption-mechanics-part1-correct-and-rejected/) | the member model, the sensors, aggregation, hand-off and actuator stages, the write-back loop, the achievable region of six levers on better and worse designs |
 | 2 | [Smarter Agents, Fewer Opinions](https://e-mindset.space/blog/adoption-mechanics-part2-smarter-agents-fewer-opinions/) | dependence of model errors on three benchmarks, pooled and within question difficulty, the upgrade condition and its critical elasticity, cascades among correlated peers, mixed panels and when agents help |
-| 3 | [The Machine Gets the First Word](https://e-mindset.space/blog/adoption-mechanics-part3-the-machine-gets-the-first-word/) | a model's recall by position, calibrated on six measured models, and reading in parts; mediation for agreement and for difference by speaking order; a debate heard before or after the vote, single advocates and critics; the region of instrument combinations; and instruments that share a source, roles of one model stacked against the floor |
+| 3 | [The Machine Gets the First Word](https://e-mindset.space/blog/adoption-mechanics-part3-the-machine-gets-the-first-word/) | the Residual Protocol, the post's framework, and its parts: the plane of accuracy and correlation beyond Part 1's levers; routing to the holders of each fact and the machines' blind-spot list; amending a design into the approvers' win-set; a model's recall by position, calibrated on six measured models, and reading in parts; mediation for agreement and for difference by speaking order; a debate heard before or after the vote, single advocates and critics; the region of instrument combinations; instruments that share a source; and the human energy budget, the meeting's mesh of settlements against the protocol's star, with the binding constraint computed |
 
 ## Check it yourself
 
@@ -23,9 +23,9 @@ python3 adoption-mechanics/reproduce.py --figures --check  # prints "figures ide
 |---|---|
 | [`model/`](model/) | The member model's stages, standard library only |
 | [`tests/`](tests/) | Unit tests of every model function, run by `reproduce.py --check` |
-| [`sections/`](sections/) | Sections T1 to T37, listed in [`docs/SECTIONS.md`](docs/SECTIONS.md) |
+| [`sections/`](sections/) | Sections T1 to T43, listed in [`docs/SECTIONS.md`](docs/SECTIONS.md) |
 | [`expected/results.txt`](expected/results.txt) | The frozen output every claim is checked against |
-| [`figures/`](figures/) | The eight figures, drawn from the frozen output: seven in the posts, and the region of all 81 combinations of instruments in the Part 3 companion |
+| [`figures/`](figures/) | The nine figures, drawn from the frozen output: eight in the posts, and the region of all 81 combinations of instruments in the Part 3 companion |
 | [`data/`](data/) | Pairwise right/wrong counts, overall and within difficulty strata, for Stanford HELM Lite MMLU and HELM Capabilities GPQA and MMLU-Pro, and the script that fetched them |
 | [`docs/`](docs/) | [Claims](docs/CLAIMS.md), [falsification criteria](docs/FALSIFICATION.md), [assumptions](docs/ASSUMPTIONS.md), [sources](docs/SOURCES.md), and a companion page per part |
 

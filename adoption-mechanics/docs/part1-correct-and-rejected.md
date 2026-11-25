@@ -94,6 +94,7 @@ reviews, so its standard error is at most 0.0035 (T9).
 | Gap alone: poll, champion; together | 0.3962, 0.4619; 0.4186 | T16 |
 | All six levers: better and worse design | 0.7085 and 0.0698 | T18 |
 | Region under six alternative settings: widest gap always includes decorrelation | see rows | T20 |
+| The energy bill of the meeting, settlements whole and in 2, 4, 8 pieces | 4.20, 23.76, 134.40, 758.10 | T39 |
 
 ![What each choice buys: for today's review, each lever alone and the widest-gap combinations, how often a better and a worse design are adopted](../figures/frontier.svg)
 

@@ -10,6 +10,11 @@ share; every other member believes the incumbent world and predicts its expected
 agent_predicts_crowd False, agents predict one half (no model of the crowd).
 
 The rule picks 1 when the actual share answering 1 exceeds the panel's mean prediction.
+
+dilution_limit and dilution_bound give the large-panel law of the unweighted threshold rule (Proposition 6 of the
+series, common-mode dilution): with agents that carry no information about the local fact and share one latent
+factor, adoption of a worse design does not depend on the people at all, and the gap between the two worlds is
+bounded by a term that shrinks as the agents' correlation grows and as the informed people's share falls.
 """
 import math
 import random
@@ -88,3 +93,41 @@ def panel_run(n_people: int, n_agents: int, people_private: float, agent_rho: fl
         mid += share > midpoint
     return {'majority': maj / trials, 'surprisingly_popular': sp / trials, 'threshold': thr / trials,
             'people': ppl / trials, 'midpoint': mid / trials}
+
+
+def _limit_check(agent_yes: float, rho: float, people_ratio: float, informed: float) -> None:
+    if not 0.0 < rho < 1.0:
+        raise ValueError('rho must lie in (0, 1), got %r' % rho)
+    if not 0.0 < agent_yes < 1.0:
+        raise ValueError('agent_yes must lie in (0, 1), got %r' % agent_yes)
+    if people_ratio < 0.0 or not 0.0 <= informed <= 1.0:
+        raise ValueError('need people_ratio >= 0 and informed in [0, 1], got %r, %r' % (people_ratio, informed))
+
+
+def dilution_limit(agent_yes: float, rho: float, people_ratio: float, informed: float) -> tuple[float, float]:
+    """The large-panel limit of the threshold rule of panel_run: (A+, A-), adoption of the successor when it is
+    better and when it is worse, as the numbers of agents and people grow with people_ratio people per agent. Agents
+    answer 1 with probability agent_yes in either world, errors correlated at rho in (0, 1) by the one-factor model,
+    and carry no information about the local fact; a share `informed` of the people answer the truth and the rest
+    answer independently of it; the rule adopts when the panel's share answering 1 exceeds the share the incumbent
+    world predicts. Given the shared factor g the agents' share tends to a(g) = Phi((sqrt(rho) g + Phi^-1(agent_yes))
+    / sqrt(1 - rho)) and the people's share to its mean, so the rule adopts in world w exactly when a(g) exceeds
+    c_w = agent_yes - people_ratio * informed * w, which has probability Phi((Phi^-1(agent_yes) - sqrt(1 - rho)
+    Phi^-1(c_w)) / sqrt(rho)), and 1 when c_w <= 0."""
+    _limit_check(agent_yes, rho, people_ratio, informed)
+    tau, a, b = _N.inv_cdf(agent_yes), math.sqrt(rho), math.sqrt(1.0 - rho)
+
+    def adopt(c):
+        return 1.0 if c <= 0.0 else _N.cdf((tau - b * _N.inv_cdf(c)) / a)
+    return adopt(agent_yes - people_ratio * informed), adopt(agent_yes)
+
+
+def dilution_bound(agent_yes: float, rho: float, people_ratio: float, informed: float) -> float:
+    """An upper bound on A+ - A- from dilution_limit, by the mean value theorem with the normal density at most
+    1/sqrt(2 pi): sqrt((1 - rho) / (2 pi rho)) (Phi^-1(agent_yes) - Phi^-1(c_+)), with c_+ = agent_yes - people_ratio
+    * informed, and 1 when c_+ <= 0. It shrinks as rho grows and as the informed people's weight falls."""
+    _limit_check(agent_yes, rho, people_ratio, informed)
+    c = agent_yes - people_ratio * informed
+    if c <= 0.0:
+        return 1.0
+    return math.sqrt((1.0 - rho) / (2.0 * math.pi * rho)) * (_N.inv_cdf(agent_yes) - _N.inv_cdf(c))
