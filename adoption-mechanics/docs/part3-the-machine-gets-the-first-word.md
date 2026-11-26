@@ -126,9 +126,9 @@ system does (T35, T36). Members weigh every input by its accuracy as if the inpu
 | Blind list: half listed; holders add three in four; every piece listed (A-) | 0.5380; 0.3305; 0.1013 | T42 |
 | One and four late gates: passes as it stands, amendable, advance kept | 0.5655, 0.9810, 0.570; 0.0955, 0.8648, 0.391 | T43 |
 
-![Every combination of instruments on the two numbers of the series](../figures/region.svg)
+![How often the review adopts a better and a worse design with each instrument, and with the best combination](../figures/region.svg)
 
-*The region of instruments (T34). Every combination of reading, combining rule, debate and critic; the widest gaps combine a verified critic and a debate heard first, and the combining rule barely matters once they are there (Corollary 3).*
+*What each instrument buys (T34). Blue is how often the review adopts a better design, red how often a worse one, and the dotted lines mark the meeting alone, 40% and 2%. Most instruments move both dots: a verified critic lifts better designs to 94% but lets worse ones through 14% of the time, and a contrarian critic blocks everything. Together, a model reading in parts, a debate heard first and a verified critic reach 94% against 2%.*
 
 ![What the review does as the AI verdict heard first grows more accurate, against answers recorded first](../figures/capture.svg)
 
@@ -140,11 +140,11 @@ system does (T35, T36). Members weigh every input by its accuracy as if the inpu
 
 ![Adoption of better and worse designs as instruments are added one at a time, for each way the groups combine](../figures/instruments.svg)
 
-*Instruments take over the meeting, one group at a time (T34). Without instruments the three ways of combining the groups move adoption of a better design from 40% to 79%. A debate heard first outweighs the two weaker groups but not the pilot team, so the rules still differ (Corollary 3 (ii)); the reader and the verified critic add evidence until it outweighs every member, and the rules converge on 93% to 94% against about 2% (Corollary 3 (i)).*
+*Instruments take over the meeting, one group at a time (T34). Without instruments, how the groups combine their views moves adoption of a better design from 40% to 79%. A debate heard first outweighs the two weaker groups but not the pilot team, so the rules still differ, 61% to 80%. The reader and the verified critic add evidence until it outweighs every member, and the three rules converge on 93% to 94% better against 2% worse.*
 
-![Chance a model uses the decisive fact, read whole or in parts, for a fact in one place and a fact in two passages](../figures/reading.svg)
+![Chance a model uses the decisive fact, read whole or in parts, for a fact in one place and a fact across two passages](../figures/reading.svg)
 
-*Split the reading, not the design. A fact in one place is used more often when the model reads the design in parts; a fact that needs two distant passages goes the other way, because the passages rarely land in the same call (T29, dip depth 0.3).*
+*Split the reading, not the design (T29). Read in more parts, a model uses a fact in one place more often, 63% whole and 89% in eight parts, and a fact that spans two distant passages less often, 40% and 14%, because the two passages rarely land in the same part. The same holds at every document length and recall curve tried.*
 
 ## The bill, and when the advice reverses
 

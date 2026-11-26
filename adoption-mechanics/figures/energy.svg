@@ -451,5 +451,5 @@
 <rect x="582.56" y="322.18" width="4.92" height="5.59" class="f-grid" fill-opacity="1"/>
 <text x="412.00" y="345.85" text-anchor="start" class="f-sub">2 disagreements</text>
 <path d="M8.00 357.50 H692.00" class="s-grid" fill="none" stroke-width="1"/>
-<text x="15.00" y="378.85" text-anchor="start" class="f-sub">Right: decisions correct when half the designs are better. Each box is one quarter: 52 disagreements settled at about a day and a quarter each.</text>
+<text x="15.00" y="378.85" text-anchor="start" class="f-sub">Right: correct decisions, half the designs better. Box: one quarter, 52 disagreements.</text>
 </svg>

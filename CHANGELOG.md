@@ -46,9 +46,7 @@ dated erratum recorded here, with what changed, why, and which numbers moved.
   move a review, and a shared briefing buys less than evidence of one's own; routing to the holders of each fact; a
   machine list blind to the flaw against the questions holders add; and the nearest version of a design every
   approver prefers. 43 sections, 194 unit
-  tests, 9 figures (three of them interactive in the posts, one replaying 800 simulated reviews vote by vote and one
-  simulating the captured panel live, all nine
-  built from the frozen results), 23 falsification criteria (four testing the Residual Protocol, the framework the series proposes) and a companion page per part.
+  tests, 9 figures, all built from the frozen results (the attention figure is a table drawn in the post), 23 falsification criteria (four testing the Residual Protocol, the framework the series proposes) and a companion page per part.
 - Measured: pairwise right/wrong counts, overall and within 5 and 10 strata of question difficulty, for Stanford
   HELM Lite MMLU (95 models) and HELM Capabilities GPQA (65) and MMLU-Pro (64); counts only, licence unstated.
   Pooled dependence of errors rises with capability on all three; within difficulty it sits at an

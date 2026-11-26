@@ -69,11 +69,13 @@ signals correlate.
 | Dilution limit at a quarter of a person per agent, rho 0.6 (A+/A-), against 20 agents and 5 people | 0.5041/0.4017, 0.5020/0.4014 | T38 |
 | Twenty agents voting in the meeting, settlements per piece whole and in four pieces (15 people alone) | 23.80, 190.40 (4.20, 33.60) | T39 |
 
-![Odds ratio of a shared mistake by fifth of model pairs on three benchmarks, all questions and questions of similar difficulty](../figures/correlation.svg)
+![Odds that two models share a mistake, by fifth of model pairs, over all questions and among questions of similar difficulty](../figures/correlation.svg)
 
-![The upgrade map: curves of equal floor, the constructed path and the measured MMLU tiers](../figures/upgrade.svg)
+*What stronger models share (T13, T19). The better two models are, the likelier they make the same mistake: for the strongest fifth of pairs the odds are 13, 9 and 19 times those of independent errors on three benchmarks. Compared on questions of similar difficulty, the grey lines, most of that disappears: hard questions are hard for every model. What remains for the strongest pairs, 1.2 to 1.8 times, is blind spots of their own.*
 
-*What stronger models share. Over all questions, the odds that two models make the same mistake rise with their accuracy on all three benchmarks, to 13, 9 and 19 for the strongest fifth of pairs. Among questions of similar difficulty the odds ratio stays near 1 for most pairs: shared difficulty explains most of it. The strongest fifth keep a residual, 1.25, 1.81 and 1.84: the best models also share blind spots of their own.*
+![How often one model and a large panel of them are wrong, across four measured tiers of models](../figures/upgrade.svg)
+
+*Where an upgrade takes a panel (T12). Stronger models are wrong less often, and so is a large panel of them: every measured upgrade lowered both. The shaded gap is all that voting buys, and it stays thin, because the models' mistakes grow more alike as they improve, from 0.68 to 0.78. A large panel of the strongest tier is wrong on 22% of questions, one of its models on 25%.*
 
 ## The bill, and when the advice reverses
 

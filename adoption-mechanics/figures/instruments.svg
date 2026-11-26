@@ -20,39 +20,39 @@
 <path d="M46.00 278.50 H676.00" class="s-sub" fill="none"/>
 <text x="46.00" y="12.80" text-anchor="start" class="f-ink">designs adopted</text>
 <text x="676.00" y="315.80" text-anchor="end" class="f-ink">instruments heard before the vote, added one at a time</text>
-<path d="M46.00 175.59 L256.00 111.68 L466.00 52.58 L676.00 40.41" class="s-g" fill="none" stroke-width="2"/>
-<circle cx="46.00" cy="175.59" r="3" class="f-g"/>
-<circle cx="256.00" cy="111.68" r="3" class="f-g"/>
-<circle cx="466.00" cy="52.58" r="3" class="f-g"/>
-<circle cx="676.00" cy="40.41" r="3" class="f-g"/>
-<path d="M46.00 273.43 L256.00 263.80 L466.00 264.97 L676.00 272.95" class="s-g" fill="none" stroke-width="2" stroke-dasharray="5 4"/>
-<circle cx="46.00" cy="273.43" r="3" class="f-g"/>
-<circle cx="256.00" cy="263.80" r="3" class="f-g"/>
-<circle cx="466.00" cy="264.97" r="3" class="f-g"/>
-<circle cx="676.00" cy="272.95" r="3" class="f-g"/>
-<path d="M46.00 78.20 L256.00 74.95 L466.00 47.55 L676.00 38.00" class="s-d" fill="none" stroke-width="2"/>
-<circle cx="46.00" cy="78.20" r="3" class="f-d"/>
-<circle cx="256.00" cy="74.95" r="3" class="f-d"/>
-<circle cx="466.00" cy="47.55" r="3" class="f-d"/>
-<circle cx="676.00" cy="38.00" r="3" class="f-d"/>
-<path d="M46.00 256.71 L256.00 255.85 L466.00 263.75 L676.00 271.68" class="s-d" fill="none" stroke-width="2" stroke-dasharray="5 4"/>
-<circle cx="46.00" cy="256.71" r="3" class="f-d"/>
-<circle cx="256.00" cy="255.85" r="3" class="f-d"/>
-<circle cx="466.00" cy="263.75" r="3" class="f-d"/>
-<circle cx="676.00" cy="271.68" r="3" class="f-d"/>
-<path d="M46.00 163.90 L256.00 122.76 L466.00 54.15 L676.00 41.86" class="s-b" fill="none" stroke-width="2"/>
-<circle cx="46.00" cy="163.90" r="3" class="f-b"/>
-<circle cx="256.00" cy="122.76" r="3" class="f-b"/>
-<circle cx="466.00" cy="54.15" r="3" class="f-b"/>
-<circle cx="676.00" cy="41.86" r="3" class="f-b"/>
-<path d="M46.00 272.72 L256.00 266.39 L466.00 265.22 L676.00 273.71" class="s-b" fill="none" stroke-width="2" stroke-dasharray="5 4"/>
-<circle cx="46.00" cy="272.72" r="3" class="f-b"/>
-<circle cx="256.00" cy="266.39" r="3" class="f-b"/>
-<circle cx="466.00" cy="265.22" r="3" class="f-b"/>
-<circle cx="676.00" cy="273.71" r="3" class="f-b"/>
+<path d="M46.00 273.43 L256.00 263.80 L466.00 264.97 L676.00 272.95" class="s-a" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
+<circle cx="46.00" cy="273.43" r="2" class="f-a"/>
+<circle cx="256.00" cy="263.80" r="2" class="f-a"/>
+<circle cx="466.00" cy="264.97" r="2" class="f-a"/>
+<circle cx="676.00" cy="272.95" r="2" class="f-a"/>
+<path d="M46.00 175.59 L256.00 111.68 L466.00 52.58 L676.00 40.41" class="s-g" fill="none" stroke-width="2.5"/>
+<circle cx="46.00" cy="175.59" r="3.5" class="f-g"/>
+<circle cx="256.00" cy="111.68" r="3.5" class="f-g"/>
+<circle cx="466.00" cy="52.58" r="3.5" class="f-g"/>
+<circle cx="676.00" cy="40.41" r="3.5" class="f-g"/>
+<path d="M46.00 256.71 L256.00 255.85 L466.00 263.75 L676.00 271.68" class="s-a" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
+<circle cx="46.00" cy="256.71" r="2" class="f-a"/>
+<circle cx="256.00" cy="255.85" r="2" class="f-a"/>
+<circle cx="466.00" cy="263.75" r="2" class="f-a"/>
+<circle cx="676.00" cy="271.68" r="2" class="f-a"/>
+<path d="M46.00 78.20 L256.00 74.95 L466.00 47.55 L676.00 38.00" class="s-d" fill="none" stroke-width="2.5"/>
+<circle cx="46.00" cy="78.20" r="3.5" class="f-d"/>
+<circle cx="256.00" cy="74.95" r="3.5" class="f-d"/>
+<circle cx="466.00" cy="47.55" r="3.5" class="f-d"/>
+<circle cx="676.00" cy="38.00" r="3.5" class="f-d"/>
+<path d="M46.00 272.72 L256.00 266.39 L466.00 265.22 L676.00 273.71" class="s-a" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
+<circle cx="46.00" cy="272.72" r="2" class="f-a"/>
+<circle cx="256.00" cy="266.39" r="2" class="f-a"/>
+<circle cx="466.00" cy="265.22" r="2" class="f-a"/>
+<circle cx="676.00" cy="273.71" r="2" class="f-a"/>
+<path d="M46.00 163.90 L256.00 122.76 L466.00 54.15 L676.00 41.86" class="s-b" fill="none" stroke-width="2.5"/>
+<circle cx="46.00" cy="163.90" r="3.5" class="f-b"/>
+<circle cx="256.00" cy="122.76" r="3.5" class="f-b"/>
+<circle cx="466.00" cy="54.15" r="3.5" class="f-b"/>
+<circle cx="676.00" cy="41.86" r="3.5" class="f-b"/>
 <text x="54.00" y="191.85" text-anchor="start" class="f-g" font-weight="bold">apart</text>
 <text x="54.00" y="69.85" text-anchor="start" class="f-d" font-weight="bold">agreement</text>
 <text x="54.00" y="155.85" text-anchor="start" class="f-b" font-weight="bold">reliability</text>
-<text x="676.00" y="27.80" text-anchor="end" class="f-ink">better designs</text>
-<text x="54.00" y="244.80" text-anchor="start" class="f-ink">worse designs, dashed</text>
+<text x="676.00" y="27.80" text-anchor="end" class="f-ink">better designs: the three rules meet</text>
+<text x="54.00" y="244.80" text-anchor="start" class="f-a">worse designs, all three rules (red, dashed)</text>
 </svg>

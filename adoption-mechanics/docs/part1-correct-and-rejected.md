@@ -41,7 +41,7 @@ better design and on a worse one, whose champion still argues for it.
   does not favor stops there. With `carry`, each group hears the earlier groups' conclusions first.
 - **Where designs die.** `stage_fates` records where each review ends: the team review, the hand-off (the
   unweakened verdict would have convinced every approver, the relayed one does not), the approvals, or adopted.
-  `review_traces` keeps every draw of those same reviews, vote by vote, for the figure that replays them (T26, T28).
+  `review_traces` keeps every draw of those same reviews, vote by vote, so any single review can be inspected (T28); the figure shows where all of them end (T26).
 - **The agenda setter.** `setter_proposal` gives the change a gate proposes when it sets the agenda: the point of
   the win-set closest to its priorities, which lies in the approvers' hull, so one compromise ends change (T5).
 - **Too many conversations.** `window_survival` (pairwise disagreements settled one at a time within a 13-week
@@ -96,11 +96,13 @@ reviews, so its standard error is at most 0.0035 (T9).
 | Region under six alternative settings: widest gap always includes decorrelation | see rows | T20 |
 | The energy bill of the meeting, settlements whole and in 2, 4, 8 pieces | 4.20, 23.76, 134.40, 758.10 | T39 |
 
-![What each choice buys: for today's review, each lever alone and the widest-gap combinations, how often a better and a worse design are adopted](../figures/frontier.svg)
+![How often a review adopts a better and a worse design, today, with each lever alone, with all six, and with the status quo inside the hull](../figures/frontier.svg)
 
-![The life of a design: of 1,000 reviews of a better and a worse design with groups deciding apart, how many survive the team review, the managers' hand-off and the approvals](../figures/lifecycle.svg)
+*What each choice buys (T18). Blue is how often a review adopts a better design, red how often it adopts a worse one, and the dotted lines mark today's 72% and 20%. Five levers move both dots the same way; only the decorrelated panel moves them apart, which is why every widest gap includes it. All six together keep a better design near 71% and cut a worse one to 7%. With the status quo inside the approvers' hull, nothing passes.*
 
-*What the review can reach. Each point is one of the 64 combinations of the six levers; the blue ones are the 21 that no other combination beats on both counts, and all but one of them include a decorrelated panel. Today's review sits inside the frontier. All six levers together, the widest gap, keep a better design's chances near where they were and cut a worse design's from 20% to 7%. With the status quo inside the gates' hull, every combination sits at the origin.*
+![Where reviews of a better and a worse design end, in four settings: the team review, the hand-off, the approvals, or adoption](../figures/lifecycle.svg)
+
+*Where designs die (T26). Each bar is all the reviews of one design: grey is where the team review stopped it, orange the managers' hand-off, purple the approvals, and the end of the bar is adoption. Most failures end in the team review, not at the approvals: with groups deciding apart, 54% of reviews of a better design stop there. The approvals stop a design only when the status quo sits among their priorities, and then they stop every one, better or worse.*
 
 The post's step-through of the gates draws the ideal points, status quo positions and gate removal printed by
 T5.
