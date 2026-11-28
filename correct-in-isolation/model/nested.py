@@ -14,6 +14,8 @@ later.
 """
 import math
 
+from formulas_time import rounds, step_slots
+
 
 def simulate(k, n0=16, target=0.5, limit=1.0, per_node=8, headroom=0, tau_pod=90, tau_node=210,
              scan=10, sync=15, tol=0.1, oracle=False, dt=5, horizon=14400, metric='utilization',
@@ -148,3 +150,23 @@ def simulate_two_surges(gap, k=30, n0=16, target=0.5, limit=1.0, per_node=8, tau
                 empty_since = empty_since[gone:]
         t += dt
     return None, held
+
+
+def penalty_bands(k, n0, per_node=1):
+    """Every free-slot count from none to the full cover, simulated, and the runs of counts that meet a k-fold surge
+    later than the closed-form step below them (formulas_time.step_slots). Returns (first, last, seconds, seconds of
+    the step below) for each run: the counts just short of a step whose late pods hold the ratio inside the
+    tolerance for a round."""
+    steps = [step_slots(c, n0, k) for c in range(1, rounds(k) + 1)]
+    levels = [(0, simulate(k, n0=n0, headroom=0, per_node=per_node))]
+    levels += [(slots, simulate(k, n0=n0, headroom=slots, per_node=per_node)) for slots in steps]
+    out = []
+    for h in range(0, steps[-1] + 1):
+        below = [t for s, t in levels if s <= h][-1]
+        t = simulate(k, n0=n0, headroom=h, per_node=per_node)
+        if t > below:
+            if out and out[-1][1] == h - 1 and out[-1][2] == t:
+                out[-1][1] = h
+            else:
+                out.append([h, h, t, below])
+    return [tuple(b) for b in out]

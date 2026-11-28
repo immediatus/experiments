@@ -21,11 +21,14 @@ from hpa_vpa import simulate
 
 
 def first_up(target, prior):
+    """The hour of the first scale-up of the Part 1 pair at `target` from a histogram seeded with `prior`."""
     _, _, jumps = simulate(target, days=6, prior=prior, return_jumps=True)
     return jumps[0][0]
 
 
 class FirstStep(unittest.TestCase):
+    """Long steady history gives the documented interval; prior weight counts the seed and the burst; remembered
+    bursts set the first step."""
 
     def test_long_steady_history_gives_the_documented_interval(self):
         # a stationary history of rate r has total weight r h / ln 2 in start units, all of it above after a fall
@@ -43,6 +46,7 @@ class FirstStep(unittest.TestCase):
 
 
 class RestingPoint(unittest.TestCase):
+    """Inside the band history selects where the pair rests; inside the band each run rests."""
 
     def test_inside_the_band_history_selects_where_the_pair_rests(self):
         finals = {simulate(0.8, days=12, prior=p)[0][-1][1] for p in ((), ((2.0, 6.0, 200),), ((1.5, 24.0, 1000),))}

@@ -42,7 +42,7 @@ delay after a scale-up.
 
 ![A second surge after the first is scaled down](../figures/second-surge.svg)
 
-*Time until capacity meets a second 30x surge (red, left axis) and the node-hours held in the gap (gray dashed, right axis). While the first surge's pods are still up, the second costs nothing. After that, each round the leftover nodes no longer cover adds a 210-second node wait, while the node-hours keep rising. Open blue points: the documented bulk deletion, which only shifts the steps.*
+*Leftover capacity helps only while it lasts. Time until capacity meets a second 30x surge (red, left axis) and the node-hours held in the gap (gray dashed, right axis). While the first surge's pods are still up, the second costs nothing. After that, each round the leftover nodes no longer cover adds a 210-second node wait, while the node-hours keep rising. Open blue points: the documented bulk deletion, which only shifts the steps.*
 
 ## The gap and the intervention
 

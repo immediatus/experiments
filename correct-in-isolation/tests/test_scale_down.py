@@ -22,6 +22,9 @@ INSTANT = 10 ** 6
 
 
 class SecondSurge(unittest.TestCase):
+    """Inside the stabilization window the pods are still there; kept rounds counts rounds placed before deletion;
+    simulation matches the closed form away from the boundaries; the closed form spans ample to nested; partial
+    holding is dominated for a known gap."""
 
     def test_inside_the_stabilization_window_the_pods_are_still_there(self):
         for gap in (0, 60, 150, 240, 280):

@@ -60,10 +60,11 @@ dated erratum recorded here, with what changed, why, and which numbers moved.
 ### correct-in-isolation
 
 - The experiment behind *Correct in Isolation* (six parts, November and December 2026): the simulations and
-  closed forms of the five seams and the whole, 121 sections, 386 unit tests, 33 figures, TLA+ models of each
+  closed forms of the five seams and the whole, 121 sections, 395 unit tests, 33 figures, TLA+ models of each
   seam's formal side (5) and P models of three, a companion page per part with its bill and reversal condition,
   the claim map, 67 falsification criteria, the assumptions, a notation page and a field guide, and
-  `audit/seam_audit.py`, which runs the five whole-system tests on a cluster's own objects.
+  `audit/seam_audit.py`, which runs the five whole-system tests on a cluster's own objects, with its input format
+  and two tested example inputs. Every code folder has an index that links each file, and a test keeps it so.
 
 ### capacity-in-arrears
 

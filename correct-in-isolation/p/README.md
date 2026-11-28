@@ -37,6 +37,20 @@ that calls a webhook only if the first called it and the object changed after it
 Abstracted: the pod is two facts, the label and the sidecar; the dispatcher calls webhooks synchronously,
 which the API server does.
 
+## Files
+
+| File | What it holds |
+|---|---|
+| [`PSrc/SharedBackoff.p`](PSrc/SharedBackoff.p) | Part 3: one Reflector client re-watching through a queue with a wait limit |
+| [`PSrc/RepairRace.p`](PSrc/RepairRace.p) | Part 4: repairing a bound start-time cycle by deleting the webhook's configuration |
+| [`PSrc/AdmissionPasses.p`](PSrc/AdmissionPasses.p) | Part 5: a label webhook and an injector that the label selects, both opted in, in an order the checker chooses |
+| [`PSpec/RunBeforeGone.p`](PSpec/RunBeforeGone.p) | Part 3's property: a re-watch is answered 410 only after the run of rejections its starting backoff requires |
+| [`PSpec/RepairHolds.p`](PSpec/RepairHolds.p) | Part 4's properties: the repair holds when the webhook's pod is admitted before the horizon |
+| [`PSpec/AdmissionSpecs.p`](PSpec/AdmissionSpecs.p) | Part 5's properties: a webhook its selector skipped in the first pass is never called in the second |
+| [`PTst/Tests.p`](PTst/Tests.p) | The test drivers and cases, one property against one configuration each |
+| [`Seams.pproj`](Seams.pproj) | The P project file |
+| [`run.py`](run.py) | Compiles the project, checks each case and prints one line per case; `--check` compares with [`expected.txt`](expected.txt) |
+
 ## Checks and their frozen verdicts
 
 `expected.txt` holds one line per check. The tight backoff checks ask for one rejection more than the bound,

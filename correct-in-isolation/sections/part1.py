@@ -1,5 +1,6 @@
 """Sections of Part 1, a shared signal: T1, T2, T3, T4, T5, T19, T20, T21, T22, T23, T24, T39, T78, T90, T91, T92, T103, T107, T113, T118, T119."""
 import math
+from concurrent.futures import ProcessPoolExecutor
 
 from formulas import (
     coupled_relative_gain,
@@ -41,6 +42,7 @@ QS = (1.0, 1.1, 1.2, 1.3, 1.4, 1.5)
 
 
 def gain(x):
+    """A relative gain as the tables print it: three decimals, or 'singular' when it is undefined."""
     return 'singular' if x is None else '%.3f' % x
 
 
@@ -255,7 +257,7 @@ def t103():
           'Rows "steps": the same runs: multiple | hours before | first four scaling steps, hour and replicas '
           '| long-run doubling, hours | replicas at day 30 over day 1. Rows "backoff": the Part 3 server with '
           "its wait limit, a sudden full trigger, every client's backoff starting fresh or at its cap: start | "
-          'list cost | seeds 1 to 8 still storming in hour 8 | re-watches answered 410 in hour 8, seed 1')
+          'list cost | seeds 1 to 200 still storming in hour 8 | share storming')
     for prior in ((), ((2.0, 6.0, 200),), ((0.5, 6.0, 200),), ((2.0, 48.0, 200),)):
         days = simulate(0.5, days=30, prior=prior)[0]
         label = 'none | -' if not prior else '%.1f | %.0f' % (prior[0][0], prior[0][1])
@@ -265,10 +267,19 @@ def t103():
         at = {x[0]: x[1] for x in days}
         label = 'none | -' if not prior else '%.1f | %.0f' % (prior[0][0], prior[0][1])
         print('  steps | %s | %s | %.1f | %.0f' % (label, ', '.join('%.1f h: %d' % j for j in jumps[:4]), doubling, at[720] / at[24]))
+    jobs = [(cost, sd, raised) for raised in (False, True) for cost in (112.0, 113.0, 114.0) for sd in range(1, 201)]
+    with ProcessPoolExecutor() as ex:
+        storms = list(ex.map(_storms_in_hour_eight, jobs, chunksize=8))
     for raised in (False, True):
-        for cost in (113.0, 114.0):
-            runs = [relist_limited(cost, seed=sd, backoff_raised=raised)[6]['gone_per_hour'][-1] for sd in range(1, 9)]
-            print('  backoff | %s | %.0f | %d | %d' % ('raised' if raised else 'fresh', cost, sum(1 for x in runs if x > 0), runs[0]))
+        for cost in (112.0, 113.0, 114.0):
+            n = sum(s for (c, _, r), s in zip(jobs, storms) if c == cost and r == raised)
+            print('  backoff | %s | %.0f | %d | %.3f' % ('raised' if raised else 'fresh', cost, n, n / 200))
+
+
+def _storms_in_hour_eight(job):
+    """One run of the Part 3 server with its wait limit: whether re-watches are still answered 410 in hour 8."""
+    cost, seed, raised = job
+    return relist_limited(cost, seed=seed, backoff_raised=raised)[6]['gone_per_hour'][-1] > 0
 
 
 def t107():

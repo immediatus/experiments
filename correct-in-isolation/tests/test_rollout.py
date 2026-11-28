@@ -17,6 +17,7 @@ from formulas import rejection_life, stalled_rollout
 
 
 class SelfUpgrade(unittest.TestCase):
+    """Documented rounding; availability edge only completes; life shortens."""
 
     def test_documented_rounding(self):
         self.assertEqual(stalled_rollout(3), {'old': 3, 'new': 0, 'new_desired': 1})

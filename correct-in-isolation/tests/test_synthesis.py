@@ -22,11 +22,14 @@ from recovery import recover
 
 
 def converged_within(webhooks, order, passes):
+    """Whether `order` admits, within `passes`, the object it reaches with passes enough."""
     full = admit(pod(), order, passes=len(webhooks) + 2)
     return admit(pod(), order, passes=passes) == full
 
 
 class SeamsOfEveryOrder(unittest.TestCase):
+    """Signal whole singular every proper subset regular; subset gain closed form; assumption cycle of k; order
+    chain of k every proper subset converges."""
 
     def test_signal_whole_singular_every_proper_subset_regular(self):
         for k in range(3, 8):
@@ -74,8 +77,10 @@ class SeamsOfEveryOrder(unittest.TestCase):
 
 
 class PathInversions(unittest.TestCase):
+    """Passes equal one plus most path inversions; a chain is the special case."""
 
     def random_facts(self, rng, writers, n_facts):
+        """Random facts, each written by one of `writers` and needing each earlier fact with probability 0.35."""
         facts = {}
         for f in range(n_facts):
             prereqs = {g for g in range(f) if rng.random() < 0.35}
@@ -103,6 +108,7 @@ class PathInversions(unittest.TestCase):
 
 
 class PairsAndCrowds(unittest.TestCase):
+    """Two webhooks handing facts back and forth need three passes; informers needed for the state seam."""
 
     def test_two_webhooks_handing_facts_back_and_forth_need_three_passes(self):
         facts = {'f1': ('A', set()), 'f2': ('B', {'f1'}), 'f3': ('A', {'f2'}), 'f4': ('B', {'f3'})}
@@ -122,6 +128,7 @@ class PairsAndCrowds(unittest.TestCase):
 
 
 class TwoInjectors(unittest.TestCase):
+    """Release name decides."""
 
     def test_release_name_decides(self):
         facts = {'agent container': ('vault', set()), 'agent seen by istio': ('istio', {'agent container'})}
@@ -133,6 +140,7 @@ class TwoInjectors(unittest.TestCase):
 
 
 class SubsetFacts(unittest.TestCase):
+    """A fact whose prerequisite has no writer is dropped; subset count matches simulation."""
 
     def test_a_fact_whose_prerequisite_has_no_writer_is_dropped(self):
         facts = {'f1': ('a', set()), 'f2': ('b', {'f1'}), 'f3': ('c', {'f2'}), 'f4': ('c', set())}
@@ -147,6 +155,7 @@ class SubsetFacts(unittest.TestCase):
 
 
 class PolicyPhase(unittest.TestCase):
+    """Policies run before webhooks; direction of the link decides."""
 
     def test_policies_run_before_webhooks(self):
         self.assertEqual(admission_order(['zz-webhook', 'aa-webhook'], ['policy-b', 'policy-a'], ['AlwaysPullImages']),
@@ -159,6 +168,7 @@ class PolicyPhase(unittest.TestCase):
 
 
 class ConfigurationOrder(unittest.TestCase):
+    """Sorted by configuration name then listed order."""
 
     def test_sorted_by_configuration_name_then_listed_order(self):
         configs = {'sidecar-injector': ['inject'], 'admission-signer': ['sign', 'attest'], 'image-digest': ['pin']}

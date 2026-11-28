@@ -15,6 +15,7 @@ from relist import simulate_fair, simulate_limited
 
 
 class Mixed(unittest.TestCase):
+    """Uniform costs reproduce the scalar run; per client counts add up."""
 
     def test_uniform_costs_reproduce_the_scalar_run(self):
         for sim in (simulate_limited, simulate_fair):
@@ -30,6 +31,7 @@ class Mixed(unittest.TestCase):
 
 
 class LastGone(unittest.TestCase):
+    """Last 410 time is recorded."""
 
     def test_last_410_time_is_recorded(self):
         out = simulate_limited(40.0, hours=3)
@@ -39,6 +41,7 @@ class LastGone(unittest.TestCase):
 
 
 class EqualWork(unittest.TestCase):
+    """Mixed sizes storm at the same total work."""
 
     def test_mixed_sizes_storm_at_the_same_total_work(self):
         def mix(c, ratio, small=1900, large=100):

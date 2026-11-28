@@ -19,6 +19,9 @@ NODES = set(range(9))
 
 
 class Recovery(unittest.TestCase):
+    """Without a cycle every failure recovers; a self matching webhook is lost only with all its replicas;
+    dependents of a bound cycle stay down; each component check passes where the cluster never recovers; bind
+    probability matches enumeration."""
 
     def test_without_a_cycle_every_failure_recovers(self):
         placement = {'dns': {0, 1}, 'webhook': {2, 3}, 'app': {4, 5}}

@@ -1,8 +1,17 @@
 """Sections of Part 4, a shared assumption: T13, T14, T47, T48, T49, T58, T59, T60, T61, T62, T63, T64, T80, T89, T100, T101, T114."""
 import math
 import random
+from concurrent.futures import ProcessPoolExecutor
 
-from audit import SURVEY_DEFAULTS, cyclic_components, default_start_graph, min_feedback_arc_set, min_feedback_vertex_set
+from audit import (
+    SURVEY_DEFAULTS,
+    cyclic_components,
+    default_start_graph,
+    merge_restart_counts,
+    min_feedback_vertex_set,
+    restart_counts_range,
+    weigh_restart_counts,
+)
 from formulas import app_loss_distribution, bind_probability, cold_start_chain, cycle_mean_time_to_bind, rejection_life, stalled_rollout
 from percolation import gen_needs, greedy_relaxation, hard_floor, pareto_weights, predicted_threshold, residual_hidden, stranded
 from recovery import drain_order_losses, eviction_regime, heartbeat_unknown, placed_drain, recover, rolling_drain, simulated_life, simulated_time_to_bind
@@ -176,23 +185,23 @@ def t64():
           "Gatekeeper do by default; a webhook matches another's pods with probability p (1: rules over every "
           'namespace). Rows: webhooks k | p | share of clusters with a start-time cycle | stranded after a '
           'full restart, mean | fewest exclusions that leave no cycle (minimum feedback arc set), mean | '
-          'fewest webhooks switched to Ignore (minimum feedback vertex set), mean; 2000 random clusters per '
-          'row where p < 1, seed 1')
-    rng = random.Random(1)
+          'fewest webhooks switched to Ignore (minimum feedback vertex set), mean; exact, every graph weighted '
+          'by its probability')
     for k in (2, 3, 4, 5):
+        total = 1 << (k * (k - 1))
+        step = max(1, total // 64)
+        parts = [(k, lo, min(total, lo + step)) for lo in range(0, total, step)]
+        with ProcessPoolExecutor() as ex:
+            counts = merge_restart_counts(ex.map(_restart_part, parts))
         for p in (1.0, 0.5, 0.25):
-            runs = 1 if p == 1.0 else 2000
-            cyc = stranded = arcs = verts = 0
-            for _ in range(runs):
-                names = ['w%d' % i for i in range(k)]
-                g = {a: {b for b in names if b != a and (p == 1.0 or rng.random() < p)} for a in names}
-                comps = cyclic_components(g)
-                cyc += bool(comps)
-                stranded += len(recover({a: {i} for i, a in enumerate(names)}, g, set(range(k))))
-                arcs += len(min_feedback_arc_set(g))
-                verts += len(min_feedback_vertex_set(g))
-            print('  %d | %.2f | %.3f | %.2f | %.2f | %.2f' % (k, p, cyc / runs, stranded / runs, arcs / runs, verts / runs))
+            s = weigh_restart_counts(counts, k, p)
+            print('  %d | %.2f | %.3f | %.2f | %.2f | %.2f' % (k, p, s['cyclic'], s['stranded'], s['arcs'], s['vertices']))
 
+
+def _restart_part(job):
+    """The integer tallies of one range of graphs, for the process pool."""
+    k, lo, hi = job
+    return restart_counts_range(k, lo, hi)
 
 def t80():
     print('T80 the cold start of T60 with the kubelet restart delay reconfigured (KubeletCrashLoopBackOffMax, '

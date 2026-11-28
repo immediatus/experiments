@@ -27,6 +27,8 @@ CASES = (({'app': {'webhook'}}, {}, None),
 
 
 class Placement(unittest.TestCase):
+    """Out of reach policy reproduces the frozen drain; a replacement on a node not yet drained is evicted again;
+    spreading and packing lose at least as much; documented practice loses nothing."""
 
     def test_out_of_reach_policy_reproduces_the_frozen_drain(self):
         for needs, rejects, budget in CASES:

@@ -15,6 +15,8 @@ from relist import simulate_limited
 
 
 class Waves(unittest.TestCase):
+    """One wave of everyone is the full trigger; three simultaneous thirds storm like one full trigger; waves are
+    disjoint."""
 
     def test_one_wave_of_everyone_is_the_full_trigger(self):
         for cost in (40.0, 114.0):

@@ -18,12 +18,16 @@ from recovery import recover
 
 
 def full_restart(components):
+    """The start-time graph of the given components at their shipped defaults, and the components a full restart
+    strands, one node each."""
     needs = default_start_graph(components)
     placement = {c: {c} for c in components}
     return needs, recover(placement, needs, set(components))
 
 
 class DefaultGraph(unittest.TestCase):
+    """Kyverno and consul form a cycle; full restart strands everything they match; either alone recovers; one
+    exclusion breaks the cycle."""
 
     def test_kyverno_and_consul_form_a_cycle(self):
         needs = default_start_graph(SURVEY_DEFAULTS)

@@ -18,6 +18,7 @@ from relist import simulated_no_bookmark_gone
 
 
 class Bookmarks(unittest.TestCase):
+    """Probability against simulation; load."""
 
     def test_probability_against_simulation(self):
         for per_hour in (0.0, 6.0, 18.0, 60.0):

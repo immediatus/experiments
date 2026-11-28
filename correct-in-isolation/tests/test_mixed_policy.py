@@ -21,18 +21,23 @@ from formulas import mix_share, never_share
 
 
 def converged_share(webhooks, passes=2):
+    """The share of orders of `webhooks` that admit, within `passes`, the object every order reaches with passes
+    enough."""
     full = admit(pod(), webhooks, passes=len(webhooks) + 2)
     orders = list(itertools.permutations(webhooks))
     return sum(admit(pod(), list(o), passes=passes) == full for o in orders) / len(orders)
 
 
 def with_never(webhooks, positions):
+    """The webhooks with those at `positions` set to reinvocation policy Never; returns the same list."""
     for i in positions:
         webhooks[i].never = True
     return webhooks
 
 
 class MixedPolicy(unittest.TestCase):
+    """All ifneeded is unchanged; a never member is called once; never equals a match link for convergence; never on
+    the first member costs nothing."""
 
     def test_all_ifneeded_is_unchanged(self):
         self.assertAlmostEqual(converged_share(chain(2)), 5 / 6)
@@ -62,6 +67,7 @@ if __name__ == '__main__':
 
 
 class ClosedForm(unittest.TestCase):
+    """Two pass share matches enumeration; reduces to the earlier shares."""
 
     def test_two_pass_share_matches_enumeration(self):
         for n in (2, 3, 4, 5):
@@ -76,6 +82,7 @@ class ClosedForm(unittest.TestCase):
 
 
 class SurveyMix(unittest.TestCase):
+    """Mix share bounds; mix share by enumeration."""
 
     def test_mix_share_bounds(self):
         for n in (2, 3, 4, 5):

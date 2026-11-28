@@ -17,6 +17,7 @@ from formulas import level_limits, list_seats, list_time_threshold
 
 
 class Seats(unittest.TestCase):
+    """Default levels; cache caps a list at ten seats; storage lists take more; time threshold scales with capacity."""
 
     def test_default_levels(self):
         levels = level_limits()

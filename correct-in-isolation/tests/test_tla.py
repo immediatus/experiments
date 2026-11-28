@@ -18,6 +18,7 @@ EXPECTED = open(os.path.join(HERE, '..', 'tla', 'expected.txt'), encoding='utf-8
 
 
 class Verdicts(unittest.TestCase):
+    """Each seam holds alone and fails composed; network bound decides; tlc reproduces the frozen verdicts."""
 
     def test_each_seam_holds_alone_and_fails_composed(self):
         v = {line.split(' | ')[1]: line.split(' | ')[2] for line in EXPECTED}

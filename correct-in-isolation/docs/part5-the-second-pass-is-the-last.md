@@ -41,8 +41,8 @@ annotation records it. `final_round_clean` reads that trail; `readmission_clean`
   (the API reference).
 - **Bound. Proposition 34.** A clean last pass certifies every webhook that was called, and none its match rules
   skipped (T52).
-- **Bound. Proposition 35.** A second admission of the admitted object changes it exactly when it is not a common
-  fixed point (T52).
+- **Bound. Proposition 35.** Some webhook patches a second admission of the admitted object exactly when it is not a
+  common fixed point; the returned object shows it only when no webhook removes what another wrote (T52).
 
 ## The gap and the intervention
 
@@ -74,4 +74,4 @@ closed forms are in [`model/formulas.py`](../model/formulas.py): `passes_needed`
 
 ![Share of orders of an enabling chain that converge, by chain length](../figures/chain-share.svg)
 
-*What the second pass buys and what a match link takes away. With every webhook opted in, two passes keep a chain of value links converging in a share of orders that falls slowly at first; when they run once only the order with every enabler first converges, one in n!. A chain of match links falls to that same curve at any number of passes, because a webhook skipped in the first pass is never called.*
+*What the second pass buys and what a match link takes away. With every webhook opted in, two passes keep a chain of value links converging in a share of orders that falls slowly at first. When they run once, only the order with every enabler first converges, one in n!. A chain of match links falls to that same curve at any number of passes, because a webhook skipped in the first pass is never called.*

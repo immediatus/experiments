@@ -17,6 +17,8 @@ from nested import simulate
 
 
 class ToleranceSurge(unittest.TestCase):
+    """The two fixes rest at the same utilization; tolerance fix costs about a round; moved target is several times
+    slower."""
 
     def test_the_two_fixes_rest_at_the_same_utilization(self):
         self.assertAlmostEqual(0.5 * (1 + stopping_scale_up_tolerance(0.5)), vpa_utilisation(), places=12)

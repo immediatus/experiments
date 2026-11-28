@@ -19,6 +19,8 @@ from formulas import mixed_within, time_to_mixed
 
 
 def simulate(lam, r, horizon, runs=40000, seed=5):
+    """The simulated chance that a ReplicaSet runs two images within `horizon`, pods replaced at rate r and the tag
+    moving at rate lam, and the mean wait."""
     rng = random.Random(seed)
     hit = 0
     total = 0.0
@@ -31,6 +33,7 @@ def simulate(lam, r, horizon, runs=40000, seed=5):
 
 
 class Pinning(unittest.TestCase):
+    """Mean and horizon against simulation; equal rates."""
 
     def test_mean_and_horizon_against_simulation(self):
         for lam, r in ((1.0, 1 / 3), (1 / 7, 1 / 3), (1 / 30, 1 / 3)):

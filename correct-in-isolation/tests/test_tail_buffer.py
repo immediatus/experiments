@@ -18,10 +18,13 @@ from tail_buffer import run
 
 
 def grid(alpha, n=20000, kmin=2.0):
+    """n surge sizes at the quantiles of a Pareto law of exponent alpha above kmin, a deterministic sample."""
     return [kmin * (1.0 - (i + 0.5) / n) ** (-1.0 / alpha) for i in range(n)]
 
 
 class Censoring(unittest.TestCase):
+    """Closed form matches the grid; cap carries a heavy tail across one; crossing is where the naive estimate reads
+    one."""
 
     def test_closed_form_matches_the_grid(self):
         for alpha in (0.69, 1.1, 1.5):
@@ -42,6 +45,9 @@ class Censoring(unittest.TestCase):
 
 
 class Controller(unittest.TestCase):
+    """Oracle holds the optimal cover; estimate converges to the oracle cover; heavy tail pins the buffer at its
+    limit; naive reading of a capped count crosses one; expected cost is the mean cover cost; estimate close to
+    oracle in expectation; peak rule only ratchets up; same seed same surges."""
 
     def test_oracle_holds_the_optimal_cover(self):
         out = run(1.5, rule='oracle', surges=50)

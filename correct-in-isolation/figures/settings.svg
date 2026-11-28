@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
-<title>The staircase away from the defaults: each setting's doubling time against the hours between its steps</title>
+<title>Tuning the vertical autoscaler changes how fast the drift runs, not whether it runs</title>
 <desc>Hours for the replica count to double against hours between steps, target 0.5, steady demand. Band: the closed-form bracket at step factor 1.739. Bars: each setting's bracket, dots: simulated. documented defaults: step 79.7 h, bracket 99.9 to 109.5, simulated 103.0; percentile 0.5: step 24.0 h, bracket 30.1 to 33.0, simulated 29.8; percentile 0.95: step 103.7 h, bracket 129.9 to 142.5, simulated 134.0; half-life 12.0: step 39.9 h, bracket 49.9 to 54.8, simulated 51.5; half-life 48.0: step 159.5 h, bracket 199.7 to 219.0, simulated 206.0; margin 0.0: step 79.7 h, bracket 79.7 to 85.8, simulated 80.9; margin 0.3: step 79.7 h, bracket 128.3 to 144.7, simulated 141.8.</desc>
 <style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
 <rect x="0" y="0" width="700" height="320" class="f-bg"/>
@@ -20,7 +20,7 @@
 <text x="630.00" y="292.80" text-anchor="middle" class="f-sub">160</text>
 <path d="M52.00 278.50 H684.00" class="s-sub" fill="none"/>
 <text x="52.00" y="12.80" text-anchor="start" class="f-ink">hours to double the replicas</text>
-<text x="684.00" y="315.80" text-anchor="end" class="f-ink">hours between steps, h log2(1/(1-p))</text>
+<text x="684.00" y="315.80" text-anchor="end" class="f-ink">hours between the staircase's steps</text>
 <path d="M52.00 278.00 L684.00 18.13 L684.00 40.92 L52.00 278.00 Z" class="f-b" fill-opacity="0.12"/>
 <path d="M52.00 278.00 L684.00 40.92" class="s-b" fill="none"/>
 <path d="M52.00 278.00 L684.00 18.13" class="s-b" fill="none"/>
@@ -41,9 +41,9 @@
 <text x="620.00" y="58.85" text-anchor="end" class="f-b">half-life 48 h</text>
 <path d="M339.83 191.86 L339.83 185.26" class="s-d" fill="none" stroke-width="3"/>
 <circle cx="339.83" cy="190.56" r="4" class="f-d"/>
-<text x="332.00" y="194.85" text-anchor="end" class="f-d">margin 0, factor 2</text>
+<text x="332.00" y="194.85" text-anchor="end" class="f-d">margin 0: x2 per step</text>
 <path d="M339.83 139.33 L339.83 121.60" class="s-d" fill="none" stroke-width="3"/>
 <circle cx="339.83" cy="124.74" r="4" class="f-d"/>
-<text x="332.00" y="128.85" text-anchor="end" class="f-d">margin 0.3, factor 1.54</text>
-<text x="66.00" y="41.85" text-anchor="start" class="f-sub">band: the bracket at step factor 1.739, from the closed form</text>
+<text x="332.00" y="128.85" text-anchor="end" class="f-d">margin 0.3: x1.54 per step</text>
+<text x="66.00" y="41.85" text-anchor="start" class="f-sub">band: settings that keep the default growth per step (x1.74)</text>
 </svg>

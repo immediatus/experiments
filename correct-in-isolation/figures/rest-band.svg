@@ -1,60 +1,50 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
-<title>Which horizontal targets let both loops on one CPU metric rest, against q: the usage percentile the vertical loop sizes from, over mean usage per pod</title>
-<desc>Rest band of horizontal targets against q, margin 0.15 and tolerance 0.1, for a steady load and widened by the vertical autoscaler's documented 10 percent update threshold. q 1.0: 0.791 to 0.966, widened 0.719 to 1.074; q 1.1: 0.719 to 0.878, widened 0.653 to 0.976; q 1.2: 0.659 to 0.805, widened 0.599 to 0.895; q 1.3: 0.608 to 0.743, widened 0.553 to 0.826; q 1.4: 0.565 to 0.690, widened 0.513 to 0.767; q 1.5: 0.527 to 0.644, widened 0.479 to 0.716. Dashed lines mark targets of 50 to 90 percent; filled dots mark targets inside the band for a steady load, open dots targets inside only the widened band.</desc>
+<title>Where both autoscalers can rest</title>
+<desc>Rest band of horizontal targets against q, margin 0.15 and tolerance 0.1, for a steady load and widened by the vertical autoscaler's documented 10 percent update threshold. q 1.0: 0.791 to 0.966, widened 0.719 to 1.074; q 1.1: 0.719 to 0.878, widened 0.653 to 0.976; q 1.2: 0.659 to 0.805, widened 0.599 to 0.895; q 1.3: 0.608 to 0.743, widened 0.553 to 0.826; q 1.4: 0.565 to 0.690, widened 0.513 to 0.767; q 1.5: 0.527 to 0.644, widened 0.479 to 0.716. Filled dots mark targets inside the band for a steady load, open dots targets inside only the widened band.</desc>
 <style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
 <rect x="0" y="0" width="700" height="320" class="f-bg"/>
-<path d="M48.00 251.50 H616.00" class="s-grid" fill="none"/>
+<path d="M48.00 251.50 H684.00" class="s-grid" fill="none"/>
 <text x="43.00" y="255.85" text-anchor="end" class="f-sub">50%</text>
-<path d="M48.00 205.50 H616.00" class="s-grid" fill="none"/>
+<path d="M48.00 205.50 H684.00" class="s-grid" fill="none"/>
 <text x="43.00" y="209.85" text-anchor="end" class="f-sub">60%</text>
-<path d="M48.00 160.50 H616.00" class="s-grid" fill="none"/>
+<path d="M48.00 160.50 H684.00" class="s-grid" fill="none"/>
 <text x="43.00" y="163.85" text-anchor="end" class="f-sub">70%</text>
-<path d="M48.00 115.50 H616.00" class="s-grid" fill="none"/>
+<path d="M48.00 115.50 H684.00" class="s-grid" fill="none"/>
 <text x="43.00" y="119.85" text-anchor="end" class="f-sub">80%</text>
-<path d="M48.00 69.50 H616.00" class="s-grid" fill="none"/>
+<path d="M48.00 69.50 H684.00" class="s-grid" fill="none"/>
 <text x="43.00" y="73.85" text-anchor="end" class="f-sub">90%</text>
-<path d="M48.00 24.50 H616.00" class="s-grid" fill="none"/>
+<path d="M48.00 24.50 H684.00" class="s-grid" fill="none"/>
 <text x="43.00" y="27.85" text-anchor="end" class="f-sub">100%</text>
-<text x="78.00" y="292.80" text-anchor="middle" class="f-sub">1.0</text>
-<text x="180.00" y="292.80" text-anchor="middle" class="f-sub">1.1</text>
-<text x="281.00" y="292.80" text-anchor="middle" class="f-sub">1.2</text>
-<text x="383.00" y="292.80" text-anchor="middle" class="f-sub">1.3</text>
-<text x="484.00" y="292.80" text-anchor="middle" class="f-sub">1.4</text>
-<text x="586.00" y="292.80" text-anchor="middle" class="f-sub">1.5</text>
-<path d="M48.00 278.50 H616.00" class="s-sub" fill="none"/>
-<text x="48.00" y="12.80" text-anchor="start" class="f-ink">horizontal target</text>
-<text x="616.00" y="315.80" text-anchor="end" class="f-ink">q: usage percentile over mean usage per pod</text>
-<path d="M78.43 24.00 L179.86 34.89 L281.29 71.62 L382.71 102.92 L484.14 129.68 L585.57 152.81 L585.57 260.31 L484.14 244.89 L382.71 226.75 L281.29 205.88 L179.86 181.39 L78.43 151.45 Z" class="f-b" fill-opacity="0.08"/>
-<path d="M78.43 39.42 L179.86 79.34 L281.29 112.45 L382.71 140.57 L484.14 164.61 L585.57 185.47 L585.57 238.54 L484.14 221.30 L382.71 201.80 L281.29 178.67 L179.86 151.45 L78.43 118.80 Z" class="f-b" fill-opacity="0.2"/>
-<path d="M78.43 118.80 L179.86 151.45 L281.29 178.67 L382.71 201.80 L484.14 221.30 L585.57 238.54" class="s-b" fill="none"/>
-<path d="M78.43 39.42 L179.86 79.34 L281.29 112.45 L382.71 140.57 L484.14 164.61 L585.57 185.47" class="s-b" fill="none"/>
-<path d="M78.43 82.96 L179.86 118.80 L281.29 148.73 L382.71 174.13 L484.14 195.90 L585.57 214.50" class="s-b" fill="none" stroke-width="1.5" stroke-dasharray="5 4"/>
-<path d="M48.00 251.50 H616.00" class="s-g" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
-<text x="622.00" y="254.85" text-anchor="start" class="f-sub">50% target</text>
-<path d="M48.00 205.50 H616.00" class="s-g" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
-<text x="622.00" y="208.85" text-anchor="start" class="f-sub">60% target</text>
-<path d="M48.00 160.50 H616.00" class="s-g" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
-<text x="622.00" y="163.85" text-anchor="start" class="f-sub">70% target</text>
-<path d="M48.00 115.50 H616.00" class="s-g" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
-<text x="622.00" y="118.85" text-anchor="start" class="f-sub">80% target</text>
-<path d="M48.00 69.50 H616.00" class="s-g" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
-<text x="622.00" y="72.85" text-anchor="start" class="f-sub">90% target</text>
-<circle cx="78.43" cy="114.71" r="4" class="f-c"/>
-<circle cx="78.43" cy="69.36" r="4" class="f-c"/>
-<circle cx="179.86" cy="160.07" r="4" class="s-c" fill="none" stroke-width="1.8"/>
-<circle cx="179.86" cy="114.71" r="4" class="f-c"/>
-<circle cx="179.86" cy="69.36" r="4" class="s-c" fill="none" stroke-width="1.8"/>
-<circle cx="281.29" cy="205.43" r="4" class="s-c" fill="none" stroke-width="1.8"/>
-<circle cx="281.29" cy="160.07" r="4" class="f-c"/>
-<circle cx="281.29" cy="114.71" r="4" class="f-c"/>
-<circle cx="382.71" cy="205.43" r="4" class="s-c" fill="none" stroke-width="1.8"/>
-<circle cx="382.71" cy="160.07" r="4" class="f-c"/>
-<circle cx="382.71" cy="114.71" r="4" class="s-c" fill="none" stroke-width="1.8"/>
-<circle cx="484.14" cy="205.43" r="4" class="f-c"/>
-<circle cx="484.14" cy="160.07" r="4" class="s-c" fill="none" stroke-width="1.8"/>
-<circle cx="585.57" cy="250.79" r="4" class="s-c" fill="none" stroke-width="1.8"/>
-<circle cx="585.57" cy="205.43" r="4" class="f-c"/>
-<circle cx="585.57" cy="160.07" r="4" class="s-c" fill="none" stroke-width="1.8"/>
-<text x="82.00" y="32.80" text-anchor="start" class="f-b" font-weight="bold">both loops can rest</text>
-<text x="78.00" y="268.85" text-anchor="start" class="f-b">dashed: the vertical loop's own utilization, 1/((1+m)q)</text>
+<text x="82.00" y="292.80" text-anchor="middle" class="f-sub">1.0</text>
+<text x="196.00" y="292.80" text-anchor="middle" class="f-sub">1.1</text>
+<text x="309.00" y="292.80" text-anchor="middle" class="f-sub">1.2</text>
+<text x="423.00" y="292.80" text-anchor="middle" class="f-sub">1.3</text>
+<text x="536.00" y="292.80" text-anchor="middle" class="f-sub">1.4</text>
+<text x="650.00" y="292.80" text-anchor="middle" class="f-sub">1.5</text>
+<path d="M48.00 278.50 H684.00" class="s-sub" fill="none"/>
+<text x="48.00" y="12.80" text-anchor="start" class="f-ink">pod autoscaler's CPU target</text>
+<text x="684.00" y="315.80" text-anchor="end" class="f-ink">q: how spiky per-pod usage is, its 90th percentile over its mean</text>
+<path d="M82.07 24.00 L195.64 34.89 L309.21 71.62 L422.79 102.92 L536.36 129.68 L649.93 152.81 L649.93 260.31 L536.36 244.89 L422.79 226.75 L309.21 205.88 L195.64 181.39 L82.07 151.45 Z" class="f-b" fill-opacity="0.08"/>
+<path d="M82.07 39.42 L195.64 79.34 L309.21 112.45 L422.79 140.57 L536.36 164.61 L649.93 185.47 L649.93 238.54 L536.36 221.30 L422.79 201.80 L309.21 178.67 L195.64 151.45 L82.07 118.80 Z" class="f-b" fill-opacity="0.2"/>
+<path d="M82.07 118.80 L195.64 151.45 L309.21 178.67 L422.79 201.80 L536.36 221.30 L649.93 238.54" class="s-b" fill="none"/>
+<path d="M82.07 39.42 L195.64 79.34 L309.21 112.45 L422.79 140.57 L536.36 164.61 L649.93 185.47" class="s-b" fill="none"/>
+<path d="M82.07 82.96 L195.64 118.80 L309.21 148.73 L422.79 174.13 L536.36 195.90 L649.93 214.50" class="s-b" fill="none" stroke-width="1.5" stroke-dasharray="5 4"/>
+<circle cx="82.07" cy="114.71" r="4" class="f-c"/>
+<circle cx="82.07" cy="69.36" r="4" class="f-c"/>
+<circle cx="195.64" cy="160.07" r="4" class="s-c" fill="none" stroke-width="1.8"/>
+<circle cx="195.64" cy="114.71" r="4" class="f-c"/>
+<circle cx="195.64" cy="69.36" r="4" class="s-c" fill="none" stroke-width="1.8"/>
+<circle cx="309.21" cy="205.43" r="4" class="s-c" fill="none" stroke-width="1.8"/>
+<circle cx="309.21" cy="160.07" r="4" class="f-c"/>
+<circle cx="309.21" cy="114.71" r="4" class="f-c"/>
+<circle cx="422.79" cy="205.43" r="4" class="s-c" fill="none" stroke-width="1.8"/>
+<circle cx="422.79" cy="160.07" r="4" class="f-c"/>
+<circle cx="422.79" cy="114.71" r="4" class="s-c" fill="none" stroke-width="1.8"/>
+<circle cx="536.36" cy="205.43" r="4" class="f-c"/>
+<circle cx="536.36" cy="160.07" r="4" class="s-c" fill="none" stroke-width="1.8"/>
+<circle cx="649.93" cy="250.79" r="4" class="s-c" fill="none" stroke-width="1.8"/>
+<circle cx="649.93" cy="205.43" r="4" class="f-c"/>
+<circle cx="649.93" cy="160.07" r="4" class="s-c" fill="none" stroke-width="1.8"/>
+<text x="86.00" y="32.80" text-anchor="start" class="f-b" font-weight="bold">both loops can rest</text>
+<text x="82.00" y="268.85" text-anchor="start" class="f-b">dashed: where the vertical autoscaler holds utilization</text>
 </svg>

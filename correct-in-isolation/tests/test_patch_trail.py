@@ -36,6 +36,8 @@ from admission import (
 
 
 class PatchTrail(unittest.TestCase):
+    """Conflict is an overwrite; inverted value link is late input; in order chain and match link are silent; stale
+    signature order shows no overwrite; patches agree with admit."""
 
     def test_conflict_is_an_overwrite(self):
         for order in ([drop_capabilities, mesh_init], [mesh_init, drop_capabilities]):
@@ -67,8 +69,11 @@ class PatchTrail(unittest.TestCase):
 
 
 class Conflict(unittest.TestCase):
+    """All ifneeded last in order wins; all never last in order wins; one ifneeded wins every order; last ifneeded
+    writer wins."""
 
     def winners(self, policies):
+        """The admitted value of one contested field for every order of writers with these reinvocation policies."""
         ws = [writer('w%d' % i, 'v%d' % i, never=(p == 'Never')) for i, p in enumerate(policies)]
         out = {}
         for order in itertools.permutations(ws):

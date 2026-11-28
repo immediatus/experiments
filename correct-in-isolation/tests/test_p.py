@@ -24,6 +24,8 @@ EXPECTED = open(os.path.join(HERE, '..', 'p', 'expected.txt'), encoding='utf-8')
 
 
 def fewest_on_grid(raised, steps=40, wait_limit=15.0, retention=300.0, init=0.8, cap=30.0, reset=120.0):
+    """The fewest consecutive rejections before a 410, over a grid of jitter and served waits, from a fresh or
+    raised backoff: the abstraction the P model rests on, computed directly."""
     states = {(0.0, cap if raised else init, 0.0)}
     for n in range(1, 25):
         nxt = set()
@@ -41,6 +43,7 @@ def fewest_on_grid(raised, steps=40, wait_limit=15.0, retention=300.0, init=0.8,
 
 
 class Verdicts(unittest.TestCase):
+    """Bounds hold and are reached; repair race; admission; p reproduces the frozen verdicts."""
 
     def test_bounds_hold_and_are_reached(self):
         v = {line.split(' | ')[0]: line.split(' | ')[2] for line in EXPECTED}
@@ -66,6 +69,7 @@ class Verdicts(unittest.TestCase):
 
 
 class Abstraction(unittest.TestCase):
+    """Extremes give the continuous minimum; the bounds."""
 
     def test_extremes_give_the_continuous_minimum(self):
         self.assertEqual(fewest_on_grid(False), fresh_rejections_to_pass(300.0)[0])

@@ -17,6 +17,7 @@ from relist import simulate_limited
 
 
 class WatchCacheSpan(unittest.TestCase):
+    """Steady rate settles in the band; capacity bounds push outside the band."""
 
     def test_steady_rate_settles_in_the_band(self):
         for rate in (1.0, 3.0, 10.0, 50.0, 300.0):
@@ -30,6 +31,7 @@ class WatchCacheSpan(unittest.TestCase):
 
 
 class Isolation(unittest.TestCase):
+    """Onset scales with the level share."""
 
     def test_onset_scales_with_the_level_share(self):
         def storms(c, cap):
@@ -41,6 +43,7 @@ class Isolation(unittest.TestCase):
 
 
 class Pages(unittest.TestCase):
+    """Pages within the history."""
 
     def test_pages_within_the_history(self):
         self.assertEqual(pages_before_expiry(300.0), (20, 10000))
@@ -49,6 +52,7 @@ class Pages(unittest.TestCase):
 
 
 class ShorterHistory(unittest.TestCase):
+    """Fewer rejections reach a 410; the specimen storms with 150 seconds."""
 
     def test_fewer_rejections_reach_a_410(self):
         self.assertEqual(rejections_before_gone(300.0), 4)

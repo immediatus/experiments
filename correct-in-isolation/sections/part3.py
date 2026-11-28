@@ -53,10 +53,11 @@ def t11():
 
 def t12():
     print('T12 each safeguard alone, LIST cost 100: case | LISTs in 8 hours | LISTs per hour at the end | failed-state rate per hour')
-    for name, kw in (('overload protection with ample capacity', {'capacity': SEATS * 100}),
-                     ('re-list on 410 with history that never expires', {'retention': 10.0 ** 9}),
-                     ('both, as documented', {})):
-        per_hour, _ = relist(100.0, **kw)
+    for name, run, kw in (('overload protection with ample capacity', relist, {'capacity': SEATS * 100}),
+                          ('re-list on 410 with history that never expires', relist, {'retention': 10.0 ** 9}),
+                          ('both, idealized queue (no wait limit)', relist, {}),
+                          ('both, with the documented wait limit', relist_limited, {})):
+        per_hour = run(100.0, **kw)[0]
         print('  %s | %d | %d | %.0f' % (name, sum(per_hour), per_hour[-1], failed_list_rate(100.0, SEATS) * 3600))
 
 

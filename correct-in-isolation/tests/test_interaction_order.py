@@ -26,6 +26,8 @@ from interaction import assumption_order, has_cycle, is_p_matrix, order_order, s
 
 
 def brute_min_failing(items, fails):
+    """The size of the smallest subset of `items` on which `fails` is true, by trying every subset in order of size,
+    or None."""
     for k in range(1, len(items) + 1):
         for s in itertools.combinations(items, k):
             if fails(s):
@@ -34,10 +36,13 @@ def brute_min_failing(items, fails):
 
 
 def random_gain(n, spread, rng):
+    """An n x n gain matrix with unit diagonal and couplings drawn uniformly from [-spread, spread]."""
     return [[1.0 if i == j else rng.uniform(-spread, spread) for j in range(n)] for i in range(n)]
 
 
 class Signal(unittest.TestCase):
+    """P matrix iff every subset passes; order is the smallest failing set; rows scaled by self gain; symmetric
+    loops have order n."""
 
     def test_p_matrix_iff_every_subset_passes(self):
         rng = random.Random(7)
@@ -65,6 +70,7 @@ class Signal(unittest.TestCase):
 
 
 class Assumption(unittest.TestCase):
+    """Girth is the smallest failing set; a cycle of n has order n."""
 
     def test_girth_is_the_smallest_failing_set(self):
         rng = random.Random(3)
@@ -80,6 +86,7 @@ class Assumption(unittest.TestCase):
 
 
 class Order(unittest.TestCase):
+    """Closure is the smallest failing set; spread chain has order n."""
 
     def test_closure_is_the_smallest_failing_set(self):
         rng = random.Random(5)
@@ -109,6 +116,7 @@ class Order(unittest.TestCase):
 
 
 class State(unittest.TestCase):
+    """Identical informers; heaviest first."""
 
     def test_identical_informers(self):
         self.assertEqual(state_order([100.0] * 2000, 100.0, 450.0, 300.0), 751)

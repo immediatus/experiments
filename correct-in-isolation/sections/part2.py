@@ -34,6 +34,7 @@ from formulas import (
     worst_ratio,
 )
 from formulas_time import headroom_for, step_slots
+from nested import penalty_bands
 from nested import simulate as nested
 from nested import simulate_two_surges as surges
 from tail_buffer import run
@@ -245,10 +246,14 @@ def t7():
 
 
 def t8():
-    print('T8 headroom held in advance (n0 64, one pod per node, so slots are exact): k | headroom slots | x n0 | rounds covered | time s')
+    print('T8 headroom held in advance (n0 64, one pod per node, so slots are exact): k | headroom slots | x n0 | rounds '
+          'covered | time s. Rows "band", k 30, every slot count from 0 to the full cover simulated, the runs slower than '
+          'the step below: band | first slots | last slots | time s | time of the step below, s')
     for k, slots in ((30, (0, 53, 56, 64, 169, 176, 192, 402, 416, 448, 896)), (20, (0, 53, 56, 64))):
         for h in slots:
             print('  %d | %d | %.3f | %d | %d' % (k, h, h / 64, covered_rounds(h, 64, k), nested(k, n0=64, headroom=h, per_node=1)))
+    for lo, hi, t, below in penalty_bands(30, 64, per_node=1):
+        print('  band | %d | %d | %d | %d' % (lo, hi, t, below))
 
 
 def t9():

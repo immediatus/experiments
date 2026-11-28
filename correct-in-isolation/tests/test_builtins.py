@@ -19,6 +19,8 @@ from formulas import fact_passes
 
 
 class Builtins(unittest.TestCase):
+    """An injected container and the second pass; no second pass without a webhook change; count with builtins first
+    matches simulation."""
 
     def test_an_injected_container_and_the_second_pass(self):
         one = admit(pod(), [sidecar], builtins=[pull_policy], passes=1)

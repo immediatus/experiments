@@ -20,6 +20,8 @@ from percolation import gen_needs, greedy_relaxation, hard_floor, pareto_weights
 
 
 def share(c, exponent=None, n=1000, seeds=3):
+    """The mean share of components stranded after a full restart of random start-time graphs of n components at
+    mean degree c, equal weights or Pareto weights of the given exponent, over `seeds` draws."""
     out = 0
     for seed in range(seeds):
         rng = random.Random(seed)
@@ -29,6 +31,7 @@ def share(c, exponent=None, n=1000, seeds=3):
 
 
 class Stranded(unittest.TestCase):
+    """Cycle and upstream; mean degree."""
 
     def test_cycle_and_upstream(self):
         needs = {'a': {'b'}, 'b': {'a'}, 'c': {'a'}, 'd': {'e'}, 'e': set()}
@@ -41,6 +44,7 @@ class Stranded(unittest.TestCase):
 
 
 class Threshold(unittest.TestCase):
+    """Equal weights; pareto weights; independent degrees have a threshold near one; hubs remove it."""
 
     def test_equal_weights(self):
         self.assertAlmostEqual(predicted_threshold([1.0] * 10), 1.0)
@@ -58,6 +62,8 @@ class Threshold(unittest.TestCase):
 
 
 class Relaxation(unittest.TestCase):
+    """Greedy frees everything; greedy returns its order; greedy against exact on small graphs; hidden edges leave
+    components stranded; hard floor."""
 
     def test_greedy_frees_everything(self):
         rng = random.Random(3)

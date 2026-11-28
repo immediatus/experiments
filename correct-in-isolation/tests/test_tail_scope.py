@@ -19,6 +19,7 @@ from formulas import pod_mean_cv, spike_share
 
 
 class TailScope(unittest.TestCase):
+    """Cv closed form; cv by sampling; spike share by sampling; spike share limits."""
 
     def test_cv_closed_form(self):
         self.assertAlmostEqual(pod_mean_cv(2.4, 10), math.sqrt((math.exp(5.76) - 1) / 10))

@@ -20,6 +20,8 @@ RAMP = (rounds(K) - 1) * POD
 
 
 class NodeTail(unittest.TestCase):
+    """Exponential gaps give proposition 9; the slope is the derivative; one crossing once every round is active;
+    the ramp can add a local minimum."""
 
     def test_exponential_gaps_give_proposition_9(self):
         for u in (0, 600, 3600):

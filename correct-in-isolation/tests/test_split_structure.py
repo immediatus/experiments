@@ -35,6 +35,8 @@ def structural_outputs(log_n, log_r, beta, theta, theta_live, xi):
 
 
 class Structure(unittest.TestCase):
+    """Matrix is the jacobian; earlier form is a special case; live set that follows load cancels the coupling; heap
+    growing into its limit is singular at the critical xi."""
 
     def test_matrix_is_the_jacobian(self):
         h = 1e-6

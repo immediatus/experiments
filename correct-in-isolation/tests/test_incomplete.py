@@ -24,6 +24,7 @@ from ratios import assumption_ratio
 
 
 class Monotone(unittest.TestCase):
+    """Omitted needs never make a cycle; omitted prerequisites never add passes."""
 
     def test_omitted_needs_never_make_a_cycle(self):
         rng = random.Random(1)
@@ -45,6 +46,7 @@ class Monotone(unittest.TestCase):
 
 
 class Signal(unittest.TestCase):
+    """An omitted coupling moves the verdict both ways; flip counts add up."""
 
     def test_an_omitted_coupling_moves_the_verdict_both_ways(self):
         out = signal_flips(3, 4000, random.Random(3))

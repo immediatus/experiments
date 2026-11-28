@@ -22,6 +22,7 @@ from admission import (
     pod,
     pull_policy,
     readmission_clean,
+    readmission_unchanged,
     sidecar,
     signer,
     typed_chain,
@@ -96,23 +97,28 @@ def t51():
                                                    typed_chain_share(kinds, len(kinds) + 1), match_ceiling(kinds)))
 
 
+OVERRIDE_SCENARIO = ('S7 two webhooks that write one field (an override)', [writer('first', 'a'), writer('second', 'b')])
+
+
 def t52():
     print('T52 the two cluster checks under the contract (all IfNeeded, two rounds), over every order: '
           'scenario | orders | admitted object a common fixed point | final round clean | clean but not a '
-          'fixed point | dirty but a fixed point | second admission clean | second admission disagrees with '
-          'the fixed-point verdict')
-    for name, ws in ORDER_SCENARIOS:
+          'fixed point | dirty but a fixed point | second admission clean (no webhook patches it) | second '
+          'admission disagrees with the fixed-point verdict | returned object, in the same order, equal to the '
+          'admitted one although not a fixed point')
+    for name, ws in ORDER_SCENARIOS + (OVERRIDE_SCENARIO,):
         rows = []
         for order in itertools.permutations(ws):
             obj, trace = admit_trace(pod(), order, passes=2)
             fp = all(w(obj) == obj for w in ws if matches(w, obj))
             clean = final_round_clean(trace, passes=2)
             again = all(readmission_clean(obj, o) for o in itertools.permutations(ws))
-            rows.append((fp, clean, again))
-        print('  %s | %d | %d | %d | %d | %d | %d | %d' % (
-            name, len(rows), sum(f for f, _, _ in rows), sum(c for _, c, _ in rows),
-            sum(c and not f for f, c, _ in rows), sum(f and not c for f, c, _ in rows),
-            sum(a for _, _, a in rows), sum(a != f for f, _, a in rows)))
+            same = readmission_unchanged(obj, order)
+            rows.append((fp, clean, again, same))
+        print('  %s | %d | %d | %d | %d | %d | %d | %d | %d' % (
+            name, len(rows), sum(r[0] for r in rows), sum(r[1] for r in rows),
+            sum(r[1] and not r[0] for r in rows), sum(r[0] and not r[1] for r in rows),
+            sum(r[2] for r in rows), sum(r[2] != r[0] for r in rows), sum(r[3] and not r[0] for r in rows)))
 
 
 def t71():

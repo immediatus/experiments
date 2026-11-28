@@ -17,6 +17,7 @@ from formulas import drift_rate, lognormal_q, max_resting_target, step_factor
 
 
 class Transition(unittest.TestCase):
+    """Jump at the edge; rate is ln step over interval."""
 
     def test_jump_at_the_edge(self):
         edge = 1.0 / (1.15 * 1.1)
@@ -29,6 +30,7 @@ class Transition(unittest.TestCase):
 
 
 class Frontier(unittest.TestCase):
+    """Light tail allows any target; heavy tail caps the target."""
 
     def test_light_tail_allows_any_target(self):
         self.assertGreater(max_resting_target(lognormal_q(0.0)), 1.0)

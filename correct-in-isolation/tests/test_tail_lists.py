@@ -18,6 +18,7 @@ from tail_lists import heterogeneous_storm_possible, pareto_costs, storm_share
 
 
 class Necessary(unittest.TestCase):
+    """Uniform costs reduce to the known condition; split does not matter."""
 
     def test_uniform_costs_reduce_to_the_known_condition(self):
         self.assertFalse(heterogeneous_storm_possible([37.0] * 2000, 100.0, 450.0, 300.0))
@@ -29,6 +30,7 @@ class Necessary(unittest.TestCase):
 
 
 class Costs(unittest.TestCase):
+    """Mean is the target."""
 
     def test_mean_is_the_target(self):
         c = pareto_costs(200000, 1.5, 112.5, random.Random(3))
@@ -36,6 +38,7 @@ class Costs(unittest.TestCase):
 
 
 class Share(unittest.TestCase):
+    """Light tail is a step; heavy tail spreads the step; share grows with size."""
 
     def test_light_tail_is_a_step(self):
         self.assertEqual(storm_share(1800, 3.0, trials=500), 0.0)

@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import os
 import sys
 from typing import Any, Optional
@@ -182,7 +183,7 @@ def state(description: Obj) -> Optional[Obj]:
             _field(inf, key, 'description: informers[%d]' % i)
     for key in ('capacity', 'mean_watch', 'history'):
         _field(description, key, 'description')
-    work = sum(i['count'] * i['list_cost'] for i in description['informers'])
+    work = math.fsum(i['count'] * i['list_cost'] for i in description['informers'])
     n = sum(i['count'] for i in description['informers'])
     return {'informers': n, 'list_work': work,
             'ratio': state_ratio(1, work, description['capacity'], description['mean_watch'], description['history'])}
@@ -239,6 +240,8 @@ def render(report: Obj) -> str:
 
 
 def main(argv: Optional[list[str]] = None) -> int:
+    """The command line: audit the cluster JSON file given, with an optional description JSON of what no object
+    records, and print the report as text or, with --json, as JSON. Returns 0, or 2 for input it cannot read."""
     ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
     ap.add_argument('cluster')
     ap.add_argument('--description')

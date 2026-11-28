@@ -25,6 +25,8 @@ class Histogram:
         self.weights = {}
 
     def add(self, value, t):
+        """Add one usage sample `value`, in cores, taken at time t in hours, weighted 2^(t / half-life) so that older
+        samples count half as much per half-life; values below the first bucket fall into it."""
         b = int((math.log(max(value, math.exp(self.lo))) - self.lo) / self.step)
         self.weights[b] = self.weights.get(b, 0.0) + 2.0 ** (t / self.half_life)
 
@@ -39,6 +41,7 @@ class Histogram:
         return 0.0
 
     def mean(self):
+        """The weighted mean usage, in cores, each bucket read at its geometric midpoint."""
         total = math.fsum(self.weights.values())
         return math.fsum(w * math.exp(self.lo + (b + 0.5) * self.step) for b, w in self.weights.items()) / total
 

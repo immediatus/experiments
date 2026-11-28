@@ -30,6 +30,9 @@ from hpa_vpa import simulate
 
 
 class RelativeGainArray(unittest.TestCase):
+    """Rows and columns sum to one; shared metric is singular; split pairing without coupling is one; custom metric
+    gain does not depend on the metric elasticity; resting margin is the band seen from the vertical side; vertical
+    tolerance widens the band by its own factor; coupling closed form."""
 
     def test_rows_and_columns_sum_to_one(self):
         rng = random.Random(1)
@@ -98,6 +101,9 @@ class DocumentedUpdates(unittest.TestCase):
 
 
 class TwoLoopsOneMetric(unittest.TestCase):
+    """Requested capacity is held by the horizontal loop; inside the band nothing drifts; the staircase steps every
+    interval; below the band doubling lies in the bracket; doubling does not depend on demand or start; a daily
+    cycle does not stop the drift; the law holds at other recommender settings; above the band replicas fall."""
 
     def test_requested_capacity_is_held_by_the_horizontal_loop(self):
         """Below the band, replicas and requests drift, but utilisation never leaves the horizontal

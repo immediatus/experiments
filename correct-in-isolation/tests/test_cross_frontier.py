@@ -24,10 +24,14 @@ V = vpa_utilisation()
 
 
 def surge_from_rest(u_h, k=30.0):
+    """Seconds to meet a surge to k times the demand a pair resting at target u_h carries, with the matched scale-up
+    tolerance."""
     return nested(k * V / u_h, target=u_h, tol=matched_tolerance(u_h))
 
 
 class Closed(unittest.TestCase):
+    """Matched tolerance puts rest at the scale up edge; rounds at a half; rounds have a floor at the policy
+    doubling."""
 
     def test_matched_tolerance_puts_rest_at_the_scale_up_edge(self):
         self.assertAlmostEqual(0.5 * (1 + matched_tolerance(0.5)), V, places=9)
@@ -41,6 +45,8 @@ class Closed(unittest.TestCase):
 
 
 class Simulated(unittest.TestCase):
+    """Half target matches the frozen tolerance fix; surge from rest has a floor; a drifting pair beats the floor;
+    matched tolerance stops the drift."""
 
     def test_half_target_matches_the_frozen_tolerance_fix(self):
         self.assertEqual(surge_from_rest(0.5), 1500)

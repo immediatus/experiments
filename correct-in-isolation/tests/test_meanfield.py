@@ -19,6 +19,8 @@ from relist import simulate_limited
 
 
 class Schedule(unittest.TestCase):
+    """Fresh schedule doubles from init and resets; raised schedule starts at cap; gone after agrees with the bound
+    for a capped client; fresh client needs more than a raised one."""
 
     def test_fresh_schedule_doubles_from_init_and_resets(self):
         b = backoff_schedule(raised=False, jitter=1.0, length=8)
@@ -42,6 +44,9 @@ class Schedule(unittest.TestCase):
 
 
 class Onset(unittest.TestCase):
+    """Fold exists and lies above the necessary bound; fresh fold is near the simulated onset; admitted wait raises
+    the fold toward the simulated onset; admitted wait enters the re watch and the list; raised backoff lowers the
+    fold."""
 
     def test_fold_exists_and_lies_above_the_necessary_bound(self):
         b, cost, p, n = meanfield_onset(raised=False)
@@ -73,6 +78,8 @@ class Onset(unittest.TestCase):
 
 
 class Hysteresis(unittest.TestCase):
+    """Cost switch keeps the plain run when unused; no hysteresis below the onset; storm entered above onset runs at
+    the onset."""
 
     def test_cost_switch_keeps_the_plain_run_when_unused(self):
         self.assertEqual(simulate_limited(100.0, hours=2, seed=1)[0],

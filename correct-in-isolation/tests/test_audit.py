@@ -20,6 +20,8 @@ from recovery import recover
 
 
 class WholeSystem(unittest.TestCase):
+    """Relative gain rows sum to one; every pair mild and the whole singular; a three cycle is invisible to pairs;
+    enabling depth predicts the admission chain."""
 
     def test_relative_gain_rows_sum_to_one(self):
         rng = random.Random(3)

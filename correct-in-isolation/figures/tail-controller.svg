@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" width="700" height="300" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
-<title>Expected cost per surge of three ways to set the headroom, over the cost of knowing the tail exponent, as the median of twenty runs of a thousand surges</title>
+<title>Re-estimating the tail stays close to the best</title>
 <desc>Expected cost per surge over the cost of knowing the exponent, median of twenty seeds, a thousand surges, against the tail exponent. Estimating controller: 1.2: 1.015, 1.5: 1.012, 2: 1.010, 3: 1.003. No headroom: 1.340, 1.491, 1.527, 1.527. Largest surge seen so far: 2.158, 3.667, 3.844, 4.149.</desc>
 <style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
 <rect x="0" y="0" width="700" height="300" class="f-bg"/>
@@ -18,7 +18,7 @@
 <text x="652.00" y="272.80" text-anchor="middle" class="f-sub">3</text>
 <path d="M48.00 258.50 H684.00" class="s-sub" fill="none"/>
 <text x="48.00" y="12.80" text-anchor="start" class="f-ink">expected cost over the cost of knowing the exponent</text>
-<text x="684.00" y="295.80" text-anchor="end" class="f-ink">tail exponent of surge sizes</text>
+<text x="684.00" y="295.80" text-anchor="end" class="f-ink">tail exponent of surge sizes (lower: heavier tail)</text>
 <path d="M48.00 246.50 H684.00" class="s-g" fill="none" stroke-width="1" stroke-dasharray="5 4"/>
 <path d="M79.80 174.38 L175.20 81.45 L334.20 70.55 L652.20 51.77" class="s-a" fill="none" stroke-width="2"/>
 <circle cx="79.80" cy="174.38" r="3" class="f-a"/>
@@ -37,5 +37,5 @@
 <circle cx="652.20" cy="245.50" r="3" class="f-c"/>
 <text x="648.00" y="43.80" text-anchor="end" class="f-a" font-weight="bold">largest surge seen</text>
 <text x="648.00" y="204.80" text-anchor="end" class="f-b">no headroom</text>
-<text x="648.00" y="259.80" text-anchor="end" class="f-c">estimating controller</text>
+<text x="648.00" y="236.80" text-anchor="end" class="f-c">estimating controller</text>
 </svg>

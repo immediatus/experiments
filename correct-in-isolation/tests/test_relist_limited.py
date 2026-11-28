@@ -23,6 +23,7 @@ MODELS = (simulate_limited, simulate_fair)
 
 
 class Backoff(unittest.TestCase):
+    """Reflector sequence; reset after two minutes since the last reset; jitter stays within one to two times."""
 
     def test_reflector_sequence(self):
         b = ReflectorBackoff(random.Random(1), jitter=0.0)
@@ -43,6 +44,8 @@ class Backoff(unittest.TestCase):
 
 
 class EachSafeguardAlone(unittest.TestCase):
+    """Ample capacity lists only the forced clients; unbounded history lists only the forced clients; no trigger no
+    list."""
 
     def test_ample_capacity_lists_only_the_forced_clients(self):
         for sim in MODELS:
@@ -58,6 +61,9 @@ class EachSafeguardAlone(unittest.TestCase):
 
 
 class Composite(unittest.TestCase):
+    """Fresh backoff needs eleven to fifteen rejections; every 410 follows the closed form run of rejections; no
+    saturated storm below the necessary condition; sustained storm spends all capacity on lists; onset of the
+    sustained storm."""
 
     def test_fresh_backoff_needs_eleven_to_fifteen_rejections(self):
         # over every jitter pattern: a smaller jitter early postpones the two-minute reset and lets the

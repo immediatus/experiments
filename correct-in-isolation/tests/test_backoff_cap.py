@@ -17,6 +17,8 @@ from formulas import cold_start_chain
 
 
 class BackoffCap(unittest.TestCase):
+    """Default cap is the documented chain; the cap bounds the lateness not every case; a lower cap lowers the worst
+    ratio; a cap below the base starts at the cap."""
 
     def test_default_cap_is_the_documented_chain(self):
         for dns in (30.0, 300.0, 1200.0):

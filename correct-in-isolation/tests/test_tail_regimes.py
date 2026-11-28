@@ -18,6 +18,7 @@ from hpa_vpa import simulate
 
 
 class ClosedForm(unittest.TestCase):
+    """Q at zero tail is one; q peaks at the quantile; pareto q; reentrant regimes at half; boundaries."""
 
     def test_q_at_zero_tail_is_one(self):
         self.assertAlmostEqual(lognormal_q(0.0), 1.0)
@@ -46,8 +47,11 @@ class ClosedForm(unittest.TestCase):
 
 
 class Simulated(unittest.TestCase):
+    """Simulation follows the regimes."""
 
     def growth(self, sigma):
+        """Replicas after 30 days over the first day for the Part 1 pair at a 0.5 target, per-pod noise of shape
+        sigma."""
         samples, _ = simulate(0.5, days=30, noise_sigma=sigma, request_floor=1e-6)
         return samples[-1][1] / samples[0][1]
 

@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
-<title>The worst a setting can do, over every gap, against the cost of knowing the gap</title>
+<title>Break-even holding stays under twice the hindsight cost</title>
 <desc>Worst cost over all gaps as a multiple of the cost with the gap known, against the exchange rate. Break-even holding: 4: 1.152, 16: 1.368, 41.4: 1.519, 64: 1.571, 256: 1.663. The 600-second default: 4: 2.568, 16: 1.951, 41.4: 1.519, 64: 1.715, 256: 2.490. Releasing at once: 4: 1.178, 16: 1.580, 41.4: 2.077, 64: 2.329, 256: 2.963.</desc>
 <style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
 <rect x="0" y="0" width="700" height="320" class="f-bg"/>
@@ -36,7 +36,7 @@
 <circle cx="403.34" cy="218.08" r="3" class="f-a"/>
 <circle cx="463.13" cy="195.45" r="3" class="f-a"/>
 <circle cx="653.38" cy="105.97" r="3" class="f-a"/>
-<text x="645.00" y="95.80" text-anchor="end" class="f-a">600 s default</text>
+<text x="641.00" y="109.85" text-anchor="end" class="f-a">600 s default</text>
 <path d="M82.62 260.45 L272.87 235.51 L403.34 218.08 L463.13 212.08 L653.38 201.45" class="s-b" fill="none" stroke-width="2"/>
 <circle cx="82.62" cy="260.45" r="3" class="f-b"/>
 <circle cx="272.87" cy="235.51" r="3" class="f-b"/>

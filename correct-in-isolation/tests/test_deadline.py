@@ -20,6 +20,7 @@ SURGES = [3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 30, 40, 50, 64, 80, 100]
 
 
 class Deadline(unittest.TestCase):
+    """Pod loop alone meets its deadline; separated pair meets its deadline; nested pair is live and late."""
 
     def test_pod_loop_alone_meets_its_deadline(self):
         for k in SURGES:

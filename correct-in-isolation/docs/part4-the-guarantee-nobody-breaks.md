@@ -88,4 +88,4 @@ compose the two documented backoffs on a full restart (T60).
 
 ![Seconds until the application is ready after a full restart, against seconds until DNS is ready](../figures/cold-start.svg)
 
-*The way back through two backoffs. With instant retries the application follows DNS by a fixed 100 seconds. With the kubelet's restart backoff and the workqueue's retry backoff it follows a sawtooth that passes twice that time, nearly three times at worst, and falls back only where the caps of 300 and 1000 seconds bind.*
+*The way back through two backoffs. With instant retries the application follows DNS by a fixed 100 seconds. With the kubelet's restart backoff and the workqueue's retry backoff it climbs in steps, past twice that time and nearly three times at worst, and its ratio to it falls back only where the caps of 300 and 1000 seconds bind.*

@@ -19,10 +19,12 @@ from nested import simulate
 
 
 def grid(alpha, n=20000, kmin=2.0):
+    """n surge sizes at the quantiles of a Pareto law of exponent alpha above kmin, a deterministic sample."""
     return [kmin * (1.0 - (i + 0.5) / n) ** (-1.0 / alpha) for i in range(n)]
 
 
 class Ramp(unittest.TestCase):
+    """Thirtyfold ladder; covered rounds pay pod time only; simulation matches within latency."""
 
     def test_thirtyfold_ladder(self):
         self.assertAlmostEqual(ramp_shortfall(30, 16, 90, 210), 216000.0)
@@ -42,6 +44,8 @@ class Ramp(unittest.TestCase):
 
 
 class Tail(unittest.TestCase):
+    """Rounds tail is geometric; mean time finite for every alpha; shortfall diverges at one; closed form against
+    quantile grid; nesting multiplier; each round divides the node part."""
 
     def test_rounds_tail_is_geometric(self):
         self.assertEqual(pareto_rounds_tail(1, 1.5), 1.0)
@@ -83,6 +87,8 @@ class Tail(unittest.TestCase):
 
 
 class Cover(unittest.TestCase):
+    """Integer optimum; cover falls as the tail lightens; cover never below no headroom; no finite cover at or below
+    one."""
 
     def test_integer_optimum(self):
         for alpha in (1.2, 1.5, 2.0, 3.0):
@@ -103,6 +109,7 @@ class Cover(unittest.TestCase):
 
 
 class Estimate(unittest.TestCase):
+    """Mle recovers alpha; censoring biases up and the fix removes it."""
 
     def test_mle_recovers_alpha(self):
         self.assertAlmostEqual(pareto_mle(grid(1.5), 2.0), 1.5, places=2)
@@ -116,6 +123,7 @@ class Estimate(unittest.TestCase):
 
 
 def ramp_rounds(k):
+    """Rounds of doubling a k-fold surge needs from the specimen's start, ceil(log2(k / 2))."""
     return max(0, math.ceil(math.log2(k / 2.0) - 1e-9))
 
 

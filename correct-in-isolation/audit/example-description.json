@@ -1,0 +1,32 @@
+{
+  "facts": {
+    "proxy": [
+      "sidecar",
+      []
+    ],
+    "pinned": [
+      "digest",
+      [
+        "proxy"
+      ]
+    ],
+    "signature": [
+      "signer",
+      [
+        "pinned"
+      ]
+    ]
+  },
+  "informers": [
+    {
+      "count": 2000,
+      "list_cost": 100.0
+    }
+  ],
+  "capacity": 100.0,
+  "mean_watch": 450.0,
+  "history": 300.0,
+  "surge": 30,
+  "running_pods": 16,
+  "free_slots": 0
+}

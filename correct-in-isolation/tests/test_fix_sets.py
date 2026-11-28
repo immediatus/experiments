@@ -18,11 +18,13 @@ from audit import cyclic_components, min_feedback_arc_set, min_feedback_vertex_s
 
 
 def complete(k):
+    """The start-time graph of k webhooks that each need every other: needs from each to all the rest."""
     names = ['w%d' % i for i in range(k)]
     return {a: {b for b in names if b != a} for a in names}
 
 
 class FixSets(unittest.TestCase):
+    """Complete graph; acyclic needs nothing; removing the sets leaves no cycle."""
 
     def test_complete_graph(self):
         for k in range(2, 6):

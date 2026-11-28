@@ -18,10 +18,12 @@ from formulas import pareto_shortfall, pareto_shortfall_slots, ramp_shortfall
 
 
 def grid(alpha, n=40000, kmin=2.0):
+    """n surge sizes at the quantiles of a Pareto law of exponent alpha above kmin, a deterministic sample."""
     return [kmin * (1.0 - (i + 0.5) / n) ** (-1.0 / alpha) for i in range(n)]
 
 
 class Slots(unittest.TestCase):
+    """Ramp with slots; closed form against grid; staircase with sloping treads."""
 
     def test_ramp_with_slots(self):
         self.assertAlmostEqual(ramp_shortfall(30, 16, 90, 210, slots=0), ramp_shortfall(30, 16, 90, 210))

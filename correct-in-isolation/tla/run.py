@@ -20,12 +20,16 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 
 
 def tools():
+    """The java executable and the tla2tools.jar path, from $JAVA or PATH and $TLA2TOOLS, or (None, None)
+    when either is missing."""
     java = os.environ.get('JAVA') or shutil.which('java')
     jar = os.environ.get('TLA2TOOLS')
     return (java, jar) if java and jar and os.path.isfile(jar) else (None, None)
 
 
 def verdict(out):
+    """Read TLC's output: ('holds', states), ('violated: <property>', states) or ('error', states), with
+    the distinct states found as a string, '?' when TLC printed none."""
     m = re.search(r'(Temporal property|Invariant) (\w+) (?:was|is) violated', out)
     if m:
         v = 'violated: %s' % m.group(2)
@@ -38,6 +42,8 @@ def verdict(out):
 
 
 def run():
+    """Check every configuration in this folder with TLC, one worker and deadlock checking off, and return
+    one line per configuration: specification | configuration | verdict | distinct states."""
     java, jar = tools()
     if not java:
         sys.exit('TLC needs java on PATH (or $JAVA) and $TLA2TOOLS pointing at tla2tools.jar')

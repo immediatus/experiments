@@ -16,6 +16,8 @@ from formulas import cold_start_chain, kubelet_start_after, workqueue_retry_afte
 
 
 class Backoffs(unittest.TestCase):
+    """Workqueue retry within twice the outage; workqueue cap bounds the wait; kubelet schedule; chain not faster
+    than instant retries."""
 
     def test_workqueue_retry_within_twice_the_outage(self):
         for t in (0.001, 0.5, 3.0, 30.0, 90.0, 299.0, 600.0):

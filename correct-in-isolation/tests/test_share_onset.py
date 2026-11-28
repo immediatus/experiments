@@ -15,6 +15,7 @@ from relist import simulate_limited
 
 
 class ShareOnset(unittest.TestCase):
+    """Half the server storms from half the cost."""
 
     def test_half_the_server_storms_from_half_the_cost(self):
         cap = 100.0 * 122.5 / 245

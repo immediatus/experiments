@@ -22,7 +22,7 @@ belongs to is given below, and Parts 5 and 6 have their sections frozen ahead of
 | T39 | Part 1: a shared signal. Coupling from current collectors (OpenJDK 17, cycle lower-bound overheads, geometric mean of 16 benchmarks, ISPASS 2022; heap as a multiple of the minimum; beta from neighboring two-decimal table values) |
 | T6 | Part 2: a shared time scale. Pod loop nested in node loop, no headroom (n0 16, target 0.5, limit = request, 8 pods per node, pod 90 s, node 210 s) |
 | T7 | Part 2: a shared time scale. Node provisioning time, k 30 |
-| T8 | Part 2: a shared time scale. Headroom held in advance (n0 64, one pod per node, so slots are exact) |
+| T8 | Part 2: a shared time scale. Headroom held in advance (n0 64, one pod per node, so slots are exact), and every slot count swept for the bands just short of a step that are slower than the step below |
 | T9 | Part 2: a shared time scale. Node size as hidden headroom, k 30, n0 16 |
 | T25 | Part 2: a shared time scale. The headroom penalty across timing (k 30, n0 64, one pod per node; 0, 53 and 56 free slots) |
 | T26 | Part 2: a shared time scale. Where the headroom penalty appears (n0 64, one pod per node, pod 90 s, node 210 s) |
@@ -41,7 +41,7 @@ belongs to is given below, and Parts 5 and 6 have their sections frozen ahead of
 | T40 | Part 2: a shared time scale. Memory kept as nodes past the one-hour pod window (Weibull gaps, 58 spare nodes, window 3600 s; forever stands for an unneeded time of 200000 s) |
 | T10 | Part 3: shared state. Informers re-listing behind a queued API server (2000 clients, capacity 100 seat-s/s, history 300 s, watch 300 to 600 s, every client forced to LIST at t 0) |
 | T11 | Part 3: shared state. Does the trigger reach the failed state (LISTs still running in hour 8) |
-| T12 | Part 3: shared state. Each safeguard alone, LIST cost 100 |
+| T12 | Part 3: shared state. Each safeguard alone, LIST cost 100, and both together in the idealized queue and with the documented wait limit |
 | T41 | Part 3: shared state. The queue with its wait limit (as T10; 15 s wait limit then 429, Reflector backoff; fair queuing at the system level) |
 | T42 | Part 3: shared state. Where the second wave starts with the wait limit (pulse, 3 hours) |
 | T43 | Part 3: shared state. Does the trigger decide the storm (LISTs in hour 8; trigger spread 0, 450, 900, 1800 s) |
@@ -66,12 +66,12 @@ belongs to is given below, and Parts 5 and 6 have their sections frozen ahead of
 | T61 | Part 4: a shared assumption. Mean time until a webhook that must admit its own replacements binds, with independent node failures and the documented eviction toleration |
 | T62 | Part 4: a shared assumption. A Fail webhook matching Lease updates and failing each call with probability q: Unknown time, five-minute spells and the node controller's eviction regime |
 | T63 | Part 4: a shared assumption. A webhook that rejects its own pods rolls out a new version of itself under the Deployment defaults |
-| T64 | Part 4: a shared assumption. Fail webhooks that each exclude their own namespace: cycles, stranding after a full restart, and the fewest fixes |
+| T64 | Part 4: a shared assumption. Fail webhooks that each exclude their own namespace: cycles, stranding after a full restart, and the fewest fixes, exact over every graph |
 | T15 | Part 5: a shared order. Mutating webhooks over every order (1 pass: the weaker reading; 2: the reinvocation contract; 3: beyond it) |
 | T16 | Part 5: a shared order. Enabling chain of n webhooks (depth n - 1), all IfNeeded |
 | T50 | Part 5: a shared order. A link through a match rule, over every order; a webhook skipped in round 0 is never called later |
 | T51 | Part 5: a shared order. Chains with value and match links, all IfNeeded, every order equally likely |
-| T52 | Part 5: a shared order. The two cluster checks under the contract: a clean last pass in the audit trail, and a second admission |
+| T52 | Part 5: a shared order. The two cluster checks under the contract: a clean last pass in the audit trail, and a second admission, read by its patches and by the object it returns, with an override added as a seventh scenario |
 | T71 | Part 5: a shared order. Istio's and Vault's injectors at chart defaults, ordered by configuration name |
 | T72 | Part 5: a shared order. A mutating admission policy and a webhook with a value link, in the current plugin order and in the contract's worst case |
 | T73 | Part 6: the whole. How often a failure of a random system is one that a check of every pair passes, for the signal, assumption and order seams |
@@ -110,7 +110,7 @@ belongs to is given below, and Parts 5 and 6 have their sections frozen ahead of
 | T100 | Part 4: a shared assumption. Random start-time graphs and the giant stranded core |
 | T101 | Part 4: a shared assumption. A recovery controller, unseen edges and edges that cannot be relaxed |
 | T102 | Part 5: a shared order. The passes frontier and an orchestrator that iterates dry-run admission |
-| T103 | Parts 1 and 3: hidden memory. Runs that share the visible state and differ in what a mechanism remembers |
+| T103 | Parts 1 and 3: hidden memory. Runs that share the visible state and differ in what a mechanism remembers, the backoff's over 200 seeds |
 | T104 | Parts 3 and 4: the controllers' frontiers. The split controller's hold, and the relaxation in order |
 | T105 | Part 3: a shared state. A storm spreading from the informers a trigger forced |
 | T106 | Part 2: a shared time scale. The headroom frontier in slots rather than whole rounds |
@@ -124,7 +124,7 @@ belongs to is given below, and Parts 5 and 6 have their sections frozen ahead of
 | T114 | Part 4: a shared assumption. The heartbeat behind a failing webhook when each failed call takes the webhook timeout |
 | T115 | Part 6: the whole. Whole-system tests on incomplete descriptions: which verdicts an omission can move |
 | T116 | Part 6: the whole. The assumption x order frontier: four settings of Kyverno and Consul and the pods each leaves outside a webhook |
-| T117 | Part 6: the whole. A whole-system supervisor on the signal and time-scale seams: greedy by ratio against a coupling-aware choice |
+| T117 | Part 6: the whole. A whole-system supervisor on the signal and time-scale seams at constant demand: greedy by ratio against a coupling-aware choice |
 | T118 | Part 1: a shared signal. The split pairing with the heap structure explicit: a live set that follows load, and a heap that grows into its limit |
 | T119 | Part 1: a shared signal. The paired loops in transit: a fix applied mid-drift, at three hours |
 | T120 | Part 1: a shared signal. The split pairing with a live set that does not follow load: the heap share below which it turns singular, the gain at three heap shares, and each collector's gain over heap shares 0 to 0.95 |

@@ -28,6 +28,8 @@ def quadrature(f, mu, n=20000):
 
 
 class UnknownGap(unittest.TestCase):
+    """Expected forms match quadrature; memoryless optimum is zero or forever; break even is less than twice the
+    hindsight cost; simulated means follow the closed form."""
 
     def test_expected_forms_match_quadrature(self):
         for mu in (600, 1800):

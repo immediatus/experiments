@@ -72,6 +72,9 @@ class ReflectorBackoff:
         self.duration, self.last_start = init, start
 
     def step(self, now):
+        """The delay before the next retry, in seconds, at time `now` in seconds: the current delay jittered up to
+        twice itself, after which the delay doubles up to the cap; the sequence restarts at the initial delay once
+        more than the reset interval has passed since its last restart."""
         if now - self.last_start > self.reset:
             self.duration, self.last_start = self.init, now
         d = self.duration
@@ -98,6 +101,7 @@ class SplitController:
     _since: Optional[float] = field(default=None, init=False)
 
     def observe_gone(self, t: float) -> None:
+        """Record a re-watch answered 410 Gone at time t, in seconds."""
         self._recent.append(t)
         self._last_gone = t
 
@@ -115,6 +119,7 @@ class SplitController:
             self._next += self.period
 
     def seconds_split(self, end: float, server: 'Server') -> float:
+        """Seconds the lists have spent on their own share of the server by time `end`, counting a split still open."""
         return self.split_seconds + (end - self._since if server.share is not None else 0.0)
 
 
@@ -127,16 +132,20 @@ class Server:
         self.free_at = self.free_watch = self.free_list = 0.0
 
     def start(self, t: float, is_list: bool) -> float:
+        """The time, in seconds, at which a request arriving at t starts: when the server, or the list or watch share
+        it goes to while the server is split, is next free."""
         if self.share is None:
             return max(t, self.free_at)
         return max(t, self.free_list if is_list else self.free_watch)
 
     def rate(self, is_list: bool) -> float:
+        """Seat-seconds per second available to a list or a watch: the whole capacity, or its share while split."""
         if self.share is None:
             return self.capacity
         return self.capacity * (self.share if is_list else 1.0 - self.share)
 
     def finish(self, done: float, is_list: bool) -> None:
+        """Mark the server, or the share the request used, busy until `done`, in seconds."""
         if self.share is None:
             self.free_at = done
         elif is_list:
@@ -145,9 +154,11 @@ class Server:
             self.free_watch = done
 
     def divide(self, share: float) -> None:
+        """Split the server, giving lists `share` of the capacity and watches the rest, both free when the server is."""
         self.share, self.free_watch, self.free_list = share, self.free_at, self.free_at
 
     def merge(self) -> None:
+        """Rejoin the two shares into one server, free once both are."""
         self.share, self.free_at = None, max(self.free_watch, self.free_list)
 
 

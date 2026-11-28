@@ -112,7 +112,10 @@ every number the text quotes. A numeric table of four or more rows is drawn as a
   that changes only with a reported run, and ends with a "Reporting a run" section: what a
   report must attach for this experiment's kit. The repository's issue templates stay generic
   and point to that section, so they serve every experiment.
-- The repository links to the blog. **The blog never links to the repository.**
+- The repository links to the blog. The blog links to an experiment only through its theme's repository
+  marks, set in each post's front matter: `series_repo`, the experiment's folder, shown beside the series
+  title, and `repo`, the part's page in `docs/`, shown as a labelled mark in the post's meta line. **Post text
+  never links the repository**: no script, section or command is named in a post.
 - [`tools/check_docs.py`](tools/check_docs.py) must pass: every link resolves, every post link
   is listed in `experiment.json`, every section exists, every claimed number is in the
   results.

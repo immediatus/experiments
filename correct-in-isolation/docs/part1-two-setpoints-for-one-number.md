@@ -64,11 +64,11 @@ at $1/((1+m)q)$, 0.870 at the defaults and a steady load (T2).
 
 ![The staircase](../figures/drift.svg)
 
-*The specimen's drift: 100 cores of steady demand, a 50% horizontal target and the vertical autoscaler on the same CPU metric, documented defaults. Replicas, on the left and in logarithms, climb a staircase from 10 to 8,000: one step about every three and a third days, when the vertical loop's percentile lets go of the previous level. Requested cores, on the right, stay between 200.0 and 205.2. The line every capacity dashboard draws is the flat one.*
+*The drift every dashboard approves. With steady demand and both autoscalers on one CPU metric at their defaults, replicas climb a staircase from 10 to 8,000, one step about every three and a third days, while the CPU requested in total stays between 200.0 and 205.2 cores. A capacity dashboard draws the flat line.*
 
 ![The staircase law at other settings](../figures/settings.svg)
 
-*The staircase away from the defaults: each setting's doubling time against the hours between its steps. A different percentile or half-life moves along the band, in proportion. The margin changes the slope instead: zero doubles the replicas at every step, 0.3 multiplies them by 1.54. Bars are the closed form, dots the simulation, which rounds the replica count up and can dip just under its bar.*
+*Tuning the vertical autoscaler changes how fast the drift runs, not whether it runs. Another percentile or half-life moves a setting along the band; the margin changes the slope: zero doubles the replicas at every step, 0.3 multiplies them by 1.54. Bars are the closed form, dots the simulation.*
 
 ## The results
 

@@ -19,6 +19,7 @@ CTRL = {'on_rate': 0.1, 'window': 60.0, 'period': 10.0, 'hold': 1800.0, 'share':
 
 
 class Contracts(unittest.TestCase):
+    """Storm keeps both contracts; default is unchanged."""
 
     def test_storm_keeps_both_contracts(self):
         out = simulate_limited(114.0)
@@ -35,6 +36,7 @@ class Contracts(unittest.TestCase):
 
 
 class Cascade(unittest.TestCase):
+    """Forced clients are reported; storm spreads to informers never forced."""
 
     def test_forced_clients_are_reported(self):
         out = simulate_limited(150.0, waves=[(0.0, 1.0 / 3.0)])[6]
@@ -49,6 +51,8 @@ class Cascade(unittest.TestCase):
 
 
 class Split(unittest.TestCase):
+    """Static split ends the storm; controller ends the storm; release without hold hunts; split time is reported;
+    controller idle without a trigger."""
 
     def test_static_split_ends_the_storm(self):
         out = simulate_limited(114.0, controller=dict(CTRL, on_rate=0.0, hold=1e12))

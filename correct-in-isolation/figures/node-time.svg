@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
-<title>Time until capacity meets a 30x surge, four rounds, as node provisioning gets slower</title>
+<title>Slower nodes cost the nested pair once per round</title>
 <desc>Time until capacity meets a 30x surge against node provisioning time. Nested: 30 s: 480 s, 60 s: 600 s, 120 s: 840 s, 210 s: 1200 s, 300 s: 1560 s, 600 s: 2760 s. Node loop that sees the final need: 30 s: 390 s, 60 s: 420 s, 120 s: 480 s, 210 s: 570 s, 300 s: 660 s, 600 s: 960 s. Ample nodes: 360 s.</desc>
 <style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
 <rect x="0" y="0" width="700" height="320" class="f-bg"/>
@@ -38,5 +38,5 @@
 <circle cx="644.50" cy="196.72" r="3" class="f-b"/>
 <text x="638.00" y="35.80" text-anchor="end" class="f-a" font-weight="bold">nested: 2760 s</text>
 <text x="638.00" y="188.80" text-anchor="end" class="f-b">final need: 960 s</text>
-<text x="253.00" y="169.80" text-anchor="end" class="f-a">1200 s at 210 s</text>
+<text x="253.00" y="169.80" text-anchor="end" class="f-a">today's 210 s nodes: 1200 s</text>
 </svg>

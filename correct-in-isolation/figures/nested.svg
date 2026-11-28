@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
-<title>Time until capacity meets a surge, against the surge's size, with 90-second pods and 210-second nodes and no free slots</title>
+<title>Every round waits for nodes</title>
 <desc>Time until capacity meets a surge, against its size, for a pod loop nested in a node loop with no free slots. Nested: 3x 300 s, 5x 600 s, 10x 900 s, 30x 1200 s, 100x 1800 s. Node loop that sees the final need: 3x 300 s, 5x 390 s, 10x 480 s, 30x 570 s, 100x 750 s. Ample nodes: 3x 90 s, 5x 180 s, 10x 270 s, 30x 360 s, 100x 540 s.</desc>
 <style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
 <rect x="0" y="0" width="700" height="320" class="f-bg"/>
@@ -41,7 +41,7 @@
 <circle cx="274.17" cy="243.71" r="3" class="f-g"/>
 <circle cx="455.36" cy="232.28" r="3" class="f-g"/>
 <circle cx="653.93" cy="209.42" r="3" class="f-g"/>
-<text x="652.00" y="198.80" text-anchor="end" class="f-g">ample nodes</text>
+<text x="652.00" y="233.80" text-anchor="end" class="f-g">ample nodes</text>
 <text x="72.00" y="233.80" text-anchor="end" class="f-a">1 round</text>
 <text x="156.00" y="195.80" text-anchor="end" class="f-a">2 rounds</text>
 <text x="270.00" y="157.80" text-anchor="end" class="f-a">3 rounds</text>

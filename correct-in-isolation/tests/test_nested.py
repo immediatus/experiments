@@ -20,6 +20,9 @@ LATENCY = 15 + 10 + 5   # one sync period, one scan interval and one time step, 
 
 
 class NestedLoops(unittest.TestCase):
+    """Nested time matches the closed form; without node rounding the bound holds at every target; node rounding can
+    cover small rounds; separated time matches the closed form; seeing the final need never hurts; headroom
+    thresholds count whole rounds; full headroom removes every node wait; covered headroom matches the closed form."""
 
     def test_nested_time_matches_the_closed_form(self):
         for k in (3, 5, 10, 30, 100):
@@ -79,6 +82,7 @@ class NestedLoops(unittest.TestCase):
 
 
 class LoadMetric(unittest.TestCase):
+    """A load metric sizes the surge without waiting for ready pods; utilization metric unchanged."""
 
     def test_a_load_metric_sizes_the_surge_without_waiting_for_ready_pods(self):
         # Desired replicas follow total load over the per-pod target, so only the default scale-up

@@ -600,15 +600,20 @@ def t116():
 
 
 def t117():
-    print('T117 a whole-system supervisor on the signal and time-scale seams of one deployment (16 pods, limit '
-          '= request, 8 pods per node, pod 90 s, node 210 s, a surge to 30 times the demand the pair carries). '
-          'Rows "greedy": seams in order of their ratios, each given the smallest one-setting change that '
-          'brings its own ratio to one, taken again when a later fix pushes it back: step | fix | target | '
-          'free slots held | signal ratio | time ratio | seconds to meet the surge. Rows "joint": each fix of '
-          'the signal seam with the fewest slots that bring both ratios to one, the choice first: fix | target '
-          '| free slots | signal ratio | time ratio | seconds')
+    print('T117 a whole-system supervisor on the signal and time-scale seams of one deployment (16 pods at a 50% target, '
+          'limit = request, 8 pods per node, pod 90 s, node 210 s, a surge to 30 times the demand they carry; a fix '
+          'that moves where the pair rests, its target or its tolerance, keeps that demand, so the pods change with '
+          'it). Rows "greedy": seams in order of '
+          'their ratios, each given the smallest one-setting change that brings its own ratio to one, taken again '
+          'when a later fix pushes it back: step | fix | target | pods | free slots held | signal ratio | time ratio '
+          '| seconds to meet the surge. Rows "joint": each fix of the signal seam with the fewest slots that bring '
+          'both ratios to one, ranked by slots then time, or by time then slots: ranking | fix | target | pods | free '
+          'slots | signal ratio | time ratio | seconds')
     for i, s in enumerate(greedy()):
-        print('  greedy | %d | %s | %.2f | %d | %.3f | %.3f | %d' % (i, s['fix'], s['target'], s['slots'], s['signal_ratio'], s['time_ratio'], s['surge_s']))
-    for allow in (True, False):
-        b = joint(allow_load=allow)
-        print('  joint | %s | %.2f | %d | %.3f | %.3f | %d' % (b['fix'], b['target'], b['slots'], b['signal_ratio'], b['time_ratio'], b['surge_s']))
+        print('  greedy | %d | %s | %.2f | %d | %d | %.3f | %.3f | %d' % (i, s['fix'], s['target'], s['pods'], s['slots'],
+                                                                     s['signal_ratio'], s['time_ratio'], s['surge_s']))
+    for allow, rank in ((True, 'slots'), (False, 'slots'), (False, 'time')):
+        b = joint(allow_load=allow, rank=rank)
+        print('  joint | %s%s | %s | %.2f | %d | %d | %.3f | %.3f | %d' % (
+            rank, '' if allow else ', no load metric', b['fix'], b['target'], b['pods'], b['slots'], b['signal_ratio'],
+            b['time_ratio'], b['surge_s']))

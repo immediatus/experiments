@@ -16,6 +16,7 @@ from gc_data import CYCLE_LBO, HEAPS, pair_elasticities, peak_elasticity
 
 
 class CycleLBO(unittest.TestCase):
+    """Transcription spot checks; cost never rises with the heap; elasticities."""
 
     def test_transcription_spot_checks(self):
         self.assertEqual(HEAPS, (1.4, 1.9, 2.4, 3.0, 3.7, 4.4, 5.2, 6.0))

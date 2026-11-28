@@ -43,10 +43,13 @@ SCENARIOS = ([label, sidecar], [sidecar, pull_policy], [sidecar, digest, signer]
 
 
 def fixed(obj, webhooks):
+    """Whether `obj` is a common fixed point of the webhooks that match it."""
     return all(w(obj) == obj for w in webhooks if matches(w, obj))
 
 
 class MatchRules(unittest.TestCase):
+    """An unmatched webhook is never called in a later round; a webhook that stops matching is skipped; a match link
+    is not repaired at any number of passes; existing scenarios are unchanged by match rules."""
 
     def test_an_unmatched_webhook_is_never_called_in_a_later_round(self):
         _, trace = admit_trace(pod(), [injector, mesh_label], passes=3)
@@ -78,6 +81,9 @@ class MatchRules(unittest.TestCase):
 
 
 class TypedChains(unittest.TestCase):
+    """Typed chain share matches enumeration; value links reduce to the eulerian share; an all match chain converges
+    in one order in n factorial; the last match link sets the ceiling; typed chain with value links only is the old
+    chain."""
 
     def test_typed_chain_share_matches_enumeration(self):
         for n in range(2, 6):
@@ -118,6 +124,8 @@ class TypedChains(unittest.TestCase):
 
 
 class ClusterTests(unittest.TestCase):
+    """A clean final round certifies every called webhook; a clean final round misses a match link; a dirty final
+    round can be a false alarm; readmission is exact in every order."""
 
     def test_a_clean_final_round_certifies_every_called_webhook(self):
         for ws in SCENARIOS:

@@ -17,55 +17,22 @@ import unittest
 import seam_audit as sa
 
 
-def webhook_config(kind, name, hooks):
-    return {'kind': kind, 'metadata': {'name': name}, 'webhooks': hooks}
+def _example(name):
+    """One of the example inputs shipped with the tool, so the README's example is the one tested."""
+    with open(os.path.join(HERE, '..', 'audit', name), encoding='utf-8') as f:
+        return json.load(f)
 
 
-def hook(name, ns, fail='Fail', ns_selector=None, obj_selector=None, reinvoke=None, pods=True):
-    h = {'name': name, 'clientConfig': {'service': {'namespace': ns, 'name': name}},
-         'rules': [{'apiGroups': [''], 'apiVersions': ['v1'], 'operations': ['CREATE'], 'resources': ['pods' if pods else 'configmaps']}],
-         'failurePolicy': fail}
-    if ns_selector is not None:
-        h['namespaceSelector'] = ns_selector
-    if obj_selector is not None:
-        h['objectSelector'] = obj_selector
-    if reinvoke is not None:
-        h['reinvocationPolicy'] = reinvoke
-    return h
-
-
-def namespace(name, **labels):
-    labels = dict(labels, **{'kubernetes.io/metadata.name': name})
-    return {'kind': 'Namespace', 'metadata': {'name': name, 'labels': labels}}
-
-
-CLUSTER = {'kind': 'List', 'items': [
-    namespace('kyverno'), namespace('consul'), namespace('app'), namespace('kube-system'),
-    webhook_config('MutatingWebhookConfiguration', 'consul-connect-injector',
-                   [hook('consul-inject', 'consul', ns_selector={'matchExpressions': [{'key': 'kubernetes.io/metadata.name', 'operator': 'NotIn', 'values': ['kube-system']}]},
-                         obj_selector={'matchExpressions': [{'key': 'app', 'operator': 'NotIn', 'values': ['consul']}]})]),
-    webhook_config('ValidatingWebhookConfiguration', 'kyverno-resource-validating',
-                   [hook('kyverno-validate', 'kyverno', ns_selector={'matchExpressions': [{'key': 'kubernetes.io/metadata.name', 'operator': 'NotIn', 'values': ['kube-system', 'kyverno']}]})]),
-    webhook_config('MutatingWebhookConfiguration', 'admission-signer', [hook('signer', 'app', fail='Ignore', reinvoke='IfNeeded')]),
-    webhook_config('MutatingWebhookConfiguration', 'image-digest', [hook('digest', 'app', fail='Ignore', reinvoke='IfNeeded')]),
-    webhook_config('MutatingWebhookConfiguration', 'sidecar-injector', [hook('sidecar', 'app', fail='Ignore', reinvoke='IfNeeded')]),
-    {'kind': 'HorizontalPodAutoscaler', 'metadata': {'name': 'web', 'namespace': 'app'},
-     'spec': {'scaleTargetRef': {'kind': 'Deployment', 'name': 'web'},
-              'metrics': [{'type': 'Resource', 'resource': {'name': 'cpu', 'target': {'type': 'Utilization', 'averageUtilization': 50}}}]}},
-    {'kind': 'VerticalPodAutoscaler', 'metadata': {'name': 'web', 'namespace': 'app'},
-     'spec': {'targetRef': {'kind': 'Deployment', 'name': 'web'}, 'updatePolicy': {'updateMode': 'Auto'}}},
-]}
-
-DESCRIPTION = {
-    'facts': {'proxy': ['sidecar', []], 'pinned': ['digest', ['proxy']], 'signature': ['signer', ['pinned']]},
-    'informers': [{'count': 2000, 'list_cost': 100.0}], 'capacity': 100.0, 'mean_watch': 450.0, 'history': 300.0,
-    'surge': 30, 'running_pods': 16, 'free_slots': 0,
-}
+CLUSTER = _example('example-cluster.json')
+DESCRIPTION = _example('example-description.json')
 
 
 class Audit(unittest.TestCase):
+    """Signal; assumption finds the cycle; order counts the passes; state and time; fail open breaks the cycle;
+    malformed input is reported; description missing a field is reported; command line."""
 
     def setUp(self):
+        """The audit of the shipped example cluster and description."""
         self.report = sa.audit(CLUSTER, DESCRIPTION)
 
     def test_signal(self):

@@ -18,6 +18,8 @@ N, C, R, SHORT, MEAN = 2000, 100.0, 300.0, 300.0, 450.0
 
 
 class EachSafeguardAlone(unittest.TestCase):
+    """Ample capacity lists only the forced clients; unbounded history lists only the forced clients; no trigger no
+    list."""
 
     def test_ample_capacity_lists_only_the_forced_clients(self):
         per_hour, _ = simulate(100.0, capacity=C * 100)
@@ -33,6 +35,8 @@ class EachSafeguardAlone(unittest.TestCase):
 
 
 class Composite(unittest.TestCase):
+    """No second wave at or below the threshold; second wave above the threshold; no sustained storm below the
+    necessary condition; sustained storm spends all capacity on lists."""
 
     def test_no_second_wave_at_or_below_the_threshold(self):
         for seed in (1, 2, 3):

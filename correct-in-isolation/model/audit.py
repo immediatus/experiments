@@ -7,6 +7,7 @@ A pairwise test looks at two mechanisms with the rest left out. The whole-system
   with a cycle of enabling (one mutator undoing another) reported as having no fixed point.
 """
 import itertools
+import math
 
 
 def inverse(m):
@@ -177,3 +178,86 @@ def default_start_graph(components):
                 continue
             needs[c].add(w)
     return needs
+
+
+def _restart_stats_of(out, k):
+    """For one start-time graph on k components, given as out-neighbour bitmasks: whether it has a cycle, the
+    components a full restart strands (those on a cycle or with a path into one, Proposition 23), and the sizes
+    of a smallest feedback arc set and a smallest feedback vertex set."""
+    reach = list(out)
+    for _ in range(k):
+        for i in range(k):
+            r = reach[i]
+            for j in range(k):
+                if r >> j & 1:
+                    r |= reach[j]
+            reach[i] = r
+    cyc = 0
+    for i in range(k):
+        if reach[i] >> i & 1:
+            cyc |= 1 << i
+    stranded = sum(1 for i in range(k) if (cyc >> i & 1) or reach[i] & cyc)
+    full = (1 << k) - 1
+    best = [0] + [None] * full          # fewest backward arcs over orders of each placed set
+    for s in range(1, full + 1):
+        m = None
+        for v in range(k):
+            if s >> v & 1:
+                prev = best[s & ~(1 << v)]
+                cost = prev + bin(out[v] & ~s).count('1')
+                m = cost if m is None or cost < m else m
+        best[s] = m
+    acyclic = [True] + [False] * full   # a set is acyclic when it has a sink whose removal leaves an acyclic set
+    largest = 0
+    for s in range(1, full + 1):
+        acyclic[s] = any(s >> v & 1 and not out[v] & s and acyclic[s & ~(1 << v)] for v in range(k))
+        if acyclic[s]:
+            largest = max(largest, bin(s).count('1'))
+    return bool(cyc), stranded, best[full], k - largest
+
+
+def restart_counts_range(k, lo, hi):
+    """Integer tallies over the graphs numbered lo to hi - 1 on k components, grouped by their number of needs m:
+    {m: [graphs with a cycle, components stranded, smallest arc fixes, smallest vertex fixes, graphs]}, each
+    summed over the graphs with m needs. Bit b of a graph's number is the b-th ordered pair (a, b), a != b."""
+    arcs = [(a, b) for a in range(k) for b in range(k) if a != b]
+    counts = {}
+    for mask in range(lo, hi):
+        out = [0] * k
+        for bit, (a, b) in enumerate(arcs):
+            if mask >> bit & 1:
+                out[a] |= 1 << b
+        stats = _restart_stats_of(out, k)
+        row = counts.setdefault(bin(mask).count('1'), [0, 0, 0, 0, 0])
+        for i in range(4):
+            row[i] += stats[i]
+        row[4] += 1
+    return counts
+
+
+def merge_restart_counts(parts):
+    """The tallies of restart_counts_range over several ranges, added by number of needs."""
+    total = {}
+    for part in parts:
+        for m, row in part.items():
+            acc = total.setdefault(m, [0, 0, 0, 0, 0])
+            for i in range(5):
+                acc[i] += row[i]
+    return total
+
+
+def weigh_restart_counts(counts, k, p):
+    """Expectations from the tallies when each of the k (k - 1) needs is present with probability p: share of
+    clusters with a cycle, mean stranded, mean smallest arc fix and mean smallest vertex fix."""
+    n = k * (k - 1)
+    weight = {m: p ** m * (1 - p) ** (n - m) for m in counts}
+    return {key: math.fsum(weight[m] * counts[m][i] for m in counts)
+            for i, key in enumerate(('cyclic', 'stranded', 'arcs', 'vertices'))}
+
+
+def exact_restart_statistics(k, ps):
+    """The exact expectations for k webhooks that fail closed and exclude their own namespace, each matching
+    another's pods with probability p: share of clusters with a start-time cycle, components a full restart
+    strands, and the sizes of the smallest arc and vertex fixes, by enumerating all 2^(k(k-1)) graphs."""
+    counts = restart_counts_range(k, 0, 1 << (k * (k - 1)))
+    return {p: weigh_restart_counts(counts, k, p) for p in ps}

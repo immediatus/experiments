@@ -26,6 +26,7 @@ CASES = (('tcBackoffFresh', 20000), ('tcBackoffFreshTight', 20000), ('tcBackoffR
 
 
 def tool():
+    """The p executable on PATH, or None."""
     return shutil.which('p')
 
 
@@ -49,6 +50,8 @@ def verdict(out):
 
 
 def run():
+    """Compile the P project and check each test case for its fixed number of schedules with seed 1,
+    returning one line per case: case | schedules | verdict."""
     if not tool():
         sys.exit('P needs the p tool on PATH (dotnet tool install P) and the .NET 8 SDK')
     subprocess.run(['p', 'compile'], cwd=HERE, capture_output=True, text=True, check=True)

@@ -16,6 +16,8 @@ from recovery import eviction_regime, heartbeat_unknown
 
 
 class Heartbeats(unittest.TestCase):
+    """Extremes; monotone in failure probability; eviction regime follows the documented rules; attempts in one
+    grace window."""
 
     def test_extremes(self):
         self.assertEqual(heartbeat_unknown(0.0, hours=2)['unknown_share'], 0.0)

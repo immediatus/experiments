@@ -13,6 +13,9 @@ from hpa_vpa import simulate
 
 
 class DirectionalTolerance(unittest.TestCase):
+    """Symmetric case is the old band; scale up tolerance moves only the low edge; stopping tolerance is step factor
+    minus one; target at the low edge rests; simulated staircase stops above and runs below; simulated threshold
+    lies inside the bucket bracket."""
     def test_symmetric_case_is_the_old_band(self):
         for q in (1.0, 1.2):
             self.assertEqual(directional_band(q=q, tol_up=0.1, tol_down=0.1), equilibrium_band(q=q))

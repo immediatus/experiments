@@ -18,6 +18,7 @@ from relist import simulate_limited
 
 
 class Memory(unittest.TestCase):
+    """Empty prior is the plain run; same start different past."""
 
     def test_empty_prior_is_the_plain_run(self):
         self.assertEqual(simulate(0.5, days=5, prior=())[0], simulate(0.5, days=5)[0])
@@ -31,6 +32,7 @@ class Memory(unittest.TestCase):
 
 
 class BackoffMemory(unittest.TestCase):
+    """Raised backoff changes the run at the same queue state."""
 
     def test_raised_backoff_changes_the_run_at_the_same_queue_state(self):
         fresh = simulate_limited(113.0, seed=1)

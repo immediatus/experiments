@@ -25,6 +25,9 @@ PLACE = {'webhook': [0, 3, 6], 'dns': [1, 4], 'app': [2, 5, 8]}
 
 
 class RollingDrain(unittest.TestCase):
+    """Availability edges survive a rolling drain; a rejection edge removes the component and what needs it; failure
+    policy ignore keeps one replica and no more; a budget stalls the drain after n minus m evictions; the documented
+    fix removes the edge."""
 
     def test_availability_edges_survive_a_rolling_drain(self):
         out = rolling_drain(PLACE, needs={'app': {'webhook'}, 'webhook': {'webhook'}}, rejects={}, order=NODES)
@@ -61,6 +64,8 @@ if __name__ == '__main__':
 
 
 class FiniteLife(unittest.TestCase):
+    """Expected life is the harmonic number over the failure rate; simulated life matches; drain order decides what
+    the app loses."""
 
     def test_expected_life_is_the_harmonic_number_over_the_failure_rate(self):
         self.assertAlmostEqual(rejection_life(1, 30.0), 30.0)
@@ -80,6 +85,7 @@ class FiniteLife(unittest.TestCase):
 
 
 class DrainOrder(unittest.TestCase):
+    """Closed form matches random orders; expected loss."""
 
     def test_closed_form_matches_random_orders(self):
         closed = app_loss_distribution(3, 3)

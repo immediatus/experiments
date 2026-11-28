@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" width="700" height="320" role="img" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11">
-<title>Time until capacity meets a 30x surge against free slots held in advance</title>
+<title>Headroom removes node waits one step at a time</title>
 <desc>Time until capacity meets a 30x surge against free slots held in advance, as a multiple of 64 running pods. Closed-form steps at 56, 176, 416, 896 slots, to 1200, 990, 780, 570, 360 seconds. Simulated: 0 slots: 1200 s; 53 slots: 1290 s; 56 slots: 990 s; 64 slots: 990 s; 169 slots: 1080 s; 176 slots: 780 s; 192 slots: 780 s; 402 slots: 870 s; 416 slots: 570 s; 448 slots: 570 s; 896 slots: 360 s. Just short of a step, 53 slots take 1290 s; 169 slots take 1080 s; 402 slots take 870 s.</desc>
 <style>.f-ink{fill:#333}.s-ink{stroke:#333}.f-sub{fill:#555}.s-sub{stroke:#555}.f-grid{fill:#d6d6d6}.s-grid{stroke:#d6d6d6}.f-a{fill:#b71c1c}.s-a{stroke:#b71c1c}.f-b{fill:#1565c0}.s-b{stroke:#1565c0}.f-c{fill:#2e7d32}.s-c{stroke:#2e7d32}.f-d{fill:#e65100}.s-d{stroke:#e65100}.f-e{fill:#6a1b9a}.s-e{stroke:#6a1b9a}.f-g{fill:#777}.s-g{stroke:#777}.f-bg{fill:#fff}.s-bg{stroke:#fff}@media (prefers-color-scheme: dark){.f-ink{fill:#ddd}.s-ink{stroke:#ddd}.f-sub{fill:#aaa}.s-sub{stroke:#aaa}.f-grid{fill:#444}.s-grid{stroke:#444}.f-a{fill:#ef9a9a}.s-a{stroke:#ef9a9a}.f-b{fill:#8ab4f8}.s-b{stroke:#8ab4f8}.f-c{fill:#81c784}.s-c{stroke:#81c784}.f-d{fill:#ffcc80}.s-d{stroke:#ffcc80}.f-e{fill:#ce93d8}.s-e{stroke:#ce93d8}.f-g{fill:#bbb}.s-g{stroke:#bbb}.f-bg{fill:#1e1e1e}.s-bg{stroke:#1e1e1e}}</style>
 <rect x="0" y="0" width="700" height="320" class="f-bg"/>
@@ -37,6 +37,6 @@
 <circle cx="361.64" cy="215.65" r="4" class="f-b"/>
 <circle cx="658.55" cy="264.15" r="4" class="f-b"/>
 <text x="108.00" y="44.80" text-anchor="start" class="f-a" font-weight="bold">53 slots, just short of a step: 1290 s, slower than none</text>
-<text x="110.00" y="133.80" text-anchor="start" class="f-b">each step saves a node wait: 56, 176, 416, 896 slots</text>
+<text x="676.00" y="62.85" text-anchor="end" class="f-b">dashed steps: each saves a node wait, at 56, 176, 416, 896 slots</text>
 <text x="651.00" y="253.80" text-anchor="end" class="f-b">896 slots, 14 x: 360 s</text>
 </svg>

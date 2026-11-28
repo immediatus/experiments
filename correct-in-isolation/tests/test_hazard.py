@@ -21,10 +21,14 @@ SPARE, POD, NODE, K, MEAN = 58, 90, 210, 30, 1800
 
 
 def grid_best(shape, rate):
+    """The pod window, on a 10-second grid up to the hour cap, with the least expected cost for Weibull gaps of the
+    given shape and an exchange rate."""
     return min(range(0, WINDOW_CAP + 1, 10), key=lambda m: weibull_pod_cost(m, shape, MEAN, rate, K, POD, NODE, SPARE))
 
 
 class HazardRule(unittest.TestCase):
+    """Scale gives the mean; falling hazard has an interior window; the cap binds when the window would pass an
+    hour; a hazard that does not fall gives zero or the cap; simulated cost is lowest at the hazard window."""
 
     def test_scale_gives_the_mean(self):
         for shape in (0.5, 1.0, 3.0):

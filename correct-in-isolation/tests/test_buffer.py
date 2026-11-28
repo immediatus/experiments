@@ -15,6 +15,8 @@ from nested import simulate
 
 
 class Buffer(unittest.TestCase):
+    """No buffer is the plain run; a buffer beats static headroom of the same start; buffer never slower than none;
+    a buffer cannot beat ample nodes."""
 
     def test_no_buffer_is_the_plain_run(self):
         for k in (5, 30):

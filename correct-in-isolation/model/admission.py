@@ -209,6 +209,13 @@ def readmission_clean(obj, order):
     return not any(mutated for _, _, _, mutated in admit_trace(obj, order, passes=1)[1])
 
 
+def readmission_unchanged(obj, order):
+    """The weaker check a cluster operator might run instead: the object a dry-run second admission
+    returns, compared field by field with the admitted one. It agrees with readmission_clean unless
+    two webhooks write one field, where a later writer can restore what an earlier one changed."""
+    return admit(obj, order, passes=1) == obj
+
+
 def iterate_admission(obj, order, max_admissions=50):
     """An orchestrator that iterates admission to a common fixed point: it submits the object as a dry run
     (the contract's two passes over `order`), feeds the admitted object back in, and stops once every

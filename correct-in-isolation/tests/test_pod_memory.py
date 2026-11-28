@@ -22,6 +22,9 @@ LATENCY = 15 + 10 + 5
 
 
 class PodMemory(unittest.TestCase):
+    """Moving memory into the pod loop never hurts; simulation holds the same nodes and serves no later; memoryless
+    pod line lies below the node curve; pod break even is at most twice the hindsight cost; a memory fills the pod
+    window first up to its cap; capped memoryless optimum is one of three settings."""
 
     def test_moving_memory_into_the_pod_loop_never_hurts(self):
         for m in (600, 900, 1500):

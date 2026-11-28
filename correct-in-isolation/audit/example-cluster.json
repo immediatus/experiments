@@ -1,0 +1,289 @@
+{
+  "kind": "List",
+  "items": [
+    {
+      "kind": "Namespace",
+      "metadata": {
+        "name": "kyverno",
+        "labels": {
+          "kubernetes.io/metadata.name": "kyverno"
+        }
+      }
+    },
+    {
+      "kind": "Namespace",
+      "metadata": {
+        "name": "consul",
+        "labels": {
+          "kubernetes.io/metadata.name": "consul"
+        }
+      }
+    },
+    {
+      "kind": "Namespace",
+      "metadata": {
+        "name": "app",
+        "labels": {
+          "kubernetes.io/metadata.name": "app"
+        }
+      }
+    },
+    {
+      "kind": "Namespace",
+      "metadata": {
+        "name": "kube-system",
+        "labels": {
+          "kubernetes.io/metadata.name": "kube-system"
+        }
+      }
+    },
+    {
+      "kind": "MutatingWebhookConfiguration",
+      "metadata": {
+        "name": "consul-connect-injector"
+      },
+      "webhooks": [
+        {
+          "name": "consul-inject",
+          "clientConfig": {
+            "service": {
+              "namespace": "consul",
+              "name": "consul-inject"
+            }
+          },
+          "rules": [
+            {
+              "apiGroups": [
+                ""
+              ],
+              "apiVersions": [
+                "v1"
+              ],
+              "operations": [
+                "CREATE"
+              ],
+              "resources": [
+                "pods"
+              ]
+            }
+          ],
+          "failurePolicy": "Fail",
+          "namespaceSelector": {
+            "matchExpressions": [
+              {
+                "key": "kubernetes.io/metadata.name",
+                "operator": "NotIn",
+                "values": [
+                  "kube-system"
+                ]
+              }
+            ]
+          },
+          "objectSelector": {
+            "matchExpressions": [
+              {
+                "key": "app",
+                "operator": "NotIn",
+                "values": [
+                  "consul"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "ValidatingWebhookConfiguration",
+      "metadata": {
+        "name": "kyverno-resource-validating"
+      },
+      "webhooks": [
+        {
+          "name": "kyverno-validate",
+          "clientConfig": {
+            "service": {
+              "namespace": "kyverno",
+              "name": "kyverno-validate"
+            }
+          },
+          "rules": [
+            {
+              "apiGroups": [
+                ""
+              ],
+              "apiVersions": [
+                "v1"
+              ],
+              "operations": [
+                "CREATE"
+              ],
+              "resources": [
+                "pods"
+              ]
+            }
+          ],
+          "failurePolicy": "Fail",
+          "namespaceSelector": {
+            "matchExpressions": [
+              {
+                "key": "kubernetes.io/metadata.name",
+                "operator": "NotIn",
+                "values": [
+                  "kube-system",
+                  "kyverno"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "kind": "MutatingWebhookConfiguration",
+      "metadata": {
+        "name": "admission-signer"
+      },
+      "webhooks": [
+        {
+          "name": "signer",
+          "clientConfig": {
+            "service": {
+              "namespace": "app",
+              "name": "signer"
+            }
+          },
+          "rules": [
+            {
+              "apiGroups": [
+                ""
+              ],
+              "apiVersions": [
+                "v1"
+              ],
+              "operations": [
+                "CREATE"
+              ],
+              "resources": [
+                "pods"
+              ]
+            }
+          ],
+          "failurePolicy": "Ignore",
+          "reinvocationPolicy": "IfNeeded"
+        }
+      ]
+    },
+    {
+      "kind": "MutatingWebhookConfiguration",
+      "metadata": {
+        "name": "image-digest"
+      },
+      "webhooks": [
+        {
+          "name": "digest",
+          "clientConfig": {
+            "service": {
+              "namespace": "app",
+              "name": "digest"
+            }
+          },
+          "rules": [
+            {
+              "apiGroups": [
+                ""
+              ],
+              "apiVersions": [
+                "v1"
+              ],
+              "operations": [
+                "CREATE"
+              ],
+              "resources": [
+                "pods"
+              ]
+            }
+          ],
+          "failurePolicy": "Ignore",
+          "reinvocationPolicy": "IfNeeded"
+        }
+      ]
+    },
+    {
+      "kind": "MutatingWebhookConfiguration",
+      "metadata": {
+        "name": "sidecar-injector"
+      },
+      "webhooks": [
+        {
+          "name": "sidecar",
+          "clientConfig": {
+            "service": {
+              "namespace": "app",
+              "name": "sidecar"
+            }
+          },
+          "rules": [
+            {
+              "apiGroups": [
+                ""
+              ],
+              "apiVersions": [
+                "v1"
+              ],
+              "operations": [
+                "CREATE"
+              ],
+              "resources": [
+                "pods"
+              ]
+            }
+          ],
+          "failurePolicy": "Ignore",
+          "reinvocationPolicy": "IfNeeded"
+        }
+      ]
+    },
+    {
+      "kind": "HorizontalPodAutoscaler",
+      "metadata": {
+        "name": "web",
+        "namespace": "app"
+      },
+      "spec": {
+        "scaleTargetRef": {
+          "kind": "Deployment",
+          "name": "web"
+        },
+        "metrics": [
+          {
+            "type": "Resource",
+            "resource": {
+              "name": "cpu",
+              "target": {
+                "type": "Utilization",
+                "averageUtilization": 50
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "kind": "VerticalPodAutoscaler",
+      "metadata": {
+        "name": "web",
+        "namespace": "app"
+      },
+      "spec": {
+        "targetRef": {
+          "kind": "Deployment",
+          "name": "web"
+        },
+        "updatePolicy": {
+          "updateMode": "Auto"
+        }
+      }
+    }
+  ]
+}

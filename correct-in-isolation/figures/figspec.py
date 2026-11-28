@@ -66,6 +66,7 @@ def _pct(v):
 # ---------- Part 1 ----------
 
 def fig_rest_band():
+    """Part 1, from T2: Where both autoscalers can rest."""
     data = []
     for row in section('T2'):
         c = cells(row)
@@ -74,68 +75,62 @@ def fig_rest_band():
         in0 = [] if c[3] == 'none' else [float(x) for x in c[3].split(', ')]
         in1 = [] if c[5] == 'none' else [float(x) for x in c[5].split(', ')]
         data.append((number(c[0]), number(c[1]), lo0, hi0, in0, lo1, hi1, in1))
-    s = base('chart-rest-band', 320, ml=(40, 48), mr=(58, 84))
+    s = base('chart-rest-band', 320, ml=(40, 48), mr=(14, 16))
     s['X'] = dict(lo=0.97, hi=1.53, ticks=[[d[0], '%.1f' % d[0]] for d in data],
-                  title='q: usage percentile over mean usage per pod', ntitle='q (percentile / mean)')
+                  title='q: how spiky per-pod usage is, its 90th percentile over its mean', ntitle='q (spikiness)')
     s['Y'] = dict(lo=0.44, hi=1.0, ticks=[[v, _pct(v)] for v in (0.5, 0.6, 0.7, 0.8, 0.9, 1.0)],
-                  title='horizontal target', ntitle='target')
+                  title="pod autoscaler's CPU target", ntitle='target')
     e = s['els']
     e.append(dict(t='band', pts=[[d[0], d[5], min(d[6], 1.0)] for d in data], c='b', al=0.08))
     e.append(dict(t='band', pts=[[d[0], d[2], d[3]] for d in data], c='b', al=0.2, edge=True))
     e.append(dict(t='line', pts=[[d[0], d[1]] for d in data], c='b', w=1.5, dash=True))
-    for target in (0.5, 0.6, 0.7, 0.8, 0.9):
-        e.append(dict(t='hline', y=target, c='g', w=1, dash=True))
-        e.append(dict(t='txt', x=1.53, y=target, s='%s target' % _pct(target), n=_pct(target), al='left', dx=6, c='sub'))
     for d in data:
         for target in d[7]:
             e.append(dict(t='pt', x=d[0], y=target, r=4, c='c', open=target not in d[4]))
     q0, hi0 = data[0][0], data[0][3]
     e.append(dict(t='txt', x=q0, y=hi0, s='both loops can rest', n='rest band', al='left', bl='bottom', dx=4, dy=-4, c='b', b=True))
-    e.append(dict(t='txt', x=q0, y=0.468, s="dashed: the vertical loop's own utilization, 1/((1+m)q)", n='dashed: vertical loop', al='left', c='b'))
+    e.append(dict(t='txt', x=q0, y=0.468, s="dashed: where the vertical autoscaler holds utilization", n='dashed: vertical loop', al='left', c='b'))
     edges = '; '.join('q %.1f: %.3f to %.3f, widened %.3f to %.3f' % (d[0], d[2], d[3], d[5], d[6]) for d in data)
     aria = ('Rest band of horizontal targets against q, margin 0.15 and tolerance 0.1, for a steady load and widened by the vertical autoscaler\'s '
-            'documented 10 percent update threshold. %s. Dashed lines mark targets of 50 to 90 percent; filled dots mark targets inside the band '
+            'documented 10 percent update threshold. %s. Filled dots mark targets inside the band '
             'for a steady load, open dots targets inside only the widened band.' % edges)
-    cap = ('Which horizontal targets let both loops on one CPU metric rest, against q: the usage percentile the vertical loop sizes '
-           'from, over mean usage per pod. Both rest inside the darker band on a steady load; the lighter band is the most the vertical '
-           'autoscaler\'s 10% update threshold can add. Filled dots are common targets inside the darker band, open dots only inside '
-           'the lighter one. At q = 1, every target of 70% or less is below both. On a strictly steady load the recommender\'s lower bound '
-           'sits on its target, so only the lower side of the lighter band applies there.')
+    cap = ('Where both autoscalers can rest. On a steady load the two loops stop moving only inside the darker band; the lighter '
+           'band is the most the vertical autoscaler\'s 10% update threshold can add. Filled dots are common targets inside the '
+           'band, open dots only inside the lighter one. For a steady load, q = 1, every target of 70% or less sits below both and '
+           'drifts.')
     FIGS.append(Figure('rest-band', s, aria, cap))
 
 
 def fig_drift():
+    """Part 1, from T3: The drift every dashboard approves."""
     pts = []
     for row in section('T3'):
         c = cells(row)
         pts.append((number(c[0]) / 24.0, number(c[1]), number(c[4])))
-    s = base('chart-drift', 320, ml=(44, 52), mr=(40, 48))
+    s = base('chart-drift', 320, ml=(48, 56), mr=(14, 16))
     s['X'] = dict(lo=0, hi=60, ticks=[[d, '%d' % d] for d in (0, 10, 20, 30, 40, 50, 60)], title='days', ntitle='days')
-    s['Y'] = dict(lo=6, hi=14000, log=True, ticks=[[10, '10'], [100, '100'], [1000, '1,000'], [10000, '10,000']],
-                  title='replicas, log scale', ntitle='replicas (log)', col='a')
-    s['R'] = dict(lo=0, hi=260, ticks=[[0, '0'], [100, '100'], [200, '200']], title='requested cores', ntitle='cores', col='b')
+    s['Y'] = dict(lo=0.6, hi=1400, log=True, ticks=[[1, '1x'], [10, '10x'], [100, '100x'], [1000, '1,000x']],
+                  title='times the starting value', ntitle='times start')
     e = s['els']
-    e.append(dict(t='line', pts=[[d, n] for d, n, _ in pts], c='a'))
-    e.append(dict(t='line', pts=[[d, r] for d, _, r in pts], c='b', ax='R'))
     d0, n0, r0 = pts[0]
     dz, nz, rz = pts[-1]
+    e.append(dict(t='line', pts=[[d, round(r / r0, 4)] for d, _, r in pts], c='b', w=2.5))
+    e.append(dict(t='line', pts=[[d, round(n / n0, 4)] for d, n, _ in pts], c='a', w=2.5))
     first_floor = next(d for d, n, _ in pts if n == nz)
-    e.append(dict(t='txt', x=d0, y=n0, s='%d replicas' % n0, al='left', bl='top', dx=6, dy=6, c='a'))
-    e.append(dict(t='txt', x=first_floor, y=nz, s='%s replicas at the 25-millicore floor' % format(int(nz), ','),
-                  n='%s at the floor' % format(int(nz), ','), al='left', bl='bottom', dx=4, dy=-6, c='a', b=True))
+    e.append(dict(t='txt', x=first_floor, y=nz / n0, s='replicas: %s, %dx, at the 25-millicore floor' % (format(int(nz), ','), round(nz / n0)),
+                  n='replicas %dx' % round(nz / n0), al='left', bl='bottom', dx=4, dy=-6, c='a', b=True))
     lo_r, hi_r = min(r for _, _, r in pts), max(r for _, _, r in pts)
-    e.append(dict(t='txt', x=dz, y=hi_r, s='requested cores: %.1f to %.1f' % (lo_r, hi_r), n='%.0f to %.0f cores' % (lo_r, hi_r),
-                  al='right', bl='bottom', dy=-6, c='b', ax='R'))
+    e.append(dict(t='txt', x=dz, y=rz / r0, s='CPU requested in total: unchanged', n='requested CPU: flat',
+                  al='right', bl='bottom', dy=-6, c='b', b=True))
     def at(day):
         return next(n for d, n, _ in pts if d >= day)
     aria = ('Specimen drift over %d days at a 50 percent target with the vertical autoscaler on the same CPU metric, steady demand. '
-            'Replicas, log scale, rise in steps: %s, and stop at %s. Requested cores, linear: between %.1f and %.1f throughout.'
+            'On one scale of times the starting value, replicas rise in steps: %s, and stop at %s. Requested cores stay between %.1f and %.1f throughout.'
             % (dz, ', '.join('day %d %s' % (day, format(int(at(day)), ',')) for day in (0, 5, 10, 15, 20, 25, 30)),
                format(int(nz), ','), lo_r, hi_r))
-    cap = ('The specimen\'s drift: 100 cores of steady demand, a 50%% horizontal target and the vertical autoscaler on the same CPU '
-           'metric, documented defaults. Replicas, on the left and in logarithms, climb a staircase from %d to %s: one step about '
-           'every three and a third days, when the vertical loop\'s percentile lets go of the previous level. Requested cores, '
-           'on the right, stay between %.1f and %.1f. The line every capacity dashboard draws is the flat one.'
+    cap = ('The drift every dashboard approves. With steady demand and both autoscalers on one CPU metric at their defaults, '
+           'replicas climb a staircase from %d to %s, one step about every three and a third days, while the CPU requested in '
+           'total stays between %.1f and %.1f cores. A capacity dashboard draws the flat line.'
            % (n0, format(int(nz), ','), lo_r, hi_r))
     FIGS.append(Figure('drift', s, aria, cap))
 
@@ -169,7 +164,9 @@ def fig_coupling():
                   al='left', bl='bottom', dx=5, c='a', b=True))
     e.append(dict(t='hline', y=1, c='g', w=1, dash=True))
     e.append(dict(t='band', pts=[[x, lo, hi] for x, lo, hi in zip(shares, low, high)], c='g', al=0.35))
-    e.append(dict(t='line', pts=[[x, v] for x, v in curve['Parallel'] if x > edge and v <= ymax], c='a', w=3))
+    shown = [[x, v] for x, v in curve['Parallel'] if x > edge and v <= ymax]
+    e.append(dict(t='line', pts=shown, c='a', w=3))
+
     legend = (('red: Parallel collector, OpenJDK 17', 'red: Parallel', 'a', True),
               ('gray band: Serial, G1, Shenandoah, ZGC, OpenJDK 17', 'gray: the others', 'sub', False))
     for row, (text, short, col, bold) in enumerate(legend):
@@ -183,7 +180,7 @@ def fig_coupling():
                          for n in ['Parallel'] + others), 100 * edge))
     cap = ('How much the memory autoscaler disturbs the CPU autoscaler, as the heap takes a smaller share of a pod\'s memory. '
            'At 1 the two do not affect each other. For Serial, G1, Shenandoah and ZGC the effect stays small (gray band). Only the '
-           'Parallel collector breaks the pairing: with a heap under %.1f%% of memory, the memory autoscaler turns the CPU '
+           'Parallel collector breaks the pairing: its curve runs off the scale toward a heap of %.1f%% of memory, and below that the memory autoscaler turns the CPU '
            'autoscaler\'s corrections around. Collector costs: OpenJDK 17, measured by Cai and coauthors.' % (100 * edge))
     FIGS.append(Figure('coupling', s, aria, cap))
 
@@ -199,11 +196,11 @@ def fig_settings():
     lo_slope, hi_slope = rows[0][3] / rows[0][1], rows[0][5] / rows[0][1]
     names = {'documented defaults': ('defaults', 'defaults'), 'percentile 0.5': ('50th percentile', 'p50'),
              'percentile 0.95': ('95th percentile', 'p95'), 'half-life 12.0': ('half-life 12 h', '12 h'),
-             'half-life 48.0': ('half-life 48 h', '48 h'), 'margin 0.0': ('margin 0, factor 2', 'm 0'),
-             'margin 0.3': ('margin 0.3, factor 1.54', 'm 0.3')}
+             'half-life 48.0': ('half-life 48 h', '48 h'), 'margin 0.0': ('margin 0: x2 per step', 'm 0'),
+             'margin 0.3': ('margin 0.3: x1.54 per step', 'm 0.3')}
     s = base('chart-settings', 320, ml=(44, 52), mr=(14, 16))
     s['X'] = dict(lo=0, hi=175, ticks=[[v, '%d' % v] for v in (0, 40, 80, 120, 160)],
-                  title='hours between steps, h log2(1/(1-p))', ntitle='hours between steps')
+                  title="hours between the staircase's steps", ntitle='hours between steps')
     s['Y'] = dict(lo=0, hi=235, ticks=[[v, '%d' % v] for v in (0, 50, 100, 150, 200)],
                   title='hours to double the replicas', ntitle='doubling, hours')
     e = s['els']
@@ -216,16 +213,15 @@ def fig_settings():
         left = name in ('margin 0.0', 'margin 0.3', 'half-life 48.0')
         e.append(dict(t='txt', x=step, y=sim, s=label, n=short, al='right' if left else 'left', dx=-8 if left else 8, c=col,
                       b=name == 'documented defaults'))
-    e.append(dict(t='txt', x=4, y=222, s='band: the bracket at step factor %.3f, from the closed form' % base_factor,
-                  n='band: factor %.2f' % base_factor, al='left', c='sub'))
+    e.append(dict(t='txt', x=4, y=222, s='band: settings that keep the default growth per step (x%.2f)' % base_factor,
+                  n='band: default growth per step', al='left', c='sub'))
     aria = ('Hours for the replica count to double against hours between steps, target 0.5, steady demand. Band: the closed-form bracket '
             'at step factor %.3f. Bars: each setting\'s bracket, dots: simulated. %s.'
             % (base_factor, '; '.join('%s: step %.1f h, bracket %.1f to %.1f, simulated %.1f' % (n, st, lo, hi, sm)
                                       for n, st, f, lo, sm, hi in rows)))
-    cap = ('The staircase away from the defaults: each setting\'s doubling time against the hours between its steps. A different '
-           'percentile or half-life moves along the band, in proportion. The margin changes the slope instead: zero doubles the '
-           'replicas at every step, 0.3 multiplies them by 1.54. Bars are the closed form, dots the simulation, which rounds the replica '
-           'count up and can dip just under its bar.')
+    cap = ('Tuning the vertical autoscaler changes how fast the drift runs, not whether it runs. Another percentile or half-life '
+           'moves a setting along the band; the margin changes the slope: zero doubles the replicas at every step, 0.3 multiplies '
+           'them by 1.54. Bars are the closed form, dots the simulation.')
     FIGS.append(Figure('settings', s, aria, cap))
 
 
@@ -263,24 +259,24 @@ def fig_tail_regimes():
         e.append(dict(t='txt', x=round((a + b) / 2, 4), y=2.45, s=name, n=short, al='center', bl='middle', c='ink'))
     e.append(dict(t='txt', x=1.05, y=round((lo + hi) / 2, 4), s='a 50% target rests', n='rests', al='center', bl='middle', c='c'))
     s['X'] = dict(lo=0, hi=2.6, ticks=[[v, _g(v)] for v in (0, 0.5, 1, 1.5, 2, 2.5)],
-                  title='lognormal shape of per-pod usage: how heavy its tail is', ntitle='tail shape')
+                  title='how heavy the tail of per-pod usage is (lognormal shape)', ntitle='tail')
     s['Y'] = dict(lo=0.9, hi=2.55, ticks=[[v, _g(v)] for v in (1, 1.5, 2, 2.5)],
-                  title='q: 90th percentile of usage over its mean', ntitle='q')
+                  title='q: how spiky per-pod usage is, its 90th percentile over its mean', ntitle='q (spikiness)')
     _id_last(s)
     aria = ('The 90th percentile of per-pod usage over its mean against the lognormal shape of per-pod usage. %s. A 50%% target rests '
             'while q lies between %.3f and %.3f, which the curve crosses at shapes %s.'
             % ('; '.join('%s: %.3f' % (_g(x), y) for x, y in curve), lo, hi, ', '.join('%.2f' % x for x in edges)))
-    cap = ('How the tail of per-pod usage decides what the pair does. The curve is the 90th percentile over the mean; the shaded band '
-           'is where a 50%% target rests, and the dots are the values the model computes. Below the band the pair drifts up, above it the pair drifts down. As the tail grows the curve '
-           'rises through the band, peaks at %.2f, and falls back through it, so one setting drifts up, rests, drifts down, rests and '
-           'drifts up again. The branches past a shape of 1.2 need pods with no CPU limit on nodes large enough not to clip the '
-           'samples.' % max(y for _, y in curve))
+    cap = ('A heavier usage tail can reverse the drift. Inside the green band a 50%% target rests; below it the pair drifts up, '
+           'above it down. As the tail grows the curve rises through the band, peaks at %.2f and falls back, so one setting drifts '
+           'up, rests, drifts down, rests and drifts up again. Past a shape of 1.2 this needs pods without a CPU limit.'
+           % max(y for _, y in curve))
     FIGS.append(Figure('tail-regimes', s, aria, cap))
 
 
 # ---------- Part 2 ----------
 
 def fig_nested():
+    """Part 2, from T6: Every round waits for nodes."""
     rows = [cells(r) for r in section('T6')]
     k = [number(r[0]) for r in rows]
     ample = [number(r[2]) for r in rows]
@@ -295,7 +291,8 @@ def fig_nested():
                              (sep, 'b', 'node loop sees the final need', 'final need'),
                              (ample, 'g', 'ample nodes', 'ample')):
         e.append(dict(t='line', pts=[[a, b] for a, b in zip(k, ys)], c=c, mk=3))
-        e.append(dict(t='txt', x=k[-1], y=ys[-1], s=lab, n=nlab, al='right', bl='bottom', dx=-2, dy=-8, c=c, b=c == 'a'))
+        e.append(dict(t='txt', x=k[-1], y=ys[-1], s=lab, n=nlab, al='right', bl='top' if c == 'g' else 'bottom', dx=-2,
+                      dy=16 if c == 'g' else -8, c=c, b=c == 'a'))
     for a, b, r in zip(k, nest, rounds):
         if a < k[-1]:
             e.append(dict(t='txt', x=a, y=b, s='%d round%s' % (r, '' if r == 1 else 's'), n='%d' % r, al='right', bl='bottom', dx=-4, dy=-4, c='a'))
@@ -303,13 +300,14 @@ def fig_nested():
             'Node loop that sees the final need: %s. Ample nodes: %s.' % (
                 ', '.join('%dx %d s' % (a, b) for a, b in zip(k, nest)), ', '.join('%dx %d s' % (a, b) for a, b in zip(k, sep)),
                 ', '.join('%dx %d s' % (a, b) for a, b in zip(k, ample))))
-    cap = ('Time until capacity meets a surge, against the surge\'s size, with 90-second pods and 210-second nodes and no free slots. '
+    cap = ('Every round waits for nodes. Time until capacity meets a surge, against the surge\'s size, with 90-second pods and 210-second nodes and no free slots. '
            'With ample nodes each round costs a pod\'s dead time. A node loop that saw the final need would add one node wait. '
            'The node loop as documented sees only the pods already pending, so every round waits for nodes, and the gap grows with every round.')
     FIGS.append(Figure('nested', s, aria, cap))
 
 
 def fig_node_time():
+    """Part 2, from T7: Slower nodes cost the nested pair once per round."""
     rows = [cells(r) for r in section('T7')]
     tn = [number(r[0]) for r in rows]
     nest = [number(r[1]) for r in rows]
@@ -326,10 +324,10 @@ def fig_node_time():
     e.append(dict(t='txt', x=tn[-1], y=nest[-1], s='nested: %d s' % nest[-1], n='nested', al='right', bl='bottom', dx=-6, dy=-6, c='a', b=True))
     e.append(dict(t='txt', x=tn[-1], y=sep[-1], s='final need: %d s' % sep[-1], n='final need', al='right', bl='bottom', dx=-6, dy=-6, c='b'))
     i = tn.index(210.0) if 210.0 in tn else 3
-    e.append(dict(t='txt', x=tn[i], y=nest[i], s='%d s at 210 s' % nest[i], n='', al='right', bl='bottom', dx=-6, dy=-4, c='a'))
+    e.append(dict(t='txt', x=tn[i], y=nest[i], s='today\'s 210 s nodes: %d s' % nest[i], n='', al='right', bl='bottom', dx=-6, dy=-4, c='a'))
     aria = ('Time until capacity meets a 30x surge against node provisioning time. Nested: %s. Node loop that sees the final need: %s. Ample nodes: %d s.' % (
         ', '.join('%d s: %d s' % (a, b) for a, b in zip(tn, nest)), ', '.join('%d s: %d s' % (a, b) for a, b in zip(tn, sep)), ample))
-    cap = ('Time until capacity meets a 30x surge, four rounds, as node provisioning gets slower. The documented pairing pays the node time '
+    cap = ('Slower nodes cost the nested pair once per round. Time until capacity meets a 30x surge, four rounds, as node provisioning gets slower. The documented pairing pays the node time '
            'once per round, so its line climbs four times as steeply as a node loop that saw the final need, which pays it once. '
            'The pod loop\'s effective dead time is its own plus the node loop\'s.')
     FIGS.append(Figure('node-time', s, aria, cap))
@@ -345,6 +343,7 @@ def fig_headroom():
         if c[0] == '30':
             pts.append((int(c[1]), int(c[4])))
     steps = [(int(cells(r)[3]), int(cells(r)[4]), int(cells(r)[5])) for r in section('T121') if cells(r)[0] == '30']
+    bands = [(int(cells(r)[1]), int(cells(r)[2])) for r in section('T8') if cells(r)[0] == 'band']
     none = dict(pts)[0]
     stair = [[0, none]]
     level = none
@@ -370,8 +369,8 @@ def fig_headroom():
     first = short[0]
     e.append(dict(t='txt', x=round(first[0] / n0, 4), y=first[1], s='%d slots, just short of a step: %d s, slower than none' % first,
                   n='%d slots: %d s' % first, al='left', bl='bottom', dx=8, dy=-2, c='a', b=True))
-    e.append(dict(t='txt', x=round(steps[0][0] / n0, 4), y=steps[0][1], s='each step saves a node wait: %s slots'
-                  % ', '.join('%d' % st for st, _, _ in steps), n='steps', al='left', bl='top', dx=8, dy=6, c='b'))
+    e.append(dict(t='txt', x=14.4, y=1250, s='dashed steps: each saves a node wait, at %s slots'
+                  % ', '.join('%d' % st for st, _, _ in steps), n='dashed: one wait per step', al='right', bl='middle', c='b'))
     last = pts[-1]
     e.append(dict(t='txt', x=round(last[0] / n0, 4), y=last[1], s='%d slots, %d x: %d s' % (last[0], round(last[0] / n0), last[1]),
                   n='%d x: %d s' % (round(last[0] / n0), last[1]), al='right', bl='bottom', dx=-8, dy=-8, c='b'))
@@ -379,13 +378,17 @@ def fig_headroom():
             '%s slots, to %s seconds. Simulated: %s. Just short of a step, %s.'
             % (', '.join('%d' % st for st, _, _ in steps), ', '.join('%d' % lv for lv in levels),
                '; '.join('%d slots: %d s' % p for p in pts), '; '.join('%d slots take %d s' % p for p in short)))
-    cap = ('Time until capacity meets a 30x surge against free slots held in advance. Each step of the dashed staircase saves one node '
+    cap = ('Headroom removes node waits one step at a time. Time until capacity meets a 30x surge against free slots held in advance. Each step of the dashed staircase saves one node '
            'wait and costs more slots than the last: removing every wait takes 14 times the running pods. The simulation (dots) sits on '
-           'the steps, and just short of a step it is slower than the step below (red).')
+           'the steps, and just short of a step it is slower than the step below (red). A sweep of every count finds '
+           'those bands %s slots wide, and only %d to %d slots slower than none.'
+           % (', '.join(str(hi - lo + 1) for lo, hi in bands[:-1]) + ' and %d' % (bands[-1][1] - bands[-1][0] + 1),
+              bands[0][0], bands[0][1]))
     FIGS.append(Figure('headroom', s, aria, cap))
 
 
 def fig_second_surge():
+    """Part 2, from T28: Leftover capacity helps only while it lasts."""
     rows = [cells(r) for r in section('T28') if number(cells(r)[0]) <= 1200]
     gap = [number(r[0]) for r in rows]
     closed = [number(r[2]) for r in rows]
@@ -422,7 +425,7 @@ def fig_second_surge():
             'Node-hours held in the gap: %s.' % (
                 ', '.join('%d s: %d s' % (a, b) for a, b in zip(gap, closed)), ', '.join('%d s: %d s' % (a, b) for a, b in zip(gap, inst)),
                 ', '.join('%d s: %d s' % (a, b) for a, b in zip(gap, bulk)), ', '.join('%d s: %.1f' % (a, b) for a, b in zip(gap, held))))
-    cap = ('Time until capacity meets a second 30x surge (red, left axis) and the node-hours held in the gap (gray dashed, right axis). '
+    cap = ('Leftover capacity helps only while it lasts. Time until capacity meets a second 30x surge (red, left axis) and the node-hours held in the gap (gray dashed, right axis). '
            'While the first surge\'s pods are still up, the second costs nothing. After that, each round the leftover nodes no longer '
            'cover adds a 210-second node wait, while the node-hours keep rising. Open blue points: the documented bulk deletion, which '
            'only shifts the steps.')
@@ -430,6 +433,7 @@ def fig_second_surge():
 
 
 def fig_unneeded():
+    """Part 2, from T29: Hold through the gap or release at once."""
     rows = [cells(r) for r in section('T29')]
     pts = [(int(number(r[0])), number(r[2]), number(r[3]), r[4].strip()) for r in rows]
     s = base('chart-unneeded', 320, ml=(44, 52), mr=(14, 16))
@@ -446,13 +450,14 @@ def fig_unneeded():
     e.append(dict(t='txt', x=hi[2], y=675, s='1000 to 1170 s: same hours, slower', n='dominated', al='right', bl='middle', dx=-10, c='a'))
     aria = ('Node-hours held against time until capacity meets a second 30x surge 1200 seconds after the first, one point per unneeded time. %s. '
             'Only releasing at once and holding through the gap are efficient.' % '; '.join('%d s: %.2f node-hours, %d s' % (u, h, t) for u, t, h, _ in pts))
-    cap = ('Each point is one setting of the node loop\'s unneeded time, for a second surge 1200 seconds after the first. Holding nodes '
+    cap = ('Hold through the gap or release at once. Each point is one setting of the node loop\'s unneeded time, for a second surge 1200 seconds after the first. Holding nodes '
            'past the pod loop\'s window costs node-hours; it pays only once it covers the whole ramp. Every setting in between costs more '
            'than releasing at once without being faster, or as much as holding through the gap while slower. The two solid points are the frontier.')
     FIGS.append(Figure('unneeded', s, aria, cap))
 
 
 def fig_memoryless():
+    """Part 2, from T30: No middle setting is ever the cheapest."""
     rows = [cells(r) for r in section('T30')]
     s = base('chart-memoryless', 330, ml=(44, 52), mr=(14, 16))
     s['X'] = dict(lo=0, hi=32, ticks=[[v, '%d h' % v] for v in (0, 5, 10, 15, 20, 25, 30)], title='expected node-hours held between surges', ntitle='node-hours')
@@ -472,13 +477,14 @@ def fig_memoryless():
     e.append(dict(t='txt', x=4.4, y=1015.8, s='release at once', n='release', al='left', bl='bottom', dx=8, dy=-8, c='a'))
     aria = ('Expected node-hours held against expected time to capacity for a second 30x surge, gaps exponential, one point per unneeded time. %s. '
             'Dashed lines join releasing at once to holding forever; every intermediate point lies above them.' % '. '.join(desc))
-    cap = ('Each line traces the unneeded time from 0 to forever for memoryless gaps with a mean of 600 or 1,800 seconds. Every '
+    cap = ('No middle setting is ever the cheapest. Each line traces the unneeded time from 0 to forever for memoryless gaps with a mean of 600 or 1,800 seconds. Every '
            'intermediate setting, the 600-second default marked, lies above the dashed line joining the two ends, so no exchange rate '
            'between node-hours and seconds makes it the cheapest. The cheapest setting is one end or the other.')
     FIGS.append(Figure('memoryless', s, aria, cap))
 
 
 def fig_worst_gap():
+    """Part 2, from T31: Break-even holding stays under twice the hindsight cost."""
     rows = [cells(r) for r in section('T31')]
     lam = [number(r[0]) for r in rows]
     be = [number(r[2]) for r in rows]
@@ -490,18 +496,22 @@ def fig_worst_gap():
     e = s['els']
     e.append(dict(t='hline', y=2, c='g', w=1, dash=True))
     e.append(dict(t='txt', x=4, y=2, s='twice the hindsight cost', n='2x', al='left', bl='top', dy=4, c='g'))
-    for ys, c, lab, nlab, dy in ((zero, 'g', 'release at once', 'release', -8), (dflt, 'a', '600 s default', 'default', -8), (be, 'b', 'break-even holding', 'break-even', 10)):
+    for ys, c, lab, nlab, dy in ((zero, 'g', 'release at once', 'release', -8), (dflt, 'a', '600 s default', 'default', 10), (be, 'b', 'break-even holding', 'break-even', 10)):
         e.append(dict(t='line', pts=[[a, b] for a, b in zip(lam, ys)], c=c, mk=3))
-        e.append(dict(t='txt', x=lam[-1], y=ys[-1], s=lab, n=nlab, al='right', bl='top' if dy > 0 else 'bottom', dx=-8, dy=dy, c=c, b=c == 'b'))
+        if c == 'a':
+            e.append(dict(t='txt', x=lam[-1], y=ys[-1], s=lab, n=nlab, al='right', bl='middle', dx=-12, c=c))
+        else:
+            e.append(dict(t='txt', x=lam[-1], y=ys[-1], s=lab, n=nlab, al='right', bl='top' if dy > 0 else 'bottom', dx=-8, dy=dy, c=c, b=c == 'b'))
     aria = ('Worst cost over all gaps as a multiple of the cost with the gap known, against the exchange rate. Break-even holding: %s. '
             'The 600-second default: %s. Releasing at once: %s.' % tuple(', '.join('%g: %.3f' % (a, b) for a, b in zip(lam, ys)) for ys in (be, dflt, zero)))
-    cap = ('The worst a setting can do, over every gap, against the cost of knowing the gap. Holding for the break-even time stays under '
+    cap = ('Break-even holding stays under twice the hindsight cost. The worst a setting can do, over every gap, against the cost of knowing the gap. Holding for the break-even time stays under '
            'twice the hindsight cost at every exchange rate. The 600-second default matches it only at the one rate, about 41 node-seconds '
            'per second, for which it is the break-even. Releasing at once exceeds twice the hindsight cost at high rates.')
     FIGS.append(Figure('worst-gap', s, aria, cap))
 
 
 def fig_pod_memory():
+    """Part 2, from T30 and T34: The same memory is faster kept as pods."""
     nodes = [(r[1], number(r[2]), number(r[4])) for r in (cells(x) for x in section('T30')) if r[0] == '1800']
     pods = [(r[1], r[2], number(r[3]), number(r[4])) for r in (cells(x) for x in section('T34')) if r[0] == '1800']
     s = base('chart-pod-memory', 330, ml=(44, 52), mr=(14, 16))
@@ -523,13 +533,14 @@ def fig_pod_memory():
             'Memory kept as nodes after the default 300-second pod window: %s. Memory kept as pods first, up to the 3600-second cap, then as nodes: %s.' % (
                 '; '.join('unneeded %s s %.2f node-hours %.1f s' % p for p in nodes),
                 '; '.join('stabilization %s s unneeded %s s %.2f node-hours %.1f s' % p for p in pods)))
-    cap_txt = ('Two ways to keep the same memory after a surge, for gaps with a mean of 1,800 seconds. Red keeps it as empty nodes behind the '
+    cap_txt = ('The same memory is faster kept as pods. Two ways to keep the same memory after a surge, for gaps with a mean of 1,800 seconds. Red keeps it as empty nodes behind the '
                'default five-minute pod window; blue keeps it as pods first, up to the one-hour cap on the window, and as nodes after that. At every '
                'amount of node-hours blue is faster: the default\'s 11.41 node-hours buy 855 seconds as nodes and 728 as pods.')
     FIGS.append(Figure('pod-memory', s, aria, cap_txt))
 
 
 def fig_hazard():
+    """Part 2, from T37: Clustered surges reward a middle window."""
     rows = [cells(r) for r in section('T37')]
     s = base('chart-hazard', 340, ml=(44, 52), mr=(14, 16))
     s['X'] = dict(lo=0, hi=3700, ticks=[[v, '%d s' % v] for v in (0, 600, 1200, 1800, 2400, 3000, 3600)], title='pod scale-down window (the memory, kept as pods)', ntitle='window')
@@ -557,7 +568,7 @@ def fig_hazard():
         desc.append('shape %s: %s' % (shape, ', '.join('%d s %.3f' % p for p in pts)))
     aria = ('Expected cost of keeping the post-surge memory as pods, as a multiple of releasing at once, against the window, for Weibull gaps with a mean of 1800 s '
             'and an exchange rate of 64. %s.' % '; '.join(desc))
-    cap = ('Expected cost against the pod scale-down window for gaps of five shapes with the same mean. Where surges cluster (shape below 1) the hazard '
+    cap = ('Clustered surges reward a middle window. Expected cost against the pod scale-down window for gaps of five shapes with the same mean. Where surges cluster (shape below 1) the hazard '
            'falls and the cost has an interior minimum: 487 seconds at shape 0.5, 29% below releasing at once. Where the hazard is constant or rises, '
            'the cost rises first, and the cheapest window is zero or the hour the API allows.')
     FIGS.append(Figure('hazard', s, aria, cap))
@@ -565,6 +576,7 @@ def fig_hazard():
 
 
 def fig_surge_tail():
+    """Part 2, from T94: The log tames the time, not the shortfall."""
     tail = [cells(r) for r in section('T94') if cells(r)[0] == 'tail']
     finite = [c for c in tail if c[6] != 'inf']
     s = base('chart-surge-tail', 340, ml=(44, 56), mr=(40, 48))
@@ -573,11 +585,10 @@ def fig_surge_tail():
     e.append(dict(t='txt', x=1.0, y=1500000, s='no finite mean shortfall at or below 1', n='infinite below 1', al='left', bl='middle', dx=6, c='g'))
     for col, c in ((8, 'a'), (7, 'b'), (6, 'g')):
         e.append(dict(t='line', pts=[[_n(r[1]), _n(r[col])] for r in finite], c=c, mk=3))
-    last = finite[-1]
-    mid = [r for r in finite if _n(r[1]) == 2.0][0]
-    e.append(dict(t='txt', x=_n(last[1]), y=_n(last[8]), s='nested', n='nested', al='right', bl='bottom', dx=-4, dy=-6, c='a', b=True))
-    e.append(dict(t='txt', x=_n(mid[1]), y=_n(mid[7]), s='final need', n='final need', al='left', bl='top', dx=4, dy=4, c='b'))
-    e.append(dict(t='txt', x=_n(last[1]), y=_n(last[6]), s='ample nodes', n='ample', al='right', bl='top', dx=-4, dy=4, c='g'))
+    for row, (text, short, col, bold) in enumerate((('red: nested, every round waits', 'red: nested', 'a', True),
+                                                   ('blue: node loop sees the final need', 'blue: final need', 'b', False),
+                                                   ('gray: ample nodes', 'gray: ample', 'g', False))):
+        e.append(dict(t='txt', x=1.75, y=round(600000 / 2.2 ** row), s=text, n=short, al='left', bl='middle', c=col, b=bold))
     e.append(dict(t='line', ax='R', pts=[[_n(r[1]), _n(r[5])] for r in tail], c='c', mk=3, dash=True))
     first = tail[0]
     e.append(dict(t='txt', ax='R', x=_n(first[1]), y=_n(first[5]), s='%s s' % first[5], n='%s s' % first[5],
@@ -586,7 +597,7 @@ def fig_surge_tail():
     e.append(dict(t='txt', ax='R', x=2.0, y=_n(two[5]), s='mean time to capacity, right axis', n='time, right axis',
                   al='left', bl='bottom', dx=4, dy=-6, c='c'))
     s['X'] = dict(lo=0.6, hi=3.1, ticks=[[0.69, '0.69'], [1.0, '1'], [1.5, '1.5'], [2.0, '2'], [2.5, '2.5'], [3.0, '3']],
-                  title='tail exponent of surge sizes', ntitle='tail exponent')
+                  title='tail exponent of surge sizes (lower: heavier tail)', ntitle='tail exponent')
     s['Y'] = dict(lo=500, hi=3000000, log=True, ticks=[[1000, '1k'], [10000, '10k'], [100000, '100k'], [1000000, '1M']],
                   title='mean pod-seconds short', ntitle='pod-s short')
     s['R'] = dict(lo=0, hi=1000, col='c', ticks=[[v, '%d s' % v] for v in (0, 250, 500, 750, 1000)], title='mean time to capacity', ntitle='mean time')
@@ -596,7 +607,7 @@ def fig_surge_tail():
             'mean shortfall is infinite.'
             % (', '.join('%s: %s' % (_g(_n(r[1])), r[8]) for r in finite), ', '.join(r[7] for r in finite),
                ', '.join(r[6] for r in finite), ', '.join('%s: %s s' % (_g(_n(r[1])), r[5]) for r in tail)))
-    cap = ('Mean pod-seconds short (left axis, log scale) and mean nested time to capacity (green, right axis) as the tail of surge sizes '
+    cap = ('The log tames the time, not the shortfall. Mean pod-seconds short (left axis, log scale) and mean nested time to capacity (green, right axis) as the tail of surge sizes '
            'gets heavier toward the left. The time stays finite at every exponent, %s seconds at the Borg trace\'s %s. The shortfall grows '
            'without bound as the exponent falls to 1 and has no mean below it, and nesting widens its gap over a node loop that saw the '
            'final need.' % (first[5], _g(_n(first[1]))))
@@ -604,6 +615,7 @@ def fig_surge_tail():
 
 
 def fig_cover_frontier():
+    """Part 2, from T95: Heavier tails call for more headroom."""
     data = {}
     for r in section('T95'):
         c = cells(r)
@@ -619,18 +631,19 @@ def fig_cover_frontier():
             el['b'] = True
         e.append(el)
     a, x, rounds, slots = data[100][0]
-    e.append(dict(t='txt', x=a, y=x, s='%s rounds, %d slots' % (WORDS[rounds], slots), n='', al='left', bl='middle', dx=8, c='a'))
+    e.append(dict(t='txt', x=3.0, y=300, s='price 100 at %s: %s rounds, %s slots' % (_g(a), WORDS[rounds], format(slots, ',')), n='',
+                  al='right', bl='middle', c='a'))
     s['X'] = dict(lo=1.0, hi=3.1, ticks=[[1.1, '1.1'], [1.5, '1.5'], [2.0, '2'], [2.5, '2.5'], [3.0, '3']],
-                  title='tail exponent of surge sizes', ntitle='tail exponent')
+                  title='tail exponent of surge sizes (lower: heavier tail)', ntitle='tail exponent')
     s['Y'] = dict(lo=0.8, hi=700, log=True, ticks=[[1, '1x'], [10, '10x'], [100, '100x']],
-                  title='best headroom, 1 + slots / running pods', ntitle='1 + slots / pods')
+                  title='best capacity held (running pods plus free slots), as a multiple of the running pods', ntitle='capacity (x pods)')
     _id_last(s)
     aria = ('Optimal headroom against the tail exponent, as x* = 1 + slots over running pods, log scale, for a mean gap of an hour. '
             'Price 10: %s. Price 100: %s. Price 1000: %s.'
             % (', '.join('%s: %.2f' % (_g(a), x) for a, x, _, _ in data[10]), ', '.join('%.2f' % x for _, x, _, _ in data[100]),
                ', '.join('%.2f' % x for _, x, _, _ in data[1000])))
     best = {a: c for a, _, c, _ in data[100]}
-    cap = ('The continuous optimum of the headroom, one plus the free slots over the running pods, against the tail exponent, for prices '
+    cap = ('Heavier tails call for more headroom. The continuous optimum of the headroom, one plus the free slots over the running pods, against the tail exponent, for prices '
            'of 10, 100 and 1,000 slot-seconds per pod-second short and an hour between surges. Each line rises toward a pole at an '
            'exponent of 1, where a further round of headroom buys nothing. At a price of 100 the best whole number of rounds is %s at '
            '1.1, %s at 1.5 and %s at 3.' % (WORDS[best[1.1]], WORDS[best[1.5]], WORDS[best[3.0]]))
@@ -638,6 +651,7 @@ def fig_cover_frontier():
 
 
 def fig_tail_controller():
+    """Part 2, from T96: Re-estimating the tail stays close to the best."""
     pol = {}
     for r in section('T96'):
         c = cells(r)
@@ -653,18 +667,18 @@ def fig_tail_controller():
     a, v = pol['fixed'][-1]
     e.append(dict(t='txt', x=a, y=v, s='no headroom', n='none', al='right', bl='bottom', dx=-4, dy=-6, c='b'))
     a, v = pol['mle'][-1]
-    e.append(dict(t='txt', x=a, y=v, s='estimating controller', n='estimate', al='right', bl='top', dx=-4, dy=6, c='c'))
+    e.append(dict(t='txt', x=a, y=v, s='estimating controller', n='estimate', al='right', bl='bottom', dx=-4, dy=-6, c='c'))
     s['X'] = dict(lo=1.1, hi=3.1, ticks=[[1.2, '1.2'], [1.5, '1.5'], [2.0, '2'], [2.5, '2.5'], [3.0, '3']],
-                  title='tail exponent of surge sizes', ntitle='tail exponent')
+                  title='tail exponent of surge sizes (lower: heavier tail)', ntitle='tail exponent')
     s['Y'] = dict(lo=0.8, hi=4.6, ticks=[[v, '%dx' % v] for v in (1, 2, 3, 4)],
-                  title='expected cost over the cost of knowing the exponent', ntitle='cost / oracle')
+                  title='expected cost over the cost of knowing the exponent', ntitle='cost / knowing')
     _id_last(s)
     aria = ('Expected cost per surge over the cost of knowing the exponent, median of twenty seeds, a thousand surges, against the tail '
             'exponent. Estimating controller: %s. No headroom: %s. Largest surge seen so far: %s.'
             % (', '.join('%s: %.3f' % (_g(a), v) for a, v in pol['mle']), ', '.join('%.3f' % v for _, v in pol['fixed']),
                ', '.join('%.3f' % v for _, v in pol['peak'])))
     worst = max(v for _, v in pol['mle'])
-    cap = ('Expected cost per surge of three ways to set the headroom, over the cost of knowing the tail exponent, as the median of '
+    cap = ('Re-estimating the tail stays close to the best. Expected cost per surge of three ways to set the headroom, over the cost of knowing the tail exponent, as the median of '
            'twenty runs of a thousand surges. The controller that re-estimates the exponent after every surge stays within %.1f%%. '
            'Holding none costs about half again as much. Sizing from the largest surge seen so far costs the most, because the largest '
            'of a growing record from a Pareto tail keeps growing.' % (100 * (worst - 1)))
@@ -674,6 +688,7 @@ def fig_tail_controller():
 # ---------- Part 3 ----------
 
 def fig_storm():
+    """Part 3, from T41: Past a threshold cost, the storm keeps itself going."""
     rows = [cells(r) for r in section('T41')]
     cost = [number(r[0]) for r in rows]
     ideal = [number(r[4]) for r in rows]
@@ -699,13 +714,14 @@ def fig_storm():
     e.append(dict(t='txt', x=on_l, y=0, s='documented: %d' % on_l, n='%d' % on_l, al='left', bl='bottom', dx=4, dy=-6, c='b', b=True))
     aria = ('LISTs completed in the eighth hour after a trigger forcing all 2000 informers to LIST, against LIST cost. Idealized queue: %s. With the wait limit and the Reflector backoff: %s. '
             'A saturated storm is impossible below a cost of 37.5.' % (', '.join('%d: %d' % (a, b) for a, b in zip(cost, ideal)), ', '.join('%d: %d' % (a, b) for a, b in zip(cost, limited))))
-    cap = ('LISTs still running eight hours after a trigger, against the cost of one LIST. A storm that holds spends all capacity on '
+    cap = ('Past a threshold cost, the storm keeps itself going. LISTs still running eight hours after a trigger, against the cost of one LIST. A storm that holds spends all capacity on '
            'LISTs, the gray band both storms sit on. The idealized queue storms from a cost of 90, the real server, with its wait limit and the client\'s '
            'backoff, from 114, and each line breaks where the count jumps. Below 37.5 no order of service can sustain a storm.')
     FIGS.append(Figure('storm', s, aria, cap))
 
 
 def fig_second_wave():
+    """Part 3, from T42: Where the second wave starts."""
     rows = [cells(r) for r in section('T42')]
     cost = [number(r[0]) for r in rows]
     one = [math.fsum(number(x) for x in r[3].split()) / 3 for r in rows]
@@ -738,6 +754,7 @@ def _pareto_front(points):
 
 
 def fig_tail_share():
+    """Part 3, from T98: A heavy tail scatters clusters across the boundary."""
     share = {}
     for r in section('T98'):
         c = cells(r)
@@ -770,7 +787,7 @@ def fig_tail_share():
             'Pareto with exponents 3, 2, 1.5 and 1.2 and a mean that puts 2,000 informers at the boundary on average. %s.'
             % '. '.join('Exponent %s: %s' % (_g(a), curve(share[a])) for a in (3.0, 2.0, 1.5, 1.2)))
     first = share[1.2][0]
-    cap = ('Share of clusters that storm after a full trigger, against their number of informers, with list costs drawn from a Pareto '
+    cap = ('A heavy tail scatters clusters across the boundary. Share of clusters that storm after a full trigger, against their number of informers, with list costs drawn from a Pareto '
            'law. With a light tail the share is a step at the boundary. With a heavy one a cluster\'s few largest collections decide: '
            'at an exponent of 1.2, %.1f%% of half-size clusters storm, and nearly half of those a quarter larger do not.'
            % (100 * first[1]))
@@ -778,6 +795,7 @@ def fig_tail_share():
 
 
 def fig_hold_frontier():
+    """Part 3, from T104: Holding the split longer trades minutes for re-watches."""
     hold = {}
     for r in section('T104'):
         c = cells(r)
@@ -797,6 +815,7 @@ def fig_hold_frontier():
         return [r for r in hold[cost] if r[0] == h][0]
     e.append(dict(t='txt', x=3, y=12500, s='blue: list cost 150', n='blue: 150', al='left', bl='middle', c='b'))
     e.append(dict(t='txt', x=3, y=8800, s='red: list cost 200', n='red: 200', al='left', bl='middle', c='a'))
+    e.append(dict(t='txt', x=228, y=300, s='dashed: holds nothing beats on both counts', n='dashed: best holds', al='right', bl='middle', c='sub'))
     _, m, n, _ = at(150, 300)
     e.append(dict(t='txt', x=m, y=n, s='150: hold 300 s, dominated', n='300 s', al='left', bl='top', dx=6, dy=2, c='b'))
     _, m, n, _ = at(200, 300)
@@ -813,7 +832,7 @@ def fig_hold_frontier():
             % (', '.join('%d' % h for h, _, _, _ in hold[150][:-1]) + ' and %d' % hold[150][-1][0],
                '. '.join('List cost %d: %s' % (cost, ', '.join('%.1f min %d%s' % (m, n, ' (storm kept)' if kept else '')
                                                                    for _, m, n, kept in hold[cost])) for cost in (150, 200))))
-    cap = ('Each point is one hold, the time the controller keeps lists on their own level after the last 410, at list costs of 150 '
+    cap = ('Holding the split longer trades minutes for re-watches. Each point is one hold, the time the controller keeps lists on their own level after the last 410, at list costs of 150 '
            '(blue) and 200 (red). The dashed lines join the holds no other hold beats on both counts, the controller\'s frontier between '
            'time spent split and re-watches lost. Holds of a few minutes are dominated, and at 200 a hold of 300 seconds, the length of '
            'the history, keeps the storm (open points).')
@@ -823,6 +842,7 @@ def fig_hold_frontier():
 # ---------- Part 4 ----------
 
 def fig_placement():
+    """Part 4, from T58: What one rolling upgrade takes from an application whose pods need a webhook that rejects its own."""
     rows = [cells(r) for r in section('T58')][:3]
     shares = [[number(x) for x in r[1:5]] for r in rows]
     s = base('chart-placement', 300, ml=(40, 48), mr=(14, 16))
@@ -846,6 +866,7 @@ def fig_placement():
 
 
 def fig_cold_start():
+    """Part 4, from T60: The way back through two backoffs."""
     rows = [cells(r) for r in section('T60')]
     dns = [number(r[0]) for r in rows]
     ideal = [number(r[3]) for r in rows]
@@ -858,18 +879,19 @@ def fig_cold_start():
     e.append(dict(t='line', pts=[[a, b] for a, b in zip(dns, ideal)], c='b', w=2))
     e.append(dict(t='line', pts=[[a, b] for a, b in zip(dns, real)], c='a', w=2))
     e.append(dict(t='txt', x=560, y=1450, s='twice the instant-retry time (dashed)', n='2 x (dashed)', al='right', bl='bottom', c='g'))
-    e.append(dict(t='txt', x=1200, y=1250, s='instant retries', n='instant', al='right', bl='top', dx=-4, dy=22, c='b', b=True))
+    e.append(dict(t='txt', x=900, y=900, s='instant retries', n='instant', al='left', bl='top', dx=4, dy=6, c='b', b=True))
     e.append(dict(t='txt', x=700, y=1500, s='documented backoffs', n='backoffs', al='left', bl='bottom', dx=6, c='a', b=True))
     pick = [i for i, a in enumerate(dns) if a in (30, 90, 120, 300, 600, 1200)]
     aria = ('Seconds until the application is ready after a full restart, against seconds until DNS is ready, every 15 s from 30 to 1200. '
             'Instant retries and documented backoffs at selected points: ' + ', '.join('%d s: %.0f and %.0f' % (dns[i], ideal[i], real[i]) for i in pick) + '.')
     cap = ('The way back through two backoffs. With instant retries the application follows DNS by a fixed 100 seconds. With the kubelet\'s '
-           'restart backoff and the workqueue\'s retry backoff it follows a sawtooth that passes twice that time, nearly three times at worst, and falls back only where '
+           'restart backoff and the workqueue\'s retry backoff it climbs in steps, past twice that time and nearly three times at worst, and its ratio to it falls back only where '
            'the caps of 300 and 1000 seconds bind.')
     FIGS.append(Figure('cold-start', s, aria, cap))
 
 
 def fig_percolation():
+    """Part 4, from T100: Hubs strand a restart sooner."""
     share = {}
     for r in section('T100'):
         c = cells(r)
@@ -901,7 +923,7 @@ def fig_percolation():
                ', '.join(val(v) for _, _, v in share['Pareto 1.8'])))
     a = 2.5
     limit = a * (a - 2) / (a - 1) ** 2   # E[w]^2 / E[w^2] for Pareto weights: the threshold in the limit of many components
-    cap = ('Share of components that never start after a full restart, against the mean number of components each one needs, for random '
+    cap = ('Hubs strand a restart sooner. Share of components that never start after a full restart, against the mean number of components each one needs, for random '
            'start-time graphs of 1,000 components, the mean of 30 draws. With independent degrees the stranded set appears near one need per component. With '
            'hubs whose needs and dependents grow together it appears earlier, near the predicted %.2f for weights of exponent 2.5, and '
            'almost at once for exponent 1.8, whose weights have no second moment.' % limit)
@@ -909,6 +931,7 @@ def fig_percolation():
 
 
 def fig_relaxation_cliff():
+    """Part 4, from T104: A relaxation pays only when it is complete."""
     relax = {}
     for r in section('T104'):
         c = cells(r)
@@ -930,7 +953,7 @@ def fig_relaxation_cliff():
     aria = ("Components still stranded after relaxing the first k components of the controller's relaxation, at two needs per component. "
             'Independent degrees: %s. Hubs, Pareto 1.8: %s.'
             % (', '.join('%d: %d' % p for p in relax['equal']), ', '.join('%d: %d' % p for p in relax['Pareto 1.8'])))
-    cap = ('Components still stranded as the controller relaxes the components of its set one at a time, in the order it chose them, on one drawn graph of 1,000 components for each kind of degree. '
+    cap = ('A relaxation pays only when it is complete. Components still stranded as the controller relaxes the components of its set one at a time, in the order it chose them, on one drawn graph of 1,000 components for each kind of degree. '
            'With independent degrees the first 48 of %d relaxations free %d of %d components, and the last two free %d. With hubs the '
            'curve is gentler, and the last relaxation still frees %d. A relaxation pays when it is complete, which is why one unseen edge '
            'undoes it.' % (keq, eq[0] - eq[48], eq[0], eq[keq - 2], hub[khub - 1]))
@@ -938,6 +961,7 @@ def fig_relaxation_cliff():
 
 
 def fig_relaxation_limits():
+    """Part 4, from T101: A few unseen edges undo the plan."""
     rows_ = {}
     total = {}
     for r in section('T101'):
@@ -977,7 +1001,7 @@ def fig_relaxation_limits():
                ', '.join('%d' % n for _, _, n in rows_[('hidden', 'Pareto 1.8')]), total['Pareto 1.8'],
                ', '.join('%s: %d' % (t, n) for t, _, n in rows_[('hard', 'equal')]),
                ', '.join('%d' % n for _, _, n in rows_[('hard', 'Pareto 1.8')])))
-    cap = ('Components still stranded after the recovery controller acts, at two needs per component, on one drawn graph for each kind of degree. Solid lines: edges missing from '
+    cap = ('A few unseen edges undo the plan. Components still stranded after the recovery controller acts, at two needs per component, on one drawn graph for each kind of degree. Solid lines: edges missing from '
            'the graph it plans on, where 5% missing leaves most of the stranded set in place. Dashed lines: edges nobody can relax, '
            'which leave a floor, zero until half the edges with independent degrees, rising from a tenth with hubs.')
     FIGS.append(Figure('relaxation-limits', s, aria, cap))
@@ -986,6 +1010,7 @@ def fig_relaxation_limits():
 # ---------- Part 5 ----------
 
 def fig_chain_share():
+    """Part 5, from T16: What the second pass buys and what a match link takes away."""
     rows = [cells(r) for r in section('T16')]
     n = [number(r[0]) for r in rows]
     two = [number(r[2]) for r in rows]
@@ -1002,7 +1027,7 @@ def fig_chain_share():
             ', '.join('%d: %.4f' % (a, b) for a, b in zip(n, two)) + '. Value links whose members run once, and match links at any number of passes: ' +
             ', '.join('%d: %.4f' % (a, b) for a, b in zip(n, one)) + '.')
     cap = ('What the second pass buys and what a match link takes away. With every webhook opted in, two passes keep a chain of value links '
-           'converging in a share of orders that falls slowly at first; when they run once only the order with every enabler first converges, one in n!. '
+           'converging in a share of orders that falls slowly at first. When they run once, only the order with every enabler first converges, one in n!. '
            'A chain of match links falls to that same curve at any number of passes, because a webhook skipped in the first pass is never called.')
     FIGS.append(Figure('chain-share', s, aria, cap))
 
@@ -1024,7 +1049,7 @@ def fig_position_share():
     for n, col in ((4, 'c'), (5, 'b'), (6, 'a')):
         e.append(dict(t='line', pts=[[k, v] for k, v in by[n]], c=col, mk=3))
     # a legend in the empty upper right, where every curve is below 5%
-    e.append(dict(t='txt', x=3.1, y=0.72, s='dashed: passes enough, 1 / (position + 1)!', n='dashed: passes enough', al='left', bl='middle', c='g'))
+    e.append(dict(t='txt', x=3.1, y=0.72, s='dashed: passes enough, 1 / (position + 1)!', n='dashed: enough', al='left', bl='middle', c='g'))
     for row, (n, col) in enumerate(((4, 'c'), (5, 'b'), (6, 'a'))):
         e.append(dict(t='txt', x=3.1, y=(0.42, 0.25, 0.15)[row], s='%d webhooks, two passes' % n, n='%d webhooks' % n, al='left', bl='middle',
                       c=col, b=n == 6))
@@ -1043,6 +1068,7 @@ def fig_position_share():
     FIGS.append(Figure('position-share', s, aria, cap))
 
 def fig_passes_frontier():
+    """Part 5, from T102: Two passes settle less as chains grow."""
     front = {}
     for r in section('T102'):
         c = cells(r)
@@ -1056,8 +1082,9 @@ def fig_passes_frontier():
         e.append(dict(t='line', pts=[[k, v] for k, v in front[n]], c=col, mk=3))
     two3, two7 = dict(front[3])[2], dict(front[7])[2]
     for row, (n, col) in enumerate(((3, 'g'), (4, 'c'), (5, 'b'), (6, 'd'), (7, 'a'))):
-        e.append(dict(t='txt', x=5.3, y=round(0.62 - 0.1 * row, 2), s='%d webhooks' % n, n='%d webhooks' % n if n == 3 else '%d' % n, al='left', bl='middle', c=col, b=n == 7))
-    e.append(dict(t='txt', x=2, y=two7, s='7 webhooks: %.1f%%' % (100 * two7), n='7: %.1f%%' % (100 * two7), al='left', bl='bottom', dx=6, dy=-2, c='a', b=True))
+        last = ', %.1f%% at two passes' % (100 * two7) if n == 7 else ''
+        e.append(dict(t='txt', x=5.3 if n < 7 else 4.6, y=round(0.62 - 0.1 * row, 2), s='%d webhooks%s' % (n, last),
+                      n='%d webhooks' % n if n == 3 else '%d%s' % (n, ': %.1f%%' % (100 * two7) if n == 7 else ''), al='left', bl='middle', c=col, b=n == 7))
     s['X'] = dict(lo=0.8, hi=7.2, ticks=[[k, '%d' % k] for k in range(1, 8)], title='passes allowed', ntitle='passes')
     s['Y'] = dict(lo=-0.03, hi=1.1, ticks=[[0, '0%'], [0.25, '25%'], [0.5, '50%'], [0.75, '75%'], [1.0, '100%']],
                   title='share of orders that converge', ntitle='converged')
@@ -1066,7 +1093,7 @@ def fig_passes_frontier():
     rest = ['%d: %s' % (n, ', '.join(_g(v) for _, v in front[n])) for n in (4, 5, 6, 7)]
     aria = ('Share of orders of an enabling chain of value links that reach the common fixed point within P passes. %s.'
             % '. '.join([first] + rest))
-    cap = ('Share of orders of an enabling chain that converge within a number of passes, for chains of three to seven webhooks. Each '
+    cap = ('Two passes settle less as chains grow. Share of orders of an enabling chain that converge within a number of passes, for chains of three to seven webhooks. Each '
            'line rises from almost none to all as the passes grow, and the rise moves right by half a pass for each webhook added. The '
            'contract fixes the passes at two, where the share falls from %d%% at three webhooks to %.1f%% at seven.'
            % (round(100 * two3), 100 * two7))
@@ -1076,6 +1103,7 @@ def fig_passes_frontier():
 # ---------- Part 6 ----------
 
 def fig_pairwise_misses():
+    """Part 6, from T73: How often a failure is one no pair shows, in random systems."""
     rows = [cells(r) for r in section('T73')]
     order = [(number(r[1]), number(r[3])) for r in rows if r[0] == 'order']
     assume = [(number(r[1]), number(r[4])) for r in rows if r[0] == 'assumption' and abs(number(r[2]) - 0.2) < 1e-9]
@@ -1101,6 +1129,7 @@ def fig_pairwise_misses():
 
 
 def fig_seam_ratios():
+    """Part 6, from T112: Where each seam binds."""
     rows_ = [cells(r) for r in section('T112')]
 
     def pick(kind):
@@ -1149,13 +1178,14 @@ def fig_seam_ratios():
             % (', '.join('%s: %s' % (_g(float(t)), val(v)) for t, v in signal), val(time[0][1]), time[1][0], val(time[1][1]),
                ', '.join('%d: %s' % (k, val(v)) for k, v in time[2:]), val(state[0][1]), val(state[1][1]), val(state[2][1]),
                val(order[0]), val(order[1]), val(assume[0]), val(assume[1])))
-    cap = ("Each seam's ratio on the specimens of the earlier parts, one point per setting. Points above the dashed line bind. The "
+    cap = ("Where each seam binds. Each seam's ratio on the specimens of the earlier parts, one point per setting. Points above the dashed line bind. The "
            'assumption binds at one itself, since a single start-time cycle has a radius of exactly one. A fix moves a point down within '
            'its seam, and can move the points of other seams that share its settings.')
     FIGS.append(Figure('seam-ratios', s, aria, cap))
 
 
 def fig_cross_frontier():
+    """Part 6, from T109: Stopping the drift slows the surge."""
     target, matched, load = [], [], None
     for r in section('T109'):
         c = cells(r)
@@ -1214,7 +1244,7 @@ def fig_cross_frontier():
             % (', '.join(_g(float(t)) for t, _, _ in drifting),
                ', '.join('%s and %d%s' % (d, sec, ' s' if i == 0 else '') for i, (_, d, sec) in enumerate(drifting)),
                '; '.join(zero), '; '.join('%s, %d' % (_g(float(t)), sec) for t, _, sec in in_band), load[1]))
-    cap = ('Fixes for the shared signal, placed by what they cost a 30x surge. Drifting targets (red) trade drift for speed. Every '
+    cap = ('Stopping the drift slows the surge. Fixes for the shared signal, placed by what they cost a 30x surge. Drifting targets (red) trade drift for speed. Every '
            'fix that stops the drift on the utilization metric sits at zero drift: the matched tolerance (blue) is never faster than '
            '%s seconds, and a target moved into the band (red, open) is slower still. The dashed line is the best that metric allows; '
            'only a load metric (green) has neither drift nor delay.' % format(floor, ','))
@@ -1222,6 +1252,7 @@ def fig_cross_frontier():
 
 
 def fig_share_onset():
+    """Part 6, from T110: A larger share delays the storm."""
     rows_ = [cells(r) for r in section('T110')]
     pts = [(int(c[0]), int(c[2]), int(c[3])) for c in rows_]
     whole = [c for c in rows_ if c[0] == '245'][0]
@@ -1243,7 +1274,7 @@ def fig_share_onset():
     aria = ('Storm onset list cost against shares of 245: %s. Backlog at onset %d to %d s.'
             % (', '.join('%d: %d' % (sh, cost) for sh, cost, _ in pts), lo, hi))
     onset = {sh: cost for sh, cost, _ in pts}
-    cap = ("The list cost at which a sudden trigger leaves a storm still running in the eighth hour, against the share of the server the "
+    cap = ("A larger share delays the storm. The list cost at which a sudden trigger leaves a storm still running in the eighth hour, against the share of the server the "
            "kubelets' lists are given. Every point sits at the same forced backlog, %s to %s seconds, so the onset falls on the dashed line "
            "through the whole server's %d. The default level holds 30 shares and storms from %d; merged with the heartbeats' level it "
            'holds 70 and storms from %d.' % (format(lo, ','), format(hi, ','), top, onset[30], onset[70]))

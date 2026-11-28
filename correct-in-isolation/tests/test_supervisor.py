@@ -17,11 +17,14 @@ from hpa_vpa import simulate
 
 
 def run(sigma, period, days=60):
+    """Replica counts of the Part 1 pair under the margin supervisor acting every `period` hours, per-pod noise of
+    shape sigma."""
     s, _ = simulate(0.5, days=days, noise_sigma=sigma, request_floor=1e-6, supervisor_h=period, sample_h=24)
     return [x[1] for x in s]
 
 
 class Supervisor(unittest.TestCase):
+    """It halts the upward drift; the plateau grows with the period; it saturates in the downward regime."""
 
     def test_it_halts_the_upward_drift(self):
         r = run(0.0, 1)

@@ -17,6 +17,7 @@ from recovery import simulated_time_to_bind
 
 
 class TimeToBind(unittest.TestCase):
+    """One replica binds at its first failure; closed form against simulation."""
 
     def test_one_replica_binds_at_its_first_failure(self):
         self.assertEqual(cycle_mean_time_to_bind(1, 30.0, 0.01), 30.0)

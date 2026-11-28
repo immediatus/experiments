@@ -28,6 +28,8 @@ from ratios import assumption_ratio, order_ratio, scaled_state_ratio, signal_rat
 
 
 class Ratios(unittest.TestCase):
+    """Signal passes one exactly below the band; signal passes one above the band too; assumption radius; assumption
+    radius matches the threshold law; time passes one when nesting costs; state; order; scaled state."""
 
     def test_signal_passes_one_exactly_below_the_band(self):
         lo = equilibrium_band(q=1.0)[0]

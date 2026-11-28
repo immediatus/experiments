@@ -1,7 +1,8 @@
 """Checks Part 5's model: commuting webhooks give one outcome in any order, an enabling chain of
 depth d reaches its fixed point from every order in d + 1 passes and not from the worst order in
 d, a conflicting pair has no common fixed point, the reinvocation pass calls only webhooks that
-opted in and saw a change, and the closed-form share of converging orders matches enumeration.
+opted in and saw a change, the closed-form share of converging orders matches enumeration, and a second
+admission's patches decide the fixed point where a comparison of the returned object misses an override.
 
 Run: python3 -m unittest discover -s tests
 """
@@ -14,11 +15,30 @@ import itertools
 import math
 import unittest
 
-from admission import admit, chain, drop_capabilities, label, mesh_init, outcomes, pod, pull_policy, sidecar
+from admission import (
+    admit,
+    chain,
+    digest,
+    drop_capabilities,
+    label,
+    matches,
+    mesh_init,
+    outcomes,
+    pod,
+    pull_policy,
+    readmission_clean,
+    readmission_unchanged,
+    sidecar,
+    signer,
+    writer,
+)
 from formulas import converged_share, eulerian, passes_needed
 
 
 class Chains(unittest.TestCase):
+    """Commuting webhooks give one outcome; depth d needs d plus one passes; passes needed matches the simulation;
+    converged share matches enumeration; a conflicting pair has no common fixed point; reinvocation calls only opted
+    in webhooks that saw a change."""
 
     def test_commuting_webhooks_give_one_outcome(self):
         for passes in (1, 2):
@@ -72,6 +92,27 @@ class Chains(unittest.TestCase):
         calls.clear()
         admit(pod(), [counted(pull_policy), counted(sidecar)], reinvoke_if_needed=False, passes=2)
         self.assertEqual(calls, ['pull_policy', 'sidecar'])
+
+
+class SecondAdmission(unittest.TestCase):
+    """An override hides from a comparison of the final object; without a contested field the comparison agrees with
+    the patches."""
+
+    def test_an_override_hides_from_a_comparison_of_the_final_object(self):
+        # two webhooks write one field: the admitted object is not a common fixed point, a webhook
+        # still patches it on the second admission, and yet the object comes back unchanged
+        ws = [writer('first', 'a'), writer('second', 'b')]
+        obj = admit(pod(), ws, passes=2)
+        self.assertFalse(all(w(obj) == obj for w in ws if matches(w, obj)))
+        self.assertFalse(readmission_clean(obj, ws))
+        self.assertTrue(readmission_unchanged(obj, ws))
+
+    def test_without_a_contested_field_the_comparison_agrees_with_the_patches(self):
+        ws = [signer, digest, sidecar]
+        for order in itertools.permutations(ws):
+            obj = admit(pod(), order, passes=2)
+            for again in itertools.permutations(ws):
+                self.assertEqual(readmission_unchanged(obj, again), readmission_clean(obj, again))
 
 
 if __name__ == '__main__':

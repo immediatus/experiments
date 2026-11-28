@@ -16,6 +16,7 @@ from hpa_vpa import simulate
 
 
 class Transit(unittest.TestCase):
+    """No change matches the plain run; target move ends the drift; tolerance ends the drift."""
 
     def test_no_change_matches_the_plain_run(self):
         plain = simulate(0.5, days=20, return_jumps=True)[2]

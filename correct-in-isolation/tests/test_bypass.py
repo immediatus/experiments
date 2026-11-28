@@ -20,6 +20,7 @@ NEEDS, REJECTS = {'app': {'webhook'}, 'webhook': {'webhook'}}, {'webhook': {'web
 
 
 class Bypass(unittest.TestCase):
+    """Deleting at each stall ends as no budget; stalls counted."""
 
     def test_deleting_at_each_stall_ends_as_no_budget(self):
         for budget in (1, 2):

@@ -18,10 +18,13 @@ from admission import admit, admit_trace, chain, iterate_admission, orchestrate,
 
 
 def common(obj, hooks):
+    """Whether `obj` is a common fixed point: every webhook that matches it leaves it unchanged."""
     return all(w(obj) == obj for w in hooks if getattr(w, 'match', None) is None or w.match(obj))
 
 
 class Orchestrator(unittest.TestCase):
+    """Value chain always converges; admissions within the bound; one admission when already converged; reverse
+    order needs more admissions; match links are repaired; conflicting writers are detected."""
 
     def test_value_chain_always_converges(self):
         hooks = chain(4)
